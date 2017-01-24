@@ -1712,60 +1712,60 @@ Telekinesis, 5/10, mods(Telekinesis), page(B92), cat(Exotic Physical, Exotic, Me
 Temperature Control, 5/10, mods(Temperature Control), page(B92), cat(Exotic Physical, Exotic, Mental, Physical)
 					
 
-<Paranormal Physical>
-Supernatural Durability, 150, page(B89), cat(Paranormal, Physical), taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
+<Supernatural Physical>
+Supernatural Durability, 150, page(B89), cat(Supernatural, Physical), taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
 	skillused(ST:Will+3), mode(ignore pain)
 					
 
-<Paranormal Mental>
-Blessed, 10, page(B40), cat(Paranormal, Mental),
+<Supernatural Mental>
+Blessed, 10, page(B40), cat(Supernatural, Mental),
 	conditional(+1 to ST:Reaction when "from worshipers of the same religion"),
 	skillused(ST:IQ), mode(gain useful insight)
-Blessed (Very Blessed), 20, page(B40), cat(Paranormal, Mental),
+Blessed (Very Blessed), 20, page(B40), cat(Supernatural, Mental),
 	conditional(+2 to ST:Reaction when "from worshipers of the same religion"),
 	skillused(ST:IQ+5), mode(gain useful insight)
-Blessed (Heroic Feat; [Attribute]), 10, page(B40), cat(Paranormal, Mental), conditional(+1d to ST:[Attribute]),
+Blessed (Heroic Feat; [Attribute]), 10, page(B40), cat(Supernatural, Mental), conditional(+1d to ST:[Attribute]),
 		x(#InputReplace("You must specify an attribute (or with GM approval sub-attribute) which can be increased with Blessed (Heroic Feat):","[Attribute]","","Blessed (Heroic Feat)"))
 					
 
-Channeling, 10, page(B41), cat(Paranormal, Mental)
-Clairsentience, 50, mods(Clairsentience), page(B42), cat(Paranormal, Mental),
+Channeling, 10, page(B41), cat(Supernatural, Mental)
+Clairsentience, 50, mods(Clairsentience), page(B42), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Sense)
-Destiny, 5/10/15, levelnames(Minor, Major, Great), page(B48), upto(3), cat(Paranormal, Mental)
-Dominance, 20, page(B50), cat(Paranormal, Mental)
-Healing, 30, mods(Healing), page(B59), cat(Paranormal, Mental),
+Destiny, 5/10/15, levelnames(Minor, Major, Great), page(B48), upto(3), cat(Supernatural, Mental)
+Dominance, 20, page(B50), cat(Supernatural, Mental)
+Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Heal)
-Higher Purpose, 5, page(B59), cat(Paranormal, Mental),
+Higher Purpose, 5, page(B59), cat(Supernatural, Mental),
 	x(_
 		#InputToTag("Describe your Higher Purpose:" , nameext, , "Higher Purpose") _
 	)
 					
 
-Illuminated, 15, page(B60), cat(Paranormal, Mental),
+Illuminated, 15, page(B60), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Discern Illumiated event)
-Jumper (Time), 100, mods(Jumper), page(B64), cat(Paranormal, Mental),
+Jumper (Time), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Time Jump)
-Jumper (World), 100, mods(Jumper), page(B64), cat(Paranormal, Mental),
+Jumper (World), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(World Jump)
-Magery 0, 5, mods(Magery 0), page(B66), cat(Paranormal, Mental), taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
+Magery 0, 5, mods(Magery 0), page(B66), cat(Supernatural, Mental), taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
 	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(_
 			Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
 			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated._
 			)
-Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology), mods(Magery, Talents), needs(AD:Magery 0), page(B66), cat(Paranormal, Mental),
+Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology), mods(Magery, Talents), needs(AD:Magery 0), page(B66), cat(Supernatural, Mental),
 	taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated. For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
 					
 
-Wildcard Magery!, 10/20, gives(+1 to SK:Thaumatology, +1 to CL:Wildcard! - Magic), mods(Magery), needs(AD:Magery 0), page(B66), cat(Paranormal, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
+Wildcard Magery!, 10/20, gives(+1 to SK:Thaumatology, +1 to CL:Wildcard! - Magic), mods(Magery), needs(AD:Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
 					
 
-Ritual Magery 0, 5, page(B66), cat(Paranormal, Mental), description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Ritual Magery ([skill]), 10/20, gives(+1 to SK:[skill], +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Paranormal, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
+Ritual Magery 0, 5, page(B66), cat(Supernatural, Mental), description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
+Ritual Magery ([skill]), 10/20, gives(+1 to SK:[skill], +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
 	x(#InputReplace("Please enter an appropriate Ritual Magic core skill:", "[skill]", "Ritual Magic", "Ritual Magery") )
-Ritual Magery (%skilllist%), 10/20, gives(+1 to SK:%skilllist%, +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Paranormal, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
+Ritual Magery (%skilllist%), 10/20, gives(+1 to SK:%skilllist%, +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
 	x(_
 		#ChoiceList(_
 				name(skill),
@@ -1795,51 +1795,51 @@ Ritual Magery (%skilllist%), 10/20, gives(+1 to SK:%skilllist%, +1 CL:Ritual Mag
 					
 					
 
-Magic Resistance, 2/4, mods(Magic Resistance), page(B67), cat(Paranormal, Mental), taboo(DI:Magic Susceptibility, AD:Magery 0::level > @if(@hasmod(Improved) THEN 1 ELSE 0), AD:Mana Enhancer)
-Mana Damper, 10/20, mods(Mana Damper/Enhancer), page(B67), upto(3), cat(Paranormal, Mental), taboo(AD:Magery, AD:Mana Enhancer)
-Mana Enhancer, 50/100, mods(Mana Damper/Enhancer), page(B68), upto(2), cat(Paranormal, Mental), taboo(AD:Mana Damper, AD:Magic Resistance)
-Medium, 10, page(B68), cat(Paranormal, Mental)
-Mindlink, 5/10/20/30, page(B70), cat(Paranormal, Mental),
+Magic Resistance, 2/4, mods(Magic Resistance), page(B67), cat(Supernatural, Mental), taboo(DI:Magic Susceptibility, AD:Magery 0::level > @if(@hasmod(Improved) THEN 1 ELSE 0), AD:Mana Enhancer)
+Mana Damper, 10/20, mods(Mana Damper/Enhancer), page(B67), upto(3), cat(Supernatural, Mental), taboo(AD:Magery, AD:Mana Enhancer)
+Mana Enhancer, 50/100, mods(Mana Damper/Enhancer), page(B68), upto(2), cat(Supernatural, Mental), taboo(AD:Mana Damper, AD:Magic Resistance)
+Medium, 10, page(B68), cat(Supernatural, Mental)
+Mindlink, 5/10/20/30, page(B70), cat(Supernatural, Mental),
 	levelnames(1 person, 2-9 people, 10-99 people, 100-999 people, "1,000-9,999 people", "10,000-99,999 people", "100,000-999,999 people", "1,000,000-9,999,999 people", "10,000,000-99,999,999 people", up to 1 Billion people, up to 10 Billion people, up to 100 Billion people, up to 1 Trillion people, up to 10 Trillion people, up to 100 Trillion people, 16, 17, 18, 19, 20)
 					
 
-Oracle, 15, page(B72), cat(Paranormal, Mental),
+Oracle, 15, page(B72), cat(Supernatural, Mental),
 	mode(Discover|Interpret), skillused(ST:Perception|ST:IQ)
-Power Investiture, 10/20, page(B77), gives(+1 to CO:~Clerical), cat(Paranormal, Mental), mods(_Talents), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture, for Syntactic magic use Syntactic Magery)
-Precognition, 25, mods(Precognition), page(B77), cat(Paranormal, Mental), taboo(AD:Danger Sense),
+Power Investiture, 10/20, page(B77), gives(+1 to CO:~Clerical), cat(Supernatural, Mental), mods(_Talents), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture, for Syntactic magic use Syntactic Magery)
+Precognition, 25, mods(Precognition), page(B77), cat(Supernatural, Mental), taboo(AD:Danger Sense),
 	skillused(ST:IQ), mode(glimpse future)
-Psi Static, 30, mods(Psi Static), page(B78), cat(Paranormal, Mental)
-Psychometry, 20, page(B78), cat(Paranormal, Mental),
+Psi Static, 30, mods(Psi Static), page(B78), cat(Supernatural, Mental)
+Psychometry, 20, page(B78), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(sense history)
 					
 
-Puppet, 5, needs(AD:Possession, (AD:Ally | DI:Dependent)), page(B78), cat(Paranormal, Mental)
-Puppet (Group of Related Allies), 10, needs(AD:Possession, (AD:Ally | DI:Dependent)), page(B78), cat(Paranormal, Mental)
+Puppet, 5, needs(AD:Possession, (AD:Ally | DI:Dependent)), page(B78), cat(Supernatural, Mental)
+Puppet (Group of Related Allies), 10, needs(AD:Possession, (AD:Ally | DI:Dependent)), page(B78), cat(Supernatural, Mental)
 					
 
-Reawakened, 10, page(B80), cat(Paranormal, Mental)
-Special Rapport, 5, page(B88), cat(Paranormal, Mental)
-Spirit Empathy, 10, mods(Spirit Empathy), page(B88), cat(Paranormal, Mental),
+Reawakened, 10, page(B80), cat(Supernatural, Mental)
+Special Rapport, 5, page(B88), cat(Supernatural, Mental)
+Spirit Empathy, 10, mods(Spirit Empathy), page(B88), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(empathize)
-Super Luck, 100, page(B89), cat(Paranormal, Mental)
-Temporal Inertia, 15, page(B93), cat(Paranormal, Mental), taboo(DI:Unique),
+Super Luck, 100, page(B89), cat(Supernatural, Mental)
+Temporal Inertia, 15, page(B93), cat(Supernatural, Mental), taboo(DI:Unique),
 	skillused(ST:IQ), mode(distinguish between timelines)
 
-Terror, 30/40, mods(Terror), page(B93), cat(Paranormal, Mental),
+Terror, 30/40, mods(Terror), page(B93), cat(Supernatural, Mental),
 	levelnames(Will-0, Will-1, Will-2, Will-3, Will-4, Will-5, Will-6, Will-7, Will-8, Will-9, Will-10, Will-11, Will-12, Will-13, Will-14, Will-15, Will-16, Will-17, Will-18, Will-19, Will-20, Will-21, Will-22, Will-23, Will-24, Will-25, Will-26, Will-27, Will-28, Will-29, Will-30, Will-31, Will-32, Will-33, Will-34, Will-35, Will-36, Will-37, Will-38, Will-39, Will-40, Will-41, Will-42, Will-43, Will-44, Will-45, Will-46, Will-47, Will-48, Will-49, Will-50, Will-51, Will-52, Will-53, Will-54, Will-55, Will-56, Will-57, Will-58, Will-59, Will-60, Will-61, Will-62, Will-63, Will-64, Will-65, Will-66, Will-67, Will-68, Will-69, Will-70, Will-71, Will-72, Will-73, Will-74, Will-75, Will-76, Will-77, Will-78, Will-79, Will-80, Will-81, Will-82, Will-83, Will-84, Will-85, Will-86, Will-87, Will-88, Will-89, Will-90, Will-91, Will-92, Will-93, Will-94, Will-95, Will-96, Will-97, Will-98, Will-99, Will-100)
-True Faith, 15, page(B94), cat(Paranormal, Mental)
-Visualization, 10, page(B96), cat(Paranormal, Mental),
+True Faith, 15, page(B94), cat(Supernatural, Mental)
+Visualization, 10, page(B96), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(vizualize)
-Warp, 100, mods(Warp), page(B98), cat(Paranormal, Mental),
+Warp, 100, mods(Warp), page(B98), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Teleport)
-Wild Talent, 20/40, mods(Wild Talent), page(B99), cat(Paranormal, Mental)
+Wild Talent, 20/40, mods(Wild Talent), page(B99), cat(Supernatural, Mental)
 					
 
-ESP Talent, 5/10, page(B256), cat(Paranormal, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Psychic Healing Talent, 5/10, page(B256), cat(Paranormal, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-PK Talent, 5/10, page(B256), cat(Paranormal, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Telepathy Talent, 5/10, page(B256), cat(Paranormal, Mental, Talents - Powers), upto(4), mods(_Talents, _Power Talents), x(#buildit), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Teleportation Talent, 5/10, page(B256), cat(Paranormal, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
+ESP Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
+Psychic Healing Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
+PK Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
+Telepathy Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), upto(4), mods(_Talents, _Power Talents), x(#buildit), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
+Teleportation Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
 					
 
 <Mundane Physical>
@@ -2591,39 +2591,39 @@ Stress Atavism, -10/-15/-20, mods(Self-Control), levelnames(Mild, Moderate, Seve
 			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) _
 			)
 
-<Paranormal Physical>
-Draining, -5/-10/-15, mods(Draining), levelnames(Common, Occasional, Rare), upto(3), page(B132), cat(Paranormal, Physical)
+<Supernatural Physical>
+Draining, -5/-10/-15, mods(Draining), levelnames(Common, Occasional, Rare), upto(3), page(B132), cat(Supernatural, Physical)
 
-Infectious Attack, -5, page(B140), cat(Paranormal, Physical)
-Revulsion, -5/-10/-15, levelnames(Occasional, Common, Very Common), upto(3), page(B151), cat(Paranormal, Physical)
+Infectious Attack, -5, page(B140), cat(Supernatural, Physical)
+Revulsion, -5/-10/-15, levelnames(Occasional, Common, Very Common), upto(3), page(B151), cat(Supernatural, Physical)
 
-Supernatural Feature, 0, displaycost(variable), mods(Supernatural Feature), page(B157), cat(Paranormal, Physical), x(#buildit), taboo(DI:Appearance::level >= 4)
+Supernatural Feature, 0, displaycost(variable), mods(Supernatural Feature), page(B157), cat(Supernatural, Physical), x(#buildit), taboo(DI:Appearance::level >= 4)
 
-<Paranormal Mental>
-Cursed, -75, page(B129), cat(Paranormal, Mental)
+<Supernatural Mental>
+Cursed, -75, page(B129), cat(Supernatural, Mental)
 
-Destiny, -5/-10/-15, levelnames(Minor, Major, Great), upto(3), page(B131), cat(Paranormal, Mental)
+Destiny, -5/-10/-15, levelnames(Minor, Major, Great), upto(3), page(B131), cat(Supernatural, Mental)
 
-Divine Curse, -1/-2, page(B132), cat(Paranormal, Mental), levelnames(,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,)
-Dread, -10, mods(Dread), page(B133), cat(Paranormal, Mental),
+Divine Curse, -1/-2, page(B132), cat(Supernatural, Mental), levelnames(,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,)
+Dread, -10, mods(Dread), page(B133), cat(Supernatural, Mental),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
 			)
-Frightens Animals, -10, page(B137), cat(Paranormal, Mental), taboo(AD:Animal Empathy),
+Frightens Animals, -10, page(B137), cat(Supernatural, Mental), taboo(AD:Animal Empathy),
 	conditional(-4 to ST:Reaction when "animal is reacting", -1 to ST:Reaction when "someone sees how animals react to you, or has Animal Empathy")
-Lifebane, -10, page(B142), cat(Paranormal, Mental),
+Lifebane, -10, page(B142), cat(Supernatural, Mental),
 	conditional(-2 to ST:Reaction)
-Magic Susceptibility, -3/-6, page(B143), cat(Paranormal, Mental), taboo(AD:Magic Resistance)
-Supersensitive, -15, page(B158), cat(Paranormal, Mental)
+Magic Susceptibility, -3/-6, page(B143), cat(Supernatural, Mental), taboo(AD:Magic Resistance)
+Supersensitive, -15, page(B158), cat(Supernatural, Mental)
 
-Uncontrollable Appetite, -15, mods(Self-Control), page(B159), cat(Paranormal, Mental),
+Uncontrollable Appetite, -15, mods(Self-Control), page(B159), cat(Supernatural, Mental),
 	initmods(_
 			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) _
 			),
 	x(#InputToTag("Specify the substance you must consume:", nameext, , "Uncontrollable Appetite"))
 
-Unique, -5, page(B160), cat(Paranormal, Mental), taboo(AD:Temporal Inertia)
-Weirdness Magnet, -15, page(B162), cat(Paranormal, Mental)
+Unique, -5, page(B160), cat(Supernatural, Mental), taboo(AD:Temporal Inertia)
+Weirdness Magnet, -15, page(B162), cat(Supernatural, Mental)
 
 <Mundane Physical>
 Skinny, -5, gives(-2 To SK:Disguise), 
@@ -11813,7 +11813,7 @@ Vampire (Basic Set), displaycost(150), cost(23),
 		"AD:Racial ST Bonus, 10/20, cat(Exotic Physical, Exotic, Physical), gives(+1 to ST:ST), initmods(Size, -10%, group(Size ST), formula(-@if(ST:Size Modifier > 0 then ST:Size Modifier * 10 else 0)), forceformula(yes) | No Fine Manipulators, -40%, group(No Fine Manipulators Stat), formula(-@if(ST:No Fine Manipulators > 0 & ST:ST::level > 0 then 40 else 0)), forceformula(yes))"=6,
 		"AD:Alternate Form (Bat & Wolf), 30, mods(Alternate Form), page(B83), cat(Exotic, Physical, Exotic Physical)",
 		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)",
-		"DI:Divine Curse (Cannot enter dwelling for first time unless invited), -10, cat(Paranormal, Mental, Paranormal Mental)" _
+		"DI:Divine Curse (Cannot enter dwelling for first time unless invited), -10, cat(Supernatural, Mental, Supernatural Mental)" _
 		),
 	features(Sterile)
 Elf (Basic Set), displaycost(70), cost(15),
