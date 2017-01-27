@@ -452,10 +452,10 @@ Monthly Pay, basevalue(_
 
 
 Cost of Living, basevalue(_
-							@indexedvalue(ST:Status::score + 3, 100, 300, 600, 1200, 3000, 12000, 60000, 600000, 6000000, 60000000, 600000000)_
+							@indexedvalue(ST:Status::score + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)_
 							),
 	step(0), minscore(0), display(No), round(1), mainwin(18),
-	description(The /typical/ Cost of Living for the character's selected Status Level, as calculated from the 'Cost of Living' table on p. B265)
+	description(The /typical/ Cost of Living for the character's selected Status Level, as calculated from the 'Cost of Living' table on p. B265, converted to Ankh-Morpork dollars)
 
 Starting Wealth, basevalue(ST:Wealth Modifier * @indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000)), step(1), minscore(0), display(No), round(1)
 Remaining Funds, basevalue(ST:Starting Wealth - char::equipmentcost), step(0), minscore(0), display(No), round(1)
