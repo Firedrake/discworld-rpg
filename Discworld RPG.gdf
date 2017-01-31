@@ -1747,7 +1747,7 @@ Jumper (Time), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Time Jump)
 Jumper (World), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(World Jump)
-Magery 0, 5, mods(Magery 0), page(B66), cat(Supernatural, Mental), taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
+Magery 0, 5, mods(Magery 0), page(B66), cat(Supernatural, Mental),
 	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(_
@@ -1755,60 +1755,15 @@ Magery 0, 5, mods(Magery 0), page(B66), cat(Supernatural, Mental), taboo(@if(@it
 			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated._
 			)
 Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology), mods(Magery, Talents), needs(AD:Magery 0), page(B66), cat(Supernatural, Mental),
-	taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated. For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
 					
 
-Wildcard Magery!, 10/20, gives(+1 to SK:Thaumatology, +1 to CL:Wildcard! - Magic), mods(Magery), needs(AD:Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
-					
-
-Ritual Magery 0, 5, page(B66), cat(Supernatural, Mental), description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Ritual Magery ([skill]), 10/20, gives(+1 to SK:[skill], +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
-	x(#InputReplace("Please enter an appropriate Ritual Magic core skill:", "[skill]", "Ritual Magic", "Ritual Magery") )
-Ritual Magery (%skilllist%), 10/20, gives(+1 to SK:%skilllist%, +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
-	x(_
-		#ChoiceList(_
-				name(skill),
-				title(Ritual Magery),
-				text(Please select an appropriate Ritual Magic core skill:),
-				picksallowed(1),
-				method(bynumber),
-				list(_
-					"Alchemy",
-					"Biology",
-					"Body Control",
-					"Computer Hacking",
-					"Herb Lore",
-					"Musical Influence",
-					"Physics",
-					"Blind Fighting",
-					"Invisibility Art",
-					"Zen Archery",
-					"Pressure Secrets",
-					"Weird Science",
-					"Ritual Magic",
-					"Thaumatology" _
-					)_
-				)_
-	)
-					
-					
-					
-
-Magic Resistance, 2/4, mods(Magic Resistance), page(B67), cat(Supernatural, Mental), taboo(DI:Magic Susceptibility, AD:Magery 0::level > @if(@hasmod(Improved) THEN 1 ELSE 0), AD:Mana Enhancer)
-Mana Damper, 10/20, mods(Mana Damper/Enhancer), page(B67), upto(3), cat(Supernatural, Mental), taboo(AD:Magery, AD:Mana Enhancer)
-Mana Enhancer, 50/100, mods(Mana Damper/Enhancer), page(B68), upto(2), cat(Supernatural, Mental), taboo(AD:Mana Damper, AD:Magic Resistance)
 Medium, 10, page(B68), cat(Supernatural, Mental)
-Mindlink, 5/10/20/30, page(B70), cat(Supernatural, Mental),
-	levelnames(1 person, 2-9 people, 10-99 people, 100-999 people, "1,000-9,999 people", "10,000-99,999 people", "100,000-999,999 people", "1,000,000-9,999,999 people", "10,000,000-99,999,999 people", up to 1 Billion people, up to 10 Billion people, up to 100 Billion people, up to 1 Trillion people, up to 10 Trillion people, up to 100 Trillion people, 16, 17, 18, 19, 20)
-					
 
 Oracle, 15, page(B72), cat(Supernatural, Mental),
 	mode(Discover|Interpret), skillused(ST:Perception|ST:IQ)
-Power Investiture, 10/20, page(B77), gives(+1 to CO:~Clerical), cat(Supernatural, Mental), mods(_Talents), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture, for Syntactic magic use Syntactic Magery)
 Precognition, 25, mods(Precognition), page(B77), cat(Supernatural, Mental), taboo(AD:Danger Sense),
 	skillused(ST:IQ), mode(glimpse future)
-Psi Static, 30, mods(Psi Static), page(B78), cat(Supernatural, Mental)
 Psychometry, 20, page(B78), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(sense history)
 					
@@ -1833,14 +1788,6 @@ Visualization, 10, page(B96), cat(Supernatural, Mental),
 Warp, 100, mods(Warp), page(B98), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Teleport)
 Wild Talent, 20/40, mods(Wild Talent), page(B99), cat(Supernatural, Mental)
-					
-
-ESP Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Psychic Healing Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-PK Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Telepathy Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), upto(4), mods(_Talents, _Power Talents), x(#buildit), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Teleportation Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-					
 
 <Mundane Physical>
 Appearance, 4/12/12/16/16/20, mods(Attractive, Appearance), upto(6), page(B21),
@@ -2275,20 +2222,6 @@ Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72)
 			\parAn extremely powerful organization (assets of at least 1 million times starting wealth): 25 POINTS _
 			\parA national government or giant multinational organization (net worth incalculable), or a true god who appears personally to intervene on your behalf: 30 POINTS _
 			)
-					
-
-Security Clearance, 5/10/10/15, mods(Security Clearance), page(B82), upto(4), cat(Mundane, Social),
-	x(#InputToTag("Please describe the nature of the clearance:", nameext, , "Security Clearance")),
-	levelnames(_
-			''Need to know'' access to a narrow range of secrets,
-			''Need to know'' access to a broad range of secrets,
-			Free access to a narrow range of secrets,
-			Free access to a broad range of secrets _
-			)
-Signature Gear, 1/2, page(B85), cat(Mundane, Social, Wealth), gives(+(5* @indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000)) to ST:Signature Gear), taboo(ST:Signature Gear < 0),
-	x(#InputToTag("Please describe the nature of the Signature Gear:", nameext, , "Signature Gear")),
-	replacetags(in "ST:Signature Gear" with "mainwin(15), hide(), noresync(yes)")
-					
 
 Social Regard, 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social),
 	x(#InputToTag("Please describe the nature of the Social Regard:", nameext, , "Social Regard"))
@@ -2300,9 +2233,6 @@ Social Regard (Venerated), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), 
 Tenure, 5, page(B93), cat(Mundane, Social),
 	x(#InputToTag("Please describe the nature of the Tenure:", nameext, , "Tenure"))
 					
-
-Zeroed, 10, page(B100), cat(Mundane, Social)
-
 ************************************************************************************************************************
 [PERKS]
 ************************************************************************************************************************
@@ -3368,23 +3298,34 @@ _New Skill, %typelist%, page(B175), cat(_General, _New Skills),
 	#edit _
 	), noresync(yes), parryat(%parryaliaslist%), blockat(%blockaliaslist%)
 
-<Animal>
-Animal Handling, IQ/A, default(IQ - 5), page(B175), cat(_General, Animal),
-	x(#InputToTag("You must specialize in a category of animals:", nameext, , "Animal Handling"))
+<Academic>
+Astronomy, IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General)
+Astrozoology, IQ/H, default(IQ - 6), page(70), cat(_General)
+History, IQ/H, default(IQ - 6), page(70), cat(_General),
+	x(#InputToTag("You must specialize in a period and theme, period and region, small nation, etc.:", nameext, , "History"))
+Literature, IQ/H, default(IQ - 6), page(70), cat(_General)
+Mathematics (Applied), IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General)
+Mathematics (Pure), IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General)
+Metallurgy, IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General)
+Natural Philosophy, IQ/H, tl(0-5), default(IQ - 6), page(71), cat(_General)
+Philosophy, IQ/H, default(IQ - 6), page(71), cat(_General),
+	x(#InputToTag("You must specialize in a particular school of philosophy:", nameext, , "Philosophy"))
 
+<Animal>
+Animal Handling, IQ/A, default(IQ - 5), page(71), cat(_General, Animal),
+	x(#InputToTag("You must specialize in a category of animals:", nameext, , "Animal Handling"))
 Animal Handling (Big Cats), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
 Animal Handling (Dogs), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
 Animal Handling (Equines), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
-Animal Handling (Raptors), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
-Falconry, IQ/A, default(IQ - 5, "SK:Animal Handling (Raptors)" - 3), page(B194), cat(_General, Animal)
-Mimicry (Animal Sounds), IQ/H, default(IQ - 6, SK:Naturalist - 6, "SK:Mimicry (Bird Calls)" - 6), page(B210), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
-Mimicry (Bird Calls), IQ/H, default(IQ - 6, SK:Naturalist - 6, "SK:Mimicry (Animal Sounds)" - 6), page(B210), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
-Mount, DX/A, default(DX - 5), page(B210), cat(_General, Animal, Athletic)
+Falconry, IQ/A, default(IQ - 5), page(71), cat(_General, Animal)
+Mimicry (Animal Sounds), IQ/H, default(IQ - 6), page(71), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
+Mimicry (Bird Calls), IQ/H, default(IQ - 6), page(71), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
+Mount, DX/A, default(DX - 5), page(78), cat(_General, Animal, Athletic)
+Naturalist, IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Outdoor/Exploration, Plant)
+Packing, IQ/A, default(IQ - 5), page(80), cat(_General, Animal, Professional)
 
-Naturalist, IQ/H, default(IQ - 6, SK:Biology - 3, SK:Naturalist - 4), page(B211), cat(_General, Animal, Natural Sciences, Outdoor/Exploration, Plant),
-	x(#InputToTag("You must specialize by planet:", nameext, "Earth", "Naturalist"))
 
-Packing, IQ/A, default(IQ - 5, "SK:Animal Handling (Equines)" - 5), page(B212), cat(_General, Animal)
+
 
 Riding, DX/A, default(DX - 5, SK:Riding - 10), page(B217), cat(_General, Animal),
 	x(#InputToTag("You must specialize by riding beast:", nameext, "Equines", "Riding"))
@@ -3416,7 +3357,7 @@ Connoisseur, IQ/A, default(IQ - 5), page(B185), cat(_General, Arts/Entertainment
 	x(#InputToTag("Specify the required specialty:", nameext, , "Connoisseur"))
    
 Connoisseur (Dance), IQ/A, default(IQ - 5, SK:Dancing - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
-Connoisseur (Literature), IQ/A, default(IQ - 5, SK:Literature - 3, SK:Poetry - 3, SK:Writing - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
+Connoisseur (Literature), IQ/A, default(IQ - 5), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
 Connoisseur (Music), IQ/A, default(IQ - 5, "SK:Group Performance (Conducting)" - 3, SK:Musical Composition - 3, SK:Musical Instrument - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
 Connoisseur (Visual Arts), IQ/A, default(IQ - 5, SK:Artist - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
 Connoisseur (Wine), IQ/A, default(IQ - 5), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
@@ -3429,16 +3370,17 @@ Group Performance (Choreography), IQ/A, default(IQ - 5, SK:Dancing - 2), needs((
 Group Performance (Conducting), IQ/A, default(IQ - 5, SK:Musical Instrument - 2, SK:Singing - 2), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), (2 GR:Musical Instrument | SK:Singing, 1 GR:Musical Instrument | 2 GR:Conducting)), page(B198), cat(_General, Arts/Entertainment)
 Group Performance (Directing), IQ/A, default(IQ - 5, SK:Performance - 5), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), SK:Performance), page(B198), cat(_General, Arts/Entertainment)
 Group Performance (Fight Choreography), IQ/A, default(IQ - 5, SK:Stage Combat - 2), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), SK:Stage Combat), page(B198), cat(_General, Arts/Entertainment)
-Makeup, IQ/E, tl(0-12), default(IQ - 4, SK:Disguise - 2), page(B206), cat(_General, Arts/Entertainment)
-Mimicry (Speech), IQ/H, default(IQ - 6, SK:Acting - 6, SK:Linguistics - 4), page(B210), cat(_General, Arts/Entertainment)
-Musical Composition, IQ/H, default(SK:Musical Instrument - 2, SK:Poetry - 2), page(B210), cat(_General, Arts/Entertainment)
 
-Musical Instrument, IQ/H, page(B211), cat(_General, Arts/Entertainment),
+
+Mimicry (Speech), IQ/H, default(IQ - 6), page(78), cat(_General, Arts/Entertainment)
+Musical Composition, IQ/H, page(71), cat(_General, Artistic, Arts/Entertainment)
+Musical Instrument, IQ/H, page(71), cat(_General, Artistic, Arts/Entertainment),
 	x(#InputToTag("You must specialize in a particular instrument:", nameext, , "Musical Instrument"))
+Performance, IQ/A, default(IQ - 5), page(71), cat(_General, Artistic, Arts/Entertainment)
+Photography, IQ/A, default(IQ - 5), page(79), cat(_General, Arts/Entertainment, Spy, Technical)
+Poetry, IQ/A, default(IQ - 5), page(71), cat(_General, Artistic, Arts/Entertainment)
 
-Performance, IQ/A, default(IQ - 5, SK:Acting - 2, SK:Public Speaking - 2), page(B212), cat(_General, Arts/Entertainment)
-Photography, IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Operation (Media)" - 5), page(B213), cat(_General, Arts/Entertainment, Spy, Technical)
-Poetry, IQ/A, default(IQ - 5, SK:Writing - 5), page(B214), cat(_General, Arts/Entertainment)
+
 Singing, HT/E, default(HT - 4), page(B220), cat(_General, Arts/Entertainment)
 Sleight of Hand, DX/H, default(SK:Filch - 5), page(B221), cat(_General, Arts/Entertainment, Criminal/Street)
 Stage Combat, DX/A, default(SK:Combat Sport - 2, SK:Combat Art - 2, SK:Performance - 3), page(B222), cat(_General, Arts/Entertainment)
@@ -3471,7 +3413,7 @@ Swimming, HT/E, default(HT - 4), page(B224), cat(_General, Athletic, Outdoor/Exp
 Throwing, DX/A, default(DX - 3, SK:Dropping - 4), page(B226), cat(_General, Athletic, Combat/Weapons - Ranged Combat)
 
 <Business>
-Accounting, IQ/H, default(IQ - 6, SK:Finance - 4, "SK:Mathematics (Statistics)" - 5, SK:Merchant - 5), page(B174), cat(_General, Business)
+Accounting, IQ/H, default(IQ - 6), page(B174), cat(_General, Business)
 Administration, IQ/A, default(IQ - 5, SK:Merchant - 3), page(B174), cat(_General, Business, Social)
 Current Affairs (Business), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Business, Everyman, Knowledge, Social)
 Diplomacy, IQ/H, default(IQ - 6, SK:Politics - 6), page(B187), cat(_General, Business, Police, Social), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
@@ -3482,16 +3424,10 @@ Law, IQ/H, default(IQ - 6), page(B204), cat(_General, Business, Police, Social S
 	x(#InputToTag("You must specialize in the laws of a particular political region, or in a specialized body of law not associated with a political region:", nameext, "local", "Law"))
 
 Market Analysis, IQ/H, default(IQ - 6, SK:Economics - 5, SK:Merchant - 4), page(B207), cat(_General, Business)
-Mathematics (Statistics), IQ/H, tl(0-12), default(IQ - 6, SK:Mathematics - 5), page(B207), cat(_General, Business, Natural Sciences)
 Merchant, IQ/A, default(IQ - 5, SK:Finance - 6, SK:Market Analysis - 4), page(B209), cat(_General, Business, Social), conditional(=@if(me::level >= 20 then 2 else @if(me::basepoints > 0 then 1 else 0)) to ST:Reaction when "buying or selling")
 Politics, IQ/A, default(IQ - 5, SK:Diplomacy - 5), page(B215), cat(_General, Business, Social)
 Propaganda, IQ/A, tl(0-12), default(IQ - 5, SK:Merchant - 5, SK:Psychology - 4), page(B216), cat(_General, Business, Military, Social, Spy)
-Public Speaking, IQ/A, default(IQ - 5, SK:Public Speaking, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Debate), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Oratory), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Rhetoric), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Punning), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Storytelling), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
+Public Speaking, IQ/A, default(IQ - 5), page(B216), cat(_General, Business, Scholarly, Social)
 Savoir-Faire (High Society), IQ/E, default(IQ - 4, "SK:Savoir-Faire (Servant)" - 2), page(B218), cat(_General, Business, Knowledge, Social)
 
 <Combat/Weapons - Melee Combat>
@@ -3666,9 +3602,9 @@ Fast-Talk, IQ/A, default(IQ - 5, SK:Acting - 5), page(B195), cat(_General, Crimi
 Filch, DX/A, default(DX - 5, SK:Pickpocket - 4, SK:Sleight of Hand - 4), page(B195), cat(_General, Criminal/Street, Spy)
 Forced Entry, DX/E, page(B196), cat(_General, Criminal/Street, Police, Spy)
 Forgery, IQ/H, tl(0-12), default(IQ - 6, SK:Counterfeiting - 2), page(B196), cat(_General, Criminal/Street, Spy)
-Gambling, IQ/A, default(IQ - 5, "SK:Mathematics (Statistics)" - 5), page(B197), cat(_General, Criminal/Street, Social)
+Gambling, IQ/A, default(IQ - 5), page(B197), cat(_General, Criminal/Street, Social)
 Holdout, IQ/A, default(IQ - 5, SK:Sleight of Hand - 3), page(B200), cat(_General, Criminal/Street, Spy)
-Intimidation, Will/A, default(Will - 5, SK:Acting - 3), page(B202), cat(_General, Criminal/Street, Police, Social)
+Intimidation, Will/A, default(Will - 5), page(B202), cat(_General, Criminal/Street, Police, Social)
 Lockpicking, IQ/A, tl(0-12), default(IQ - 5), page(B206), cat(_General, Criminal/Street, Police, Spy, Technical)
 Observation, Per/A, default(Per - 5, SK:Shadowing - 5), page(B211), cat(_General, Criminal/Street, Military, Police, Spy)
 Panhandling, IQ/E, default(IQ - 4, "SK:Fast-Talk" - 2, SK:Public Speaking - 3), page(B212), cat(_General, Criminal/Street, Social)
@@ -3771,35 +3707,6 @@ Pharmacy (Herbal), IQ/H, tl(0-12), default(IQ - 6, SK:Biology - 5, SK:Herb Lore 
 Pharmacy (Synthetic), IQ/H, tl(5-12), default(IQ - 6, SK:Chemistry - 5, SK:Physician - 5), page(B213), cat(_General, Design/Invention, Medical)
 Weird Science, IQ/VH, page(B228), cat(_General, Design/Invention)
 
-<Esoteric>
-Autohypnosis, Will/H, default(SK:Meditation - 4), page(B179), cat(_General, Esoteric)
-Blind Fighting, Per/VH, needs(AD:Trained By A Master | AD:Weapon Master), page(B180), cat(_General, Esoteric)
-Body Control, HT/VH, needs(AD:Trained By A Master, SK:Breath Control = 1pts, SK:Meditation = 1pts), page(B181), cat(_General, Esoteric)
-Breaking Blow, IQ/H, needs(AD:Trained By A Master), page(B182), cat(_General, Esoteric)
-Dreaming, Will/H, default(Will - 6), page(B188), cat(_General, Esoteric)
-Enthrallment (Captivate), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12, "SK:Enthrallment (Suggest)" = 12), page(B191), cat(_General, Esoteric)
-Enthrallment (Persuade), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12), page(B191), cat(_General, Esoteric)
-Enthrallment (Suggest), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12, "SK:Enthrallment (Persuade)" = 12), page(B191), cat(_General, Esoteric)
-Enthrallment (Sway Emotions), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12, "SK:Enthrallment (Persuade)" = 12), page(B191), cat(_General, Esoteric)
-Esoteric Medicine, Per/H, default(Per - 6), page(B192), cat(_General, Esoteric, Medical)
-Flying Leap, IQ/H, needs(AD:Trained By A Master, SK:Jumping = 1pts, SK:Power Blow = 1pts | AD:Weapon Master, SK:Jumping = 1pts, SK:Power Blow = 1pts), page(B196), cat(_General, Esoteric)
-Immovable Stance, DX/H, needs(AD:Trained By A Master), page(B201), cat(_General, Esoteric)
-Invisibility Art, IQ/VH, needs(AD:Trained By A Master, SK:Hypnotism = 14, SK:Stealth = 14), page(B202), cat(_General, Esoteric)
-Kiai, HT/H, needs(AD:Trained By A Master | AD:Weapon Master), page(B203), cat(_General, Esoteric)
-Light Walk, DX/H, needs(AD:Trained By A Master, SK:Acrobatics = 14, SK:Stealth = 14), page(B205), cat(_General, Esoteric)
-Meditation, Will/H, default(Will - 6, SK:Autohypnosis - 4), page(B207), cat(_General, Esoteric)
-Mental Strength, Will/E, needs(AD:Trained By A Master | AD:Weapon Master), page(B209), cat(_General, Esoteric)
-Mind Block, Will/A, default(Will - 5, SK:Meditation - 5), page(B210), cat(_General, Esoteric)
-Musical Influence, IQ/VH, needs(AD:Musical Ability = 1, SK:Musical Instrument = 12 | AD:Musical Ability = 1, SK:Singing = 12), page(B210), cat(_General, Esoteric)
-Power Blow, Will/H, needs(AD:Trained By A Master | AD:Weapon Master), page(B215), cat(_General, Esoteric)
-Pressure Points, IQ/H, default(SK:Esoteric Medicine - 4), needs(AD:Trained By A Master | AD:Weapon Master), page(B215), cat(_General, Esoteric),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Pressure Points"))
-Pressure Secrets, IQ/VH, needs(AD:Trained By A Master, SK:Pressure Points = 16), page(B215), cat(_General, Esoteric),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Pressure Secrets"))
-Push, DX/H, needs(AD:Trained By A Master), page(B216), cat(_General, Esoteric)
-Throwing Art, DX/H, needs(AD:Trained By A Master | AD:Weapon Master), page(B226), cat(_General, Esoteric)
-Zen Archery, IQ/VH, needs(AD:Trained By A Master, SK:Bow >= 18, SK:Meditation = 1pts | AD:Weapon Master, SK:Bow >= 18, SK:Meditation = 1pts), page(B228), cat(_General, Esoteric)
-
 <Everyman>
 Area Knowledge ([Area]), IQ/E, default(IQ - 4, "SK:Geography ([Area])" - 3), page(B176), cat(_General, Everyman, Knowledge),
 	x(#InputReplace("Please specify the area covered:", "[Area]", "local", "Area Knowledge")), noresync(yes)
@@ -3825,11 +3732,8 @@ Typing, DX/E, default(DX - 4, SK:Administration - 3, SK:Computer Operation - 3, 
 Weather Sense, IQ/A, default(IQ - 5), page(B209), cat(_General, Everyman, Outdoor/Exploration)
 
 <Knowledge>
-Expert Skill, IQ/H, page(B193), cat(_General, Knowledge, Scholarly),
-	x(#InputToTag("Please specify an area of expertise here:", nameext, , "Expert Skill"))
-
 Games, IQ/E, default(IQ - 4), page(B197), cat(_General, Knowledge),
-	x(#InputToTag("You must specialize in a particular game:", nameext, "GURPS", "Games"))
+	x(#InputToTag("You must specialize in a particular game:", nameext, "Cripple Mr. Onion", "Games"))
 
 Heraldry, IQ/A, default(IQ - 5, "SK:Savoir-Faire (High Society)" - 3), page(B199), cat(_General, Knowledge, Social)
 
@@ -3922,16 +3826,10 @@ Armoury (Missile Weapons), IQ/A, tl(0-12), page(B178), cat(_General, Military, R
 	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Melee Weapons)" - 4, "SK:Armoury (Small Arms)" - 4, "SK:Armoury (Heavy Weapons)" - 4, "SK:Engineer (Missile Weapons)" - 4),
 	default0(@if(me::tl > 4 THEN 100 ELSE 4))
 
-Brainwashing, IQ/H, tl(0-12), default("SK:Electronics Operation (Medical)" - 6, SK:Hypnotism - 6, SK:Interrogation - 6, SK:Pharmacy - 6, SK:Psychology - 6, SK:Surgery - 6), page(B182), cat(_General, Military, Spy)
 Camouflage, IQ/E, default(IQ - 4, SK:Survival - 2), page(B183), cat(_General, Military, Outdoor/Exploration)
 Cryptography, IQ/H, tl(0-12), default("SK:Mathematics (Cryptology)" - 5), page(B186), cat(_General, Military, Spy)
-Electronics Operation (Electronic Warfare), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Repair (Electronic Warfare)" - 5, "SK:Engineer (Electronics)" - 5, SK:Electronics Operation - 4), page(B189), cat(_General, Military, Spy, Technical)
-Electronics Repair (Electronic Warfare), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Operation (Electronic Warfare)" - 3, "SK:Engineer (Electronics)" - 3, SK:Electronics Repair - 4), page(B190), cat(_General, Military, Repair/Maintenance)
-Expert Skill (Military Science), IQ/H, page(B193), cat(_General, Military)
 Explosives (Explosive Ordnance Disposal), IQ/A, tl(0-12), default(IQ - 5, "SK:Explosives (Nuclear Ordnance Disposal)" - 2, SK:Explosives - 4), needs(DX = 12), page(B194), cat(_General, Military, Police, Technical)
 Explosives (Fireworks), IQ/A, tl(0-12), default(IQ - 5, SK:Chemistry - 3, SK:Explosives - 4), page(B194), cat(_General, Military, Technical)
-Explosives (Nuclear Ordnance Disposal), IQ/A, tl(0-12), default(IQ - 5, "SK:Explosives (Explosive Ordnance Disposal)" - 2, SK:Explosives - 4), page(B194), cat(_General, Military, Technical)
-Explosives (Underwater Demolition), IQ/A, tl(0-12), default(IQ - 5, "SK:Explosives (Demolition)" - 2, SK:Explosives - 4), page(B194), cat(_General, Military, Technical)
 Forward Observer, IQ/A, tl(0-12), default(IQ - 5, SK:Artillery - 5, SK:Electronics Operation - 5), page(B196), cat(_General, Military)
 Intelligence Analysis, IQ/H, tl(0-12), default(IQ - 6, SK:Strategy - 6), page(B201), cat(_General, Military, Police, Spy)
 Interrogation, IQ/A, default(IQ - 5, SK:Intimidation - 3, SK:Psychology - 4), page(B202), cat(_General, Military, Police, Spy)
@@ -3947,29 +3845,6 @@ Tactics, IQ/H, default(IQ - 6, SK:Strategy - 6), page(B224), cat(_General, Milit
 
 <Natural Sciences>
 Alchemy, IQ/VH, tl(0-12), page(B174), cat(_General, Natural Sciences, Occult/Magical)
-Astronomy, IQ/H, tl(0-12), default(IQ - 6, SK:Astronomy), needs("SK:Mathematics (Applied)" = 1pts), page(B179), cat(_General, Natural Sciences)
-Astronomy (Observational), IQ/A, tl(0-12), basedon(Astronomy), optspec(1), default(IQ - 6), page(B179), cat(_General, Natural Sciences)
-Biology (Earthlike), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Earthlike)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Gas Giants), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Gas Giants)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Hostile Terrestrial), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Hostile Terrestrial)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Ice Dwarfs), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Ice Dwarfs)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Ice Worlds), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Ice Worlds)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Rock Worlds), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Rock Worlds)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Chemistry, IQ/H, tl(0-12), default(IQ - 6, SK:Alchemy - 3), page(B183), cat(_General, Natural Sciences)
-Expert Skill (Hydrology), IQ/H, page(B193), cat(_General, Natural Sciences)
-Expert Skill (Natural Philosophy), IQ/H, page(B193), cat(_General, Natural Sciences)
-Geology (Earthlike), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Gas Giants), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Hostile Terrestrial), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Ice Dwarfs), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Ice Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Rock Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Mathematics (Applied), IQ/H, tl(0-12), default(IQ - 6, SK:Engineer - 5, SK:Physics - 5, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Computer Science), IQ/H, tl(0-12), default(IQ - 6, SK:Computer Programming - 5, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Cryptology), IQ/H, tl(0-12), default(IQ - 6, SK:Cryptography - 5, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Pure), IQ/H, tl(0-12), default(IQ - 6, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Surveying), IQ/H, tl(0-12), default(IQ - 6, SK:Cartography - 3, SK:Navigation - 4, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences, Technical)
-Metallurgy, IQ/H, tl(0-12), default(SK:Chemistry - 5, SK:Jeweler - 8, SK:Smith - 8), page(B209), cat(_General, Natural Sciences)
 Meteorology (Earthlike), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
 Meteorology (Gas Giants), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
 Meteorology (Hostile Terrestrial), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
@@ -4025,15 +3900,6 @@ Survival (Plains), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Arct
 Survival (Swampland), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (River/Stream)" - 4, "SK:Survival (Arctic)" - 3, "SK:Survival (Desert)" - 3, "SK:Survival (Island/Beach)" - 3, "SK:Survival (Jungle)" - 3, "SK:Survival (Mountain)" - 3, "SK:Survival (Plains)" - 3, "SK:Survival (Woodlands)" - 3), page(B223), cat(_General, Outdoor/Exploration)
 Survival (Woodlands), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Arctic)" - 3, "SK:Survival (Desert)" - 3, "SK:Survival (Island/Beach)" - 3, "SK:Survival (Jungle)" - 3, "SK:Survival (Mountain)" - 3, "SK:Survival (Plains)" - 3, "SK:Survival (Swampland)" - 3), page(B223), cat(_General, Outdoor/Exploration)
 
-* Aquatic Survival skills
-Survival (Bank), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Deep Ocean Vent), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Fresh-Water Lake), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Open Ocean), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Reef), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (River/Stream), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Swampland)" - 4, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Salt-Water Sea), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Tropical Lagoon), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Island/Beach)" - 4, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4), page(B223), cat(_General, Outdoor/Exploration)
 Tracking, Per/A, default(Per - 5, SK:Naturalist - 5), page(B226), cat(_General, Outdoor/Exploration)
 
 <Plant>
@@ -4114,16 +3980,11 @@ Mechanic (%examplelist%), IQ/A, tl(0-12), page(B207), default(IQ - 5, "SK:Engine
 	), noresync(yes)
 
 <Scholarly>
-Literature, IQ/H, default(IQ - 6), page(B205), cat(_General, Scholarly, Social Sciences/Humanities)
 Research, IQ/A, tl(0-12), default(IQ - 5, SK:Writing - 3), needs(1 CA:Language Written = 2), page(B217), cat(_General, Scholarly, Spy)
-Speed-Reading, IQ/A, page(B222), cat(_General, Scholarly)
 Teaching, IQ/A, default(IQ - 5), page(B224), cat(_General, Scholarly, Social)
 
 <Social>
-Acting, IQ/A, default(IQ - 5, SK:Performance - 2, SK:Public Speaking - 5), page(B174), cat(_General, Social, Spy)
-Erotic Art, DX/A, default(DX - 5, SK:Acrobatics - 5), page(B192, S224), cat(_General, Social),
-	x(#InputToTag("You must specialize by species:", nameext, "Human", "Erotic Art"))
-
+Acting, IQ/A, default(IQ - 5), page(71), cat(_General, Social, Spy)
 Fortune-Telling, IQ/A, default(IQ - 5, "SK:Fast-Talk" - 3, SK:Occultism - 3), page(B196), cat(_General, Social),
 	x(#InputToTag("You must specialize in a particular method of Fortune-Telling:", nameext, , "Fortune-Telling"))
 
@@ -4138,41 +3999,9 @@ Gesture, IQ/E, default(IQ - 4), page(B198), cat(_General, Social)
 Sex Appeal, HT/A, default(HT - 3), page(B219, S224), cat(_General, Social),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Sex Appeal"))
 
-<Social Sciences/Humanities>
-Anthropology, IQ/H, default(IQ - 6, "SK:Paleontology (Paleoanthropology)" - 2, SK:Sociology - 3), page(B175), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in a particular species:", nameext, "Human", "Anthropology"))
-
-Archaeology, IQ/H, default(IQ - 6), page(B176), cat(_General, Social Sciences/Humanities)
-Expert Skill (Egyptology), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Expert Skill (Political Science), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Expert Skill (Thanatology), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Expert Skill (Xenology), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Geography (Political), IQ/H, tl(0-12), default(IQ - 6, SK:Economics - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-
-Geography ([Regional]), IQ/H, tl(0-12), default(IQ - 6, "SK:Area Knowledge ([Regional])" - 6, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities),
-	x(#InputReplace("Please specify the region covered:", "[Regional]", "local", "Geography (Regional)")), noresync(yes)
-
-Geography (Earthlike), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Earthlike)" - 4, "SK:Meteorology (Earthlike)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Gas Giants), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Gas Giants)" - 4, "SK:Meteorology (Gas Giants)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Hostile Terrestrial), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Hostile Terrestrial)" - 4, "SK:Meteorology (Hostile Terrestrial)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Ice Dwarfs), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Ice Dwarfs)" - 4, "SK:Meteorology (Ice Dwarfs)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Ice Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Ice Worlds)" - 4, "SK:Meteorology (Ice Worlds)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Rock Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Rock Worlds)" - 4, "SK:Meteorology (Rock Worlds)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-
-History, IQ/H, default(IQ - 6), page(B200), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in a limited geographical region or a single era:", nameext, , "History"))
-
-Linguistics, IQ/H, page(B205), cat(_General, Social Sciences/Humanities)
-Philosophy, IQ/H, default(IQ - 6), page(B213), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in a particular school of philosophy:", nameext, , "Philosophy"))
-
-Sociology, IQ/H, default(IQ - 6, SK:Anthropology - 3, SK:Psychology - 4), page(B221), cat(_General, Social Sciences/Humanities)
+<xxxxxxxxxxxxx>
 Theology, IQ/H, default(IQ - 6, SK:Religious Ritual - 4), page(B226), cat(_General, Social Sciences/Humanities),
 	x(#InputToTag("You must specialize by religion:", nameext, , "Theology"))
-
-<Spy>
-Expert Skill (Computer Security), IQ/H, page(B193), cat(_General, Spy)
-Lip Reading, Per/A, default(Per - 10), page(B205), cat(_General, Spy)
 
 <Technical>
 Battlesuit, DX/A, tl(0-12), default(DX - 5, SK:Diving Suit - 2, SK:NBC Suit - 2, SK:Vacc Suit - 2), page(B192), cat(_General, Technical, Vehicle)
@@ -5555,7 +5384,6 @@ SK:Expert Skill
 SK:Expert Skill (Epidemiology)
 SK:Expert Skill (Hydrology)
 SK:Expert Skill (Military Science)
-SK:Expert Skill (Natural Philosophy)
 SK:Expert Skill (Political Science)
 SK:Expert Skill (Psionics)
 SK:Expert Skill (Thanatology)
