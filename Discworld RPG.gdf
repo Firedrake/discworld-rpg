@@ -10914,6 +10914,52 @@ Travel Rations, basecost([cost]), baseweight(14), mods(Equipment), displaycost(v
 	x(_
 		#InputReplace("Please enter the cost of this item here, or just press OK to base cost on the character's Cost of Living. Average cost is 1% of the character's cost of living (though sometimes topping out at Status 3). DO NOT use a dollar sign or comma:", [cost], "ST:Cost of Living * 0.01", "Travel Rations")_
 	), page(148), description(A bottle of acceptable booze. 1% of cost of living (though sometimes topping out at Status 3); 1lb.), techlvl(0), cat(Discworld RPG, Discworld RPG - Food and Drink)
+Travel Rations (Status %StatusList%), basecost(0.05 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)), baseweight(2), mods(Equipment), displaycost(varies),
+	x(_
+	#ChoiceList(_
+			name(Status),
+			title(Food: Travel Rations),
+			text(Select the Status level appropriate to these victuals. Cost will be based on the Status selected. Note that food rated above Status 3 will be exceptionally extravagant and possibly pretentious:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+					-2,
+					-1,
+					+0,
+					+1,
+					+2,
+					+3,
+					+4,
+					+5,
+					+6,
+					+7,
+					+8_
+				)_
+		)_
+	), page(148), description(Food for a week on the road. 5% of cost of living; 14lbs.), techlvl(0)
+Wind or Liquor (per bottle, Status %StatusList%), basecost(0.01 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)), baseweight(2), mods(Equipment), displaycost(varies),
+	x(_
+	#ChoiceList(_
+			name(Status),
+			title(Drink: Wine or Liquor),
+			text(Select the Status level appropriate to this drink. Cost will be based on the Status selected. Note that drink rated above Status 3 will be exceptionally refined:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+					-2,
+					-1,
+					+0,
+					+1,
+					+2,
+					+3,
+					+4,
+					+5,
+					+6,
+					+7,
+					+8_
+				)_
+		)_
+	), page(148), description(A bottle or booze. 1% of cost of living; 1lb.), techlvl(0)
 
 <Discworld RPG, Discworld RPG - Clothing>
 Complete Wardrobe, basecost([cost]), baseweight([weight]), mods(Equipment), displaycost(varies), displayweight(20+),
@@ -10957,7 +11003,7 @@ Complete Wardrobe (Status %StatusList%), basecost(@indexedvalue(%StatusList% + 3
 					+8_
 				)_
 		)_
-	), page(148), description(Includes one to four sets of ordinary clothes, plus nightclothes, one set each of formal wear and winter clothes, and usually at least one outfit (lab coat, uniform, gym clothes, etc.) appropriate to your job or hobbies. 100% of cost of living; 20+lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(148), description(Includes one to four sets of ordinary clothes, plus nightclothes, one set each of formal wear and winter clothes, and usually at least one outfit (lab coat, uniform, gym clothes, etc.) appropriate to your job or hobbies. 100% of cost of living; 20+lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 Ordinary Clothes (Status %StatusList%), basecost(0.2 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 600, 600, 600, 600, 600)), baseweight(2), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
@@ -10980,7 +11026,7 @@ Ordinary Clothes (Status %StatusList%), basecost(0.2 * @indexedvalue(%StatusList
 					+8_
 				)_
 		)_
-	), page(149), description(One complete outfit, ranging in quality from castoff rags to designer fashions, depending on Status. At minimum: undergarments, plus a tunic, blouse, or shirt with hose, skirt, or trousers - or a long tunic, robe or dress - and suitable footwear. 20% of cost of living; 2lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(149), description(One complete outfit, ranging in quality from castoff rags to designer fashions, depending on Status. At minimum: undergarments, plus a tunic, blouse, or shirt with hose, skirt, or trousers - or a long tunic, robe or dress - and suitable footwear. 20% of cost of living; 2lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 Winter Clothes (Status %StatusList%), basecost(0.3 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 600, 600, 600, 600, 600)), baseweight(4), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
@@ -11003,7 +11049,7 @@ Winter Clothes (Status %StatusList%), basecost(0.3 * @indexedvalue(%StatusList% 
 					+8_
 				)_
 		)_
-	), page(149), description(As Ordinary Clothes, but heavier. Includes a hat or hood, boots, and probably furs. 30% of cost of living; 4lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(149), description(As Ordinary Clothes, but heavier. Includes a hat or hood, boots, and probably furs. 30% of cost of living; 4lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 Formal Wear (Status %StatusList%), basecost(0.4 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 600, 600, 600, 600, 600)), baseweight(2), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
@@ -11026,7 +11072,7 @@ Formal Wear (Status %StatusList%), basecost(0.4 * @indexedvalue(%StatusList% + 3
 					+8_
 				)_
 		)_
-	), page(149), description(Your "best outfit," which will usually include at least some accessories (hat, gloves, etc.) or jewelry. 40% of cost of living; 2lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(149), description(Your "best outfit," which will usually include at least some accessories (hat, gloves, etc.) or jewelry. 40% of cost of living; 2lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 	
 <Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Camping & Travel Gear>
 "Backpack, Frame", techlvl(1), basecost(5), baseweight(10), description(TL:1 Notes: Holds 100 lbs. of gear.), page(156), mods(Equipment), isparent(yes), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment - Camping & Travel Gear, Discworld RPG - Miscellaneous Equipment)
@@ -11386,7 +11432,7 @@ Blowpipe Dart, techlvl(0), baseweight(0.05), basecost(0.005), page(155), mods(Eq
 Sling Stone, techlvl(0), baseweight(0.05), basecost(0), page(155), mods(Equipment), uses(count*1), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Ammunition)
 Sling Lead Pellet, techlvl(2), baseweight(0.05), basecost(0.005), page(155), mods(Equipment), uses(count*1), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Ammunition)
 	
-<Artillery, Discworld RPG Bonus Items, _Muscle-Powered Ranged Weapons, _Muscle-Powered Artillery>
+<Artillery, Discworld RPG Bonus Items>
 Agatean Barking Dog, basecost(1000), baseweight(3200), damage(15d), damtype(pi++), techlvl(4), acc(1), calcrange(yes), rangehalfdam(220), rangemax(1900), rof(1), shots(1(60)), minst(45M†), bulk(-13), skillused(SK:Gunner (Cannon), ST:DX-4), page(), mods(Equipment)
 Scorpion, basecost(250), baseweight(110), damage(5d), damtype(imp), techlvl(2), acc(3), calcrange(yes), rangehalfdam(415), rangemax(520), rof(1), shots(1(30)), minst(45M†), bulk(-10), skillused(SK:Gunner (Catapult), ST:DX-4), page(), mods(Equipment)
 Cannonball and Powder, techlvl(4), baseweight(10), basecost(50), page(), mods(Equipment), uses(count*1), cat(Ammunition)
