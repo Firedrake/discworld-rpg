@@ -2,37 +2,42 @@ Encoding=UTF-8
 Version=3
 * The version information above MUST be the first line of the data file
 Program=4.0.408
-Description=04/01/2013. This data file contains information taken from the GURPS Basic Set: Characters sourcebook. GURPS Basic Set: _
+Description=01/02/2017. This data file contains information taken from the GURPS Basic Set: Characters sourcebook. GURPS Basic Set: _
 		Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2002, 2004 by _
 		Steve Jackson Games Incorporated. All rights reserved. _
-Taboo="GURPS Lite 4th Ed.gdf", "GURPS Basic Set 3rd Ed. Revised.gdf"
+Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS Basic Set 3rd Ed. Revised.gdf"
 
 [AUTHOR]
 ************************************************************************************************************************
 *
 * GURPS(R) Character Assistant
-* Filename: GURPS Basic Set 4th Ed.--Characters.gdf
-* Created:  August 24, 2004
+* Filename: Discworld RPG.gdf
+* Created:  January 27, 2017
 * Requires GCA v4 or later!
 *
-* This data file contains information taken from the GURPS Basic Set: Characters sourcebook. GURPS Basic Set:
-* Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2002, 2004 by
-* Steve Jackson Games Incorporated. All rights reserved.
+* This data file contains information taken from the GURPS Basic Set: Characters sourcebook and the Discworld RPG. GURPS 
+* Basic Set: Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2002, 2004 by
+* Steve Jackson Games Incorporated. The Discworld RPG is Copyright © xxxxxxxx by xxxxxxxxxxxxx. All rights reserved.
 *
 * Information in this file includes:
 *	Attributes
 *	Advantages, Disadvantagess, Quirks, Including Bonuses and Penalties.
 *	Skills, Including Bonuses, Classes, Needs and Prereqs.
-*	Spells, Including Bonuses, Colleges, Needs and Prereqs.
 *	Equipment
 *	Templates
 *
 ************************************************************************************************************************
 *
+* Based on the GURPS Basic Set GDF - creators -
 * David L. Watkins - Major work
 * Armin D. Sykes   - Changes, Updates, Packages/Templates
 * Craig Roth	- Equipment
 * Eric B. Smith	- GURPS Data File Coordinator, Equipment, Updates, Corrections, Skill Categories
+*
+* Discworld RPG Adaptation:
+* Phil Masters - xxxxxxxxx
+* Roger Bell_West - xxxxxxxxxx
+* xxxxxxxxxxx
 *
 * If you find any errors or omissions in this file please contact the Data File Coordinator at:
 * ericbsmith42@gmail.com
@@ -153,35 +158,50 @@ st(25), thr(2d+2), sw(5d-1)
 
 st(26), thr(2d+2), sw(5d)
 st(27), thr(3d-1), sw(5d+1)
-st(28), thr(3d-1), sw(5d+1)
-st(29), thr(3d), sw(5d+2)
-st(30), thr(3d), sw(5d+2)
+st(28), thr(3d-1), sw(5d+2)
+st(29), thr(3d), sw(6d-1)
+st(30), thr(3d), sw(6d)
 
-st(31), thr(3d+1), sw(6d-1)
-st(32), thr(3d+1), sw(6d-1)
-st(33), thr(3d+2), sw(6d)
-st(34), thr(3d+2), sw(6d)
-st(35), thr(4d-1), sw(6d+1)
+st(31), thr(3d+1), sw(6d+1)
+st(32), thr(3d+1), sw(6d+2)
+st(33), thr(3d+2), sw(7d-1)
+st(34), thr(3d+2), sw(7d)
+st(35), thr(4d-1), sw(7d+1)
 
-st(36), thr(4d-1), sw(6d+1)
-st(37), thr(4d), sw(6d+2)
-st(38), thr(4d), sw(6d+2)
-st(39), thr(4d+1), sw(7d-1)
+st(36), thr(4d-1), sw(7d+2)
+st(37), thr(4d), sw(8d-1)
+st(38), thr(4d), sw(8d)
+st(39), thr(4d+1), sw(8d+1)
 
-st(40), thr(4d+1), sw(7d-1)
-st(45), thr(5d), sw(7d+1)
-st(50), thr(5d+2), sw(8d-1)
-st(55), thr(6d), sw(8d+1)
-st(60), thr(7d-1), sw(9d)
-st(65), thr(7d+1), sw(9d+2)
-st(70), thr(8d), sw(10d)
-st(75), thr(8d+2), sw(10d+2)
-st(80), thr(9d), sw(11d)
-st(85), thr(9d+2), sw(11d+2)
-st(90), thr(10d), sw(12d)
-st(95), thr(10d+2), sw(12d+2)
+st(40), thr(4d+1), sw(8d+2)
+st(41), thr(4d+2), sw(9d-1)
+st(42), thr(4d+2), sw(9d)
+st(43), thr(5d-1), sw(9d+1)
+st(44), thr(5d-1), sw(9d+2)
+st(45), thr(5d), sw(10d-1)
+st(46), thr(5d), sw(10d)
+st(47), thr(5d+1), sw(10d+1)
+st(48), thr(5d+1), sw(10d+2)
+st(49), thr(5d+2), sw(11d-1)
 
-st(100), thr(11d), sw(13d)
+st(50), thr(5d+2), sw(11d)
+st(51), thr(6d-1), sw(11d+1)
+st(52), thr(6d-1), sw(11d+2)
+st(53), thr(6d), sw(12d-1)
+st(54), thr(6d), sw(12d)
+st(55), thr(6d+1), sw(12d+1)
+st(60), thr(7d-1), sw(13d+2)
+st(65), thr(7d+2), sw(15d-1)
+st(70), thr(8d), sw(16d)
+st(75), thr(9d-1), sw(17d+1)
+
+st(80), thr(9d+1), sw(18d+2)
+st(85), thr(10d), sw(20d-1)
+st(90), thr(10d+2), sw(21d)
+st(95), thr(11d+1), sw(22d+1)
+st(100), thr(12d-1), sw(23d+2)
+st(108), thr(13d-1), sw(25d+2)
+st(116), thr(14d-1), sw(26d+2)
 
 * The LAST item in the list is always the item that is to be used
 * for anything that didn't fall under the preceding items.
@@ -1688,7 +1708,6 @@ Telekinesis, 5/10, mods(Telekinesis), page(B92), cat(Exotic Physical, Exotic, Me
 		gives(+1 to ST:TK ST, +1 to ST:TK Move),
 	conditional(_
 			=+4 to GR:High Manual Dexterity when "performing DX-based tasks",
-			=+4 to SK:Machinist when "performing fine DX-based tasks",
 			=+4 to SK:Mechanic when "performing fine DX-based tasks" _
 			),
 	replacetags(_
@@ -1735,112 +1754,51 @@ Destiny, 5/10/15, levelnames(Minor, Major, Great), page(B48), upto(3), cat(Super
 Dominance, 20, page(B50), cat(Supernatural, Mental)
 Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Heal)
-Higher Purpose, 5, page(B59), cat(Supernatural, Mental),
-	x(_
-		#InputToTag("Describe your Higher Purpose:" , nameext, , "Higher Purpose") _
-	)
 					
-
-Illuminated, 15, page(B60), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Discern Illumiated event)
-Jumper (Time), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Time Jump)
 Jumper (World), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(World Jump)
-Magery 0, 5, mods(Magery 0), page(B66), cat(Supernatural, Mental), taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
+
+Magery 0, 5, mods(Magery 0), page(44), cat(Supernatural, Mental),
 	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(_
-			Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated._
-			)
-Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology), mods(Magery, Talents), needs(AD:Magery 0), page(B66), cat(Supernatural, Mental),
-	taboo(@if(@itemhasmod(AD:Magic Resistance, Improved) THEN 0 ELSE AD:Magic Resistance), AD:Mana Damper),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated. For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
+			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form), mods(Magery, Talents), needs(AD:Magery 0), page(44), cat(Supernatural, Mental),
+	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
+Magery (No Spellcasting) 0, 1, mods(Magery 0), page(44), cat(Supernatural, Mental),
+	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
+			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+Magery (No Spellcasting), 2/4, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery (No Spellcasting) 0), page(44), cat(Supernatural, Mental),
+	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 
-Wildcard Magery!, 10/20, gives(+1 to SK:Thaumatology, +1 to CL:Wildcard! - Magic), mods(Magery), needs(AD:Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture)
+Magery (Engineering Only) 0, 4, mods(Magery 0), page(44), cat(Supernatural, Mental),
+	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	skillused(ST:Perception), mode(detect Magic Items with touch-only Mage Sense),
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
+			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+Magery (Engineering Only), 6/12, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery (Engineering Only) 0), page(44), cat(Supernatural, Mental),
+	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.),
+	conditional(+1 to SK:Magic when "for engineering purposes",
+			+1 to SK:Magical Form when "for engineering purposes")
 					
-
-Ritual Magery 0, 5, page(B66), cat(Supernatural, Mental), description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Ritual Magery ([skill]), 10/20, gives(+1 to SK:[skill], +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
-	x(#InputReplace("Please enter an appropriate Ritual Magic core skill:", "[skill]", "Ritual Magic", "Ritual Magery") )
-Ritual Magery (%skilllist%), 10/20, gives(+1 to SK:%skilllist%, +1 CL:Ritual Magic Paths), needs(AD:Ritual Magery 0), page(B66), cat(Supernatural, Mental), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture),
-	x(_
-		#ChoiceList(_
-				name(skill),
-				title(Ritual Magery),
-				text(Please select an appropriate Ritual Magic core skill:),
-				picksallowed(1),
-				method(bynumber),
-				list(_
-					"Alchemy",
-					"Biology",
-					"Body Control",
-					"Computer Hacking",
-					"Herb Lore",
-					"Musical Influence",
-					"Physics",
-					"Blind Fighting",
-					"Invisibility Art",
-					"Zen Archery",
-					"Pressure Secrets",
-					"Weird Science",
-					"Ritual Magic",
-					"Thaumatology" _
-					)_
-				)_
-	)
+Magery (Non-Improvisational) 0, 4, mods(Magery 0), page(45), cat(Supernatural, Mental),
+	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
+			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form), mods(Magery, Talents), needs(AD:Magery (Non-Improvisational) 0), page(45), cat(Supernatural, Mental),
+	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
-					
-					
-
-Magic Resistance, 2/4, mods(Magic Resistance), page(B67), cat(Supernatural, Mental), taboo(DI:Magic Susceptibility, AD:Magery 0::level > @if(@hasmod(Improved) THEN 1 ELSE 0), AD:Mana Enhancer)
-Mana Damper, 10/20, mods(Mana Damper/Enhancer), page(B67), upto(3), cat(Supernatural, Mental), taboo(AD:Magery, AD:Mana Enhancer)
-Mana Enhancer, 50/100, mods(Mana Damper/Enhancer), page(B68), upto(2), cat(Supernatural, Mental), taboo(AD:Mana Damper, AD:Magic Resistance)
-Medium, 10, page(B68), cat(Supernatural, Mental)
-Mindlink, 5/10/20/30, page(B70), cat(Supernatural, Mental),
-	levelnames(1 person, 2-9 people, 10-99 people, 100-999 people, "1,000-9,999 people", "10,000-99,999 people", "100,000-999,999 people", "1,000,000-9,999,999 people", "10,000,000-99,999,999 people", up to 1 Billion people, up to 10 Billion people, up to 100 Billion people, up to 1 Trillion people, up to 10 Trillion people, up to 100 Trillion people, 16, 17, 18, 19, 20)
-					
-
-Oracle, 15, page(B72), cat(Supernatural, Mental),
-	mode(Discover|Interpret), skillused(ST:Perception|ST:IQ)
-Power Investiture, 10/20, page(B77), gives(+1 to CO:~Clerical), cat(Supernatural, Mental), mods(_Talents), description(For standard magic use Magery, for Ritual Magic use Ritual Magery, for Wildcard! magic use Wildcard Magery!, for Clerical Magic use Power Investiture, for Syntactic magic use Syntactic Magery)
-Precognition, 25, mods(Precognition), page(B77), cat(Supernatural, Mental), taboo(AD:Danger Sense),
-	skillused(ST:IQ), mode(glimpse future)
-Psi Static, 30, mods(Psi Static), page(B78), cat(Supernatural, Mental)
-Psychometry, 20, page(B78), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(sense history)
-					
-
-Puppet, 5, needs(AD:Possession, (AD:Ally | DI:Dependent)), page(B78), cat(Supernatural, Mental)
-Puppet (Group of Related Allies), 10, needs(AD:Possession, (AD:Ally | DI:Dependent)), page(B78), cat(Supernatural, Mental)
-					
-
-Reawakened, 10, page(B80), cat(Supernatural, Mental)
-Special Rapport, 5, page(B88), cat(Supernatural, Mental)
-Spirit Empathy, 10, mods(Spirit Empathy), page(B88), cat(Supernatural, Mental),
+Medium, 10, page(45), cat(Supernatural, Mental)
+Spirit Empathy (Full), 10, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(empathize)
-Super Luck, 100, page(B89), cat(Supernatural, Mental)
-Temporal Inertia, 15, page(B93), cat(Supernatural, Mental), taboo(DI:Unique),
-	skillused(ST:IQ), mode(distinguish between timelines)
-
-Terror, 30/40, mods(Terror), page(B93), cat(Supernatural, Mental),
-	levelnames(Will-0, Will-1, Will-2, Will-3, Will-4, Will-5, Will-6, Will-7, Will-8, Will-9, Will-10, Will-11, Will-12, Will-13, Will-14, Will-15, Will-16, Will-17, Will-18, Will-19, Will-20, Will-21, Will-22, Will-23, Will-24, Will-25, Will-26, Will-27, Will-28, Will-29, Will-30, Will-31, Will-32, Will-33, Will-34, Will-35, Will-36, Will-37, Will-38, Will-39, Will-40, Will-41, Will-42, Will-43, Will-44, Will-45, Will-46, Will-47, Will-48, Will-49, Will-50, Will-51, Will-52, Will-53, Will-54, Will-55, Will-56, Will-57, Will-58, Will-59, Will-60, Will-61, Will-62, Will-63, Will-64, Will-65, Will-66, Will-67, Will-68, Will-69, Will-70, Will-71, Will-72, Will-73, Will-74, Will-75, Will-76, Will-77, Will-78, Will-79, Will-80, Will-81, Will-82, Will-83, Will-84, Will-85, Will-86, Will-87, Will-88, Will-89, Will-90, Will-91, Will-92, Will-93, Will-94, Will-95, Will-96, Will-97, Will-98, Will-99, Will-100)
-True Faith, 15, page(B94), cat(Supernatural, Mental)
-Visualization, 10, page(B96), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(vizualize)
-Warp, 100, mods(Warp), page(B98), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Teleport)
-Wild Talent, 20/40, mods(Wild Talent), page(B99), cat(Supernatural, Mental)
-					
-
-ESP Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Psychic Healing Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-PK Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Telepathy Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), upto(4), mods(_Talents, _Power Talents), x(#buildit), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-Teleportation Talent, 5/10, page(B256), cat(Supernatural, Mental, Talents - Powers), mods(_Talents, _Power Talents), x(#buildit), upto(4), gives(+1 to SK:Skill Name Here, +1 to SK:Skill Name Here)
-					
+Spirit Empathy (Specialised: [specify]), 5, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
+	skillused(ST:IQ), mode(empathize),
+	x( #InputReplace("Specify the class of spirits:", "[specify]", , "Class of Spirits") )
+True Faith, 15, page(48), cat(Supernatural, Mental)
 
 <Mundane Physical>
 Appearance, 4/12/12/16/16/20, mods(Attractive, Appearance), upto(6), page(B21),
@@ -1888,7 +1846,6 @@ Hard to Subdue, 2/4, page(B59), cat(Mundane, Physical), gives(+1 to ST:Conscious
 High Manual Dexterity, 5/10, page(B59), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:No Fine Manipulators, DI:No Manipulators),
 	conditional(_
 			+1 to GR:High Manual Dexterity when "performing DX-based tasks",
-			+1 to SK:Machinist when "performing fine DX-based tasks",
 			+1 to SK:Mechanic when "performing fine DX-based tasks" _
 			)
 High Pain Threshold, 10, page(B59), cat(Mundane, Physical), taboo(DI:Low Pain Threshold, AD:Supernatural Durability),
@@ -1991,8 +1948,6 @@ Lightning Calculator, 2, page(45), cat(Mundane, Mental), taboo(DI:Innumerate)
 Luck, 15/30/60, mods(Luck), levelnames( , Extraordinary, Ridiculous), page(B66), upto(3), cat(Mundane, Mental)
 Plant Empathy, 5, page(B75), cat(Mundane, Mental),
 	skillused(ST:IQ), mode(empathize)
-Rapier Wit, 5, page(B79), cat(Mundane, Mental),
-	skillused(ST:IQ-5, SK:Public Speaking, SK:Acting-5, SK:Performance-2, SK:Politics-5), mode(outwit)
 Serendipity, 15/30, page(B83), cat(Mundane, Mental)
 Single-Minded, 5, page(B85), cat(Mundane, Mental), taboo(DI:Short Attention Span)
 Social Chameleon, 5, page(B86), cat(Mundane, Mental), conditional(+1 to ST:Reaction when "from those who demand respect (priests, kings, etc.)")
@@ -2002,7 +1957,7 @@ Social Chameleon, 5, page(B86), cat(Mundane, Mental), conditional(+1 to ST:React
 Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
 	conditional(+1 to ST:Reaction), description(Animal Handling, Falconry, Packing, Riding, Teamster, Veterinary)
 Artificer, 10/20, gives(+1 To GR:Artificer), page(B90), upto(4), cat(Mundane Mental, Mundane, Mental, Talents), mods(_Talents),
-	conditional(+1 to ST:Reaction), description(Armoury, Carpentry, Electrician, Electronics Repair, Engineer, Machinist, Masonry, Mechanic, Smith)
+	conditional(+1 to ST:Reaction), description(Armoury, Carpentry, Electrician, Engineer, Masonry, Mechanic, Smith)
 Business Acumen, 10/20, gives(+1 To GR:Business Acumen), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
 	conditional(+1 to ST:Reaction), description(Accounting, Administration, Economics, Finance, Gambling, Market Analysis, Merchant, Propaganda)
 Gifted Artist, 5/10, gives(+1 To GR:Gifted Artist), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
@@ -2275,50 +2230,76 @@ Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72)
 			\parAn extremely powerful organization (assets of at least 1 million times starting wealth): 25 POINTS _
 			\parA national government or giant multinational organization (net worth incalculable), or a true god who appears personally to intervene on your behalf: 30 POINTS _
 			)
-					
-
-Security Clearance, 5/10/10/15, mods(Security Clearance), page(B82), upto(4), cat(Mundane, Social),
-	x(#InputToTag("Please describe the nature of the clearance:", nameext, , "Security Clearance")),
-	levelnames(_
-			''Need to know'' access to a narrow range of secrets,
-			''Need to know'' access to a broad range of secrets,
-			Free access to a narrow range of secrets,
-			Free access to a broad range of secrets _
-			)
-Signature Gear, 1/2, page(B85), cat(Mundane, Social, Wealth), gives(+(5* @indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000)) to ST:Signature Gear), taboo(ST:Signature Gear < 0),
-	x(#InputToTag("Please describe the nature of the Signature Gear:", nameext, , "Signature Gear")),
-	replacetags(in "ST:Signature Gear" with "mainwin(15), hide(), noresync(yes)")
-					
 
 Social Regard, 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social),
 	x(#InputToTag("Please describe the nature of the Social Regard:", nameext, , "Social Regard"))
-					
-
 Social Regard (Feared), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social)
 Social Regard (Respected), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social)
 Social Regard (Venerated), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social)
 Tenure, 5, page(B93), cat(Mundane, Social),
 	x(#InputToTag("Please describe the nature of the Tenure:", nameext, , "Tenure"))
 					
-
-Zeroed, 10, page(B100), cat(Mundane, Social)
-
 ************************************************************************************************************************
 [PERKS]
 ************************************************************************************************************************
 <Perks>
 _New Perk, 1, noresync(yes), x(#InputToTagReplace("Please enter the name of this Perk:" , name, , "New Perk")), x(#edit)
-Accessory, 1, page(B100)
-Alcohol Tolerance, 1, page(B100)
-Autotrance, 1, page(B100)
-Deep Sleeper, 1, page(B100), taboo(DI:Light Sleeper)
-Fur, 1, page(B100)
-Honest Face, 1, page(B100)
-No Hangover, 1, page(B100)
-Penetrating Voice, 1, page(B100), taboo(DI:Mute)
-Sanitized Metabolism, 1, page(B100)
-Shtick, 1, page(B100),
-	x(InputToTagReplace("Please describe the Shtick:", nameext, , "Shtick"))
+Alcohol Tolerance, 1, page(50), cat(Mundane)
+Archaic Training (NEEDS MORE WORK), 1, page(50), cat(Mundane)
+Assassin in Good Standing, 1, page(50), cat(Mundane)
+Autotrance, 1, page(50), cat(Magical, Mundane, Priestly)
+Blade-Proof Bare-Chestedness, 1, page(50), needs(DI:Compulsive Barbarian Heroism | DI:Odious Personal Habit (Barbarian Heroism)), cat(Mundane)
+Boredom Immunity, 1, page(93), cat(Racial)
+Check the Exits, 1, page(50), cat(Mundane)
+Climatic Emphasis, 1, page(50), cat(Mundane)
+Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Mundane),
+	x(InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
+Cold Resistance, 1, page(50), cat(Mundane)
+Controllable Disadvantage, 1, page(51), cat(Mundane),
+	x(InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
+Crossbow Safety, 1, page(51), cat(Mundane)
+Cutting-Edge Training (NEEDS MORE WORK), 1, page(51), cat(Mundane)
+Deep Sleeper, 1, page(51), taboo(DI:Light Sleeper), cat(Mundane)
+Divine News-Feed, 1, page(51), cat(Mundane, Priestly)
+Dual Ready, 1, page(51), cat(Mundane),
+	x(InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
+Feathers, 1, page(93), cat(Racial)
+Forgettable Face, 1, page(51), cat(Mundane)
+Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable 2), cat(Racial, Vampiric)
+Fur, 1, page(93), cat(Racial)
+Good with (Animal) (NEEDS MORE WORK), 1, page(51), cat(Mundane)
+Good with (Social Group) (NEEDS MORE WORK), 1, page(51), cat(Mundane)
+Heartbeat Counter (NEEDS MORE WORK), 1, page(94), cat(Racial, Vampiric)
+Heat Resistance, 1, page(50), cat(Mundane)
+High-Heeled Heroine, 1, page(51), cat(Mundane)
+Honest Face, 1, page(51), cat(Mundane)
+Hyper-Specialisation, 1, page(51), cat(Mundane),
+	x(InputToTagReplace("Specify the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
+Improvised Weapons (NEEDS MORE WORK), 1, page(52), cat(Mundane)
+Limited Camouflage, 1, page(94), cat(Racial),
+	x(InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage")),
+	conditional(+2 to SK:Camouflage when "stationary and unclad in a specific environment",_
+	+2 to SK:Stealth when "stationary and unclad in a specific environment")
+Longevity, 1, page(52), cat(Mundane)
+Name Hearing, 1, page(94), cat(Racial, Godly)
+No Hangover, 1, page(52), cat(Mundane)
+Off-Hand Training, 1, page(52), cat(Mundane),
+	x(InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
+Oggham Reader, 1, page(52), cat(Mundane)
+One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery (Non-Improvisational) 0), cat(Magical, Mundane),
+	x(InputToTagReplace("Please describe the single Spell:", nameext, , "Shtick"))
+Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Mundane)
+Recognised Divinity, 1, page(94), cat(Racial, Godly)
+Scales, 1, page(93), cat(Racial)
+Secret Name, 1, page(52), needs(AD:Magery 0), cat(Magical, Mundane)
+Self-Styling Hair, 1, page(52), cat(Magical, Mundane)
+Sordid Claws, 1, page(94), needs(AD:Claws), cat(Magical, Mundane)
+Statuesque, 1, page(52), cat(Mundane)
+Striking Surface (NEEDS MORE WORK - MINIMUM DR 3), 1, page(94), needs(AD:Damage Resistance), cat(Racial)
+There on Call, 1, page(52), needs(SK:Savoir-Faire (Servant), SK:Stealth, SK:Traps), cat(Mundane)
+Understands the Librarian, 1, page(53), cat(Mundane)
+Unfased by Size (NEEDS MORE WORK - SM -1 OR LESS), 1, page(94), cat(Racial)
+Wordless Influence (NEEDS MORE WORK), 1, page(52), cat(Mundane)
 
 ************************************************************************************************************************
 [DISADVANTAGES]
@@ -2375,6 +2356,10 @@ _New Parent Item, 0, isparent(yes),
 	x(#InputToTagReplace("Please specify a name for this item:", name, , "New Parent Item"))
 
 <Exotic Physical>
+Aerial, 0, page(94), cat(Exotic, Physical), needs(AD:Flight), taboo(DI:Cannot Kick),
+	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
+	gives(=nobase to ST:Kick::reach$)
+
 Cannot Kick, -5, page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Legs, DI:Quadriplegic)
 
 No Physical Attack (1 Arm), -5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Physical Attack (2 Arms))
@@ -2425,9 +2410,6 @@ Invertebrate, -20, page(B140), cat(Exotic, Physical),
 No Fine Manipulators, -30, gives(+1 to ST:No Fine Manipulators), taboo(DI:One Arm, DI:Bad Grip, AD:High Manual Dexterity, "DI:Ham-Fisted", DI:No Manipulators), page(B145), cat(Exotic, Physical)
 No Manipulators, -50, gives(+1 to ST:No Fine Manipulators), taboo(DI:One Arm, DI:Bad Grip, AD:High Manual Dexterity, "DI:Ham-Fisted", DI:No Fine Manipulators), page(B145), cat(Exotic, Physical)
 
-No Legs (Aerial), 0, page(B145), cat(Exotic, Physical), needs(AD:Flight), taboo(DI:Cannot Kick, DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
 No Legs (Aquatic), 0, mods(No Legs), page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
 	replacetags(in "ST:Water Move" with "mainwin(11), noresync(yes)", in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	gives(=nobase to ST:Kick::reach$)
@@ -2586,18 +2568,18 @@ Bad Grip, -5/-10, page(B123), cat(Mundane, Physical), taboo(DI:No Fine Manipulat
 Bad Sight (Nearsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Farsighted), AD:Acute Vision), mods(Bad Sight),
 	conditional(_
 			-6 to ST:Vision when "item is more than 1 yard away",
-			-2 to "CL:Combat/Weapons - Melee Combat",
-			*2 to "CL:Combat/Weapons - Ranged Combat" when "calculating range penalties" _
+			-2 to "CL:Melee Combat",
+			*2 to "CL:Ranged Combat" when "calculating range penalties" _
 			)
 Bad Sight (Farsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Nearsighted), AD:Acute Vision), mods(Bad Sight),
 	conditional(_
 			-6 to ST:Vision when "item is within 1 yard",
 			-3 to ST:DX when "performing close manual tasks",
-			-3 to "CL:Combat/Weapons - Melee Combat" when "in Close Combat" _
+			-3 to "CL:Melee Combat" when "in Close Combat" _
 			)
 Bad Smell, -10, page(B124), cat(Mundane, Physical), gives(-2 to ST:Reaction)
 Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness), taboo(AD:Acute Vision, AD:360° Vision, AD:Hyperspectral Vision, AD:Infravision, AD:Penetrating Vision, AD:Telescopic Vision, AD:Ultravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, AD:Microscopic Vision, DI:Dyslexia, DI:Restricted Vision),
-	gives(-4 to ST:Dodge, -6 to CL:Combat/Weapons - Melee Combat, -6 to CL:Combat/Weapons - Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
+	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
 Cannot Speak, -15, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, DI:Mute, AD:Speak Underwater)
 Mute, -25, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, AD:Voice, PE:Penetrating Voice, DI:Cannot Speak, AD:Speak Underwater)
 
@@ -2639,16 +2621,16 @@ Killjoy, -15, gives(-3 To GR:Killjoy), page(B140), cat(Mundane, Physical),
 Klutz, -5/-15, levelnames( , Total), needs(DX <= 13), page(B141), upto(2), cat(Mundane, Physical)
 
 Lame (Crippled Legs), -10, page(B141), cat(Mundane, Physical), taboo(ST:Basic Move > @int(ST:Basic Speed/2)), sets(ST:Basic Move = @int(ST:Basic Speed/2)), taboo(DI:Cannot Kick, DI:No Legs, DI:Lame (Missing Legs), DI:Lame (Legless), DI:Lame (Paraplegic), @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
-	gives(-3 to "CL:Combat/Weapons - Melee Combat")
+	gives(-3 to "CL:Melee Combat")
 Lame (Missing Legs), -20, page(B141), cat(Mundane, Physical), taboo(ST:Basic Move > 2), sets(ST:Basic Move = 2), taboo(DI:Cannot Kick, DI:No Legs, DI:Lame (Crippled Legs), DI:Lame (Legless), DI:Lame (Paraplegic), @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
-	gives(-6 to "CL:Combat/Weapons - Melee Combat")
+	gives(-6 to "CL:Melee Combat")
 Lame (Legless), -30, page(B141), cat(Mundane, Physical), taboo(ST:Basic Move > 0), sets(ST:Basic Move = 0), taboo(DI:Cannot Kick, DI:No Legs, DI:Lame (Crippled Legs), DI:Lame (Missing Legs), DI:Lame (Paraplegic), @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
-	gives(-6 to "CL:Combat/Weapons - Melee Combat")
+	gives(-6 to "CL:Melee Combat")
 Lame (Paraplegic), -30, page(B141), cat(Mundane, Physical), needs(ST:Basic Move <= 0), sets(ST:Basic Move = 0), taboo(DI:Lame (Crippled Legs), DI:Lame (Missing Legs), DI:Lame (Legless), DI:Quadriplegic),
 	conditional(-6 to ST:DX when "using any skill which requires your legs"),
-	gives(-6 to "CL:Combat/Weapons - Melee Combat")
+	gives(-6 to "CL:Melee Combat")
 
 Light Sleeper, -5, page(B142), cat(Mundane, Physical), taboo(PE:Deep Sleeper)
 Low Pain Threshold, -10, page(B142), cat(Mundane, Physical), taboo(AD:High Pain Threshold, AD:Supernatural Durability),
@@ -2673,7 +2655,7 @@ Numb, -20, page(B146), cat(Mundane, Physical), taboo(AD:Acute Touch, AD:Sensitiv
 One Arm, -20, page(B147), gives(-ST:Two Arm Lifting ST::basescore to ST:Two Arm Lifting ST, -ST:Two Arm Striking ST::basescore to ST:Two Arm Striking ST), cat(Mundane, Physical),
 	taboo(DI:No Fine Manipulators, DI:No Manipulators, AD:Long Arms (2 Arms), AD:Extra-Flexible Arms (2 Arms), DI:Short Arms (2 Arms), DI:Weapon Mount (2 Arms), DI:No Physical Attack (2 Arms), AD:Extra Arms, DI:Weak Arms (2 Arms), DI:One Hand, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 One Eye, -15, page(B147), cat(Mundane, Physical), taboo(DI:No Depth Perception, DI:Blindness, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
-	conditional(-3 to CL:Combat/Weapons - Ranged Combat when "not aiming"), gives(-1 to CL:Combat/Weapons - Melee Combat)
+	conditional(-3 to CL:Ranged Combat when "not aiming"), gives(-1 to CL:Melee Combat)
 One Hand, -15, page(B148), cat(Mundane, Physical), taboo(DI:One Arm, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 Quadriplegic, -80, page(B150), cat(Mundane, Physical), taboo(DI:Lame, DI:One Arm, DI:One Hand, AD:Extra Arms, AD:Extra Legs, AD:Long Legs, DI:Cannot Kick)
 Restricted Diet, -10/-20/-30/-40, mods(Restricted Diet), levelnames(Very Common, Common, Occasional, Rare), page(B151), upto(4), cat(Mundane, Physical), taboo(AD:Doesn't Eat or Drink, AD:Universal Digestion)
@@ -2935,9 +2917,6 @@ Phobia (%examplelist%), %examplecostlist%, displaycost(variable), mods(Self-Cont
 				"Triskaidekaphobia: The Number 13"=-5,
 				"Thalassophobia: Oceans"=-10,
 				"Agoraphobia: Open Spaces"=-10,
-				"Psionophobia: Psionic Powers (common psi powers)"=-15,
-				"Psionophobia: Psionic Powers (uncommon psi powers)"=-10,
-				"Psionophobia: Psionic Powers (unknown psi powers)"=-5,
 				"Herpetophobia: Reptiles"=-10,
 				"Coitophobia: Sex"=-10,
 				"Aichmophobia: Sharp Things (TL5-)"=-15,
@@ -2945,7 +2924,8 @@ Phobia (%examplelist%), %examplecostlist%, displaycost(variable), mods(Self-Cont
 				"Arachnophobia: Spiders"=-5,
 				"Xenophobia: Strange and Unknown Things"=-15,
 				"Heliophobia: The Sun"=-15,
-				"Hoplophobia: Weapons"=-20_
+				"Hoplophobia: Weapons"=-20,
+				"Genuan Fairy-Tale Terror"=-5_
 			)_
 			)_
 	), noresync(yes)
@@ -3111,60 +3091,53 @@ _Unused Quirk 4, -1, page(B163)
 _Unused Quirk 5, -1, page(B163)
 
 <Mental>
-Attentive, -1, page(B164)
-Broad-Minded, -1, page(B164)
-Careful, -1, page(B164)
-Chauvinistic, -1, page(B164)
-Code of Honor, -1, page(B164)
-Congenial, -1, page(B164)
-Delusion, -1, page(B164)
-Dislikes [specify], -1, page(B164), x( #InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes") )
-Distractible, -1, page(B164)
-Dreamer, -1, page(B164)
-Dull, -1, page(B164)
-Habit, -1, page(B164), x( #InputToTag("Specify what the character's habit is:", nameext, , "Habit") )
-Expression, -1, page(B164), x( #InputToTag("Specify what the character's expression is:", nameext, , "Expression") )
-Humble, -1, page(B164)
-Imaginative, -1, page(B164)
-Incompetence ([skill]), -1, page(B164),
-	gives(-4 to SK:[skill]), noresync(yes),
-	x(#InputReplace("Specify the skill the character is incompetent with:", "[skill]", ,"Incompetence"))
-Incompetence (%skillslist%), -1, page(B164),
-	gives(-4 to SK:%skillslist%), noresync(yes),
-	x(#ChoiceList(_
-			name(skills),
-			title(Incompetence: Choose a Skill),
-			text(Choose which skill the Incompetence is for:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:AllSkills, flags(NoPrefix))_
-				)_
-			)_
-		)
-
-Likes [specify], -1, page(B164), x( #InputReplace("Specify what the character likes:", "[specify]", , "Likes") )
-Nosy, -1, page(B164)
-Obsession, -1, page(B164)
-Personality Change, -1, page(B164)
-Proud, -1, page(B164)
-Responsive, -1, page(B164)
-Staid, -1, page(B164)
-Trademark, -1, page(B164)
-Uncongenial, -1, page(B165)
-Vow, -1, page(B165)
+Attentive, -1, page(66), cat(Mundane)
+Autocondimentor (NEEDS DETAILS), -1, page(66), cat(Mundane)
+Brawling Society, -1, page(99), cat(Racial)
+Broad-Minded, -1, page(66), cat(Mundane)
+Careful, -1, page(67), cat(Mundane)
+Chauvinistic, -1, page(67), cat(Mundane)
+Code of Honour ([specify]), -1, page(67), x( #InputReplace("Specify the character's minor Code:", "[specify]", , "Minor Code of Honour") ), cat(Mundane)
+Congenial, -1, page(67), cat(Mundane)
+Delusion, -1 ([specify]), page(67), x( #InputReplace("Specify the character's trivial Delusion:", "[specify]", , "Trivial Delusion") ), cat(Mundane)
+Delusion (Spelling my name backwards disguises it perfectly), -1, page(99), cat(Racial, Vampiric)
+Dislikes [specify], -1, page(67), x( #InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes") ), cat(Mundane)
+Distractible, -1, page(67), cat(Mundane)
+Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
+Dreamer, -1, page(67), cat(Mundane)
+Dull, -1, page(67), cat(Mundane)
+Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Mundane)
+Giggles a Lot, -1, page(67), cat(Mundane)
+Habit, -1, page(67), x( #InputToTag("Specify what the character's habit is:", nameext, , "Habit") ), cat(Mundane)
+"Hunter's Habits", -1, page(99), cat(Racial)
+Expression, -1, page(67), x( #InputToTag("Specify what the character's expression is:", nameext, , "Expression") ), cat(Mundane)
+Humble, -1, page(67), cat(Mundane)
+Imaginative, -1, page(67), cat(Mundane)
+Likes [specify], -1, page(67), x( #InputReplace("Specify what the character likes:", "[specify]", , "Likes") ), cat(Mundane)
+Nosy, -1, page(67), cat(Mundane)
+Obsession, -1, page(67), x( #InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession") ), cat(Mundane)
+Personality Change, -1, page(67), x( #InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change") ), cat(Mundane)
+Proud, -1, page(68), cat(Mundane)
+Responsive, -1, page(68), cat(Mundane)
+Staid, -1, page(68), cat(Mundane)
+Terrifying Singer, -1, page(68), needs(ST:HT = 12), taboo(SK:Singing), cat(Mundane)
+Uncongenial, -1, page(68), cat(Mundane)
+Vow, -1, page(68), x( #InputToTag("Specify the character's trivial Vow:", nameext, , "Vow") ), cat(Mundane)
 
 <Physical>
-Acceleration Weakness, -1, page(B165)
-Alcohol Intolerance, -1, page(B165)
-Bowlegged, -1, page(B165)
-Cannot Float, -1, page(B165)
-Distinctive Feature, -1, page(B165)
-Horrible Hangovers, -1, page(B165)
-Minor Handicap, -1, page(B165)
-Nervous Stomach, -1, page(B165)
-Neutered, -1, page(B165)
-Sexless, -1, page(B165)
+Alcohol Intolerance, -1, page(68), cat(Mundane)
+Bowlegged, -1, page(68), cat(Mundane)
+Cannot Float, -1, page(99), cat(Racial)
+Cannot Run Long Distances, -1, page(99), cat(Racial)
+Distinctive Feature, -1, page(68), x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") ), cat(Mundane)
+Horrible Hangovers, -1, page(68), cat(Mundane)
+Minor Handicap, -1, page(68), x( #InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap") ), cat(Mundane)
+Nervous Stomach, -1, page(68), cat(Mundane)
+No Staff, -1, page(68), needs(SK:Magic (Wizardry)), cat(Magical, Mundane)
+Short Lifespan, -1, page(99), cat(Racial)
+Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons)), cat(Lycanthropic, Racial)
+Sunburns Easily, -1, page(99), cat(Racial)
+Weak Spot (CHECK PREREQUISITE WORKS RIGHT), -1, page(99), needs(AD:Damage Resistance 2), cat(Racial)
 
 ************************************************************************************************************************
 [SKILLS]
@@ -3368,479 +3341,248 @@ _New Skill, %typelist%, page(B175), cat(_General, _New Skills),
 	#edit _
 	), noresync(yes), parryat(%parryaliaslist%), blockat(%blockaliaslist%)
 
+<Academic>
+Astronomy, IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
+Astrozoology, IQ/H, default(IQ - 6), page(70), cat(_General, Scholarly)
+History, IQ/H, default(IQ - 6), page(70), cat(_General, Scholarly),
+	x(#InputToTag("You must specialize in a period and theme, period and region, small nation, etc.:", nameext, , "History"))
+Literature, IQ/H, default(IQ - 6), page(70), cat(_General, Scholarly)
+Mathematics (Applied), IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
+Mathematics (Pure), IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
+Metallurgy, IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
+Natural Philosophy, IQ/H, tl(0-5), default(IQ - 6), page(71), cat(_General, Scholarly)
+Philosophy, IQ/H, default(IQ - 6), page(71), cat(_General, Scholarly),
+	x(#InputToTag("You must specialize in a particular school of philosophy:", nameext, , "Philosophy"))
+
 <Animal>
-Animal Handling, IQ/A, default(IQ - 5), page(B175), cat(_General, Animal),
+Animal Handling, IQ/A, default(IQ - 5), page(71), cat(_General, Animal),
 	x(#InputToTag("You must specialize in a category of animals:", nameext, , "Animal Handling"))
-
-Animal Handling (Big Cats), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
-Animal Handling (Dogs), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
-Animal Handling (Equines), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
-Animal Handling (Raptors), IQ/A, default(IQ - 5), page(B175), cat(_General, Animal)
-Falconry, IQ/A, default(IQ - 5, "SK:Animal Handling (Raptors)" - 3), page(B194), cat(_General, Animal)
-Mimicry (Animal Sounds), IQ/H, default(IQ - 6, SK:Naturalist - 6, "SK:Mimicry (Bird Calls)" - 6), page(B210), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
-Mimicry (Bird Calls), IQ/H, default(IQ - 6, SK:Naturalist - 6, "SK:Mimicry (Animal Sounds)" - 6), page(B210), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
-Mount, DX/A, default(DX - 5), page(B210), cat(_General, Animal, Athletic)
-
-Naturalist, IQ/H, default(IQ - 6, SK:Biology - 3, SK:Naturalist - 4), page(B211), cat(_General, Animal, Natural Sciences, Outdoor/Exploration, Plant),
-	x(#InputToTag("You must specialize by planet:", nameext, "Earth", "Naturalist"))
-
-Packing, IQ/A, default(IQ - 5, "SK:Animal Handling (Equines)" - 5), page(B212), cat(_General, Animal)
-
-Riding, DX/A, default(DX - 5, SK:Riding - 10), page(B217), cat(_General, Animal),
-	x(#InputToTag("You must specialize by riding beast:", nameext, "Equines", "Riding"))
-Riding ([Mount]), DX/A, default(DX - 5, "SK:Animal Handling ([Mount])" - 3, SK:Riding - 10), page(B217), cat(_General, Animal),
-	x(#InputReplace("You must specialize by riding beast:", "[Mount]", "Equines", "Riding"))
-
-Teamster, IQ/A, default(IQ - 5, SK:Animal Handling - 4, SK:Riding - 2, SK:Teamster - 3), page(B225), cat(_General, Animal, Vehicle),
+Falconry, IQ/A, default(IQ - 5), page(71), cat(_General, Animal)
+Mimicry (Animal Sounds), IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
+Mimicry (Bird Calls), IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
+Mount, DX/A, default(DX - 5), page(78), cat(_General, Animal, Athletic)
+Naturalist, IQ/H, default(IQ - 6), page(79), cat(_General, Animal, Outdoor/Exploration, Plant)
+Packing, IQ/A, default(IQ - 5), page(80), cat(_General, Animal, Professional)
+Riding, DX/A, default(DX - 5), page(81), cat(_General, Animal),
+	x(#InputToTag("You must specialize by riding beast type:", nameext, "Equines", "Riding"))
+Teamster, IQ/A, default(IQ - 5), page(83), cat(_General, Animal, Vehicle),
 	x(#InputToTag("You must specialize by animal type:", nameext, "Equines", "Teamster"))
+Veterinary, IQ/H, tl(0-5), page(77), cat(_General, Animal, Medical)
 
-Veterinary, IQ/H, tl(0-12), default(SK:Animal Handling - 6, SK:Physician - 5, SK:Surgery - 5), page(B228), cat(_General, Animal, Medical)
-
-<Arts/Entertainment>
-Artist, IQ/H, default(IQ - 6), page(B179), cat(_General, Arts/Entertainment),
+<Artistic>
+Artist, IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Entertainment),
 	x(#InputToTag("You must specialize in an art form:", nameext, , "Artist"))
-
-Artist (Body Art), IQ/H, default(IQ - 6, "SK:Artist (Calligraphy)" - 4, "SK:Artist (Drawing)" - 4, "SK:Artist (Illumination)" - 4, SK:Artist - 6, "SK:Artist (Painting)" - 4), page(B179), cat(_General, Arts/Entertainment)
-Artist (Calligraphy), IQ/H, default(IQ - 6, "SK:Artist (Body Art)" - 4, "SK:Artist (Drawing)" - 2, "SK:Artist (Illumination)" - 2, "SK:Artist (Painting)" - 2, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Drawing), IQ/H, default(IQ - 6, "SK:Artist (Body Art)" - 4, "SK:Artist (Calligraphy)" - 2, "SK:Artist (Illumination)" - 2, "SK:Artist (Painting)" - 2, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Illumination), IQ/H, default(IQ - 6, "SK:Artist (Body Art)" - 4, "SK:Artist (Calligraphy)" - 2, "SK:Artist (Drawing)" - 2, "SK:Artist (Painting)" - 2, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Illusion), IQ/H, default(IQ - 6, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Interior Decorating), IQ/H, default(IQ - 6, SK:Architecture - 3, "SK:Artist (Scene Design)" - 4, "SK:Artist (Woodworking)" - 4, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Painting), IQ/H, default(IQ - 6, "SK:Artist (Body Art)" - 4, "SK:Artist (Calligraphy)" - 2, "SK:Artist (Drawing)" - 2, "SK:Artist (Illumination)" - 2, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Pottery), IQ/H, default(IQ - 6, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment, Craft)
-Artist (Scene Design), IQ/H, default(IQ - 6, SK:Architecture - 3, "SK:Artist (Interior Decorating)" - 4, "SK:Artist (Woodworking)" - 4, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment)
-Artist (Sculpting), IQ/H, default(IQ - 6, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment, Craft)
-Artist (Woodworking), IQ/H, default(IQ - 6, SK:Carpentry - 3, "SK:Artist (Interior Decorating)" - 4, "SK:Artist (Scene Design)" - 4, SK:Artist - 6), page(B179), cat(_General, Arts/Entertainment, Craft)
-
-Connoisseur, IQ/A, default(IQ - 5), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social),
-	x(#InputToTag("Specify the required specialty:", nameext, , "Connoisseur"))
-   
-Connoisseur (Dance), IQ/A, default(IQ - 5, SK:Dancing - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
-Connoisseur (Literature), IQ/A, default(IQ - 5, SK:Literature - 3, SK:Poetry - 3, SK:Writing - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
-Connoisseur (Music), IQ/A, default(IQ - 5, "SK:Group Performance (Conducting)" - 3, SK:Musical Composition - 3, SK:Musical Instrument - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
-Connoisseur (Visual Arts), IQ/A, default(IQ - 5, SK:Artist - 3), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
-Connoisseur (Wine), IQ/A, default(IQ - 5), page(B185), cat(_General, Arts/Entertainment, Knowledge, Social)
-Current Affairs (High Culture), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Arts/Entertainment, Everyman, Knowledge, Social)
-Current Affairs (Popular Culture), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Arts/Entertainment, Everyman, Knowledge, Social)
-Dancing, DX/A, default(DX - 5), page(B187), cat(_General, Arts/Entertainment)
-Electronics Operation (Media), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Repair (Media)" - 5, "SK:Engineer (Electronics)" - 5, SK:Electronics Operation - 4), page(B189), cat(_General, Arts/Entertainment, Technical)
-Fire Eating, DX/A, page(B195), cat(_General, Arts/Entertainment)
-Group Performance (Choreography), IQ/A, default(IQ - 5, SK:Dancing - 2), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), SK:Dancing), page(B198), cat(_General, Arts/Entertainment)
-Group Performance (Conducting), IQ/A, default(IQ - 5, SK:Musical Instrument - 2, SK:Singing - 2), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), (2 GR:Musical Instrument | SK:Singing, 1 GR:Musical Instrument | 2 GR:Conducting)), page(B198), cat(_General, Arts/Entertainment)
-Group Performance (Directing), IQ/A, default(IQ - 5, SK:Performance - 5), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), SK:Performance), page(B198), cat(_General, Arts/Entertainment)
-Group Performance (Fight Choreography), IQ/A, default(IQ - 5, SK:Stage Combat - 2), needs((SK:Diplomacy | SK:Intimidation | SK:Leadership), SK:Stage Combat), page(B198), cat(_General, Arts/Entertainment)
-Makeup, IQ/E, tl(0-12), default(IQ - 4, SK:Disguise - 2), page(B206), cat(_General, Arts/Entertainment)
-Mimicry (Speech), IQ/H, default(IQ - 6, SK:Acting - 6, SK:Linguistics - 4), page(B210), cat(_General, Arts/Entertainment)
-Musical Composition, IQ/H, default(SK:Musical Instrument - 2, SK:Poetry - 2), page(B210), cat(_General, Arts/Entertainment)
-
-Musical Instrument, IQ/H, page(B211), cat(_General, Arts/Entertainment),
+Artist (Calligraphy), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Craft, Entertainment)
+Artist (Drawing), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Entertainment)
+Artist (Illumination), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Craft, Entertainment)
+Artist (Interior Decorating), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Craft, Entertainment, Social)
+Artist (Painting), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Craft, Entertainment)
+Artist (Pottery), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Entertainment, Craft)
+Artist (Sculpting), IQ/H, default(IQ - 6), page(71), cat(_General, Artistic, Entertainment, Craft)
+Choreography, IQ/A, default(IQ - 5), page(), cat(_General, Entertainment)
+Conducting, IQ/A, default(IQ - 5), page(71), cat(_General, Entertainment)
+Dancing, DX/A, default(DX - 5), page(71), cat(_General, Entertainment, Social)
+Directing, IQ/A, default(IQ - 5), page(71), cat(_General, Entertainment)
+Jeweller, IQ/H, tl(1-5), default(IQ - 6), page(71), cat(_General, Craft)
+Musical Composition, IQ/H, page(71), cat(_General, Artistic, Entertainment)
+Musical Instrument, IQ/H, page(71), cat(_General, Artistic, Entertainment),
 	x(#InputToTag("You must specialize in a particular instrument:", nameext, , "Musical Instrument"))
+Performance, IQ/A, default(IQ - 5), page(71), cat(_General, Artistic, Entertainment)
+Poetry, IQ/A, default(IQ - 5), page(71), cat(_General, Artistic, Entertainment)
+Singing, HT/E, default(HT - 4), page(71), cat(_General, Entertainment, Social)
 
-Performance, IQ/A, default(IQ - 5, SK:Acting - 2, SK:Public Speaking - 2), page(B212), cat(_General, Arts/Entertainment)
-Photography, IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Operation (Media)" - 5), page(B213), cat(_General, Arts/Entertainment, Spy, Technical)
-Poetry, IQ/A, default(IQ - 5, SK:Writing - 5), page(B214), cat(_General, Arts/Entertainment)
-Singing, HT/E, default(HT - 4), page(B220), cat(_General, Arts/Entertainment)
-Sleight of Hand, DX/H, default(SK:Filch - 5), page(B221), cat(_General, Arts/Entertainment, Criminal/Street)
+<Athletic>
+Acrobatics, DX/H, default(DX - 6, SK:Aerobatics - 4, SK:Aquabatics - 4), page(B174), cat(_General, Movement)
+Aerobatics, DX/H, default(DX - 6, SK:Acrobatics - 4, SK:Aquabatics - 4), page(B174), cat(_General, Movement)
+
+
+Bicycling, DX/E, default(DX - 4, "SK:Driving (Motorcycle)" - 4), page(B180), cat(_General, Vehicle)
+Body Sense, DX/H, default(DX - 6, SK:Acrobatics - 3), page(B181), cat(_General, Athletic)
+Breath Control, HT/H, page(B182), cat(_General, Athletic)
+
+
+Climbing, DX/A, default(DX - 5), page(B183), cat(_General, Movement, Criminal/Street, Outdoor/Exploration)
+
+
+Flight, HT/A, default(HT - 5), needs(AD:Flight), page(B195), cat(_General, Athletic)
+
+
+Hiking, HT/A, default(HT - 5), page(B200), cat(_General, Movement, Outdoor/Exploration)
+Jumping, DX/E, page(B203), cat(_General, Movement)
+
+
+Lifting, HT/A, page(B205), cat(_General, Athletic)
+
+
+Running, HT/A, default(HT - 5), page(B218), cat(_General, Movement)
+
+
+Skating, HT/H, default(HT - 6), page(B220), cat(_General, Athletic, Outdoor/Exploration)
+Skiing, HT/H, default(HT - 6), page(B221), cat(_General, Athletic, Outdoor/Exploration)
+
+
+Sports, DX/A, default(DX - 5), page(74), cat(_General, Athletic, Game/Sport),
+	x(#InputToTag("Please specify a particular sport:", nameext, , "Sports"))
+Swimming, HT/E, default(HT - 4), page(B224), cat(_General, Movement, Outdoor/Exploration)
+Throwing, DX/A, default(DX - 3), page(78), cat(_General, Athletic, Missile Weapons, Ranged Combat)
+
+<Business>
+Accounting, IQ/H, default(IQ - 6), page(B174), cat(_General, Business)
+Administration, IQ/A, default(IQ - 5), page(71), cat(_General, Business, Social)
+Current Affairs (Business), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Business, Everyman, Social)
+Diplomacy, IQ/H, default(IQ - 6, SK:Politics - 6), page(B187), cat(_General, Business, Police/Watch, Social), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
+Economics, IQ/H, default(IQ - 6, SK:Finance - 3, SK:Market Analysis - 5, SK:Merchant - 6), page(B189), cat(_General, Business, Social Sciences/Humanities)
+Finance, IQ/H, default(SK:Accounting - 4, SK:Economics - 3, SK:Merchant - 6), page(B195), cat(_General, Business)
+
+Law, IQ/H, default(IQ - 6), page(B204), cat(_General, Business, Police/Watch, Social Sciences/Humanities),
+	x(#InputToTag("You must specialize in the laws of a particular political region, or in a specialized body of law not associated with a political region:", nameext, "local", "Law"))
+
+Market Analysis, IQ/H, default(IQ - 6, SK:Economics - 5, SK:Merchant - 4), page(B207), cat(_General, Business)
+Merchant, IQ/A, default(IQ - 5, SK:Finance - 6, SK:Market Analysis - 4), page(B209), cat(_General, Business, Social), conditional(=@if(me::level >= 20 then 2 else @if(me::basepoints > 0 then 1 else 0)) to ST:Reaction when "buying or selling")
+Politics, IQ/A, default(IQ - 5, SK:Diplomacy - 5), page(B215), cat(_General, Business, Social)
+Propaganda, IQ/A, tl(0-5), default(IQ - 5, SK:Merchant - 5, SK:Psychology - 4), page(B216), cat(_General, Business, Military, Social)
+Public Speaking, IQ/A, default(IQ - 5), page(B216), cat(_General, Business, Scholarly, Social)
+Savoir-Faire (High Society), IQ/E, default(IQ - 4, "SK:Savoir-Faire (Servant)" - 2), page(B218), cat(_General, Business, Knowledge, Social)
+
+<Craft>
+Armoury (Body Armor), IQ/A, tl(0-5), page(80), cat(_General, Craft, Military, Repair), default(IQ - 5)
+Armoury (Heavy Weapons), IQ/A, tl(0-5), page(80), cat(_General, Craft, Military, Repair), default(IQ - 5)
+Armoury (Melee Weapons), IQ/A, tl(0-5), page(80), cat(_General, Craft, Military, Repair), default(IQ - 5)
+Armoury (Missile Weapons), IQ/A, tl(0-5), page(80), cat(_General, Craft, Military, Repair), default(IQ - 5)
+Carpentry, IQ/E, default(IQ - 4), page(B183), cat(_General, Craft)
+Explosives (Fireworks), IQ/A, tl(0-5), default(IQ - 5), page(73), cat(_General, Craft, Technical)
+Leatherworking, IQ/A, default(IQ - 5), page(), cat(_General, Craft, Professional)
+Masonry, IQ/A, default(IQ - 5), page(), cat(_General, Craft, Professional)
+Mechanic ([Type]), IQ/A, tl(0-5), page(80), default(IQ - 5), cat(_General, Craft, Repair), noresync(yes),
+	x( #InputReplace("Choose a type of machinery to fix:", "[Type]", , "Mechanic") )
+Mechanic (%examplelist%), IQ/A, tl(0-5), page(80), default(IQ - 5), cat(_General, Craft, Repair),
+	x(#ChoiceList(_
+			name(example),
+			title(Mechanic: Choose a Mechanic Specialisation),
+			text(Choose a Mechanic Specialisation from the list of examples provided:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+				"Animal-Drawn Vehicle",
+				"Clacks",
+				"Clockwork",
+				"Low-Tech Machines",
+				"Steam Engines" _
+				)_
+			)_
+	), noresync(yes)
+Sewing, DX/E, tl(0-5), default(DX - 4), page(81), cat(_General, Craft, Everyman)
+Smith (Blacksmith), IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Craft, Professional)
+Smith (Coppersmith), IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Craft, Professional)
+Smith (Tinsmith), IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Craft, Professional)
+
+<Criminal/Street>
+Carousing, HT/E, default(HT - 4), page(72), cat(_General, Criminal/Street, Social)
+Disguise, IQ/A, tl(0-5), default(IQ - 5), page(72), cat(_General, Criminal/Street),
+	x(#InputToTag("You must specialize by species:", nameext, "Human", "Disguise"))
+Escape, DX/H, default(DX - 6), page(73), cat(_General, Criminal/Street)
+
+Fast-Talk, IQ/A, default(IQ - 5), page(B195), cat(_General, Criminal/Street, Social), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
+Gambling, IQ/A, default(IQ - 5), page(73), cat(_General, Criminal/Street, Game/Sport, Social)
+Holdout, IQ/A, default(IQ - 5, SK:Sleight of Hand - 3), page(B200), cat(_General, Criminal/Street)
+Intimidation, Will/A, default(Will - 5), page(B202), cat(_General, Criminal/Street, Police/Watch, Social)
+Lockpicking, IQ/A, tl(0-5), default(IQ - 5), page(B206), cat(_General, Criminal/Street, Police/Watch, Technical)
+Observation, Per/A, default(Per - 5, SK:Shadowing - 5), page(B211), cat(_General, Criminal/Street, Military, Police/Watch)
+Panhandling, IQ/E, default(IQ - 4, "SK:Fast-Talk" - 2, SK:Public Speaking - 3), page(B212), cat(_General, Criminal/Street, Social)
+Pickpocket, DX/H, default(DX - 6, SK:Filch - 5, SK:Sleight of Hand - 4), page(B213), cat(_General, Criminal/Street)
+Poisons, IQ/H, tl(0-5), default(IQ - 6, SK:Chemistry - 5, SK:Pharmacy - 3, SK:Physician - 3), page(B214), cat(_General, Criminal/Street, Medical)
+Savoir-Faire (Mafia), IQ/E, default(IQ - 4), page(B218), cat(_General, Criminal/Street, Knowledge, Social)
+Scrounging, Per/E, default(Per - 4), page(B218), cat(_General, Criminal/Street)
+Shadowing, IQ/A, default(IQ - 5, SK:Observation - 5), page(B219), cat(_General, Criminal/Street, Police/Watch)
+Smuggling, IQ/A, default(IQ - 5), page(B221), cat(_General, Criminal/Street)
+Stealth, DX/A, default(DX - 5, IQ - 5), page(B222), cat(_General, Criminal/Street, Police/Watch)
+Streetwise, IQ/A, default(IQ - 5), page(B223), cat(_General, Criminal/Street, Police/Watch, Social)
+Traps, IQ/A, tl(0-5), default(IQ - 5), page(82), cat(_General, Criminal/Street)
+Urban Survival, Per/A, default(Per - 5), page(B228), cat(_General, Criminal/Street, Police/Watch)
+
+<Design/Invention>
+Architecture, IQ/A, tl(0-5), default(IQ - 5), page(79), cat(_General, Design/Invention, Professional)
+Computer Programming (Magical Computers), IQ/H, page(72), cat(_General, Design/Invention, Occult/Magical, Technical)
+Computer Programming (Stone Circles), IQ/H, page(72), cat(_General, Design/Invention, Occult/Magical, Technical)
+Engineer ([Type]), IQ/H, tl(0-5), page(73), cat(_General, Design/Invention, Technical), noresync(yes),
+	x( #InputReplace("Choose a type of thing to engineer:", "[Type]", , "Engineer") )
+Engineer (%examplelist%), IQ/H, tl(0-5), page(73), cat(_General, Design/Invention, Technical),
+	x(#ChoiceList(_
+			name(example),
+			title(Engineer: Choose an Engineering Specialisation),
+			text(Choose an Engineering Specialisation from the list of examples provided:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+				"Animal-Drawn Vehicles",
+				"Artillery",
+				"Civil",
+				"Clacks",
+				"Bicycles",
+				"Clockwork",
+				"Combat",
+				"Low-Tech Machines",
+				"Magical",
+				"Mining",
+				"Ships",
+				"Steam Engines" _
+				)_
+			)_
+	), noresync(yes)
+
+<Entertainment>
+Current Affairs (High Culture), IQ/E, tl(0-5), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Arts/Entertainment, Everyman, Knowledge, Social)
+Current Affairs (Popular Culture), IQ/E, tl(0-5), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Arts/Entertainment, Everyman, Knowledge, Social)
+Fire Eating, DX/A, page(B195), cat(_General, Arts/Entertainment)
+
+Mimicry (Speech), IQ/H, default(IQ - 6), page(78), cat(_General, Entertainment)
+Photography, IQ/A, default(IQ - 5), page(79), cat(_General, Craft, Entertainment, Technical)
+
+Sleight of Hand, DX/H, page(B221), cat(_General, Arts/Entertainment, Criminal/Street)
 Stage Combat, DX/A, default(SK:Combat Sport - 2, SK:Combat Art - 2, SK:Performance - 3), page(B222), cat(_General, Arts/Entertainment)
 Ventriloquism, IQ/H, page(B228), cat(_General, Arts/Entertainment)
 Writing, IQ/A, default(IQ - 5), page(B228), cat(_General, Arts/Entertainment, Scholarly)
 
-<Athletic>
-Acrobatics, DX/H, default(DX - 6, SK:Aerobatics - 4, SK:Aquabatics - 4), page(B174), cat(_General, Athletic)
-Aerobatics, DX/H, default(DX - 6, SK:Acrobatics - 4, SK:Aquabatics - 4), page(B174), cat(_General, Athletic)
-Aquabatics, DX/H, default(DX - 6, SK:Acrobatics - 4, SK:Aerobatics - 4), needs(SK:Swimming | AD:Amphibious | "DI:No Legs (Aquatic)"), page(B174), cat(_General, Athletic)
-Bicycling, DX/E, default(DX - 4, "SK:Driving (Motorcycle)" - 4), page(B180), cat(_General, Athletic, Vehicle)
-Body Sense, DX/H, default(DX - 6, SK:Acrobatics - 3), page(B181), cat(_General, Athletic)
-Breath Control, HT/H, page(B182), cat(_General, Athletic)
-Climbing, DX/A, default(DX - 5), page(B183), cat(_General, Athletic, Criminal/Street, Outdoor/Exploration)
-Flight, HT/A, default(HT - 5), needs(AD:Flight), page(B195), cat(_General, Athletic)
-Free Fall, DX/A, default(DX - 5, HT - 5), page(B197), cat(_General, Athletic)
-Hiking, HT/A, default(HT - 5), page(B200), cat(_General, Athletic, Outdoor/Exploration)
-Jumping, DX/E, page(B203), cat(_General, Athletic)
-Lifting, HT/A, page(B205), cat(_General, Athletic)
-Parachuting, DX/E, tl(0-12), default(DX - 4), page(B212), cat(_General, Athletic, Military, Technical)
-Running, HT/A, default(HT - 5), page(B218), cat(_General, Athletic)
-Scuba, IQ/A, tl(0-12), default(IQ - 5, SK:Diving Suit - 2), page(B219), cat(_General, Athletic, Military, Outdoor/Exploration, Technical)
-Skating, HT/H, default(HT - 6), page(B220), cat(_General, Athletic, Outdoor/Exploration)
-Skiing, HT/H, default(HT - 6), page(B221), cat(_General, Athletic, Outdoor/Exploration)
-
-Sports, DX/A, default(DX - 5), page(B222), cat(_General, Athletic),
-	x(#InputToTag("Please specify a particular sport here:", nameext, , "Sports"))
-
-Swimming, HT/E, default(HT - 4), page(B224), cat(_General, Athletic, Outdoor/Exploration)
-Throwing, DX/A, default(DX - 3, SK:Dropping - 4), page(B226), cat(_General, Athletic, Combat/Weapons - Ranged Combat)
-
-<Business>
-Accounting, IQ/H, default(IQ - 6, SK:Finance - 4, "SK:Mathematics (Statistics)" - 5, SK:Merchant - 5), page(B174), cat(_General, Business)
-Administration, IQ/A, default(IQ - 5, SK:Merchant - 3), page(B174), cat(_General, Business, Social)
-Current Affairs (Business), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Business, Everyman, Knowledge, Social)
-Diplomacy, IQ/H, default(IQ - 6, SK:Politics - 6), page(B187), cat(_General, Business, Police, Social), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
-Economics, IQ/H, default(IQ - 6, SK:Finance - 3, SK:Market Analysis - 5, SK:Merchant - 6), page(B189), cat(_General, Business, Social Sciences/Humanities)
-Finance, IQ/H, default(SK:Accounting - 4, SK:Economics - 3, SK:Merchant - 6), page(B195), cat(_General, Business)
-
-Law, IQ/H, default(IQ - 6), page(B204), cat(_General, Business, Police, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in the laws of a particular political region, or in a specialized body of law not associated with a political region:", nameext, "local", "Law"))
-
-Market Analysis, IQ/H, default(IQ - 6, SK:Economics - 5, SK:Merchant - 4), page(B207), cat(_General, Business)
-Mathematics (Statistics), IQ/H, tl(0-12), default(IQ - 6, SK:Mathematics - 5), page(B207), cat(_General, Business, Natural Sciences)
-Merchant, IQ/A, default(IQ - 5, SK:Finance - 6, SK:Market Analysis - 4), page(B209), cat(_General, Business, Social), conditional(=@if(me::level >= 20 then 2 else @if(me::basepoints > 0 then 1 else 0)) to ST:Reaction when "buying or selling")
-Politics, IQ/A, default(IQ - 5, SK:Diplomacy - 5), page(B215), cat(_General, Business, Social)
-Propaganda, IQ/A, tl(0-12), default(IQ - 5, SK:Merchant - 5, SK:Psychology - 4), page(B216), cat(_General, Business, Military, Social, Spy)
-Public Speaking, IQ/A, default(IQ - 5, SK:Public Speaking, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Debate), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Oratory), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Rhetoric), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Punning), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Public Speaking (Storytelling), IQ/E, basedon(Public Speaking), optspec(1), default(IQ - 5, SK:Acting - 5, SK:Performance - 2, SK:Politics - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Savoir-Faire (High Society), IQ/E, default(IQ - 4, "SK:Savoir-Faire (Servant)" - 2), page(B218), cat(_General, Business, Knowledge, Social)
-
-<Combat/Weapons - Melee Combat>
-Axe/Mace, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Broadsword, DX/A, default(DX - 5, SK:Shortsword - 2), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-
-Fast-Draw, DX/E, page(B194), cat(_General, Combat/Weapons - Melee Combat, Combat/Weapons - Ranged Combat),
-	x(#InputToTag("You must specialize in a type of Weapon:", nameext, , "Fast-Draw"))
-
-Fast-Draw (Knife), DX/E, page(B194), cat(_General, Combat/Weapons - Melee Combat, Combat/Weapons - Ranged Combat), default(SK:Sword!)
-Fast-Draw (Sword), DX/E, page(B194), cat(_General, Combat/Weapons - Melee Combat)
-Fast-Draw (Two-Handed Sword), DX/E, page(B194), cat(_General, Combat/Weapons - Melee Combat)
-Flail, DX/H, default(DX - 6), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Knife, DX/E, default(DX - 4), page(B208), parryat(@int(%level/2)+3-1), cat(_General, Combat/Weapons - Melee Combat)
-Polearm, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Rapier, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Shield, DX/E, default(DX - 4), page(81), blockat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Shortsword, DX/A, default(DX - 5, SK:Broadsword - 2), page(B209), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Smallsword, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Spear, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Staff, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3+2), cat(_General, Combat/Weapons - Melee Combat)
-Two-Handed Axe/Mace, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Two-Handed Sword, DX/A, default(DX - 5), page(B209), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-
-Judo, DX/H, default(SK:Judo Art - 3, SK:Judo Sport - 3), page(B203), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-Wrestling, DX/A, default(SK:Wrestling Art - 3, SK:Wrestling Sport - 3), page(B228), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat)
-
-Boxing, DX/A, page(B182), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat), mods(Punch/Kick),
-	newmode(Punch, damage(_
-				thr-1 + _
-					@if(me::level = ST:DX+1 then @basethdice(ST:Punch) else @if(me::level > ST:DX+1 then 2 * @basethdice(ST:Punch) else 0)) + _
-					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) _
-					), damtype(_
-						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
-					), reach(C), parry(0), skillused(SK:Boxing),
-				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach)_
-		),
-	description(Notes: Calculated damage takes into account bonuses from Claws and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" to apply the +1 damage to Punch.),
-	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$)
-//	replacetags(in "ST:Punch" with "hide(yes), reach()"),
-
-Brawling, DX/E, page(B182), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat), mods(Punch/Kick), default(SK:Brawling Art - 3, SK:Brawling Sport - 3),
-	newmode(Punch, damage(_
-				thr-1 + _
-					@if(me::level > ST:DX+1 then @basethdice(ST:Punch) else 0) + _
-					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) _
-					), damtype(_
-						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
-					), reach(C), parry(0), skillused(SK:Brawling),
-				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach)_
-		),
-	newmode(Bite, damage(_
-				thr-1 + _
-				@if(me::level > ST:DX+1 then @basethdice(ST:Bite) else 0) + _
-				-@if("DI:Weak Bite::level" = 1 then 2 * @basethdice(ST:Bite) else 0)_
-				), damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE $if("AD:Vampiric Bite::level" = 1 THEN "cut" ELSE "cr"))))), reach(C), parry(No), skillused(SK:Brawling),
-				damagebasedon(ST:Bite), reachbasedon(ST:Neck Reach)_
-		),
-	newmode(Kick, damage(_
-				thr+ _
-					@if(me::level > ST:DX+1 then @basethdice(ST:Kick) else 0) + _
-					@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
-					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0)))_
-				), damtype(_
-					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
-				), reach(C,1), parry(No), skillused(SK:Brawling-2, SK:Kicking (Brawling)),
-				damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach) _
-		),
-	description(Notes: Calculated damage takes into account bonuses from Teeth, Weak Bite, Claws, and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" or "Has Boots" to apply the +1 damage to Punch or Kick, as appropriate.),
-	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$, =$if(me::level >= ST:DX THEN nobase) to ST:Kick::reach$, =$if(me::level >= ST:DX THEN nobase) to ST:Bite::reach$)
-//	replacetags(in "ST:Punch" with "hide(yes), reach()", in "ST:Kick" with "hide(yes), reach()", in "ST:Bite" with "hide(yes), reach()"),
-
-Karate, DX/H, default(SK:Karate Art - 3, SK:Karate Sport - 3), page(B203), parryat(@int(%level/2)+3), cat(_General, Combat/Weapons - Melee Combat), mods(Punch/Kick),
-	newmode(Punch, damage(_
-				thr-1 + _
-					@if(me::level = ST:DX then @basethdice(ST:Punch) else @if(me::level > ST:DX then 2 * @basethdice(ST:Punch) else 0)) + _
-					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) _
-					), damtype(_
-						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
-					), reach(C), parry(0), skillused(SK:Karate),
-				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach) _
-		),
-	newmode(Kick, damage(_
-				thr+ _ 
-					@if(me::level = ST:DX then @basethdice(ST:Kick) else @if(me::level > ST:DX then 2 * @basethdice(ST:Kick) else 0)) + _
-					@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
-					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0)))_
-				), damtype(_
-					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
-				), reach(C,1), parry(No), skillused(SK:Karate-2, SK:Kicking (Karate)),
-				damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach) _
-			),
-	description(Notes: Calculated damage takes into account bonuses from Claws and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" or "Has Boots" to apply the +1 damage to Punch or Kick, as appropriate.),
-	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$, =$if(me::level >= ST:DX THEN nobase) to ST:Kick::reach$)
-//	replacetags(in "ST:Punch" with "hide(yes), reach()", in "ST:Kick" with "hide(yes), reach()"),
-
-<Combat/Weapons - Ranged Combat>
-Artillery (Beams), IQ/A, tl(0-12), default(IQ - 5), page(B178), cat(_General, Combat/Weapons - Ranged Combat)
-Artillery (Bombs), IQ/A, tl(0-12), default(IQ - 5), page(B178), cat(_General, Combat/Weapons - Ranged Combat)
-Artillery (Cannon), IQ/A, tl(0-12), default(IQ - 5), page(B178), cat(_General, Combat/Weapons - Ranged Combat)
-Artillery (Catapult), IQ/A, tl(0-12), default(IQ - 5), page(B178), cat(_General, Combat/Weapons - Ranged Combat)
-Artillery (Guided Missile), IQ/A, tl(0-12), default(IQ - 5), page(B178), cat(_General, Combat/Weapons - Ranged Combat)
-Artillery (Torpedoes), IQ/A, tl(0-12), default(IQ - 5), page(B178), cat(_General, Combat/Weapons - Ranged Combat)
-Beam Weapons (Pistol), DX/E, tl(0-12), default(DX - 4, SK:Beam Weapons - 4, "SK:Guns (Pistol)" - 4, SK:Gun!), page(B179), cat(_General, Combat/Weapons - Ranged Combat)
-Beam Weapons (Projector), DX/E, tl(0-12), default(DX - 4, SK:Beam Weapons - 4, SK:Gun!), page(B179), cat(_General, Combat/Weapons - Ranged Combat)
-Beam Weapons (Rifle), DX/E, tl(0-12), default(DX - 4, SK:Beam Weapons - 4, "SK:Guns (Rifle)" - 4, SK:Gun!), page(B179), cat(_General, Combat/Weapons - Ranged Combat)
-Blowpipe, DX/H, default(DX - 6), page(B180), cat(_General, Combat/Weapons - Ranged Combat)
-Bolas, DX/A, default(SK:Bolas Art - 3, SK:Bolas Sport - 3), page(B181), cat(_General, Combat/Weapons - Ranged Combat)
-Bow, DX/A, default(DX - 5, SK:Bow Art - 3, SK:Bow Sport - 3), page(B182), cat(_General, Combat/Weapons - Ranged Combat)
-Crossbow, DX/E, default(DX - 4, SK:Crossbow Art - 3, SK:Crossbow Sport - 3), page(B186), cat(_General, Combat/Weapons - Ranged Combat)
-Dropping, DX/A, default(DX - 3, SK:Throwing - 4), page(B189), cat(_General, Combat/Weapons - Ranged Combat)
-Fast-Draw (Arrow), DX/E, page(B194), cat(_General, Combat/Weapons - Ranged Combat)
-Fast-Draw (Ammo), DX/E, tl(4-12), page(B194), cat(_General, Combat/Weapons - Ranged Combat)
-Fast-Draw (Long Arm), DX/E, page(B194), cat(_General, Combat/Weapons - Ranged Combat)
-Fast-Draw (Pistol), DX/E, page(B194), cat(_General, Combat/Weapons - Ranged Combat)
-Gunner (Beams), DX/E, tl(0-12), default(DX - 4, SK:Gunner - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Gunner (Cannon), DX/E, tl(0-12), default(DX - 4, SK:Gunner - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Gunner (Catapult), DX/E, tl(0-12), default(DX - 4, SK:Gunner - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Gunner (Machine Gun), DX/E, tl(0-12), default(DX - 4, SK:Gunner - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Gunner (Rockets), DX/E, tl(0-12), default(DX - 4, SK:Gunner - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Grenade Launcher), DX/E, tl(0-12), default(DX - 4, SK:Guns - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Gyroc), DX/E, tl(0-12), default(DX - 4, SK:Guns - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Light Anti-Armor Weapon), DX/E, tl(0-12), default(DX - 4, SK:Guns - 4, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Light Machine Gun), DX/E, tl(0-12), default(DX - 4, "SK:Guns (Grenade Launcher)" - 4, "SK:Guns (Gyroc)" - 4, "SK:Guns (Light Anti-Armor Weapon)" - 4, "SK:Guns (Light Machine Gun)" - 2, "SK:Guns (Musket)" - 2, "SK:Guns (Pistol)" - 2, "SK:Guns (Rifle)" - 2, "SK:Guns (Shotgun)" - 2, "SK:Guns (Submachine Gun)" - 2, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Musket), DX/E, tl(0-12), default(DX - 4, "SK:Guns (Grenade Launcher)" - 4, "SK:Guns (Gyroc)" - 4, "SK:Guns (Light Anti-Armor Weapon)" - 4, "SK:Guns (Light Machine Gun)" - 2, "SK:Guns (Musket)" - 2, "SK:Guns (Pistol)" - 2, "SK:Guns (Rifle)" - 2, "SK:Guns (Shotgun)" - 2, "SK:Guns (Submachine Gun)" - 2, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Pistol), DX/E, tl(0-12), default(DX - 4, "SK:Guns (Grenade Launcher)" - 4, "SK:Guns (Gyroc)" - 4, "SK:Guns (Light Anti-Armor Weapon)" - 4, "SK:Guns (Light Machine Gun)" - 2, "SK:Guns (Musket)" - 2, "SK:Guns (Pistol)" - 2, "SK:Guns (Rifle)" - 2, "SK:Guns (Shotgun)" - 2, "SK:Guns (Submachine Gun)" - 2, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Rifle), DX/E, tl(0-12), default(DX - 4, "SK:Guns (Grenade Launcher)" - 4, "SK:Guns (Gyroc)" - 4, "SK:Guns (Light Anti-Armor Weapon)" - 4, "SK:Guns (Light Machine Gun)" - 2, "SK:Guns (Musket)" - 2, "SK:Guns (Pistol)" - 2, "SK:Guns (Rifle)" - 2, "SK:Guns (Shotgun)" - 2, "SK:Guns (Submachine Gun)" - 2, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Shotgun), DX/E, tl(0-12), default(DX - 4, "SK:Guns (Grenade Launcher)" - 4, "SK:Guns (Gyroc)" - 4, "SK:Guns (Light Anti-Armor Weapon)" - 4, "SK:Guns (Light Machine Gun)" - 2, "SK:Guns (Musket)" - 2, "SK:Guns (Pistol)" - 2, "SK:Guns (Rifle)" - 2, "SK:Guns (Shotgun)" - 2, "SK:Guns (Submachine Gun)" - 2, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Guns (Submachine Gun), DX/E, tl(0-12), default(DX - 4, "SK:Guns (Grenade Launcher)" - 4, "SK:Guns (Gyroc)" - 4, "SK:Guns (Light Anti-Armor Weapon)" - 4, "SK:Guns (Light Machine Gun)" - 2, "SK:Guns (Musket)" - 2, "SK:Guns (Pistol)" - 2, "SK:Guns (Rifle)" - 2, "SK:Guns (Shotgun)" - 2, "SK:Guns (Submachine Gun)" - 2, SK:Gun!), page(B198), cat(_General, Combat/Weapons - Ranged Combat)
-Innate Attack (Beam), DX/E, default(DX - 4, SK:Innate Attack - 2), page(B201), cat(_General, Combat/Weapons - Ranged Combat), parryat(@int((ST:Power Parry Beam + %level)/2)+3)
-Innate Attack (Breath), DX/E, default(DX - 4, SK:Innate Attack - 2), page(B201), cat(_General, Combat/Weapons - Ranged Combat), parryat(@int((ST:Power Parry Breath + %level)/2)+3)
-Innate Attack (Gaze), DX/E, default(DX - 4, SK:Innate Attack - 2), page(B201), cat(_General, Combat/Weapons - Ranged Combat), parryat(@int((ST:Power Parry Gaze + %level)/2)+3)
-Innate Attack (Projectile), DX/E, default(DX - 4, SK:Innate Attack - 2), page(B201), cat(_General, Combat/Weapons - Ranged Combat), parryat(@int((ST:Power Parry Projectile + %level)/2)+3)
-Lasso, DX/A, default(SK:Lasso Art - 3, SK:Lasso Sport - 3), page(B204), cat(_General, Combat/Weapons - Ranged Combat)
-Liquid Projector (Flamethrower), DX/E, tl(0-12), default(DX - 4, SK:Liquid Projector - 4, SK:Gun!), page(B205), cat(_General, Combat/Weapons - Ranged Combat)
-Liquid Projector (Sprayer), DX/E, tl(0-12), default(DX - 4, SK:Liquid Projector - 4, SK:Gun!), page(B205), cat(_General, Combat/Weapons - Ranged Combat)
-Liquid Projector (Squirt Gun), DX/E, tl(0-12), default(DX - 4, SK:Liquid Projector - 4, SK:Gun!), page(B205), cat(_General, Combat/Weapons - Ranged Combat)
-Liquid Projector (Water Cannon), DX/E, tl(0-12), default(DX - 4, SK:Liquid Projector - 4, SK:Gun!), page(B205), cat(_General, Combat/Weapons - Ranged Combat)
-Net, DX/H, default(SK:Cloak - 5), page(B211), cat(_General, Combat/Weapons - Ranged Combat)
-Sling, DX/H, default(DX - 6), page(B221), cat(_General, Combat/Weapons - Ranged Combat)
-Spear Thrower, DX/A, default(DX - 5, "SK:Thrown Weapon (Spear)" - 4), page(B222), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Axe/Mace), DX/E, default(DX - 4), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Dart), DX/E, default(DX - 4, SK:Throwing - 2), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Harpoon), DX/E, default(DX - 4, "SK:Thrown Weapon (Spear)" - 2), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Knife), DX/E, default(DX - 4), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Shuriken), DX/E, default(DX - 4, SK:Throwing - 2), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Spear), DX/E, default(DX - 4, SK:Spear Thrower - 4, "SK:Thrown Weapon (Harpoon)" - 2), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-Thrown Weapon (Stick), DX/E, default(DX - 4), page(B226), cat(_General, Combat/Weapons - Ranged Combat)
-
-<Craft>
-Carpentry, IQ/E, default(IQ - 4), page(B183), cat(_General, Craft)
-Jeweler, IQ/H, tl(0-12), default(IQ - 6, "SK:Smith (Copper)" - 4, "SK:Smith (Lead and Tin)" - 4), page(B203), cat(_General, Craft)
-Leatherworking, DX/E, default(DX - 4), page(B205), cat(_General, Craft)
-Masonry, IQ/E, default(IQ - 4), page(B207), cat(_General, Craft)
-Sewing, DX/E, tl(0-12), default(DX - 4), page(B219), cat(_General, Craft, Everyman)
-Smith (Copper), IQ/A, tl(0-12), default(IQ - 5, SK:Jeweler - 4, SK:Smith - 4), page(B221), cat(_General, Craft)
-Smith (Iron), IQ/A, tl(0-12), default(IQ - 5, SK:Smith - 4), page(B221), cat(_General, Craft)
-Smith (Lead and Tin), IQ/A, tl(0-12), default(IQ - 5, SK:Jeweler - 4, SK:Smith - 4), page(B221), cat(_General, Craft)
-
-<Criminal/Street>
-Carousing, HT/E, default(HT - 4), page(B183), cat(_General, Criminal/Street, Social)
-Computer Hacking, IQ/VH, tl(0-12), needs(SK:Computer Programming = 1pts), page(B184), cat(_General, Criminal/Street, Spy)
-Counterfeiting, IQ/H, tl(0-12), default(IQ - 6, SK:Forgery - 2), page(B185), cat(_General, Criminal/Street)
-
-Disguise, IQ/A, tl(0-12), default(IQ - 5, SK:Makeup - 3), page(B187), cat(_General, Criminal/Street, Spy),
-	x(#InputToTag("You must specialize by species:", nameext, "Human", "Disguise"))
-
-Electronics Operation (Security), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Repair (Security)" - 5, "SK:Engineer (Electronics)" - 5, SK:Electronics Operation - 4), page(B189), cat(_General, Criminal/Street, Spy, Technical)
-Escape, DX/H, default(DX - 6), page(B192), cat(_General, Criminal/Street, Spy)
-Explosives (Demolition), IQ/A, tl(0-12), default(IQ - 5, "SK:Engineer (Combat)" - 3, "SK:Engineer (Mining)" - 3, "SK:Explosives (Underwater Demolition)" - 2, SK:Explosives - 4), page(B194), cat(_General, Criminal/Street, Military, Technical)
-Fast-Talk, IQ/A, default(IQ - 5, SK:Acting - 5), page(B195), cat(_General, Criminal/Street, Social, Spy), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
-Filch, DX/A, default(DX - 5, SK:Pickpocket - 4, SK:Sleight of Hand - 4), page(B195), cat(_General, Criminal/Street, Spy)
-Forced Entry, DX/E, page(B196), cat(_General, Criminal/Street, Police, Spy)
-Forgery, IQ/H, tl(0-12), default(IQ - 6, SK:Counterfeiting - 2), page(B196), cat(_General, Criminal/Street, Spy)
-Gambling, IQ/A, default(IQ - 5, "SK:Mathematics (Statistics)" - 5), page(B197), cat(_General, Criminal/Street, Social)
-Holdout, IQ/A, default(IQ - 5, SK:Sleight of Hand - 3), page(B200), cat(_General, Criminal/Street, Spy)
-Intimidation, Will/A, default(Will - 5, SK:Acting - 3), page(B202), cat(_General, Criminal/Street, Police, Social)
-Lockpicking, IQ/A, tl(0-12), default(IQ - 5), page(B206), cat(_General, Criminal/Street, Police, Spy, Technical)
-Observation, Per/A, default(Per - 5, SK:Shadowing - 5), page(B211), cat(_General, Criminal/Street, Military, Police, Spy)
-Panhandling, IQ/E, default(IQ - 4, "SK:Fast-Talk" - 2, SK:Public Speaking - 3), page(B212), cat(_General, Criminal/Street, Social)
-Pickpocket, DX/H, default(DX - 6, SK:Filch - 5, SK:Sleight of Hand - 4), page(B213), cat(_General, Criminal/Street)
-Poisons, IQ/H, tl(0-12), default(IQ - 6, SK:Chemistry - 5, SK:Pharmacy - 3, SK:Physician - 3), page(B214), cat(_General, Criminal/Street, Medical, Spy)
-Savoir-Faire (Mafia), IQ/E, default(IQ - 4), page(B218), cat(_General, Criminal/Street, Knowledge, Social)
-Scrounging, Per/E, default(Per - 4), page(B218), cat(_General, Criminal/Street)
-Shadowing, IQ/A, default(IQ - 5, SK:Observation - 5), page(B219), cat(_General, Criminal/Street, Police, Spy)
-Smuggling, IQ/A, default(IQ - 5), page(B221), cat(_General, Criminal/Street, Spy)
-Stealth, DX/A, default(DX - 5, IQ - 5), page(B222), cat(_General, Criminal/Street, Police, Spy)
-Streetwise, IQ/A, default(IQ - 5), page(B223), cat(_General, Criminal/Street, Police, Social)
-Traps, IQ/A, tl(0-12), default(IQ - 5, SK:Lockpicking - 3), page(B226), cat(_General, Criminal/Street, Military)
-Urban Survival, Per/A, default(Per - 5), page(B228), cat(_General, Criminal/Street, Police)
-
-<Design/Invention>
-Architecture, IQ/A, tl(0-12), default(IQ - 5, "SK:Engineer (Civil)" - 4), page(B176), cat(_General, Design/Invention)
-Bioengineering (Cloning), IQ/H, tl(0-12), default(SK:Biology - 5, SK:Bioengineering - 4), page(B180), cat(_General, Design/Invention)
-Bioengineering (Genetic Engineering), IQ/H, tl(0-12), default(SK:Biology - 5, SK:Bioengineering - 4), page(B180), cat(_General, Design/Invention)
-Bioengineering (Tissue Engineering), IQ/H, tl(0-12), default(SK:Biology - 5, SK:Bioengineering - 4), page(B180), cat(_General, Design/Invention)
-Computer Programming, IQ/H, tl(0-12), page(B184), cat(_General, Design/Invention)
-
-Engineer ([Type]), IQ/H, tl(0-12), default("SK:Mechanic ([Type])" - 6, "SK:Armoury ([Type])" - 6, SK:Engineer - 4), page(B190),
-	needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention), noresync(yes),
-	x( #InputReplace("Choose an Armor, Machine, Motive System, Power Plant, Vehicle, or Weapon type:", "[Type]", , "Engineer") )
-Engineer (%examplelist%), IQ/H, tl(0-12), default("SK:Mechanic (%examplelist%)" - 6, "SK:Armoury (%examplelist%)" - 6, SK:Engineer - 4), page(B190),
-	needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention),
-	x(#ChoiceList(_
-			name(example),
-			title(Engineer: Choose an Engineering Specialty),
-			text(Choose an Engineering Specialty from the list of examples provided:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Aerospace",
-				"Autogyro",
-				"Automobile",
-				"Battlesuits",
-				"Body Armor",
-				"Bicycle",
-				"Clockwork",
-				"Construction Equipment",
-				"Contragravity",
-				"Diesel Engine",
-				"Flight Pack",
-				"Free-Flooding Sub",
-				"Fuel Cell",
-				"Fusion Reactor",
-				"Gasoline Engine",
-				"Glider",
-				"Heavy Airplane",
-				"Heavy Wheeled Vehicle",
-				"Helicopter",
-				"High-Performance Airplane",
-				"High-Performance Spacecraft",
-				"Hovercraft",
-				"Large Powerboat",
-				"Large Sub",
-				"Legged Motive System",
-				"Light Airplane",
-				"Lighter-Than-Air",
-				"Lightsail",
-				"Locomotive",
-				"Low-G Wings",
-				"Low-Performance Spacecraft",
-				"Mecha",
-				"Melee Weapons",
-				"Mini-Sub",
-				"Missile Weapons",
-				"Motorboat",
-				"Reactionless Thrusters",
-				"Robotics",
-				"Rockets",
-				"Sailboat",
-				"Steam Engine",
-				"Small Arms",
-				"Tracked Motive System",
-				"Tracked Vehicle",
-				"Ultralight Airplane",
-				"Unpowered Boat",
-				"Vehicular Armor",
-				"Vertol",
-				"Wheeled Motive System" _
-			)_
-			)_
-	), noresync(yes)
-
-Engineer (Artillery), IQ/H, tl(0-12), default("SK:Armoury (Heavy Weapons)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Civil), IQ/H, tl(0-12), default(SK:Architecture - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Combat), IQ/H, tl(0-12), default("SK:Explosives (Demolition)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Electrical), IQ/H, tl(0-12), default(SK:Electrician - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Electronics), IQ/H, tl(0-12), default(SK:Electronics Repair - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Materials), IQ/H, tl(0-12), default(SK:Chemistry - 6, SK:Metallurgy - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts"), (SK:Chemistry = 1 pts | SK:Metallurgy = 1 pts)), page(B190), cat(_General, Design/Invention)
-Engineer (Microtechnology), IQ/H, tl(0-12), default("SK:Mechanic (Micromachines)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Mining), IQ/H, tl(0-12), default("SK:Explosives (Demolition)" - 6, SK:Geology - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Nanotechnology), IQ/H, tl(0-12), default("SK:Mechanic (Nanomachines)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Parachronic), IQ/H, tl(0-12), default("SK:Electronics Operation (Parachronic)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts"), SK:Physics = 1 pts), page(B190), cat(_General, Design/Invention)
-Engineer (Psychotronics), IQ/H, tl(0-12), default("SK:Electronics Operation (Psychotronics)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B190), cat(_General, Design/Invention)
-Engineer (Temporal), IQ/H, tl(0-12), default("SK:Electronics Operation (Temporal)" - 6, SK:Engineer - 4), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts"), SK:Physics = 1 pts), page(B190), cat(_General, Design/Invention)
-Pharmacy (Herbal), IQ/H, tl(0-12), default(IQ - 6, SK:Biology - 5, SK:Herb Lore - 5, SK:Naturalist - 5), needs(SK:Naturalist), page(B213), cat(_General, Design/Invention, Medical, Plant)
-Pharmacy (Synthetic), IQ/H, tl(5-12), default(IQ - 6, SK:Chemistry - 5, SK:Physician - 5), page(B213), cat(_General, Design/Invention, Medical)
-Weird Science, IQ/VH, page(B228), cat(_General, Design/Invention)
-
-<Esoteric>
-Autohypnosis, Will/H, default(SK:Meditation - 4), page(B179), cat(_General, Esoteric)
-Blind Fighting, Per/VH, needs(AD:Trained By A Master | AD:Weapon Master), page(B180), cat(_General, Esoteric)
-Body Control, HT/VH, needs(AD:Trained By A Master, SK:Breath Control = 1pts, SK:Meditation = 1pts), page(B181), cat(_General, Esoteric)
-Breaking Blow, IQ/H, needs(AD:Trained By A Master), page(B182), cat(_General, Esoteric)
-Dreaming, Will/H, default(Will - 6), page(B188), cat(_General, Esoteric)
-Enthrallment (Captivate), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12, "SK:Enthrallment (Suggest)" = 12), page(B191), cat(_General, Esoteric)
-Enthrallment (Persuade), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12), page(B191), cat(_General, Esoteric)
-Enthrallment (Suggest), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12, "SK:Enthrallment (Persuade)" = 12), page(B191), cat(_General, Esoteric)
-Enthrallment (Sway Emotions), Will/H, needs(AD:Charisma = 1, SK:Public Speaking = 12, "SK:Enthrallment (Persuade)" = 12), page(B191), cat(_General, Esoteric)
-Esoteric Medicine, Per/H, default(Per - 6), page(B192), cat(_General, Esoteric, Medical)
-Flying Leap, IQ/H, needs(AD:Trained By A Master, SK:Jumping = 1pts, SK:Power Blow = 1pts | AD:Weapon Master, SK:Jumping = 1pts, SK:Power Blow = 1pts), page(B196), cat(_General, Esoteric)
-Immovable Stance, DX/H, needs(AD:Trained By A Master), page(B201), cat(_General, Esoteric)
-Invisibility Art, IQ/VH, needs(AD:Trained By A Master, SK:Hypnotism = 14, SK:Stealth = 14), page(B202), cat(_General, Esoteric)
-Kiai, HT/H, needs(AD:Trained By A Master | AD:Weapon Master), page(B203), cat(_General, Esoteric)
-Light Walk, DX/H, needs(AD:Trained By A Master, SK:Acrobatics = 14, SK:Stealth = 14), page(B205), cat(_General, Esoteric)
-Meditation, Will/H, default(Will - 6, SK:Autohypnosis - 4), page(B207), cat(_General, Esoteric)
-Mental Strength, Will/E, needs(AD:Trained By A Master | AD:Weapon Master), page(B209), cat(_General, Esoteric)
-Mind Block, Will/A, default(Will - 5, SK:Meditation - 5), page(B210), cat(_General, Esoteric)
-Musical Influence, IQ/VH, needs(AD:Musical Ability = 1, SK:Musical Instrument = 12 | AD:Musical Ability = 1, SK:Singing = 12), page(B210), cat(_General, Esoteric)
-Power Blow, Will/H, needs(AD:Trained By A Master | AD:Weapon Master), page(B215), cat(_General, Esoteric)
-Pressure Points, IQ/H, default(SK:Esoteric Medicine - 4), needs(AD:Trained By A Master | AD:Weapon Master), page(B215), cat(_General, Esoteric),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Pressure Points"))
-Pressure Secrets, IQ/VH, needs(AD:Trained By A Master, SK:Pressure Points = 16), page(B215), cat(_General, Esoteric),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Pressure Secrets"))
-Push, DX/H, needs(AD:Trained By A Master), page(B216), cat(_General, Esoteric)
-Throwing Art, DX/H, needs(AD:Trained By A Master | AD:Weapon Master), page(B226), cat(_General, Esoteric)
-Zen Archery, IQ/VH, needs(AD:Trained By A Master, SK:Bow >= 18, SK:Meditation = 1pts | AD:Weapon Master, SK:Bow >= 18, SK:Meditation = 1pts), page(B228), cat(_General, Esoteric)
-
 <Everyman>
-Area Knowledge ([Area]), IQ/E, default(IQ - 4, "SK:Geography ([Area])" - 3), page(B176), cat(_General, Everyman, Knowledge),
+Area Knowledge ([Area]), IQ/E, default(IQ - 4), page(71), cat(_General),
 	x(#InputReplace("Please specify the area covered:", "[Area]", "local", "Area Knowledge")), noresync(yes)
+Connoisseur, IQ/A, default(IQ - 5), page(72), cat(_General),
+	x(#InputToTag("Specify the required specialty:", nameext, , "Connoisseur"))
+Connoisseur (Antiques), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Dance), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Literature), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Music), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Painting), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Sculpture), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Theatre), IQ/A, default(IQ - 5), page(72), cat(_General)
+Connoisseur (Wine), IQ/A, default(IQ - 5), page(72), cat(_General, Arts/Entertainment, Knowledge, Social)
 
-Computer Operation, IQ/E, tl(0-12), default(IQ - 4), page(B184), cat(_General, Everyman, Scholarly, Technical)
-Cooking, IQ/A, default(IQ - 5, SK:Housekeeping - 5), page(B185), cat(_General, Everyman)
-Current Affairs (Headline News), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social)
-Current Affairs (People), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social)
-Current Affairs (Politics), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social)
+Cooking, IQ/A, default(IQ - 5, SK:Housekeeping - 5), page(B185), cat(_General, Craft, Everyman)
 
-Current Affairs ([Regional]), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social),
+Current Affairs (Headline News), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Everyman, Social)
+Current Affairs (Politics), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Everyman, Social)
+Current Affairs (Regional: [Regional]), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Everyman, Social),
 	x(#InputReplace("Please specify a particular region:", "[Regional]", "local region", "Current Affairs"))
+Current Affairs (Sports), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Everyman, Social)
 
-Current Affairs (Science & Technology), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social)
-Current Affairs (Sports), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social)
-Current Affairs (Travel), IQ/E, tl(0-12), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Everyman, Knowledge, Social)
-First Aid, IQ/E, tl(0-12), default(IQ - 4, SK:Esoteric Medicine, SK:Physician, SK:Veterinary - 4), page(B195), cat(_General, Everyman, Medical),
+First Aid, IQ/E, tl(0-5), default(IQ - 4, SK:Esoteric Medicine, SK:Physician, SK:Veterinary - 4), page(B195), cat(_General, Everyman, Medical),
 	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "First Aid"))
 Housekeeping, IQ/E, default(IQ - 4), page(B200), cat(_General, Everyman)
 Knot-Tying, DX/E, default(DX - 4, SK:Climbing - 4, SK:Seamanship - 4), page(B203), cat(_General, Everyman)
 Savoir-Faire (Servant), IQ/E, default(IQ - 4, "SK:Savoir-Faire (High Society)" - 2), page(B218), cat(_General, Everyman, Knowledge, Social)
-Typing, DX/E, default(DX - 4, SK:Administration - 3, SK:Computer Operation - 3, SK:Research - 3, SK:Writing - 3), page(B228), cat(_General, Everyman, Scholarly, Technical)
 Weather Sense, IQ/A, default(IQ - 5), page(B209), cat(_General, Everyman, Outdoor/Exploration)
 
-<Knowledge>
-Expert Skill, IQ/H, page(B193), cat(_General, Knowledge, Scholarly),
-	x(#InputToTag("Please specify an area of expertise here:", nameext, , "Expert Skill"))
+<Game/Sport>
+Games, IQ/E, default(IQ - 4), page(74), cat(_General),
+	x(#InputToTag("You must specialize in a particular game:", nameext, "Cripple Mr. Onion", "Games"))
 
-Games, IQ/E, default(IQ - 4), page(B197), cat(_General, Knowledge),
-	x(#InputToTag("You must specialize in a particular game:", nameext, "GURPS", "Games"))
+<Heavy Weapons>
+Artillery (Cannon), IQ/A, tl(0-5), default(IQ - 5), page(74), cat(_General, Ranged Combat)
+Artillery (Catapult), IQ/A, tl(0-5), default(IQ - 5), page(74), cat(_General, Ranged Combat)
+Gunner (Cannon), DX/E, tl(0-5), default(DX - 4), page(74), cat(_General, Ranged Combat)
+Gunner (Catapult), DX/E, tl(0-5), default(DX - 4), page(74), cat(_General, Ranged Combat)
 
-Heraldry, IQ/A, default(IQ - 5, "SK:Savoir-Faire (High Society)" - 3), page(B199), cat(_General, Knowledge, Social)
-
-Hidden Lore, IQ/A, page(B199), cat(_General, Knowledge),
-	x(#InputToTag("You must specialize in a particular body of secret knowledge:", nameext, , "Hidden Lore"))
-
-Hidden Lore (Conspiracies), IQ/A, page(B199), cat(_General, Knowledge)
-Hidden Lore (Demon Lore), IQ/A, page(B199), cat(_General, Knowledge, Occult/Magical)
-Hidden Lore (Faerie Lore), IQ/A, page(B199), cat(_General, Knowledge, Occult/Magical)
-Hidden Lore (Spirit Lore), IQ/A, page(B199), cat(_General, Knowledge, Occult/Magical)
-
+<Hobby>
 Hobby Skill ([DX-based]), DX/E, default(DX - 4), page(B200), cat(_General, Knowledge),
    x( #InputReplace("Specify the field of study:", "[DX-based]", , "Hobby Skill") )
 Hobby Skill ([IQ-based]), IQ/E, default(IQ - 4), page(B200), cat(_General, Knowledge),
@@ -3871,144 +3613,190 @@ Savoir-Faire, IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Social
 
 Savoir-Faire (Dojo), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Social)
 Savoir-Faire (Military), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Military, Social)
-Savoir-Faire (Police), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Police, Social)
+Savoir-Faire (Police), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Police/Watch, Social)
+
+<Knowledge>
+Heraldry, IQ/A, default(IQ - 5, "SK:Savoir-Faire (High Society)" - 3), page(B199), cat(_General, Knowledge, Social)
+Hidden Lore, IQ/A, page(75), cat(_General, Knowledge),
+	x(#InputToTag("You must specialize in a particular body of secret knowledge:", nameext, , "Hidden Lore"))
+Hidden Lore (Demon Lore), IQ/A, page(75), cat(_General, Knowledge, Occult/Magical, Priestly)
+Hidden Lore (L-Space), IQ/A, page(75), cat(_General, Knowledge)
+
+// SET UP AN OPTION TO ENTER WHICH CITY FOR THE NEXT ONE!!
+Hidden Lore (Secrets of the City), IQ/A, page(75), cat(_General, Knowledge, Occult/Magical)
+
+Hidden Lore (Spirit Lore), IQ/A, page(75), cat(_General, Knowledge, Occult/Magical)
+Occultism, IQ/A, default(IQ - 5), page(75), cat(_General, Occult/Magical)
+Sacred Texts, IQ/A, page(75), cat(_General, Priestly)
+
+<Larcenous>
+Counterfeiting, IQ/H, tl(0-5), default(IQ - 6), page(75), cat(_General)
+Filch, DX/A, default(DX - 5), page(75), cat(_General)
+Forced Entry, DX/E, page(76), cat(_General, Police/Watch)
+Forgery, IQ/H, tl(0-5), default(IQ - 6), page(76), cat(_General, Police/Watch)
+
+
 
 <Medical>
-Diagnosis, IQ/H, tl(0-12), default(IQ - 6, SK:First Aid - 8, SK:Physician - 4, SK:Veterinary - 5), page(B187), cat(_General, Medical),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Diagnosis"))
-Electronics Operation (Medical), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Repair (Medical)" - 5, "SK:Engineer (Electronics)" - 5, SK:Electronics Operation - 4), page(B189), cat(_General, Medical, Technical)
-Expert Skill (Epidemiology), IQ/H, page(B193), cat(_General, Medical, Natural Sciences)
-Hypnotism, IQ/H, page(B201), cat(_General, Medical),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Hypnotism"))
-Physician, IQ/H, tl(0-12), default(IQ - 7, SK:First Aid - 11, SK:Veterinary - 5), page(B213), cat(_General, Medical),
+Diagnosis, IQ/H, tl(0-5), default(IQ - 6), page(77), cat(_General, Medical),
+	x(#InputToTag("You must specialize by species:", nameext, "Human", "Diagnosis"))
+Physician, IQ/H, tl(0-5), default(IQ - 7, SK:First Aid - 11, SK:Veterinary - 5), page(B213), cat(_General, Medical),
 	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Physician"))
-Physiology, IQ/H, tl(0-12), default(IQ - 6, SK:Diagnosis - 5, SK:Physician - 5, SK:Surgery - 5), page(B213), cat(_General, Medical, Natural Sciences),
+Physiology, IQ/H, tl(0-5), default(IQ - 6, SK:Diagnosis - 5, SK:Physician - 5, SK:Surgery - 5), page(B213), cat(_General, Medical, Natural Sciences),
 	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Physiology"))
 Psychology, IQ/H, default(IQ - 6, SK:Sociology - 4), page(B216), cat(_General, Medical, Social Sciences/Humanities),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Psychology"))
-Surgery, IQ/VH, tl(0-12), default(SK:First Aid - 12, SK:Physician - 5, SK:Physiology - 8, SK:Veterinary - 5), needs(SK:First Aid = 1pts | SK:Physician = 1pts), page(B223), cat(_General, Medical),
+Surgery, IQ/VH, tl(0-5), default(SK:First Aid - 12, SK:Physician - 5, SK:Physiology - 8, SK:Veterinary - 5), needs(SK:First Aid = 1pts | SK:Physician = 1pts), page(B223), cat(_General, Medical),
 	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Surgery"))
 
+<Melee Combat>
+Axe/Mace, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3), cat(_General, Impact Weapon, Melee Weapon)
+Broadsword, DX/A, default(DX - 5, SK:Shortsword - 2), page(78), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Swords)
+Fast-Draw, DX/E, page(73), cat(_General, Ranged Combat),
+	x(#InputToTag("You must specialize in a type of Weapon:", nameext, , "Fast-Draw"))
+Fast-Draw (Knife), DX/E, page(73), cat(_General, Ranged Combat), default(SK:Sword!)
+Fast-Draw (Knuckledusters), DX/E, page(73), cat(_General, Ranged Combat), default(SK:Sword!)
+Fast-Draw (Sword), DX/E, page(73), cat(_General)
+Fast-Draw (Two-Handed Sword), DX/E, page(73), cat(_General)
+Flail, DX/H, default(DX - 6), page(77), parryat(@int(%level/2)+3), cat(_General, Melee Weapon)
+Knife, DX/E, default(DX - 4), page(B208), parryat(@int(%level/2)+3-1), cat(_General, Melee Weapon, Swords)
+Polearm, DX/A, default(DX - 5), page(B208), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Pole Weapons)
+Rapier, DX/A, default(DX - 5), page(77), parryat(@int(%level/2)+3), cat(_General, Fencing Weapons, Melee Weapon)
+Shield, DX/E, default(DX - 4), page(81), blockat(@int(%level/2)+3), cat(_General)
+Shortsword, DX/A, default(DX - 5, SK:Broadsword - 2), page(B209), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Swords)
+Smallsword, DX/A, default(DX - 5), page(77), parryat(@int(%level/2)+3), cat(_General, Fencing Weapons, Melee Weapon)
+Spear, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Pole Weapons)
+Staff, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3+2), cat(_General, Melee Weapon, Pole Weapons)
+Two-Handed Axe/Mace, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3), cat(_General, Impact Weapon, Melee Weapon)
+Two-Handed Sword, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Swords)
+
+Judo, DX/H, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat, Unarmed Combat)
+Wrestling, DX/A, page(83), parryat(@int(%level/2)+3), cat(_General, Melee Combat, Unarmed Combat)
+
+Boxing, DX/A, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat, Unarmed Combat), mods(Punch/Kick),
+	newmode(Punch, damage(_
+				thr-1 + _
+					@if(me::level = ST:DX+1 then @basethdice(ST:Punch) else @if(me::level > ST:DX+1 then 2 * @basethdice(ST:Punch) else 0)) + _
+					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) _
+					), damtype(_
+						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
+					), reach(C), parry(0), skillused(SK:Boxing),
+				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach)_
+		),
+	description(Notes: Calculated damage takes into account bonuses from Claws and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" to apply the +1 damage to Punch.),
+	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$)
+//	replacetags(in "ST:Punch" with "hide(yes), reach()"),
+
+Brawling, DX/E, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat, Unarmed Combat), mods(Punch/Kick), default(SK:Brawling Art - 3, SK:Brawling Sport - 3),
+	newmode(Punch, damage(_
+				thr-1 + _
+					@if(me::level > ST:DX+1 then @basethdice(ST:Punch) else 0) + _
+					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) _
+					), damtype(_
+						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
+					), reach(C), parry(0), skillused(SK:Brawling),
+				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach)_
+		),
+	newmode(Bite, damage(_
+				thr-1 + _
+				@if(me::level > ST:DX+1 then @basethdice(ST:Bite) else 0) + _
+				-@if("DI:Weak Bite::level" = 1 then 2 * @basethdice(ST:Bite) else 0)_
+				), damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE $if("AD:Vampiric Bite::level" = 1 THEN "cut" ELSE "cr"))))), reach(C), parry(No), skillused(SK:Brawling),
+				damagebasedon(ST:Bite), reachbasedon(ST:Neck Reach)_
+		),
+	newmode(Kick, damage(_
+				thr+ _
+					@if(me::level > ST:DX+1 then @basethdice(ST:Kick) else 0) + _
+					@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
+					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0)))_
+				), damtype(_
+					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
+				), reach(C,1), parry(No), skillused(SK:Brawling-2, SK:Kicking (Brawling)),
+				damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach) _
+		),
+	description(Notes: Calculated damage takes into account bonuses from Teeth, Weak Bite, Claws, and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" or "Has Boots" to apply the +1 damage to Punch or Kick, as appropriate.),
+	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$, =$if(me::level >= ST:DX THEN nobase) to ST:Kick::reach$, =$if(me::level >= ST:DX THEN nobase) to ST:Bite::reach$)
+//	replacetags(in "ST:Punch" with "hide(yes), reach()", in "ST:Kick" with "hide(yes), reach()", in "ST:Bite" with "hide(yes), reach()"),
+
+Karate, DX/H, page(83), parryat(@int(%level/2)+3), cat(_General, Melee Combat, Unarmed Combat), mods(Punch/Kick),
+	newmode(Punch, damage(_
+				thr-1 + _
+					@if(me::level = ST:DX then @basethdice(ST:Punch) else @if(me::level > ST:DX then 2 * @basethdice(ST:Punch) else 0)) + _
+					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) _
+					), damtype(_
+						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
+					), reach(C), parry(0), skillused(SK:Karate),
+				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach) _
+		),
+	newmode(Kick, damage(_
+				thr+ _ 
+					@if(me::level = ST:DX then @basethdice(ST:Kick) else @if(me::level > ST:DX then 2 * @basethdice(ST:Kick) else 0)) + _
+					@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
+					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0)))_
+				), damtype(_
+					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
+				), reach(C,1), parry(No), skillused(SK:Karate-2, SK:Kicking (Karate)),
+				damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach) _
+			),
+	description(Notes: Calculated damage takes into account bonuses from Claws and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" or "Has Boots" to apply the +1 damage to Punch or Kick, as appropriate.),
+	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$, =$if(me::level >= ST:DX THEN nobase) to ST:Kick::reach$)
+//	replacetags(in "ST:Punch" with "hide(yes), reach()", in "ST:Kick" with "hide(yes), reach()"),
+
 <Military>
-Armoury (Battlesuits), IQ/A, tl(0-12), default(IQ - 5, SK:Armoury - 4, "SK:Engineer (Battlesuits)" - 4), page(B178), cat(_General, Military, Repair/Maintenance)
+Camouflage, IQ/E, default(IQ - 4), page(71), cat(_General, Military, Outdoor/Exploration)
 
-Armoury (Body Armor), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Force Shields)" - 4, "SK:Armoury (Vehicular Armor)" - 4, "SK:Engineer (Body Armor)" - 4, "SK:Smith (Copper)" - me::default1, "SK:Smith (Iron)" - me::default2, SK:Machinist - me::default3),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4)),
-	default1(@if(me::tl = 1 THEN 3 ELSE 100)),
-	default2(@if(me::tl = 2 then 3 else @if(me::tl = 3 then 3 else @if(me::tl = 4 then 3 else 100)))),
-	default3(@if(me::tl > 4 then 3 else 100))
-Armoury (Force Shields), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Body Armor)" - 4, "SK:Armoury (Vehicular Armor)" - 4, "SK:Engineer (Force Shields)" - 4),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4))
-Armoury (Vehicular Armor), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Body Armor)" - 4, "SK:Armoury (Force Shields)" - 4, "SK:Engineer (Vehicular Armor)" - 4),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4))
+Cryptography, IQ/H, tl(0-5), page(72), cat(_General, Military)
 
-Armoury (Melee Weapons), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Small Arms)" - 4, "SK:Armoury (Heavy Weapons)" - 4, "SK:Armoury (Missile Weapons)" - 4, "SK:Engineer (Melee Weapons)" - 4, "SK:Smith (Copper)" - me::default1, "SK:Smith (Iron)" - me::default2, SK:Machinist - me::default3),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4)),
-	default1(@if(me::tl =1 THEN 3 ELSE 100)),
-	default2(@if(me::tl = 2 then 3 else @if(me::tl = 3 then 3 else @if(me::tl = 4 then 3 else 100)))),
-	default3(@if(me::tl > 4 then 3 else 100))
-Armoury (Small Arms), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Melee Weapons)" - 4, "SK:Armoury (Heavy Weapons)" - 4, "SK:Armoury (Missile Weapons)" - 4, "SK:Engineer (Small Arms)" - 4, SK:Machinist - me::default1),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4)),
-	default1(@if(me::tl > 4 then 3 else 100))
-Armoury (Heavy Weapons), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Melee Weapons)" - 4, "SK:Armoury (Small Arms)" - 4, "SK:Armoury (Missile Weapons)" - 4, "SK:Engineer (Artillery)" - 4),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4))
-Armoury (Missile Weapons), IQ/A, tl(0-12), page(B178), cat(_General, Military, Repair/Maintenance),
-	default(IQ - 5, SK:Armoury - me::default0, "SK:Armoury (Battlesuits)" - 4, "SK:Armoury (Melee Weapons)" - 4, "SK:Armoury (Small Arms)" - 4, "SK:Armoury (Heavy Weapons)" - 4, "SK:Engineer (Missile Weapons)" - 4),
-	default0(@if(me::tl > 4 THEN 100 ELSE 4))
+Explosives (Demolition), IQ/A, tl(0-5), default(IQ - 5), page(73), cat(_General, Military, Technical)
 
-Brainwashing, IQ/H, tl(0-12), default("SK:Electronics Operation (Medical)" - 6, SK:Hypnotism - 6, SK:Interrogation - 6, SK:Pharmacy - 6, SK:Psychology - 6, SK:Surgery - 6), page(B182), cat(_General, Military, Spy)
-Camouflage, IQ/E, default(IQ - 4, SK:Survival - 2), page(B183), cat(_General, Military, Outdoor/Exploration)
-Cryptography, IQ/H, tl(0-12), default("SK:Mathematics (Cryptology)" - 5), page(B186), cat(_General, Military, Spy)
-Electronics Operation (Electronic Warfare), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Repair (Electronic Warfare)" - 5, "SK:Engineer (Electronics)" - 5, SK:Electronics Operation - 4), page(B189), cat(_General, Military, Spy, Technical)
-Electronics Repair (Electronic Warfare), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Operation (Electronic Warfare)" - 3, "SK:Engineer (Electronics)" - 3, SK:Electronics Repair - 4), page(B190), cat(_General, Military, Repair/Maintenance)
-Expert Skill (Military Science), IQ/H, page(B193), cat(_General, Military)
-Explosives (Explosive Ordnance Disposal), IQ/A, tl(0-12), default(IQ - 5, "SK:Explosives (Nuclear Ordnance Disposal)" - 2, SK:Explosives - 4), needs(DX = 12), page(B194), cat(_General, Military, Police, Technical)
-Explosives (Fireworks), IQ/A, tl(0-12), default(IQ - 5, SK:Chemistry - 3, SK:Explosives - 4), page(B194), cat(_General, Military, Technical)
-Explosives (Nuclear Ordnance Disposal), IQ/A, tl(0-12), default(IQ - 5, "SK:Explosives (Explosive Ordnance Disposal)" - 2, SK:Explosives - 4), page(B194), cat(_General, Military, Technical)
-Explosives (Underwater Demolition), IQ/A, tl(0-12), default(IQ - 5, "SK:Explosives (Demolition)" - 2, SK:Explosives - 4), page(B194), cat(_General, Military, Technical)
-Forward Observer, IQ/A, tl(0-12), default(IQ - 5, SK:Artillery - 5, SK:Electronics Operation - 5), page(B196), cat(_General, Military)
-Intelligence Analysis, IQ/H, tl(0-12), default(IQ - 6, SK:Strategy - 6), page(B201), cat(_General, Military, Police, Spy)
-Interrogation, IQ/A, default(IQ - 5, SK:Intimidation - 3, SK:Psychology - 4), page(B202), cat(_General, Military, Police, Spy)
+Forward Observer, IQ/A, tl(0-5), default(IQ - 5, SK:Artillery - 5, SK:Electronics Operation - 5), page(B196), cat(_General, Military)
+Intelligence Analysis, IQ/H, tl(0-5), default(IQ - 6, SK:Strategy - 6), page(B201), cat(_General, Military, Police/Watch)
+Interrogation, IQ/A, default(IQ - 5, SK:Intimidation - 3, SK:Psychology - 4), page(B202), cat(_General, Military, Police/Watch)
 Leadership, IQ/A, default(IQ - 5), page(B204), cat(_General, Military, Social)
-NBC Suit, DX/A, tl(0-12), default(DX - 5, SK:Battlesuit - 2, SK:Diving Suit - 2, SK:Vacc Suit - 2), page(B192), cat(_General, Military, Technical)
-Soldier, IQ/A, tl(0-12), default(IQ - 5), page(B221), cat(_General, Military)
+NBC Suit, DX/A, tl(0-5), default(DX - 5, SK:Battlesuit - 2, SK:Diving Suit - 2, SK:Vacc Suit - 2), page(B192), cat(_General, Military, Technical)
+Soldier, IQ/A, tl(0-5), default(IQ - 5), page(B221), cat(_General, Military)
 Strategy (Air), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military)
 Strategy (Interstellar), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military)
 Strategy (Land), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military)
 Strategy (Naval), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military)
 Strategy (Space), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military)
-Tactics, IQ/H, default(IQ - 6, SK:Strategy - 6), page(B224), cat(_General, Military, Police)
+Tactics, IQ/H, default(IQ - 6, SK:Strategy - 6), page(B224), cat(_General, Military, Police/Watch)
 
-<Natural Sciences>
-Alchemy, IQ/VH, tl(0-12), page(B174), cat(_General, Natural Sciences, Occult/Magical)
-Astronomy, IQ/H, tl(0-12), default(IQ - 6, SK:Astronomy), needs("SK:Mathematics (Applied)" = 1pts), page(B179), cat(_General, Natural Sciences)
-Astronomy (Observational), IQ/A, tl(0-12), basedon(Astronomy), optspec(1), default(IQ - 6), page(B179), cat(_General, Natural Sciences)
-Biology (Earthlike), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Earthlike)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Gas Giants), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Gas Giants)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Hostile Terrestrial), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Hostile Terrestrial)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Ice Dwarfs), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Ice Dwarfs)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Ice Worlds), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Ice Worlds)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Biology (Rock Worlds), IQ/VH, tl(0-12), default(IQ - 6, "SK:Naturalist (Rock Worlds)" - 6, SK:Biology - 4), page(B180), cat(_General, Natural Sciences, Plant)
-Chemistry, IQ/H, tl(0-12), default(IQ - 6, SK:Alchemy - 3), page(B183), cat(_General, Natural Sciences)
-Expert Skill (Hydrology), IQ/H, page(B193), cat(_General, Natural Sciences)
-Expert Skill (Natural Philosophy), IQ/H, page(B193), cat(_General, Natural Sciences)
-Geology (Earthlike), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Gas Giants), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Hostile Terrestrial), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Ice Dwarfs), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Ice Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Geology (Rock Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geography (Physical)" -4, SK:Prospecting - 5, SK:Geology - 4), page(B198), cat(_General, Natural Sciences)
-Mathematics (Applied), IQ/H, tl(0-12), default(IQ - 6, SK:Engineer - 5, SK:Physics - 5, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Computer Science), IQ/H, tl(0-12), default(IQ - 6, SK:Computer Programming - 5, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Cryptology), IQ/H, tl(0-12), default(IQ - 6, SK:Cryptography - 5, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Pure), IQ/H, tl(0-12), default(IQ - 6, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences)
-Mathematics (Surveying), IQ/H, tl(0-12), default(IQ - 6, SK:Cartography - 3, SK:Navigation - 4, SK:Mathematics - 5), page(B207), cat(_General, Natural Sciences, Technical)
-Metallurgy, IQ/H, tl(0-12), default(SK:Chemistry - 5, SK:Jeweler - 8, SK:Smith - 8), page(B209), cat(_General, Natural Sciences)
-Meteorology (Earthlike), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
-Meteorology (Gas Giants), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
-Meteorology (Hostile Terrestrial), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
-Meteorology (Ice Dwarfs), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
-Meteorology (Ice Worlds), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
-Meteorology (Rock Worlds), IQ/A, tl(5-12), default(IQ - 6, SK:Meteorology - 4), page(B209), cat(_General, Natural Sciences)
-Paleontology (Micropaleontology), IQ/H, tl(0-12), default(SK:Biology - 4, SK:Paleontology - 2), page(B212), cat(_General, Natural Sciences)
-Paleontology (Paleoanthropology), IQ/H, tl(0-12), default(SK:Biology - 4, SK:Anthropology - 2, SK:Paleontology - 2), page(B212), cat(_General, Natural Sciences, Social Sciences/Humanities)
-Paleontology (Paleobotany), IQ/H, tl(0-12), default(SK:Biology - 4, SK:Paleontology - 2), page(B212), cat(_General, Natural Sciences, Plant)
-Paleontology (Paleozoology), IQ/H, tl(0-12), default(SK:Biology - 4, SK:Paleontology - 2), page(B212), cat(_General, Natural Sciences)
-Physics, IQ/VH, tl(0-12), default(IQ - 6), needs($if(me::tl > 4 THEN "SK:Mathematics (Applied) = 1pts")), page(B213), cat(_General, Natural Sciences)
+<Missile Weapons>
+Blowpipe, DX/H, default(DX - 6), page(78), cat(_General, Ranged Combat)
+Bow, DX/A, default(DX - 5), page(78), cat(_General, Ranged Combat)
+Crossbow, DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Flamethrower, DX/E, tl(1-5), default(DX - 4), page(), cat(_General, Ranged Combat)
+Guns (Pistol), DX/E, tl(3-5), default(DX - 4), page(78), cat(_General, Ranged Combat)
+Guns (Rifle), DX/E, tl(3-5), default(DX - 4), page(78), cat(_General, Ranged Combat)
+Guns (Shotgun), DX/E, tl(3-5), default(DX - 4), page(78), cat(_General, Ranged Combat)
+Innate Attack (Beam), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Innate Attack (Breath), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Innate Attack (Gaze), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Innate Attack (Projectile), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Sling, DX/H, default(DX - 6), page(78), cat(_General, Ranged Combat)
+Thrown Weapon (Axe/Mace), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Thrown Weapon (Knife), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Thrown Weapon (Spear), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Thrown Weapon (Stick), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
+Thrown Weapon (Throwing Star), DX/E, default(DX - 4), page(78), cat(_General, Ranged Combat)
 
 <Occult/Magical>
-Exorcism, Will/H, default(Will - 6, SK:Religious Ritual - 3, SK:Ritual Magic - 3, SK:Theology - 3), page(B193), cat(_General, Occult/Magical),
-	conditional(=-4 to SK:Exorcism when "user doesn't possess Blessed, Power Investiture, or True Faith")
-Expert Skill (Psionics), IQ/H, page(B193), cat(_General, Occult/Magical)
-Herb Lore, IQ/VH, tl(0-12), needs(SK:Naturalist = 1pts), page(B199), cat(_General, Occult/Magical, Plant)
-Occultism, IQ/A, default(IQ - 5), page(B212), cat(_General, Occult/Magical)
-
-Religious Ritual, IQ/H, default(SK:Ritual Magic - 6, SK:Theology - 4), page(B217), cat(_General, Occult/Magical),
+Alchemy, IQ/VH, tl(0-5), page(71), cat(_General, Occult/Magical, Scholarly)
+Religious Ritual, IQ/H, default(SK:Ritual Magic - 6, SK:Theology - 4), page(B217), cat(_General, Occult/Magical, Priestly),
 	x(#InputToTag("You must specialize by religion:", nameext, , "Religious Ritual"))
 
-Ritual Magic, IQ/VH, default(SK:Religious Ritual - 6), page(B218), cat(_General, Occult/Magical),
-	x(#InputToTag("You must specialize by tradition:", nameext, , "Ritual Magic"))
-
-Symbol Drawing, IQ/H, default(SK:Ritual Magic - 4), page(B224), cat(_General, Occult/Magical),
-	x(#InputToTag("You must specialize in a particular magical tradition:", nameext, , "Symbol Drawing"))
-
-Thaumatology, IQ/VH, default(IQ - 7), page(B225), cat(_General, Occult/Magical)
+Thaumatology, IQ/VH, default(IQ - 7), page(B225), cat(_General, Occult/Magical, Scholarly)
 
 <Outdoor/Exploration>
-Cartography, IQ/A, tl(0-12), default(IQ - 5, SK:Geography - 2, "SK:Mathematics (Surveying)" - 2, SK:Navigation - 4), page(B183), cat(_General, Outdoor/Exploration, Social Sciences/Humanities)
+Cartography, IQ/A, tl(0-5), default(IQ - 5, SK:Geography - 2, "SK:Mathematics (Surveying)" - 2, SK:Navigation - 4), page(B183), cat(_General, Outdoor/Exploration, Social Sciences/Humanities)
 Fishing, Per/E, default(Per - 4), page(B195), cat(_General, Outdoor/Exploration)
-Navigation (Air), IQ/A, tl(0-12), default(SK:Astronomy - 5, "SK:Navigation (Sea)" - 2, "SK:Navigation (Land)" - 2), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
-Navigation (Hyperspace), IQ/A, tl(0-12), default(SK:Astronomy - 4, "SK:Mathematics (Applied)" - 4, "SK:Navigation (Space)" - 5), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
-Navigation (Land), IQ/A, tl(0-12), default(IQ - 5, SK:Cartography - 4, "SK:Mathematics (Surveying)" - 4, "SK:Navigation (Sea)" - 2, "SK:Navigation (Air)" - 2), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
-Navigation (Sea), IQ/A, tl(0-12), default(SK:Astronomy - 5, SK:Seamanship - 5, "SK:Navigation (Air)" - 2, "SK:Navigation (Land)" - 2), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
-Navigation (Space), IQ/A, tl(0-12), default(SK:Astronomy - 4, "SK:Mathematics (Applied)" - 4, "SK:Navigation (Hyperspace)" - 5), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
-Prospecting, IQ/A, tl(0-12), default(IQ - 5, SK:Geology - 4), page(B216), cat(_General, Outdoor/Exploration)
+Navigation (Air), IQ/A, tl(0-5), default(SK:Astronomy - 5, "SK:Navigation (Sea)" - 2, "SK:Navigation (Land)" - 2), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
+Navigation (Hyperspace), IQ/A, tl(0-5), default(SK:Astronomy - 4, "SK:Mathematics (Applied)" - 4, "SK:Navigation (Space)" - 5), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
+Navigation (Land), IQ/A, tl(0-5), default(IQ - 5, SK:Cartography - 4, "SK:Mathematics (Surveying)" - 4, "SK:Navigation (Sea)" - 2, "SK:Navigation (Air)" - 2), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
+Navigation (Sea), IQ/A, tl(0-5), default(SK:Astronomy - 5, SK:Seamanship - 5, "SK:Navigation (Air)" - 2, "SK:Navigation (Land)" - 2), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
+Navigation (Space), IQ/A, tl(0-5), default(SK:Astronomy - 4, "SK:Mathematics (Applied)" - 4, "SK:Navigation (Hyperspace)" - 5), page(B211), cat(_General, Outdoor/Exploration, Technical, Vehicle)
+Prospecting, IQ/A, tl(0-5), default(IQ - 5, SK:Geology - 4), page(B216), cat(_General, Outdoor/Exploration)
 
 Survival, Per/A, default(Per - 5, SK:Naturalist - 3), page(B223), cat(_General, Outdoor/Exploration),
   x(#InputToTag("You must specialize by a particular terrain type:", nameext, , "Survival"))
@@ -4025,105 +3813,35 @@ Survival (Plains), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Arct
 Survival (Swampland), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (River/Stream)" - 4, "SK:Survival (Arctic)" - 3, "SK:Survival (Desert)" - 3, "SK:Survival (Island/Beach)" - 3, "SK:Survival (Jungle)" - 3, "SK:Survival (Mountain)" - 3, "SK:Survival (Plains)" - 3, "SK:Survival (Woodlands)" - 3), page(B223), cat(_General, Outdoor/Exploration)
 Survival (Woodlands), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Arctic)" - 3, "SK:Survival (Desert)" - 3, "SK:Survival (Island/Beach)" - 3, "SK:Survival (Jungle)" - 3, "SK:Survival (Mountain)" - 3, "SK:Survival (Plains)" - 3, "SK:Survival (Swampland)" - 3), page(B223), cat(_General, Outdoor/Exploration)
 
-* Aquatic Survival skills
-Survival (Bank), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Deep Ocean Vent), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Fresh-Water Lake), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Open Ocean), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Reef), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (River/Stream), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Swampland)" - 4, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (Salt-Water Sea)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Salt-Water Sea), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Tropical Lagoon)" - 4), page(B223), cat(_General, Outdoor/Exploration)
-Survival (Tropical Lagoon), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (Island/Beach)" - 4, "SK:Survival (Bank)" - 4, "SK:Survival (Deep Ocean Vent)" - 4, "SK:Survival (Fresh-Water Lake)" - 4, "SK:Survival (Open Ocean)" - 4, "SK:Survival (Reef)" - 4, "SK:Survival (River/Stream)" - 4, "SK:Survival (Salt-Water Sea)" - 4), page(B223), cat(_General, Outdoor/Exploration)
 Tracking, Per/A, default(Per - 5, SK:Naturalist - 5), page(B226), cat(_General, Outdoor/Exploration)
 
 <Plant>
-Farming, IQ/A, tl(0-12), default(IQ - 5, SK:Biology - 5, SK:Gardening - 3), page(B194), cat(_General, Plant)
+Farming, IQ/A, tl(0-5), default(IQ - 5, SK:Biology - 5, SK:Gardening - 3), page(B194), cat(_General, Plant)
 Gardening, IQ/E, default(IQ - 4, SK:Farming - 3), page(B197), cat(_General, Plant)
 
-<Police>
-Body Language, Per/A, default(SK:Detect Lies - 4, SK:Psychology - 4), page(B181), cat(_General, Police, Social, Spy),
-	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "Body Language"))
-Criminology, IQ/A, tl(0-12), default(IQ - 5, SK:Psychology - 4), page(B186), cat(_General, Police, Social Sciences/Humanities)
-Detect Lies, Per/H, default(SK:Perception - 6, SK:Body Language - 4, SK:Psychology - 4), page(B187), cat(_General, Police, Social, Spy)
-Electronics Operation (Surveillance), IQ/A, tl(0-12), default(IQ - 5, "SK:Electronics Repair (Surveillance)" - 5, "SK:Engineer (Electronics)" - 5, SK:Electronics Operation - 4), page(B189), cat(_General, Police, Spy, Technical)
-Forensics, IQ/H, tl(0-12), default(IQ - 6, SK:Criminology - 4), page(B196), cat(_General, Police)
-Search, Per/A, default(Per - 5, SK:Criminology - 5), page(B219), cat(_General, Police, Spy)
+<Police/Watch>
+Body Language, Per/A, page(71), cat(_General, Social)
+Criminology, IQ/A, tl(0-5), default(IQ - 5), page(72), cat(_General, Social)
+Detect Lies, Per/H, default(SK:Perception - 6), page(72), cat(_General, Social)
 
-<Repair/Maintenance>
-Machinist, IQ/A, tl(0-12), default(IQ - 5, SK:Mechanic - 5), page(B206), cat(_General, Repair/Maintenance)
+Forensics, IQ/H, tl(0-5), default(IQ - 6, SK:Criminology - 4), page(B196), cat(_General)
+Search, Per/A, default(Per - 5, SK:Criminology - 5), page(B219), cat(_General, Police/Watch)
 
-Mechanic ([Type]), IQ/A, tl(0-12), page(B207), cat(_General, Repair/Maintenance), noresync(yes),
-	default(IQ - 5, "SK:Engineer ([Type])" - 4, SK:Machinist - 5, SK:Mechanic - 4),
-	x( #InputReplace("Choose a Machine, Motive System, Power Plant, or Vehicle type:", "[Type]", , "Mechanic") )
-Mechanic (%examplelist%), IQ/A, tl(0-12), page(B207), default(IQ - 5, "SK:Engineer (%examplelist%)" - 4, SK:Machinist - 5, SK:Mechanic - 4), cat(_General, Repair/Maintenance),
-	x(#ChoiceList(_
-			name(example),
-			title(Mechanic: Choose a Mechanic Specialty),
-			text(Choose a Mechanic Specialty from the list of examples provided:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Aerospace",
-				"Antimatter Reactor",
-				"Autogyro",
-				"Automobile",
-				"Clockwork",
-				"Construction Equipment",
-				"Contragravity",
-				"Diesel Engine",
-				"Fission Reactor",
-				"Flight Pack",
-				"Free-Flooding Sub",
-				"Fuel Cell",
-				"Fusion Reactor",
-				"Gas Turbine",
-				"Gasoline Engine",
-				"Glider",
-				"Halftrack Vehicle",
-				"Heavy Airplane",
-				"Heavy Wheeled Vehicle",
-				"Helicopter",
-				"High-Performance Airplane",
-				"High-Performance Spacecraft",
-				"Hovercraft",
-				"Large Powerboat",
-				"Large Sub",
-				"Legged Motive System",
-				"Light Airplane",
-				"Lighter-Than-Air",
-				"Lightsail",
-				"Locomotive",
-				"Low-G Wings",
-				"Low-Performance Spacecraft",
-				"Mecha",
-				"Mini-Sub",
-				"Motorboat",
-				"Reactionless Thrusters",
-				"Robotics",
-				"Rockets",
-				"Sailboat",
-				"Steam Engine",
-				"Tracked Motive System",
-				"Tracked Vehicle",
-				"Ultralight Airplane",
-				"Unpowered Boat",
-				"Vertol",
-				"Wheeled Motive System" _
-			)_
-			)_
-	), noresync(yes)
+<Priestly>
+Theology, IQ/H, default(IQ - 6, SK:Religious Ritual - 4), page(B226), cat(_General, Scholarly),
+	x(#InputToTag("You must specialize by religion:", nameext, , "Theology"))
+
+<Ranged Combat>
+"Fast-Draw (Arrow/Bolt)", DX/E, page(73), cat(_General, Ranged Combat)
+Fast-Draw (Pistol Crossbow), DX/E, page(73), cat(_General, Ranged Combat)
+Fast-Draw (Throwing Star), DX/E, page(73), cat(_General, Ranged Combat)
 
 <Scholarly>
-Literature, IQ/H, default(IQ - 6), page(B205), cat(_General, Scholarly, Social Sciences/Humanities)
-Research, IQ/A, tl(0-12), default(IQ - 5, SK:Writing - 3), needs(1 CA:Language Written = 2), page(B217), cat(_General, Scholarly, Spy)
-Speed-Reading, IQ/A, page(B222), cat(_General, Scholarly)
+Research, IQ/A, tl(0-5), default(IQ - 5, SK:Writing - 3), needs(1 CA:Language Written = 2), page(B217), cat(_General, Scholarly)
 Teaching, IQ/A, default(IQ - 5), page(B224), cat(_General, Scholarly, Social)
 
 <Social>
-Acting, IQ/A, default(IQ - 5, SK:Performance - 2, SK:Public Speaking - 5), page(B174), cat(_General, Social, Spy)
-Erotic Art, DX/A, default(DX - 5, SK:Acrobatics - 5), page(B192, S224), cat(_General, Social),
-	x(#InputToTag("You must specialize by species:", nameext, "Human", "Erotic Art"))
-
+Acting, IQ/A, default(IQ - 5), page(71), cat(_General, Social)
 Fortune-Telling, IQ/A, default(IQ - 5, "SK:Fast-Talk" - 3, SK:Occultism - 3), page(B196), cat(_General, Social),
 	x(#InputToTag("You must specialize in a particular method of Fortune-Telling:", nameext, , "Fortune-Telling"))
 
@@ -4138,236 +3856,66 @@ Gesture, IQ/E, default(IQ - 4), page(B198), cat(_General, Social)
 Sex Appeal, HT/A, default(HT - 3), page(B219, S224), cat(_General, Social),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Sex Appeal"))
 
-<Social Sciences/Humanities>
-Anthropology, IQ/H, default(IQ - 6, "SK:Paleontology (Paleoanthropology)" - 2, SK:Sociology - 3), page(B175), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in a particular species:", nameext, "Human", "Anthropology"))
-
-Archaeology, IQ/H, default(IQ - 6), page(B176), cat(_General, Social Sciences/Humanities)
-Expert Skill (Egyptology), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Expert Skill (Political Science), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Expert Skill (Thanatology), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Expert Skill (Xenology), IQ/H, page(B193), cat(_General, Social Sciences/Humanities)
-Geography (Political), IQ/H, tl(0-12), default(IQ - 6, SK:Economics - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-
-Geography ([Regional]), IQ/H, tl(0-12), default(IQ - 6, "SK:Area Knowledge ([Regional])" - 6, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities),
-	x(#InputReplace("Please specify the region covered:", "[Regional]", "local", "Geography (Regional)")), noresync(yes)
-
-Geography (Earthlike), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Earthlike)" - 4, "SK:Meteorology (Earthlike)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Gas Giants), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Gas Giants)" - 4, "SK:Meteorology (Gas Giants)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Hostile Terrestrial), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Hostile Terrestrial)" - 4, "SK:Meteorology (Hostile Terrestrial)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Ice Dwarfs), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Ice Dwarfs)" - 4, "SK:Meteorology (Ice Dwarfs)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Ice Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Ice Worlds)" - 4, "SK:Meteorology (Ice Worlds)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-Geography (Rock Worlds), IQ/H, tl(0-12), default(IQ - 6, "SK:Geology (Rock Worlds)" - 4, "SK:Meteorology (Rock Worlds)" - 4, SK:Geography - 5), page(B198), cat(_General, Social Sciences/Humanities)
-
-History, IQ/H, default(IQ - 6), page(B200), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in a limited geographical region or a single era:", nameext, , "History"))
-
-Linguistics, IQ/H, page(B205), cat(_General, Social Sciences/Humanities)
-Philosophy, IQ/H, default(IQ - 6), page(B213), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize in a particular school of philosophy:", nameext, , "Philosophy"))
-
-Sociology, IQ/H, default(IQ - 6, SK:Anthropology - 3, SK:Psychology - 4), page(B221), cat(_General, Social Sciences/Humanities)
-Theology, IQ/H, default(IQ - 6, SK:Religious Ritual - 4), page(B226), cat(_General, Social Sciences/Humanities),
-	x(#InputToTag("You must specialize by religion:", nameext, , "Theology"))
-
-<Spy>
-Expert Skill (Computer Security), IQ/H, page(B193), cat(_General, Spy)
-Lip Reading, Per/A, default(Per - 10), page(B205), cat(_General, Spy)
-
 <Technical>
-Battlesuit, DX/A, tl(0-12), default(DX - 5, SK:Diving Suit - 2, SK:NBC Suit - 2, SK:Vacc Suit - 2), page(B192), cat(_General, Technical, Vehicle)
-Diving Suit, DX/A, tl(0-12), default(DX - 5, SK:Scuba - 2, SK:Battlesuit - 4, SK:NBC Suit - 4, SK:Vacc Suit - 4), page(B192), cat(_General, Technical)
+Battlesuit, DX/A, tl(0-5), default(DX - 5, SK:Diving Suit - 2, SK:NBC Suit - 2, SK:Vacc Suit - 2), page(B192), cat(_General, Technical, Vehicle)
+Diving Suit, DX/A, tl(0-5), default(DX - 5, SK:Scuba - 2, SK:Battlesuit - 4, SK:NBC Suit - 4, SK:Vacc Suit - 4), page(B192), cat(_General, Technical)
 
-Hazardous Materials, IQ/A, tl(0-12), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical),
+Hazardous Materials, IQ/A, tl(0-5), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical),
 	x(#InputToTag("You must specialize in a type of HazMat:", nameext, , "Hazardous Materials"))
 
-Hazardous Materials (Biological), IQ/A, tl(0-12), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical)
-Hazardous Materials (Chemical), IQ/A, tl(0-12), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical)
-Hazardous Materials (Radioactive), IQ/A, tl(0-12), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical)
-Vacc Suit, DX/A, tl(0-12), default(DX - 5, SK:Battlesuit - 2, SK:Diving Suit - 2, SK:NBC Suit - 2), page(B192), cat(_General, Technical)
+Hazardous Materials (Biological), IQ/A, tl(0-5), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical)
+Hazardous Materials (Chemical), IQ/A, tl(0-5), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical)
+Hazardous Materials (Radioactive), IQ/A, tl(0-5), default(IQ - 5, SK:Hazardous Materials - 5), page(B199), cat(_General, Technical)
+Vacc Suit, DX/A, tl(0-5), default(DX - 5, SK:Battlesuit - 2, SK:Diving Suit - 2, SK:NBC Suit - 2), page(B192), cat(_General, Technical)
 
 <Vehicle>
-Airshipman, IQ/E, tl(0-12), default(IQ - 4), page(B185), cat(_General, Vehicle)
-Boating (Large Powerboat), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Boating (Motorboat)" - 2, "SK:Boating (Sailboat)" - 4, "SK:Boating (Unpowered)" - 4, SK:Seamanship - 4), page(B180), cat(_General, Vehicle)
-Boating (Motorboat), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Boating (Large Powerboat)" - 2, "SK:Boating (Sailboat)" - 3, "SK:Boating (Unpowered)" - 3), page(B180), cat(_General, Vehicle)
-Boating (Sailboat), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Boating (Large Powerboat)" - 4, "SK:Boating (Motorboat)" - 3, "SK:Boating (Unpowered)" - 3), page(B180), cat(_General, Vehicle)
-Boating (Unpowered), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Boating (Large Powerboat)" - 4, "SK:Boating (Motorboat)" - 3, "SK:Boating (Sailboat)" - 3), page(B180), cat(_General, Vehicle)
-Driving (Automobile), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Driving (Heavy Wheeled)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
-Driving (Construction Equipment), DX/A, tl(0-12), default(DX - 5, IQ - 5, SK:Driving - 5), page(B188), cat(_General, Vehicle)
-Driving (Halftrack), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Driving (Tracked)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
-Driving (Heavy Wheeled), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Driving (Automobile)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
-Driving (Hovercraft), DX/A, tl(0-12), default(DX - 5, IQ - 5, SK:Driving - 5), page(B188), cat(_General, Vehicle)
-Driving (Locomotive), DX/A, tl(0-12), default(DX - 5, IQ - 5, SK:Driving - 5), page(B188), cat(_General, Vehicle)
-Driving (Mecha), DX/A, tl(0-12), default(DX - 5, IQ - 5, SK:Battlesuit - 3, SK:Driving - 5), page(B188), cat(_General, Vehicle)
-Driving (Motorcycle), DX/A, tl(0-12), default(DX - 5, IQ - 5, SK:Bicycling - 4), page(B188), cat(_General, Vehicle)
-Driving (Tracked), DX/A, tl(0-12), default(DX - 5, IQ - 5, "SK:Driving (Halftrack)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
-Piloting (Aerospace), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (High-Performance Airplane)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
-Piloting (Autogyro), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Helicopter)" - 3, "SK:Piloting (Heavy Airplane)" - 4, "SK:Piloting (High-Performance Airplane)" - 4, "SK:Piloting (Light Airplane)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Piloting (Contragravity), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Vertol)" - 3, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Piloting (Flight Pack), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Vertol)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Piloting (Glider), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Light Airplane)" - 2, "SK:Piloting (Ultralight)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
-Piloting (Heavy Airplane), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Aerospace)" - 4, "SK:Piloting (High-Performance Airplane)" - 2, "SK:Piloting (Light Airplane)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
-Piloting (Helicopter), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Autogyro)" - 2, "SK:Piloting (Vertol)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Piloting (High-Performance Airplane), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Aerospace)" - 2, "SK:Piloting (Heavy Airplane)" - 2, "SK:Piloting (Light Airplane)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
-Piloting (High-Performance Spacecraft), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Aerospace)" - 4, "SK:Piloting (Low-Performance Spacecraft)" - 2), page(B214), cat(_General, Vehicle)
-Piloting (Light Airplane), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Glider)" - 2, "SK:Piloting (Heavy Airplane)" - 2, "SK:Piloting (High-Performance Airplane)" - 2, "SK:Piloting (Ultralight)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
-Piloting (Lighter-Than-Air), DX/A, tl(0-12), default(IQ - 6, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Piloting (Lightsail), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Low-Performance Spacecraft)" - 4), page(B214), cat(_General, Vehicle)
-Piloting (Low-G Wings), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Glider)" - 4), page(B214), cat(_General, Vehicle)
-Piloting (Low-Performance Spacecraft), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Aerospace)" - 4, "SK:Piloting (High-Performance Spacecraft)" - 2), page(B214), cat(_General, Vehicle)
-Piloting (Ultralight), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Glider)" - 2, "SK:Piloting (Light Airplane)" - 2, "SK:Piloting (Heavy Airplane)" - 4, "SK:Piloting (High-Performance Airplane)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Piloting (Vertol), DX/A, tl(0-12), default(IQ - 6, "SK:Piloting (Contragravity)" - 3, "SK:Piloting (Helicopter)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
-Seamanship, IQ/E, tl(0-12), default(IQ - 4), page(B185), cat(_General, Vehicle)
-Shiphandling (Airship), IQ/H, tl(0-12), default(IQ - 6, SK:Airshipman - 5, "SK:Piloting (Lighter-Than-Air)" - 5), needs(SK:Airshipman, SK:Leadership, "SK:Navigation (Air)"), page(B220), cat(_General, Vehicle)
-Shiphandling (Ship), IQ/H, tl(0-12), default(IQ - 6, SK:Seamanship - 5, "SK:Boating (Large Powerboat)" - 5, "SK:Boating (Sailboat)" - 5), needs(SK:Seamanship, SK:Leadership, "SK:Navigation (Sea)"), page(B220), cat(_General, Vehicle)
-Shiphandling (Spaceship), IQ/H, tl(0-12), default(IQ - 6, SK:Spacer - 5, "SK:Piloting (High-Performance Spacecraft)" - 5, "SK:Piloting (Lightsail)" - 5, "SK:Piloting (Low-Performance Spacecraft)" - 5), needs(SK:Spacer, SK:Leadership, "SK:Navigation (Space)"), page(B220), cat(_General, Vehicle)
-Shiphandling (Starship), IQ/H, tl(0-12), default(IQ - 6, SK:Spacer - 5, "SK:Piloting (High-Performance Spacecraft)" - 5, "SK:Piloting (Lightsail)" - 5, "SK:Piloting (Low-Performance Spacecraft)" - 5), needs(SK:Spacer, SK:Leadership, "SK:Navigation (Hyperspace)"), page(B220), cat(_General, Vehicle)
-Shiphandling (Submarine), IQ/H, tl(0-12), default(IQ - 6, SK:Submariner - 5, "SK:Submarine (Large Sub)" - 5), needs(SK:Submariner, SK:Leadership, "SK:Navigation (Sea)"), page(B220), cat(_General, Vehicle)
-Spacer, IQ/E, tl(0-12), default(IQ - 4), page(B185), cat(_General, Vehicle)
-Submarine (Free-Flooding Sub), DX/A, tl(0-12), default(IQ - 6, "SK:Submarine (Large Sub)" - 4, "SK:Submarine (Mini-Sub)" - 4), page(B223), cat(_General, Vehicle), needs(SK:Scuba | SK:Diving Suit | AD:Doesn't Breathe)
-Submarine (Large Sub), DX/A, tl(0-12), default(IQ - 6, "SK:Submarine (Free-Flooding Sub)" - 4, "SK:Submarine (Mini-Sub)" - 4), page(B223), cat(_General, Vehicle)
-Submarine (Mini-Sub), DX/A, tl(0-12), default(IQ - 6, "SK:Submarine (Free-Flooding Sub)" - 4, "SK:Submarine (Large Sub)" - 4), page(B223), cat(_General, Vehicle)
-Submariner, IQ/E, tl(0-12), default(IQ - 4), page(B185), cat(_General, Vehicle)
-
-<Techniques, Techniques - Combat>
-Arm Lock (Judo), Tech/A, default(SK:Judo::level), needs(SK:Judo), upto(prereq + 4), page(B230)
-Arm Lock (Wrestling), Tech/A, default(SK:Wrestling::level), needs(SK:Wrestling), upto(prereq + 4), page(B230)
-Back Kick (Karate), Tech/H, default(SK:Karate::level - 4), needs(SK:Karate), upto(prereq), page(B230)
-Choke Hold (Judo), Tech/H, default(SK:Judo::level - 2), needs(SK:Judo), upto(prereq), page(B230)
-Choke Hold (Wrestling), Tech/H, default(SK:Wrestling::level - 3), needs(SK:Wrestling), upto(prereq), page(B230)
-Disarming (%Melee Combat SkillList%), Tech/H, default("SK:%Melee Combat SkillList%::level"), needs(SK:%Melee Combat SkillList%), upto(prereq + 5), page(MA70, B230),
-	x(#ChoiceList(_
-			name(Melee Combat Skill),
-			title(Disarming: Choose a combat skill),
-			text(Choose a combat skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-				list(_
-					#grouplist(GR:Melee Weapon Skill, flags(NoPrefix)), #grouplist(GR:ShieldSkill, flags(NoPrefix)), #grouplist(GR:Unarmed Combat Skill, flags(NoPrefix))_
-				)_
-			)_
-	), noresync(yes)
-Dual-Weapon Attack (Beam Weapons (Pistol)), Tech/H, default("SK:Beam Weapons (Pistol)::level" - 4), needs(SK:Beam Weapons (Pistol)), upto(prereq), page(MA83, B230)
-Dual-Weapon Attack (Guns (Pistol)), Tech/H, default("SK:Guns (Pistol)::level" - 4, SK:Gun! - 4), needs(SK:Guns (Pistol) | SK:Gun!), upto(Prereq), page(MA83, B230)
-Dual-Weapon Attack (Bow), Tech/H, default("SK:Bow::level" - 4), needs(SK:Bow), upto(prereq), page(MA83, B230)
-Dual-Weapon Attack (%One Handed Combat SkillList%), Tech/H, default("SK:%One Handed Combat SkillList%::level" - 4), needs(SK:%One Handed Combat SkillList%), upto(prereq), page(MA83, B230),
-	x(#ChoiceList(_
-			name(One Handed Combat Skill),
-			title(Dual-Weapon Attack: Choose a combat skill),
-			text(Choose a combat skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-				list(_
-					#grouplist(GR:Unarmed Combat Skill, flags(NoPrefix)), #grouplist(GR:One-Handed Melee Weapon Skill, flags(NoPrefix)), #grouplist(GR:ShieldSkill, flags(NoPrefix))_
-				)_
-			)_
-	), noresync(yes)
-Elbow Strike (Brawling), Tech/A, default(SK:Brawling::level - 2), needs(SK:Brawling), upto(Prereq), page(B230),
-	damage(_
-		thr+@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Punch) else 0) _
-		), damtype(cr), reach(C), parry(No), skillused(SK:Elbow Strike (Brawling))
-Elbow Strike (Karate), Tech/A, default(SK:Karate::level - 2), needs(SK:Karate), upto(Prereq), page(B230),
-	damage(_
-		thr+@if("SK:Karate::level" = ST:DX then @basethdice(ST:Punch) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Punch) else 0)) _
-		), damtype(cr), reach(C), parry(No), skillused(SK:Elbow Strike (Karate))
-Feint (%Melee Combat SkillList%), Tech/H, default("SK:%Melee Combat SkillList%::level"), needs(SK:%Melee Combat SkillList%), upto(prereq + 4), page(MA73, B231),
-	x(#ChoiceList(_
-			name(Melee Combat Skill),
-			title(Feint: Choose a combat skill),
-			text(Choose a combat skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:Melee Weapon Skill, flags(NoPrefix)), #grouplist(GR:ShieldSkill, flags(NoPrefix)), #grouplist(GR:Unarmed Combat Skill, flags(NoPrefix))_
-			)_
-			)_
-	), noresync(yes)
-Finger Lock (Judo), Tech/H, default("SK:Arm Lock (Judo)::level" - 3), needs(SK:Arm Lock (Judo)), upto(Prereq), page(B231)
-Finger Lock (Wrestling), Tech/H, default("SK:Arm Lock (Wrestling)::level" - 3), needs(SK:Arm Lock (Wrestling)), upto(Prereq), page(B231)
-Ground Fighting (%Melee Combat SkillList%), Tech/H, default("SK:%Melee Combat SkillList%::level" - 4), needs(SK:%Melee Combat SkillList%), upto(prereq), page(MA73, B231),
-	x(#ChoiceList(_
-			name(Melee Combat Skill),
-			title(Ground Fighting: Choose a combat skill),
-			text(Choose a combat skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:Melee Weapon Skill, flags(NoPrefix)), #grouplist(GR:ShieldSkill, flags(NoPrefix)), #grouplist(GR:Unarmed Combat Skill, flags(NoPrefix))_
-			)_
-			)_
-	), noresync(yes)
-Horse Archery (Bow), Tech/H, default(SK:Bow::level - 4), needs(SK:Bow, SK:Riding), upto(SK:Bow), page(B231)
-Jump Kick (Karate), Tech/H, default(SK:Karate::level - 4), needs(SK:Karate), upto(Prereq), page(B231), mods(Punch/Kick),
-	damage(_
-		thr+2 + _ 
-			@if("SK:Karate::level" = ST:DX then @basethdice(ST:Kick) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Kick) else 0)) + _
-			@if("AD:Claws (Blunt Claws)::level" = 1 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0))) _
-		), damtype($if("AD:Claws (Sharp Claws)::level" = 1 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 THEN "cut/imp" ELSE "cr")))), reach(C,1-2), parry(No), skillused(SK:Jump Kick (Karate))
-Kicking (Brawling), Tech/H, default(SK:Brawling::level - 2), needs(SK:Brawling), upto(Prereq), page(B231),
-	gives(=$if(me::level >= ST:DX-2 THEN nobase) to ST:Kick::reach$)
-Kicking (Karate), Tech/H, default(SK:Karate::level - 2), needs(SK:Karate), upto(Prereq), page(B231),
-	gives(=$if(me::level >= ST:DX-2 THEN nobase) to ST:Kick::reach$)
-Knee Strike (Brawling), Tech/A, default(SK:Brawling::level - 1), needs(SK:Brawling), upto(Prereq), page(B232),
-	damage(_
-		thr+@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Kick) else 0) _
-		), damtype(cr), reach(C), parry(No), skillused(SK:Knee Strike (Brawling)), damagebasedon(ST:Kick)
-Knee Strike (Karate), Tech/A, default(SK:Karate::level - 1), needs(SK:Karate), upto(Prereq), page(B232),
-	damage(_
-		thr+@if("SK:Karate::level" = ST:DX then @basethdice(ST:Kick) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Kick) else 0)) _
-		), damtype(cr), reach(C), parry(No), skillused(SK:Knee Strike (Karate)), damagebasedon(ST:Kick)
-Neck Snap (ST), Tech/H, default(ST:ST - 4), upto(ST:ST + 3), page(B232)
-Off-Hand Weapon Training (%Melee Weapon SkillList%), Tech/H, default("SK:%Melee Weapon SkillList%::level" - 4), needs(SK:%Melee Weapon SkillList%), upto(prereq), page(B230),
-	x(#ChoiceList(_
-			name(Melee Weapon Skill),
-			title(Off-Hand Weapon Training: Choose a combat skill),
-			text(Choose a combat skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:Melee Weapon Skill, flags(NoPrefix)), #grouplist(GR:ShieldSkill, flags(NoPrefix))_
-			)_
-			)_
-	), noresync(yes)
-Retain Weapon (%Ranged Weapon SkillList%), Tech/H, default("ST:DX::score"), needs(ST:DX > 0), upto(ST:DX::score + 5), page(MA78, B232),
-	x(_
-	#ChoiceList(_
-			name(Ranged Weapon Skill),
-			title(Retain Weapon: Choose a Ranged Weapon skill),
-			text(Choose a Ranged Weapon skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:Ranged Weapon Skill, flags(NoPrefix))_
-			)_
-		)_
-	), noresync(yes)
-Retain Weapon (%Melee Weapon SkillList%), Tech/H, default("SK:%Melee Weapon SkillList%::level"), needs(SK:%Melee Weapon SkillList%), upto(prereq + 5), page(MA78, B232),
-	x(#ChoiceList(_
-			name(Melee Weapon Skill),
-			title(Retain Weapon: Choose a combat skill),
-			text(Choose a combat skill from the list:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:Melee Weapon Skill, flags(NoPrefix)), #grouplist(GR:ShieldSkill, flags(NoPrefix))_
-			)_
-			)_
-	), noresync(yes)
-Sweep (Polearm), Tech/H, default(SK:Polearm::level - 3), needs(SK:Polearm), upto(Prereq), page(B232)
-Sweep (Spear), Tech/H, default(SK:Spear::level - 3), needs(SK:Spear), upto(Prereq), page(B232)
-Sweep (Staff), Tech/H, default(SK:Staff::level - 3), needs(SK:Staff), upto(Prereq), page(B232)
-Sweeping Kick (Judo), Tech/H, default(SK:Judo::level - 3), needs(SK:Judo), upto(Prereq), page(B232)
-Sweeping Kick (Karate), Tech/H, default(SK:Karate::level - 3), needs(SK:Karate), upto(Prereq), page(B232)
-Sweeping Kick (Sumo Wrestling), Tech/H, default(SK:Sumo Wrestling::level - 3), needs(SK:Sumo Wrestling), upto(Prereq), page(B232)
-Whirlwind Attack (Broadsword), Tech/H, default(SK:Broadsword::level - 5), needs(SK:Broadsword), upto(Prereq), page(B232)
-Whirlwind Attack (Staff), Tech/H, default(SK:Staff::level - 5), needs(SK:Staff), upto(Prereq), page(B232)
-Whirlwind Attack (Two-Handed Sword), Tech/H, default("SK:Two-Handed Sword::level" - 5), needs(SK:Two-Handed Sword), upto(Prereq + 5), page(B232)
+Airshipman, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
+Boating (Large Powerboat), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Boating (Motorboat)" - 2, "SK:Boating (Sailboat)" - 4, "SK:Boating (Unpowered)" - 4, SK:Seamanship - 4), page(B180), cat(_General, Vehicle)
+Boating (Motorboat), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Boating (Large Powerboat)" - 2, "SK:Boating (Sailboat)" - 3, "SK:Boating (Unpowered)" - 3), page(B180), cat(_General, Vehicle)
+Boating (Sailboat), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Boating (Large Powerboat)" - 4, "SK:Boating (Motorboat)" - 3, "SK:Boating (Unpowered)" - 3), page(B180), cat(_General, Vehicle)
+Boating (Unpowered), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Boating (Large Powerboat)" - 4, "SK:Boating (Motorboat)" - 3, "SK:Boating (Sailboat)" - 3), page(B180), cat(_General, Vehicle)
+Driving (Automobile), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Driving (Heavy Wheeled)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
+Driving (Construction Equipment), DX/A, tl(0-5), default(DX - 5, IQ - 5, SK:Driving - 5), page(B188), cat(_General, Vehicle)
+Driving (Halftrack), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Driving (Tracked)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
+Driving (Heavy Wheeled), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Driving (Automobile)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
+Driving (Hovercraft), DX/A, tl(0-5), default(DX - 5, IQ - 5, SK:Driving - 5), page(B188), cat(_General, Vehicle)
+Driving (Locomotive), DX/A, tl(0-5), default(DX - 5, IQ - 5, SK:Driving - 5), page(B188), cat(_General, Vehicle)
+Driving (Mecha), DX/A, tl(0-5), default(DX - 5, IQ - 5, SK:Battlesuit - 3, SK:Driving - 5), page(B188), cat(_General, Vehicle)
+Driving (Motorcycle), DX/A, tl(0-5), default(DX - 5, IQ - 5, SK:Bicycling - 4), page(B188), cat(_General, Vehicle)
+Driving (Tracked), DX/A, tl(0-5), default(DX - 5, IQ - 5, "SK:Driving (Halftrack)" - 2, SK:Driving - 4), page(B188), cat(_General, Vehicle)
+Piloting (Aerospace), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (High-Performance Airplane)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
+Piloting (Autogyro), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Helicopter)" - 3, "SK:Piloting (Heavy Airplane)" - 4, "SK:Piloting (High-Performance Airplane)" - 4, "SK:Piloting (Light Airplane)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Piloting (Contragravity), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Vertol)" - 3, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Piloting (Flight Pack), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Vertol)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Piloting (Glider), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Light Airplane)" - 2, "SK:Piloting (Ultralight)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
+Piloting (Heavy Airplane), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Aerospace)" - 4, "SK:Piloting (High-Performance Airplane)" - 2, "SK:Piloting (Light Airplane)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
+Piloting (Helicopter), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Autogyro)" - 2, "SK:Piloting (Vertol)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Piloting (High-Performance Airplane), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Aerospace)" - 2, "SK:Piloting (Heavy Airplane)" - 2, "SK:Piloting (Light Airplane)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
+Piloting (High-Performance Spacecraft), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Aerospace)" - 4, "SK:Piloting (Low-Performance Spacecraft)" - 2), page(B214), cat(_General, Vehicle)
+Piloting (Light Airplane), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Glider)" - 2, "SK:Piloting (Heavy Airplane)" - 2, "SK:Piloting (High-Performance Airplane)" - 2, "SK:Piloting (Ultralight)" - 2, SK:Piloting - 4), page(B214), cat(_General, Vehicle)
+Piloting (Lighter-Than-Air), DX/A, tl(0-5), default(IQ - 6, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Piloting (Lightsail), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Low-Performance Spacecraft)" - 4), page(B214), cat(_General, Vehicle)
+Piloting (Low-G Wings), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Glider)" - 4), page(B214), cat(_General, Vehicle)
+Piloting (Low-Performance Spacecraft), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Aerospace)" - 4, "SK:Piloting (High-Performance Spacecraft)" - 2), page(B214), cat(_General, Vehicle)
+Piloting (Ultralight), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Glider)" - 2, "SK:Piloting (Light Airplane)" - 2, "SK:Piloting (Heavy Airplane)" - 4, "SK:Piloting (High-Performance Airplane)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Piloting (Vertol), DX/A, tl(0-5), default(IQ - 6, "SK:Piloting (Contragravity)" - 3, "SK:Piloting (Helicopter)" - 4, SK:Piloting - 5), page(B214), cat(_General, Vehicle)
+Seamanship, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
+Shiphandling (Airship), IQ/H, tl(0-5), default(IQ - 6, SK:Airshipman - 5, "SK:Piloting (Lighter-Than-Air)" - 5), needs(SK:Airshipman, SK:Leadership, "SK:Navigation (Air)"), page(B220), cat(_General, Vehicle)
+Shiphandling (Ship), IQ/H, tl(0-5), default(IQ - 6, SK:Seamanship - 5, "SK:Boating (Large Powerboat)" - 5, "SK:Boating (Sailboat)" - 5), needs(SK:Seamanship, SK:Leadership, "SK:Navigation (Sea)"), page(B220), cat(_General, Vehicle)
+Shiphandling (Spaceship), IQ/H, tl(0-5), default(IQ - 6, SK:Spacer - 5, "SK:Piloting (High-Performance Spacecraft)" - 5, "SK:Piloting (Lightsail)" - 5, "SK:Piloting (Low-Performance Spacecraft)" - 5), needs(SK:Spacer, SK:Leadership, "SK:Navigation (Space)"), page(B220), cat(_General, Vehicle)
+Shiphandling (Starship), IQ/H, tl(0-5), default(IQ - 6, SK:Spacer - 5, "SK:Piloting (High-Performance Spacecraft)" - 5, "SK:Piloting (Lightsail)" - 5, "SK:Piloting (Low-Performance Spacecraft)" - 5), needs(SK:Spacer, SK:Leadership, "SK:Navigation (Hyperspace)"), page(B220), cat(_General, Vehicle)
+Shiphandling (Submarine), IQ/H, tl(0-5), default(IQ - 6, SK:Submariner - 5, "SK:Submarine (Large Sub)" - 5), needs(SK:Submariner, SK:Leadership, "SK:Navigation (Sea)"), page(B220), cat(_General, Vehicle)
+Spacer, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
+Submarine (Free-Flooding Sub), DX/A, tl(0-5), default(IQ - 6, "SK:Submarine (Large Sub)" - 4, "SK:Submarine (Mini-Sub)" - 4), page(B223), cat(_General, Vehicle), needs(SK:Scuba | SK:Diving Suit | AD:Doesn't Breathe)
+Submarine (Large Sub), DX/A, tl(0-5), default(IQ - 6, "SK:Submarine (Free-Flooding Sub)" - 4, "SK:Submarine (Mini-Sub)" - 4), page(B223), cat(_General, Vehicle)
+Submarine (Mini-Sub), DX/A, tl(0-5), default(IQ - 6, "SK:Submarine (Free-Flooding Sub)" - 4, "SK:Submarine (Large Sub)" - 4), page(B223), cat(_General, Vehicle)
+Submariner, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
 
 <Techniques, Techniques - Noncombat>
 Impersonate (Mimicry (Speech)), Tech/A, default("SK:Mimicry (Speech)::level" - 3), needs(SK:Mimicry (Speech)), upto(Prereq), page(B233)
 Lifesaving (Swimming), Tech/H, default(SK:Swimming::level - 5), needs(SK:Swimming), upto(Prereq), page(B233)
 Motion-Picture Camera (Photography), Tech/A, default(SK:Photography::level - 3), needs(SK:Photography), upto(Prereq), page(B233)
-No-Landing Extraction (%PilotingSkillList%), Tech/H, tl(0-12), needs(SK:%PilotingSkillList%), page(B233), default("SK:%PilotingSkillList%::level" - 4), upto(prereq),
+No-Landing Extraction (%PilotingSkillList%), Tech/H, tl(0-5), needs(SK:%PilotingSkillList%), page(B233), default("SK:%PilotingSkillList%::level" - 4), upto(prereq),
 	x(#ChoiceList(_
 			name(PilotingSkill),
 			title(No-Landing Extraction: Choose a Piloting specialty),
@@ -4561,86 +4109,6 @@ _New Spell (Ritual), type(Tech/H), CountAsNeed(Ritual), cat(~Ritual, ~Ritual - %
 			),
 		#edit _
 	), noresync(yes)
-
-_New Spell (Clerical), type(%typelist%), CountAsNeed(Clerical), mods(Spells), cat(~Clerical, %newspelllist%), shortcat(CL, %newspellaliaslist%), class([class]), time([time]), duration([duration]), castingcost([castingcost]),
-	x(#InputToTagReplace("Please enter the name of this spell:", name, , "New Spell"),
-	#InputReplace("Please enter the Class of this spell; i.e. Regular, Area, Missile, Blocking, Information, Enchantment, or Special. If Resisted use R- followed by the attribute or skill that resists the spell; e.g. R-Will:", "[class]", , "New Spell"),
-	#InputReplace("Please enter the Casting Time of this spell:", "[time]", "1 sec.", "New Spell"),
-	#InputReplace("Please enter the Duration of this spell:", "[duration]", , "New Spell"),
-	#InputReplace("Please enter the Casting Cost of this spell:", "[castingcost]", , "New Spell"),
-	#ChoiceList(_
-			name(type),
-			title(New Spell: Choose a Skill Type),
-			text("Choose the type of spell from the list below:"),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"IQ/H",
-				"IQ/VH" _
-			)_
-			),
-	#ChoiceList(_
-			name(newspell),
-			title(New Spell: Choose a College),
-			text(Choose the College (or Colleges) of the new spell from the list below:),
-			picksallowed(atleast 1),
-			method(bynumber),
-			list(_
-				"~Clerical - Air",
-				"~Clerical - Animal",
-				"~Clerical - Body Control",
-				"~Clerical - Communication & Empathy",
-				"~Clerical - Earth",
-				"~Clerical - Enchantment",
-				"~Clerical - Fire",
-				"~Clerical - Food",
-				"~Clerical - Gate",
-				"~Clerical - Healing",
-				"~Clerical - Illusion & Creation",
-				"~Clerical - Knowledge",
-				"~Clerical - Light & Darkness",
-				"~Clerical - Making & Breaking",
-				"~Clerical - Meta-Spells",
-				"~Clerical - Mind Control",
-				"~Clerical - Movement",
-				"~Clerical - Necromancy",
-				"~Clerical - Plant",
-				"~Clerical - Protection & Warning",
-				"~Clerical - Sound",
-				"~Clerical - Technological",
-				"~Clerical - Water",
-				"~Clerical - Weather" _
-				),
-			aliaslist(_
-				"Ai",
-				"An",
-				"BC",
-				"CE",
-				"Ea",
-				"En",
-				"Fi",
-				"Fo",
-				"Ga",
-				"He",
-				"IC",
-				"Kn",
-				"LD",
-				"MB",
-				"MS",
-				"MC",
-				"Mo",
-				"Ne",
-				"Pl",
-				"PW",
-				"So",
-				"Te",
-				"Wa",
-				"We" _
-				)_
-			),
-		#edit _
-	), noresync(yes)
-
 
 
 
@@ -4837,16 +4305,11 @@ AD:Hard to Subdue
 AD:Healer
 AD:Healing Talent
 AD:Healing
-AD:Heat/Fire Talent
 AD:Hermaphromorph
 AD:High Manual Dexterity
 AD:High Pain Threshold
 AD:High TL
-AD:Higher Purpose
 AD:Huge Piercing Attack
-AD:Hyperspectral Vision
-AD:Illuminated
-AD:Illusion Talent
 AD:Illusion
 AD:Imaging Radar
 AD:Impaling Attack
@@ -4968,8 +4431,6 @@ AD:Resistant
 AD:Ritual Magery (%skilllist%)
 AD:Ritual Magery ([skill])
 AD:Ritual Magery 0
-AD:Sealed
-AD:Security Clearance
 AD:See Invisible
 AD:Sensitive Touch
 AD:Sensitive
@@ -5064,14 +4525,10 @@ AD:Visualization
 AD:Voice
 AD:Walk on Air
 AD:Walk on Liquid
-AD:Warp
-AD:Water Talent
 AD:Wealth
 AD:Weapon Master
 AD:Weather Control Talent
 AD:Wild Talent
-AD:Wildcard Magery!
-AD:Zeroed
 
 <AllPerks>
 PE:_New Perk
@@ -5504,13 +4961,9 @@ SK:Cryptography
 SK:Current Affairs
 SK:Current Affairs (Business)
 SK:Current Affairs (Headline News)
-SK:Current Affairs (High Culture)
-SK:Current Affairs (People)
 SK:Current Affairs (Politics)
-SK:Current Affairs (Popular Culture)
-SK:Current Affairs (Science & Technology)
+SK:Current Affairs (Regional)
 SK:Current Affairs (Sports)
-SK:Current Affairs (Travel)
 SK:Dancing
 SK:Detect Lies
 SK:Diagnosis
@@ -5555,7 +5008,6 @@ SK:Expert Skill
 SK:Expert Skill (Epidemiology)
 SK:Expert Skill (Hydrology)
 SK:Expert Skill (Military Science)
-SK:Expert Skill (Natural Philosophy)
 SK:Expert Skill (Political Science)
 SK:Expert Skill (Psionics)
 SK:Expert Skill (Thanatology)
@@ -5689,8 +5141,6 @@ SK:Liquid Projector (Squirt Gun)
 SK:Liquid Projector (Water Cannon)
 SK:Literature
 SK:Lockpicking
-SK:Machinist
-SK:Main-Gauche
 SK:Makeup
 SK:Market Analysis
 SK:Masonry
@@ -5870,20 +5320,12 @@ SK:Surgery
 SK:Survival
 SK:Survival (Arctic)
 SK:Survival (Bank)
-SK:Survival (Deep Ocean Vent)
 SK:Survival (Desert)
-SK:Survival (Fresh-Water Lake)
 SK:Survival (Island/Beach)
 SK:Survival (Jungle)
 SK:Survival (Mountain)
-SK:Survival (Open Ocean)
 SK:Survival (Plains)
-SK:Survival (Radioactive Wasteland)
-SK:Survival (Reef)
-SK:Survival (River/Stream)
-SK:Survival (Salt-Water Sea)
 SK:Survival (Swampland)
-SK:Survival (Tropical Lagoon)
 SK:Survival (Woodlands)
 SK:Swimming
 SK:Symbol Drawing
@@ -5895,13 +5337,10 @@ SK:Theology
 SK:Throwing
 SK:Thrown Weapon
 SK:Thrown Weapon (Axe/Mace)
-SK:Thrown Weapon (Dart)
-SK:Thrown Weapon (Harpoon)
 SK:Thrown Weapon (Knife)
-SK:Thrown Weapon (Shuriken)
 SK:Thrown Weapon (Spear)
 SK:Thrown Weapon (Stick)
-SK:Tonfa
+SK:Thrown Weapon (Throwing Star)
 SK:Tracking
 SK:Traps
 SK:Two-Handed Axe/Mace
@@ -5909,11 +5348,9 @@ SK:Two-Handed Flail
 SK:Two-Handed Sword
 SK:Typing
 SK:Urban Survival
-SK:Vacc Suit
 SK:Ventriloquism
 SK:Veterinary
 SK:Weather Sense
-SK:Weird Science
 SK:Wrestling
 SK:Writing
 SK:Zen Archery
@@ -6281,9 +5718,7 @@ SK:Veterinary
 SK:Armoury
 SK:Carpentry
 SK:Electrician
-SK:Electronics Repair
 SK:Engineer
-SK:Machinist
 SK:Masonry
 SK:Mechanic
 SK:Smith
@@ -6575,12 +6010,10 @@ SK:Net
 SK:Sling
 SK:Spear Thrower
 SK:Thrown Weapon (Axe/Mace)
-SK:Thrown Weapon (Dart)
-SK:Thrown Weapon (Harpoon)
 SK:Thrown Weapon (Knife)
-SK:Thrown Weapon (Shuriken)
 SK:Thrown Weapon (Spear)
 SK:Thrown Weapon (Stick)
+SK:Thrown Weapon (Throwing Star)
 
 
 ************************************************************************************************************************
@@ -8039,7 +7472,7 @@ Mitigator: Glasses, -60%, group(Bad Sight), page(B112), mitigator(yes), shortnam
 Mitigator: Artificial Eyes, -60%, group(Blindness), page(B112), shortname(Artificial Eyes), mitigator(yes),
 	x(#Message("This modifier is for use only with Blindness. Applying it to any other trait will cause problems."))
 
-//	gives(+4 to ST:Dodge, +6 to CL:Combat/Weapons - Melee Combat, +6 to CL:Combat/Weapons - Ranged Combat, +6 to CL:Athletic - Combat Art/Sport, +ST:Vision::basescore to ST:Vision),
+//	gives(+4 to ST:Dodge, +6 to CL:Melee Combat, +6 to CL:Ranged Combat, +6 to CL:Athletic - Combat Art/Sport, +ST:Vision::basescore to ST:Vision),
 
 <Berserk>
 Battle Rage, +50%, group(Berserk), page(B124)
@@ -8636,7 +8069,7 @@ Cybernetic, -50%, group(Mind Shield), page(B70)
 
 <Missing Legs>
 Mitigator: Prosthetic Leg, -60%, group(Missing Legs), page(B112), shortname(Prosthetic Leg), mitigator(yes)
-//, gives(+6 to "CL:Combat/Weapons - Melee Combat")
+//, gives(+6 to "CL:Melee Combat")
 
 <Modular Ability>
 Physical Only, +50%, group(Modular Ability), page(B71)
@@ -9146,9 +8579,6 @@ Targeting Only, -40%, group(Scanning Sense), page(B82)
 <Secret Identity>
 Secret Identity: Status 3 or higher, -10, shortname(Status 3+), group(Secret Identity), page(B153)
 
-<Security Clearance>
-Granting organization is of relatively minor importance, *1/2, group(Security Clearance), page(B82)
-
 <Self-Control>
 You resist on a roll of  6 or less (quite rarely), *2, shortname(6 or less), group(Self-Control), page(B121)
 You resist on a roll of  9 or less (fairly often), *1.5, shortname(9 or less), group(Self-Control), page(B121)
@@ -9454,9 +8884,7 @@ Investigator (Basic Set), displaycost(100),
 				AD:Legal Enforcement Powers, 
 				AD:Luck,
 				AD:Rapid Healing, 
-				AD:Security Clearance, 
 				AD:Smooth Operator #codes(UPTO 1),
-				AD:Zeroed,
 				AD:Extra Perception #codes(UPTO 3),
 				AD:Appearance #codes(UPTO 3) _
 				)_
@@ -9564,14 +8992,10 @@ Investigator (Basic Set), displaycost(100),
 				SK:Computer Operation #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Business) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Headline News) #codes(upto 2pts, downto 2pts),
-				SK:Current Affairs (High Culture) #codes(upto 2pts, downto 2pts),
-				SK:Current Affairs (People) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Politics) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Popular Culture) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Regional) #codes(upto 2pts, downto 2pts),
-				SK:Current Affairs (Science & Technology) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Sports) #codes(upto 2pts, downto 2pts),
-				SK:Current Affairs (Travel) #codes(upto 2pts, downto 2pts),
 				SK:Carousing #codes(upto 2pts, downto 2pts),
 				SK:Swimming #codes(upto 2pts, downto 2pts),
 				SK:Boating (Large Powerboat) #codes(upto 2pts, downto 2pts),
@@ -11086,6 +10510,52 @@ Travel Rations, basecost([cost]), baseweight(14), mods(Equipment), displaycost(v
 	x(_
 		#InputReplace("Please enter the cost of this item here, or just press OK to base cost on the character's Cost of Living. Average cost is 1% of the character's cost of living (though sometimes topping out at Status 3). DO NOT use a dollar sign or comma:", [cost], "ST:Cost of Living * 0.01", "Travel Rations")_
 	), page(148), description(A bottle of acceptable booze. 1% of cost of living (though sometimes topping out at Status 3); 1lb.), techlvl(0), cat(Discworld RPG, Discworld RPG - Food and Drink)
+Travel Rations (Status %StatusList%), basecost(0.05 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)), baseweight(2), mods(Equipment), displaycost(varies),
+	x(_
+	#ChoiceList(_
+			name(Status),
+			title(Food: Travel Rations),
+			text(Select the Status level appropriate to these victuals. Cost will be based on the Status selected. Note that food rated above Status 3 will be exceptionally extravagant and possibly pretentious:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+					-2,
+					-1,
+					+0,
+					+1,
+					+2,
+					+3,
+					+4,
+					+5,
+					+6,
+					+7,
+					+8_
+				)_
+		)_
+	), page(148), description(Food for a week on the road. 5% of cost of living; 14lbs.), techlvl(0)
+Wind or Liquor (per bottle, Status %StatusList%), basecost(0.01 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)), baseweight(2), mods(Equipment), displaycost(varies),
+	x(_
+	#ChoiceList(_
+			name(Status),
+			title(Drink: Wine or Liquor),
+			text(Select the Status level appropriate to this drink. Cost will be based on the Status selected. Note that drink rated above Status 3 will be exceptionally refined:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+					-2,
+					-1,
+					+0,
+					+1,
+					+2,
+					+3,
+					+4,
+					+5,
+					+6,
+					+7,
+					+8_
+				)_
+		)_
+	), page(148), description(A bottle or booze. 1% of cost of living; 1lb.), techlvl(0)
 
 <Discworld RPG, Discworld RPG - Clothing>
 Complete Wardrobe, basecost([cost]), baseweight([weight]), mods(Equipment), displaycost(varies), displayweight(20+),
@@ -11129,7 +10599,7 @@ Complete Wardrobe (Status %StatusList%), basecost(@indexedvalue(%StatusList% + 3
 					+8_
 				)_
 		)_
-	), page(148), description(Includes one to four sets of ordinary clothes, plus nightclothes, one set each of formal wear and winter clothes, and usually at least one outfit (lab coat, uniform, gym clothes, etc.) appropriate to your job or hobbies. 100% of cost of living; 20+lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(148), description(Includes one to four sets of ordinary clothes, plus nightclothes, one set each of formal wear and winter clothes, and usually at least one outfit (lab coat, uniform, gym clothes, etc.) appropriate to your job or hobbies. 100% of cost of living; 20+lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 Ordinary Clothes (Status %StatusList%), basecost(0.2 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 600, 600, 600, 600, 600)), baseweight(2), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
@@ -11152,7 +10622,7 @@ Ordinary Clothes (Status %StatusList%), basecost(0.2 * @indexedvalue(%StatusList
 					+8_
 				)_
 		)_
-	), page(149), description(One complete outfit, ranging in quality from castoff rags to designer fashions, depending on Status. At minimum: undergarments, plus a tunic, blouse, or shirt with hose, skirt, or trousers - or a long tunic, robe or dress - and suitable footwear. 20% of cost of living; 2lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(149), description(One complete outfit, ranging in quality from castoff rags to designer fashions, depending on Status. At minimum: undergarments, plus a tunic, blouse, or shirt with hose, skirt, or trousers - or a long tunic, robe or dress - and suitable footwear. 20% of cost of living; 2lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 Winter Clothes (Status %StatusList%), basecost(0.3 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 600, 600, 600, 600, 600)), baseweight(4), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
@@ -11175,7 +10645,7 @@ Winter Clothes (Status %StatusList%), basecost(0.3 * @indexedvalue(%StatusList% 
 					+8_
 				)_
 		)_
-	), page(149), description(As Ordinary Clothes, but heavier. Includes a hat or hood, boots, and probably furs. 30% of cost of living; 4lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(149), description(As Ordinary Clothes, but heavier. Includes a hat or hood, boots, and probably furs. 30% of cost of living; 4lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 Formal Wear (Status %StatusList%), basecost(0.4 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 600, 600, 600, 600, 600)), baseweight(2), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
@@ -11198,7 +10668,7 @@ Formal Wear (Status %StatusList%), basecost(0.4 * @indexedvalue(%StatusList% + 3
 					+8_
 				)_
 		)_
-	), page(149), description(Your "best outfit," which will usually include at least some accessories (hat, gloves, etc.) or jewelry. 40% of cost of living; 2lbs.), techlvl(0), cat(Basic Set, Basic Set - Clothing)
+	), page(149), description(Your "best outfit," which will usually include at least some accessories (hat, gloves, etc.) or jewelry. 40% of cost of living; 2lbs.), techlvl(0), cat(Discworld RPG, Discworld RPG - Clothing)
 	
 <Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Camping & Travel Gear>
 "Backpack, Frame", techlvl(1), basecost(5), baseweight(10), description(TL:1 Notes: Holds 100 lbs. of gear.), page(156), mods(Equipment), isparent(yes), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment - Camping & Travel Gear, Discworld RPG - Miscellaneous Equipment)
@@ -11558,7 +11028,7 @@ Blowpipe Dart, techlvl(0), baseweight(0.05), basecost(0.005), page(155), mods(Eq
 Sling Stone, techlvl(0), baseweight(0.05), basecost(0), page(155), mods(Equipment), uses(count*1), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Ammunition)
 Sling Lead Pellet, techlvl(2), baseweight(0.05), basecost(0.005), page(155), mods(Equipment), uses(count*1), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Ammunition)
 	
-<Artillery, Discworld RPG Bonus Items, _Muscle-Powered Ranged Weapons, _Muscle-Powered Artillery>
+<Artillery, Discworld RPG Bonus Items>
 Agatean Barking Dog, basecost(1000), baseweight(3200), damage(15d), damtype(pi++), techlvl(4), acc(1), calcrange(yes), rangehalfdam(220), rangemax(1900), rof(1), shots(1(60)), minst(45M†), bulk(-13), skillused(SK:Gunner (Cannon), ST:DX-4), page(), mods(Equipment)
 Scorpion, basecost(250), baseweight(110), damage(5d), damtype(imp), techlvl(2), acc(3), calcrange(yes), rangehalfdam(415), rangemax(520), rof(1), shots(1(30)), minst(45M†), bulk(-10), skillused(SK:Gunner (Catapult), ST:DX-4), page(), mods(Equipment)
 Cannonball and Powder, techlvl(4), baseweight(10), basecost(50), page(), mods(Equipment), uses(count*1), cat(Ammunition)
