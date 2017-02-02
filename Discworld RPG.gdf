@@ -1665,17 +1665,6 @@ Snatcher, 80, mods(Snatcher), page(B86), cat(Exotic, Mental),
 					
 
 Speak With Animals, 25, mods(Speak With Animals), page(B87), cat(Exotic, Mental)
-Speak With Plants, 15, page(B87), cat(Exotic, Mental)
-					
-
-Telecommunication (Infrared Communication), 10, mods(Telecommunication, Infrared Communication), page(B91), cat(Exotic Physical, Exotic, Mental, Physical), rangehalfdam(500),
-	skillused(ST:IQ), mode(Communicate)
-Telecommunication (Laser Communication), 15, mods(Telecommunication, Laser Communication), page(B91), cat(Exotic Physical, Exotic, Mental, Physical), rangehalfdam(50 mi.),
-	skillused(ST:IQ), mode(Communicate)
-Telecommunication (Radio), 10, mods(Telecommunication, Radio), page(B91), cat(Exotic Physical, Exotic, Mental, Physical), rangehalfdam(10 mi.),
-	skillused(ST:IQ), mode(Communicate)
-Telecommunication (Telesend), 30, mods(Telecommunication, Telesend), page(B91), cat(Exotic Physical, Exotic, Mental, Physical), rangehalfdam(),
-	skillused(ST:IQ), mode(Communicate)
 					
 
 Telekinesis, 5/10, mods(Telekinesis), page(B92), cat(Exotic Physical, Exotic, Mental, Physical, Natural Attacks),
@@ -1826,10 +1815,10 @@ High Pain Threshold, 10, page(B59), cat(Mundane, Physical), taboo(DI:Low Pain Th
 	skillused(ST:Will+3), mode(ignore pain)
 Improved G-Tolerance, 5/10, upto(5), page(B60), levelnames(0.3G, 0.5G, 1G, 5G, 10G), cat(Mundane, Physical), taboo(DI:G-Intolerance)
 Less Sleep, 2/4, page(B65), cat(Mundane, Physical), taboo(AD:Doesn't Sleep, DI:Extra Sleep)
-Longevity, 2, page(B66), cat(Mundane, Physical), taboo(AD:Unaging)
 Night Vision, 1/2, page(B71), upto(9), cat(Mundane, Physical), taboo(DI:Blindness, DI:Night Blindness, AD:Dark Vision)
-Perfect Balance, 15, gives(+1 To GR:Perfect Balance, +4 to SK:Immovable Stance), page(B74), cat(Mundane, Physical)
-Peripheral Vision, 15, mods(Peripheral Vision), page(B74), cat(Mundane, Physical), taboo(DI:Blindness, AD:360° Vision)
+
+Perfect Balance, 15, gives(+1 To GR:Perfect Balance), page(46), cat(Mundane, Physical)
+
 Rapid Healing, 5/15, displaycost(5), upto(2), levelnames(,Very Rapid Healing), needs(ST:HT = 10), page(B79), cat(Mundane, Physical), taboo(AD:Very Rapid Healing, DI:Slow Healing, AD:Regeneration)
 Very Rapid Healing, 15, needs(ST:HT = 12), page(B79), cat(Mundane, Physical), taboo(AD:Rapid Healing, DI:Slow Healing)
 Reduced Consumption, 2/4, mods(Reduced Consumption), page(B80), cat(Mundane, Physical), taboo(AD:Doesn't Eat or Drink, DI:Increased Consumption)
@@ -1842,32 +1831,29 @@ Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Ver
 		#InputToTagReplace("Please specify the noxious item or substance you are Resistant or Immune to:" , nameext, , "Resistant"),
 		#buildit _
 	)
+
 Temperature Tolerance, 1/2, page(B93), cat(Mundane, Physical)
-Voice, 10, gives(+2 To GR:Voice), page(B97), cat(Mundane, Physical), taboo(DI:Mute, DI:Disturbing Voice, DI:Stuttering),
+
+
+Voice, 10, gives(+2 To GR:Voice), page(30), cat(Mundane, Physical), taboo(DI:Mute, DI:Disturbing Voice, DI:Stuttering),
 	conditional(+2 to ST:Reaction when "your voice can be heard")
 					
 
 <Mundane Mental>
-Absolute Timing, 2/5, displaycost(2), levelnames(,Chronolocation), upto(2), page(B35), cat(Mundane, Mental), taboo(AD:Chronolocation)
-Chronolocation, 5, page(B35), cat(Mundane, Mental), taboo(AD:Absolute Timing)
 Animal Empathy, 5, page(B40), cat(Mundane, Mental), taboo(DI:Frightens Animals),
 	skillused(ST:IQ), mode(empathize)
 Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(B41), cat(Mundane, Mental)
-Combat Reflexes, 15/45, displaycost(15), levelnames(,Enhanced Time Sense), upto(2), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check), page(B43), cat(Mundane, Mental), taboo(DI:Combat Paralysis, AD:Enhanced Time Sense)
-Common Sense, 10, page(B43), cat(Mundane, Mental),
-	skillused(ST:IQ), mode(avoid stupidity)
-Cultural Adaptability, 10/20, upto(2), levelnames( , Xeno-Adaptability), page(B46), cat(Mundane, Mental)
-Xeno-Adaptability, 20, page(B46), cat(Mundane, Mental)
-Danger Sense, 15, mods(Danger Sense), page(B47), cat(Mundane, Mental), taboo(AD:Precognition),
+Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check), page(42), cat(Mundane, Mental), taboo(DI:Combat Paralysis)
+Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental), taboo(AD:Precognition),
 	skillused(ST:Perception), mode(sense danger)
-Daredevil, 15, page(B47), cat(Mundane, Mental)
-Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2), page(B51), cat(Mundane, Mental), taboo(AD:Photographic Memory),
+Daredevil, 15, page(43), cat(Mundane, Mental)
+Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2), page(45), cat(Mundane, Mental), taboo(AD:Photographic Memory),
 	skillused(ST:IQ), mode(recall)
-Photographic Memory, 10, page(B51), cat(Mundane, Mental), taboo(AD:Eidetic Memory),
+Photographic Memory, 10, page(45), cat(Mundane, Mental), taboo(AD:Eidetic Memory),
 	skillused(ST:IQ), mode(recall)
 Sensitive, 5, gives(+1 To GR:Empathy), conditional(+1 to SK:Psychology when "you can converse with subject"), page(B51), cat(Mundane, Mental), taboo(DI:Low Empathy),
 	skillused(ST:IQ), mode(empathize)
-Empathy, 15, gives(+3 To GR:Empathy), conditional(+3 to SK:Psychology when "you can converse with subject"), page(B51), cat(Mundane, Mental), taboo(DI:Low Empathy),
+Empathy, 15, gives(+3 To GR:Empathy), conditional(+3 to SK:Psychology when "you can converse with subject"), page(42), cat(Mundane, Mental), taboo(DI:Low Empathy),
 	skillused(ST:IQ), mode(empathize)
 Enhanced Block, 5/10, gives(+1 To Block), page(B51), cat(Mundane, Mental, Attributes)
 Enhanced Dodge, 15/30, gives(+1 To Dodge), page(B51), cat(Mundane, Mental, Attributes)
@@ -3781,8 +3767,8 @@ Submariner, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
 [SPELLS]
 ************************************************************************************************************************
 <%NewSpellList%>
-_New One-Form Spell, (Magical Form (%FormList%)), Tech/H, default("SK:Magical Form (%FormList%)" %penaltylist%),
-	needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, _New Spells, Spells, %FormList% Spells),
+_New One-Form Spell, (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)::level" %penaltylist%),
+	needs(SK:Magical Form (%FormList%)), page(203), cat(_General, _New Spells, Techniques, Spells, %FormList% Spells),
 	x(#InputToTagReplace("Please enter the name of this Spell:" , name, , "New Spell"),
 		#ChoiceList(_
 			name(form),
@@ -3836,61 +3822,76 @@ _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0)
 			),
 	x(#InputToTagReplace("Please specify a name for this categorisation or whatever:", name, , "New Parent Item"))
 
-Scry Shield (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level"), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
-Love's Name (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level"), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
-Scrying - Minimal Item (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level" - 14), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
-Scrying - Silver Mirror (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level" - 8), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
-Scrying - Crystal Ball (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
-Snap (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
-Visual Illusion (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
-Fireball (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
-Magic Lightning (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
-Balanced Levitation (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
-Gindle's Effortless Elevator (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
-Rock Soften (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
-Wind (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
-Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
-Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 6), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
-Detect Magic (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level"), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Magianism Spells)
-Check Thaumic Flux (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Magianism Spells)
-Analyse Magic (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
-Octagram (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
-Nul Zone (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
-Dispel Magic (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
-Emergency Power Drain (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 8), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
-Detect Haunting (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level"), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Exorcise Ghost (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Speak With the Dead (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 2), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Last Vision (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Chill Finger (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Steal Zombie (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Animate Zombie (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 6), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
-Spolt's Forthright Respirator (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level"), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
-Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
-Transfer Pain (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
-Catch Wound (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
-Stacklady's Morphic Resonator (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 6), needs(SK:Magic), upto(Prereq + 4), page(208), cat(_General, Spells, Physiomancy Spells)
-Detect Mind (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level"), needs(SK:Magic), upto(Prereq + 4), page(209), cat(_General, Spells, Psychomancy Spells)
-Truth Tell (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(209), cat(_General, Spells, Psychomancy Spells)
-Mental Adjustment (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(209), cat(_General, Spells, Psychomancy Spells)
-Hide from Minds (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
-Mental Illusion (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
-Borrowing - Simple (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
-Borrowing - Carnivore (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 7), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
-Borrowing - Group Mind (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 10), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
-Follow the Plot Damn You (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Psychomancy Spells)
-A Little Luck (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level"), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Sortilege Spells)
-Mechanical Failure (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Sortilege Spells)
-Magical Fortune-Telling (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Sortilege Spells)
-Cursing (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(212), cat(_General, Spells, Sortilege Spells)
-Suspend Time (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 7), needs(SK:Magic), upto(Prereq + 4), page(212), cat(_General, Spells, Sortilege Spells)
-Narrative Manipulation (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(213), cat(_General, Spells, Sortilege Spells)
-Gate Scan (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level"), needs(SK:Magic), upto(Prereq + 4), page(214), cat(_General, Spells, Summonation Spells)
-The Rite of AshkEnte (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(214), cat(_General, Spells, Summonation Spells)
-Summon Thing (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
-Exorcise Spirit (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
-Oracular Demon (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
-Summon Demon (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
+<Techniques, Techniques - Spells, Spells, Divination Spells>
+Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"), needs(SK:Magical Form (Divination)), page(202)
+Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"), needs(SK:Magical Form (Divination)), page(202)
+Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 14), needs(SK:Magical Form (Divination)), page(202)
+Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 8), needs(SK:Magical Form (Divination)), page(202)
+Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 3), needs(SK:Magical Form (Divination)), page(202)
+
+<Techniques, Techniques - Spells, Spells, Elementalism Spells>
+Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 1), needs(SK:Magical Form (Elementalism)), page(203)
+Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
+Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
+Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
+Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
+Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magical Form (Elementalism)), page(204)
+Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(204)
+Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magical Form (Elementalism)), page(204)
+Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magical Form (Elementalism)), page(204)
+Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 6), needs(SK:Magical Form (Elementalism)), page(204)
+
+<Techniques, Techniques - Spells, Spells, Magianism Spells>
+Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level"), needs(SK:Magical Form (Magianism)), page(204)
+Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 1), needs(SK:Magical Form (Magianism)),  page(204)
+Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magical Form (Magianism)),  page(205)
+Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magical Form (Magianism)),  page(205)
+Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magical Form (Magianism)),  page(205)
+Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 5), needs(SK:Magical Form (Magianism)),  page(205)
+Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 8), needs(SK:Magical Form (Magianism)),  page(205)
+
+<Techniques, Techniques - Spells, Spells, Necromancy Spells>
+Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level"), needs(SK:Magical Form (Necromancy)), page(206)
+Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magical Form (Necromancy)),  page(206)
+Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 2), needs(SK:Magical Form (Necromancy)),  page(206)
+Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magical Form (Necromancy)),  page(206)
+Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magical Form (Necromancy)),  page(206)
+Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magical Form (Necromancy)),  page(206)
+Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 6), needs(SK:Magical Form (Necromancy)),  page(206)
+
+<Techniques, Techniques - Spells, Spells, Physiomancy Spells>
+Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level"), needs(SK:Magical Form (Necromancy)), page(207)
+Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magical Form (Necromancy)), page(207)
+Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magical Form (Necromancy)), page(207)
+Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(207)
+Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 6), needs(SK:Magical Form (Necromancy)), page(208)
+
+<Techniques, Techniques - Spells, Spells, Psychomancy Spells>
+Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level"), needs(SK:Magical Form (Necromancy)), page(209)
+Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 1), needs(SK:Magical Form (Necromancy)), page(209)
+Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 3), needs(SK:Magical Form (Necromancy)), page(209)
+Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(210)
+Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(210)
+Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(210)
+Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 7), needs(SK:Magical Form (Necromancy)), page(210)
+Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 10), needs(SK:Magical Form (Necromancy)), page(210)
+Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 5), needs(SK:Magical Form (Necromancy)), page(211)
+
+<Techniques, Techniques - Spells, Spells, Sortilege Spells>
+A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level"), needs(SK:Magical Form (Sortilege)), page(211)
+Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magical Form (Sortilege)), page(211)
+Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magical Form (Sortilege)), page(211)
+Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 3), needs(SK:Magical Form (Sortilege)), page(212)
+Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 7), needs(SK:Magical Form (Sortilege)), page(212)
+Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 5), needs(SK:Magical Form (Sortilege)), page(213)
+
+<Techniques, Techniques - Spells, Spells, Summonation Spells>
+Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level"), needs(SK:Magical Form (Summonation)), page(214)
+The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 1), needs(SK:Magical Form (Summonation)), page(214)
+Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magical Form (Summonation)), page(215)
+Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magical Form (Summonation)), page(215)
+Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magical Form (Summonation)), page(215)
+Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 5), needs(SK:Magical Form (Summonation)), page(215)
 
 ************************************************************************************************************************
 [GROUPS]
