@@ -35,8 +35,8 @@ Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS
 * Eric B. Smith	- GURPS Data File Coordinator, Equipment, Updates, Corrections, Skill Categories
 *
 * Discworld RPG Adaptation:
-* Phil Masters - xxxxxxxxx
-* Roger Bell_West - xxxxxxxxxx
+* Phil Masters - Major work
+* Roger Bell_West - Project organisation
 * xxxxxxxxxxx
 *
 * If you find any errors or omissions in this file please contact the Data File Coordinator at:
@@ -608,33 +608,7 @@ Native Cultural Familiarities, basevalue(0), display(no), hide(yes)
 * Magery Prerequisite Work-around Stats
 ************************************************************************************************************************
 Magery 0, basevalue(0), display(no), minscore(0), maxscore(100), hide(yes)	
-Magery, basevalue(0), display(no), minscore(0), maxscore(1000000), hide(yes),
-	gives(=+me::score to ("CO:Air", "CO:Animal", "CO:Body Control", "CO:Communication & Empathy", "CO:Earth", "CO:Enchantment", "CO:Fire", "CO:Food", "CO:Illusion & Creation", "CO:Gate", "CO:Healing", "CO:Knowledge", "CO:Light & Darkness", "CO:Making & Breaking", "CO:Meta-Spells", "CO:Mind Control", "CO:Movement", "CO:Necromancy", "CO:Plant", "CO:Protection & Warning", "CO:Sound", "CO:Technological", "CO:Water", "CO:Weather"))
-Magery Air, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Body Control, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Communication & Empathy, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Earth, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Enchantment, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Fire, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Gate, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Healing, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Knowledge, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Light & Darkness, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Meta-Spells, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Mind Control, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Movement, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Necromancy, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Protection & Warning, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Water, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-
-Magery Animal, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Food, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Illusion & Creation, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Making & Breaking, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Plant, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Sound, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Technological, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
-Magery Weather, basevalue(ST:Magery), display(no), minscore(0), maxscore(100), hide(yes)
+Magery, basevalue(0), display(no), minscore(0), maxscore(1000000), hide(yes)
 
 * Reaction
 ************************************************************************************************************************
@@ -1766,32 +1740,32 @@ Magery 0, 5, mods(Magery 0), page(44), cat(Supernatural, Mental),
 Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form), mods(Magery, Talents), needs(AD:Magery 0), page(44), cat(Supernatural, Mental),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
-Magery (No Spellcasting) 0, 1, mods(Magery 0), page(44), cat(Supernatural, Mental),
+Magery 0 (No Spellcasting), 1, mods(Magery 0), page(44), cat(Supernatural, Mental),
 	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
 			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (No Spellcasting), 2/4, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery (No Spellcasting) 0), page(44), cat(Supernatural, Mental),
+Magery (No Spellcasting), 2/4, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery 0 (No Spellcasting) 0), page(44), cat(Supernatural, Mental),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 
-Magery (Engineering Only) 0, 4, mods(Magery 0), page(44), cat(Supernatural, Mental),
+Magery 0 (Engineering Only), 4, mods(Magery 0), page(44), cat(Supernatural, Mental),
 	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
 	skillused(ST:Perception), mode(detect Magic Items with touch-only Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
 			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (Engineering Only), 6/12, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery (Engineering Only) 0), page(44), cat(Supernatural, Mental),
+Magery (Engineering Only), 6/12, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.),
 	conditional(+1 to SK:Magic when "for engineering purposes",
 			+1 to SK:Magical Form when "for engineering purposes")
 					
-Magery (Non-Improvisational) 0, 4, mods(Magery 0), page(45), cat(Supernatural, Mental),
+Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, Mental),
 	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
 			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form), mods(Magery, Talents), needs(AD:Magery (Non-Improvisational) 0), page(45), cat(Supernatural, Mental),
+Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)), page(45), cat(Supernatural, Mental),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
-					
+
 Medium, 10, page(45), cat(Supernatural, Mental)
 Spirit Empathy (Full), 10, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(empathize)
@@ -2293,7 +2267,7 @@ Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
 Secret Name, 1, page(52), needs(AD:Magery 0), cat(Magical, Mundane)
 Self-Styling Hair, 1, page(52), cat(Magical, Mundane)
-Sordid Claws, 1, page(94), needs(AD:Claws), cat(Magical, Mundane)
+Sordid Claws, 1, page(94), needs(AD:Claws), cat(Racial)
 Statuesque, 1, page(52), cat(Mundane)
 Striking Surface (NEEDS MORE WORK - MINIMUM DR 3), 1, page(94), needs(AD:Damage Resistance), cat(Racial)
 There on Call, 1, page(52), needs(SK:Savoir-Faire (Servant), SK:Stealth, SK:Traps), cat(Mundane)
@@ -3152,127 +3126,6 @@ _New Parent Item, N/A, isparent(yes), upto(0 LimitingTotal), cat(_General, _New 
 			),
 	x(#InputToTagReplace("Please specify a name for this item:", name, , "New Parent Item"))
 
-_New Parent Technique, N|A, isparent(yes), upto(0 LimitingTotal), cat(_General, _New Skills, Techniques),
-	description(_
-			In GCA a "Parent" item can have other traits assigned to it as "Children." This is essentially an organizational structure, allowing you to file multiple traits together under the parent item if you wish. _
-			To make an item a "child" right click on it and select "Make Child of..." _
-			The child items will be hidden by default; you may show the child items by right clicking on the parent and selecting "Show Components." Once displayed the children will be shown in a "tree" format under the parent. _
-			Any item may be assigned as a parent by right clicking on it and selecting "Make Parent"; this entry is here for convenience, as it is automatically designated a Parent. _
-			),
-	x(#InputToTagReplace("Please specify a name for this item:", name, , "New Parent Technique"))
-
-_New Technique (%SkillList%), %typelist%, default("SK:%SkillList%%blockparryaliaslist%" %penaltylist%), needs("SK:%SkillList%"), page(B229), cat(_General, _New Skills, Techniques),
-	x(#InputToTagReplace("Please enter the name of this Technique:" , name, , "New Technique"),
-		#ChoiceList(_
-			name(skill),
-			title(New Technique: Choose a base skill),
-			text(Please select the skill this Technique is based on:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:AllSkills, flags(NoPrefix))_
-				)_
-			),
-		#ChoiceList(_
-			name(penalty),
-			title(New Technique: Choose a base skill),
-			text(Please select the skills default penalty:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				+4,
-				+3,
-				+2,
-				+1,
-				+0,
-				-1,
-				-2,
-				-3,
-				-4,
-				-5,
-				-6,
-				-7,
-				-8,
-				-9,
-				-10,
-				-11,
-				-12,
-				-13,
-				-14,
-				-15_
-				)_
-			),
-			#ChoiceList(_
-			name(blockparry),
-			title(New Technique: Choose a Technique difficulty),
-			text(Does this Technique default from the Skill's Level, it's Block or it's Parry?:),
-			picksallowed(1),
-			method(bynumber),
-			default(2),
-			list(_
-				"Block Level",
-				"_Skill Level",
-				"Parry Level"_
-			),
-			aliaslist(_
-				"::blocklevel",
-				"::level",
-				"::parrylevel"_
-				)_
-			),
-	#ChoiceList(_
-			name(type),
-			title(New Technique: Choose a Technique difficulty),
-			text(Choose the difficulty of the Technique from the list below:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Tech/A",
-				"Tech/H"_
-			)_
-			)_
-	), noresync(yes)
-	
-	
-_New Technique ([skill]), %typelist%, default("SK:[skill]%blockparryaliaslist%" [default]), needs("SK:[skill]"), page(B229), cat(_General, _New Skills, Techniques),
-	x(#InputToTagReplace("Please enter the name of this Technique:" , name, , "New Technique"),
-	#InputReplace("Please enter the name of the skill that this Technique defaults from. _
-			Please include any name extension; e.g. Driving (Automobile)" , "[skill]", , "New Technique"),
-	#InputReplace("Please enter the default penalty for this Technique. _
-			Please include the negative (or positive) sign; e.g. -4 or +0" , "[default]", , "New Technique"), 
-	#ChoiceList(_
-			name(blockparry),
-			title(New Technique: Choose a Technique difficulty),
-			text(Does this Technique default from the Skill's Level, it's Block or it's Parry?:),
-			picksallowed(1),
-			method(bynumber),
-			default(2),
-			list(_
-				"Block Level",
-				"_Skill Level",
-				"Parry Level"_
-				),
-			aliaslist(_
-				"::blocklevel",
-				"::level",
-				"::parrylevel"_
-				)_
-			),
-	#ChoiceList(_
-			name(type),
-			title(New Technique: Choose a Technique difficulty),
-			text(Choose the difficulty of the Technique from the list below:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Tech/A",
-				"Tech/H"_
-			)_
-			),
-	#edit_
-	), noresync(yes)
-	
-
 _New Skill, %typelist%, page(B175), cat(_General, _New Skills),
 	x(#InputToTagReplace("Please enter the name of this Skill:" , name, , "New Skill"),
 	#ChoiceList(_
@@ -3356,10 +3209,10 @@ Philosophy, IQ/H, default(IQ - 6), page(71), cat(_General, Scholarly),
 
 <Animal>
 Animal Handling, IQ/A, default(IQ - 5), page(71), cat(_General, Animal),
-	x(#InputToTag("You must specialize in a category of animals:", nameext, , "Animal Handling"))
+	x(#InputToTag("You must specialize in a category of animals:", nameext, "Equines", "Animal Handling"))
 Falconry, IQ/A, default(IQ - 5), page(71), cat(_General, Animal)
-Mimicry (Animal Sounds), IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
-Mimicry (Bird Calls), IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Arts/Entertainment, Outdoor/Exploration)
+Mimicry (Animal Sounds), IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Entertainment, Outdoor/Exploration)
+Mimicry (Bird Calls), IQ/H, default(IQ - 6), page(78), cat(_General, Animal, Entertainment, Outdoor/Exploration)
 Mount, DX/A, default(DX - 5), page(78), cat(_General, Animal, Athletic)
 Naturalist, IQ/H, default(IQ - 6), page(79), cat(_General, Animal, Outdoor/Exploration, Plant)
 Packing, IQ/A, default(IQ - 5), page(80), cat(_General, Animal, Professional)
@@ -3442,7 +3295,7 @@ Merchant, IQ/A, default(IQ - 5, SK:Finance - 6, SK:Market Analysis - 4), page(B2
 Politics, IQ/A, default(IQ - 5, SK:Diplomacy - 5), page(B215), cat(_General, Business, Social)
 Propaganda, IQ/A, tl(0-5), default(IQ - 5, SK:Merchant - 5, SK:Psychology - 4), page(B216), cat(_General, Business, Military, Social)
 Public Speaking, IQ/A, default(IQ - 5), page(B216), cat(_General, Business, Scholarly, Social)
-Savoir-Faire (High Society), IQ/E, default(IQ - 4, "SK:Savoir-Faire (Servant)" - 2), page(B218), cat(_General, Business, Knowledge, Social)
+Savoir-Faire (High Society), IQ/E, default(IQ - 4, "SK:Savoir-Faire (Servant)" - 2), page(B218), cat(_General, Business, Social)
 
 <Craft>
 Armoury (Body Armor), IQ/A, tl(0-5), page(80), cat(_General, Craft, Military, Repair), default(IQ - 5)
@@ -3503,7 +3356,7 @@ Urban Survival, Per/A, default(Per - 5), page(B228), cat(_General, Criminal/Stre
 <Design/Invention>
 Architecture, IQ/A, tl(0-5), default(IQ - 5), page(79), cat(_General, Design/Invention, Professional)
 Computer Programming (Magical Computers), IQ/H, page(72), cat(_General, Design/Invention, Occult/Magical, Technical)
-Computer Programming (Stone Circles), IQ/H, page(72), cat(_General, Design/Invention, Occult/Magical, Technical)
+Computer Programming (Stone Circles), IQ/H, page(72), cat(_General, Design/Invention, Occult/Magical, Priestly)
 Engineer ([Type]), IQ/H, tl(0-5), page(73), cat(_General, Design/Invention, Technical), noresync(yes),
 	x( #InputReplace("Choose a type of thing to engineer:", "[Type]", , "Engineer") )
 Engineer (%examplelist%), IQ/H, tl(0-5), page(73), cat(_General, Design/Invention, Technical),
@@ -3531,17 +3384,13 @@ Engineer (%examplelist%), IQ/H, tl(0-5), page(73), cat(_General, Design/Inventio
 	), noresync(yes)
 
 <Entertainment>
-Current Affairs (High Culture), IQ/E, tl(0-5), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Arts/Entertainment, Everyman, Knowledge, Social)
-Current Affairs (Popular Culture), IQ/E, tl(0-5), default(IQ - 4, SK:Research - 4, SK:Current Affairs - 4), page(B186), cat(_General, Arts/Entertainment, Everyman, Knowledge, Social)
-Fire Eating, DX/A, page(B195), cat(_General, Arts/Entertainment)
+Mimicry (Speech), IQ/H, default(IQ - 6), page(78), cat(_General)
+Photography, IQ/A, default(IQ - 5), page(79), cat(_General, Craft, Technical)
 
-Mimicry (Speech), IQ/H, default(IQ - 6), page(78), cat(_General, Entertainment)
-Photography, IQ/A, default(IQ - 5), page(79), cat(_General, Craft, Entertainment, Technical)
-
-Sleight of Hand, DX/H, page(B221), cat(_General, Arts/Entertainment, Criminal/Street)
-Stage Combat, DX/A, default(SK:Combat Sport - 2, SK:Combat Art - 2, SK:Performance - 3), page(B222), cat(_General, Arts/Entertainment)
-Ventriloquism, IQ/H, page(B228), cat(_General, Arts/Entertainment)
-Writing, IQ/A, default(IQ - 5), page(B228), cat(_General, Arts/Entertainment, Scholarly)
+Sleight of Hand, DX/H, page(B221), cat(_General, Criminal/Street)
+Stage Combat, DX/A, default(SK:Combat Sport - 2, SK:Combat Art - 2, SK:Performance - 3), page(B222), cat(_General)
+Ventriloquism, IQ/H, page(B228), cat(_General)
+Writing, IQ/A, default(IQ - 5), page(B228), cat(_General, Scholarly)
 
 <Everyman>
 Area Knowledge ([Area]), IQ/E, default(IQ - 4), page(71), cat(_General),
@@ -3555,7 +3404,7 @@ Connoisseur (Music), IQ/A, default(IQ - 5), page(72), cat(_General)
 Connoisseur (Painting), IQ/A, default(IQ - 5), page(72), cat(_General)
 Connoisseur (Sculpture), IQ/A, default(IQ - 5), page(72), cat(_General)
 Connoisseur (Theatre), IQ/A, default(IQ - 5), page(72), cat(_General)
-Connoisseur (Wine), IQ/A, default(IQ - 5), page(72), cat(_General, Arts/Entertainment, Knowledge, Social)
+Connoisseur (Wine), IQ/A, default(IQ - 5), page(72), cat(_General, Social)
 
 Cooking, IQ/A, default(IQ - 5, SK:Housekeeping - 5), page(B185), cat(_General, Craft, Everyman)
 
@@ -3569,7 +3418,7 @@ First Aid, IQ/E, tl(0-5), default(IQ - 4, SK:Esoteric Medicine, SK:Physician, SK
 	x(#InputToTag("You must specialize by species - Physiology Modifiers apply (p. B181):", nameext, "Human", "First Aid"))
 Housekeeping, IQ/E, default(IQ - 4), page(B200), cat(_General, Everyman)
 Knot-Tying, DX/E, default(DX - 4, SK:Climbing - 4, SK:Seamanship - 4), page(B203), cat(_General, Everyman)
-Savoir-Faire (Servant), IQ/E, default(IQ - 4, "SK:Savoir-Faire (High Society)" - 2), page(B218), cat(_General, Everyman, Knowledge, Social)
+Savoir-Faire (Servant), IQ/E, default(IQ - 4, "SK:Savoir-Faire (High Society)" - 2), page(B218), cat(_General, Everyman, Social)
 Weather Sense, IQ/A, default(IQ - 5), page(B209), cat(_General, Everyman, Outdoor/Exploration)
 
 <Game/Sport>
@@ -3583,48 +3432,43 @@ Gunner (Cannon), DX/E, tl(0-5), default(DX - 4), page(74), cat(_General, Ranged 
 Gunner (Catapult), DX/E, tl(0-5), default(DX - 4), page(74), cat(_General, Ranged Combat)
 
 <Hobby>
-Hobby Skill ([DX-based]), DX/E, default(DX - 4), page(B200), cat(_General, Knowledge),
+Hobby Skill ([DX-based]), DX/E, default(DX - 4), page(B200), cat(_General),
    x( #InputReplace("Specify the field of study:", "[DX-based]", , "Hobby Skill") )
-Hobby Skill ([IQ-based]), IQ/E, default(IQ - 4), page(B200), cat(_General, Knowledge),
+Hobby Skill ([IQ-based]), IQ/E, default(IQ - 4), page(B200), cat(_General),
    x( #InputReplace("Specify the field of study:", "[IQ-based]", , "Hobby Skill") )
 
-Professional Skill ([DX based]), DX/A, default(DX - 5), page(B215), cat(_General, Knowledge),
+Professional Skill ([DX based]), DX/A, default(DX - 5), page(B215), cat(_General),
    x( #InputReplace("Specify the profession encompassed by this skill:", "[DX based]", , "Professional Skill") )
-Professional Skill ([IQ based]), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge),
+Professional Skill ([IQ based]), IQ/A, default(IQ - 5), page(B215), cat(_General),
    x( #InputReplace("Specify the profession encompassed by this skill:", "[IQ based]", , "Professional Skill") )
-Professional Skill (Air Traffic Controller), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Barber), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Brewer), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Cooper), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Distiller), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Dyer), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Florist), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Game Designer), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Journalist), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Prostitute), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Tanner), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Vinter), IQ/A, default(IQ - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Glassblower), DX/A, default(DX - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Tailor), DX/A, default(DX - 5), page(B215), cat(_General, Knowledge) 
-Professional Skill (Weaver), DX/A, default(DX - 5), page(B215), cat(_General, Knowledge) 
+Professional Skill (Barber), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Brewer), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Cooper), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Distiller), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Dyer), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Florist), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Game Designer), IQ/A, default(IQ - 5), page(B215), cat(_General)
+Professional Skill (Prostitute), IQ/A, default(IQ - 5), page(B215), cat(_General)
+Professional Skill (Tanner), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Vinter), IQ/A, default(IQ - 5), page(B215), cat(_General) 
+Professional Skill (Glassblower), DX/A, default(DX - 5), page(B215), cat(_General) 
+Professional Skill (Tailor), DX/A, default(DX - 5), page(B215), cat(_General) 
+Professional Skill (Weaver), DX/A, default(DX - 5), page(B215), cat(_General) 
 
-Savoir-Faire, IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Social),
+Savoir-Faire, IQ/E, default(IQ - 4), page(B218), cat(_General, Social),
 	x(#InputToTag("You must specialize in a subculture:", nameext, , "Savoir-Faire"))
 
-Savoir-Faire (Dojo), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Social)
-Savoir-Faire (Military), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Military, Social)
-Savoir-Faire (Police), IQ/E, default(IQ - 4), page(B218), cat(_General, Knowledge, Police/Watch, Social)
+Savoir-Faire (Military), IQ/E, default(IQ - 4), page(B218), cat(_General, Military, Social)
+Savoir-Faire (Police), IQ/E, default(IQ - 4), page(B218), cat(_General, Police/Watch, Social)
 
 <Knowledge>
 Heraldry, IQ/A, default(IQ - 5, "SK:Savoir-Faire (High Society)" - 3), page(B199), cat(_General, Knowledge, Social)
 Hidden Lore, IQ/A, page(75), cat(_General, Knowledge),
 	x(#InputToTag("You must specialize in a particular body of secret knowledge:", nameext, , "Hidden Lore"))
 Hidden Lore (Demon Lore), IQ/A, page(75), cat(_General, Knowledge, Occult/Magical, Priestly)
-Hidden Lore (L-Space), IQ/A, page(75), cat(_General, Knowledge)
-
-// SET UP AN OPTION TO ENTER WHICH CITY FOR THE NEXT ONE!!
-Hidden Lore (Secrets of the City), IQ/A, page(75), cat(_General, Knowledge, Occult/Magical)
-
+Hidden Lore (L-Space), IQ/A, page(75), cat(_General, Knowledge, Scholarly)
+Hidden Lore (Secrets of the City: [city]), IQ/A, page(75), cat(_General, Knowledge),
+   x(#InputReplace("Specify the city in question:", "[city]", , "Secrets of the City"))
 Hidden Lore (Spirit Lore), IQ/A, page(75), cat(_General, Knowledge, Occult/Magical)
 Occultism, IQ/A, default(IQ - 5), page(75), cat(_General, Occult/Magical)
 Sacred Texts, IQ/A, page(75), cat(_General, Priestly)
@@ -3783,10 +3627,29 @@ Thrown Weapon (Throwing Star), DX/E, default(DX - 4), page(78), cat(_General, Ra
 
 <Occult/Magical>
 Alchemy, IQ/VH, tl(0-5), page(71), cat(_General, Occult/Magical, Scholarly)
-Religious Ritual, IQ/H, default(SK:Ritual Magic - 6, SK:Theology - 4), page(B217), cat(_General, Occult/Magical, Priestly),
-	x(#InputToTag("You must specialize by religion:", nameext, , "Religious Ritual"))
-
-Thaumatology, IQ/VH, default(IQ - 7), page(B225), cat(_General, Occult/Magical, Scholarly)
+Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly),
+	needs(AD:Magery 0 | AD:Magery 0 (Engineering Only) | Magery 0 (Non-Improvisational)),
+	x(#InputToTag("You must specialize in a branch of magic (Witchcraft, Wizardry, etc.):", nameext, "Witchcraft", "Magic Skill"))
+Magical Form (%formlist%), IQ/VH, default(SK:Magic - 6), page(76), cat(_General, Occult/Magical, Scholarly),	needs(SK:Magic), 
+	x(#ChoiceList(_
+			name(form),
+			title(Magical Form: Choose a Form),
+			text(Choose a Magical Form from the list:),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+				"Divination",
+				"Elementalism",
+				"Magianism",
+				"Necromancy",
+				"Physiomancy",
+				"Psychomancy",
+				"Sortilege",
+				"Summonation" _
+				)_
+			)_
+	), noresync(yes)
+Thaumatology, IQ/VH, default(IQ - 7), page(82), cat(_General, Occult/Magical, Scholarly)
 
 <Outdoor/Exploration>
 Cartography, IQ/A, tl(0-5), default(IQ - 5, SK:Geography - 2, "SK:Mathematics (Surveying)" - 2, SK:Navigation - 4), page(B183), cat(_General, Outdoor/Exploration, Social Sciences/Humanities)
@@ -3816,18 +3679,21 @@ Survival (Woodlands), Per/A, default(Per - 5, SK:Naturalist - 3, "SK:Survival (A
 Tracking, Per/A, default(Per - 5, SK:Naturalist - 5), page(B226), cat(_General, Outdoor/Exploration)
 
 <Plant>
-Farming, IQ/A, tl(0-5), default(IQ - 5, SK:Biology - 5, SK:Gardening - 3), page(B194), cat(_General, Plant)
-Gardening, IQ/E, default(IQ - 4, SK:Farming - 3), page(B197), cat(_General, Plant)
+Farming, IQ/A, tl(0-5), default(IQ - 5), page(B194), cat(_General)
+Gardening, IQ/E, default(IQ - 4), page(B197), cat(_General)
 
 <Police/Watch>
 Body Language, Per/A, page(71), cat(_General, Social)
 Criminology, IQ/A, tl(0-5), default(IQ - 5), page(72), cat(_General, Social)
-Detect Lies, Per/H, default(SK:Perception - 6), page(72), cat(_General, Social)
+Detect Lies, Per/H, default(Per - 6), page(72), cat(_General, Social)
 
-Forensics, IQ/H, tl(0-5), default(IQ - 6, SK:Criminology - 4), page(B196), cat(_General)
-Search, Per/A, default(Per - 5, SK:Criminology - 5), page(B219), cat(_General, Police/Watch)
+Forensics, IQ/H, tl(0-5), default(IQ - 6), page(B196), cat(_General)
+
+Search, Per/A, default(Per - 5), page(B219), cat(_General, Police/Watch)
 
 <Priestly>
+Religious Ritual, IQ/H, page(80), cat(_General),
+	x(#InputToTag("You must specialize by religion:", nameext, , "Religious Ritual"))
 Theology, IQ/H, default(IQ - 6, SK:Religious Ritual - 4), page(B226), cat(_General, Scholarly),
 	x(#InputToTag("You must specialize by religion:", nameext, , "Theology"))
 
@@ -3911,126 +3777,56 @@ Submarine (Large Sub), DX/A, tl(0-5), default(IQ - 6, "SK:Submarine (Free-Floodi
 Submarine (Mini-Sub), DX/A, tl(0-5), default(IQ - 6, "SK:Submarine (Free-Flooding Sub)" - 4, "SK:Submarine (Large Sub)" - 4), page(B223), cat(_General, Vehicle)
 Submariner, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
 
-<Techniques, Techniques - Noncombat>
-Impersonate (Mimicry (Speech)), Tech/A, default("SK:Mimicry (Speech)::level" - 3), needs(SK:Mimicry (Speech)), upto(Prereq), page(B233)
-Lifesaving (Swimming), Tech/H, default(SK:Swimming::level - 5), needs(SK:Swimming), upto(Prereq), page(B233)
-Motion-Picture Camera (Photography), Tech/A, default(SK:Photography::level - 3), needs(SK:Photography), upto(Prereq), page(B233)
-No-Landing Extraction (%PilotingSkillList%), Tech/H, tl(0-5), needs(SK:%PilotingSkillList%), page(B233), default("SK:%PilotingSkillList%::level" - 4), upto(prereq),
-	x(#ChoiceList(_
-			name(PilotingSkill),
-			title(No-Landing Extraction: Choose a Piloting specialty),
-			text(Choose a Piloting specialty from the list provided:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-					"Piloting (Aerospace)",
-					"Piloting (Autogyro)",
-					"Piloting (Contragravity)",
-					"Piloting (Flight Pack)",
-					"Piloting (Glider)",
-					"Piloting (Heavy Airplane)",
-					"Piloting (Helicopter)",
-					"Piloting (High-Performance Airplane)",
-					"Piloting (High-Performance Spacecraft)",
-					"Piloting (Light Airplane)",
-					"Piloting (Lighter-Than-Air)",
-					"Piloting (Lightsail)",
-					"Piloting (Low-G Wings)",
-					"Piloting (Low-Performance Spacecraft)",
-					"Piloting (Ultralight)",
-					"Piloting (Vertol)" _
-				)_
-			)_
-		), noresync(yes)
-
-Rope Up (Climbing), Tech/A, default(SK:Climbing::level - 2), needs(SK:Climbing), upto(Prereq), page(B233)
-Scaling (Climbing), Tech/H, default(SK:Climbing::level - 3), needs(SK:Climbing), upto(Prereq), page(B233)
-Set Trap (Explosives (Demolition)), Tech/H, default("SK:Explosives (Demolition)::level" - 2), needs(SK:Explosives (Demolition)), upto(Prereq), page(B233)
-Slip Handcuffs (Escape), Tech/H, default(SK:Escape::level - 5), needs(SK:Escape), upto(Prereq), page(B233)
-Work by Touch (Lockpicking), Tech/H, default(SK:Lockpicking::level - 5), needs(SK:Lockpicking), upto(Prereq), page(B233)
-
 ************************************************************************************************************************
 [SPELLS]
 ************************************************************************************************************************
 <%NewSpellList%>
-_New Spell, type(%typelist%), mods(Spells), cat(%newspelllist%), shortcat(%newspellaliaslist%), class([class]), time([time]), duration([duration]), castingcost([castingcost]),
-	x(#InputToTagReplace("Please enter the name of this spell:", name, , "New Spell"),
-	#InputReplace("Please enter the Class of this spell; i.e. Regular, Area, Missile, Blocking, Information, Enchantment, or Special. If Resisted use R- followed by the attribute or skill that resists the spell; e.g. R-Will:", "[class]", , "New Spell"),
-	#InputReplace("Please enter the Casting Time of this spell:", "[time]", "1 sec.", "New Spell"),
-	#InputReplace("Please enter the Duration of this spell:", "[duration]", , "New Spell"),
-	#InputReplace("Please enter the Casting Cost of this spell:", "[castingcost]", , "New Spell"),
-	#ChoiceList(_
-			name(type),
-			title(New Spell: Choose a Skill Type),
-			text("Choose the type of spell from the list below:"),
+_New One-Form Spell, (Magical Form (%FormList%)), Tech/H, default("SK:Magical Form (%FormList%)" %penaltylist%),
+	needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, _New Spells, Spells, %FormList% Spells),
+	x(#InputToTagReplace("Please enter the name of this Spell:" , name, , "New Spell"),
+		#ChoiceList(_
+			name(form),
+			title(New Spell: Choose a Magical Form),
+			text(Please select the Magical Form this Spell is based on:),
 			picksallowed(1),
 			method(bynumber),
 			list(_
-				"IQ/H",
-				"IQ/VH" _
-			)_
-			),
-	#ChoiceList(_
-			name(newspell),
-			title(New Spell: Choose a College),
-			text(Choose the College (or Colleges) of the new spell from the list below:),
-			picksallowed(atleast 1),
-			method(bynumber),
-			list(_
-				"Air",
-				"Animal",
-				"Body Control",
-				"Communication & Empathy",
-				"Earth",
-				"Enchantment",
-				"Fire",
-				"Food",
-				"Gate",
-				"Healing",
-				"Illusion & Creation",
-				"Knowledge",
-				"Light & Darkness",
-				"Making & Breaking",
-				"Meta-Spells",
-				"Mind Control",
-				"Movement",
+				"Divination",
+				"Elementalism",
+				"Magianism",
 				"Necromancy",
-				"Plant",
-				"Protection & Warning",
-				"Sound",
-				"Technological",
-				"Water",
-				"Weather" _
-				),
-			aliaslist(_
-				"Ai",
-				"An",
-				"BC",
-				"CE",
-				"Ea",
-				"En",
-				"Fi",
-				"Fo",
-				"Ga",
-				"He",
-				"IC",
-				"Kn",
-				"LD",
-				"MB",
-				"MS",
-				"MC",
-				"Mo",
-				"Ne",
-				"Pl",
-				"PW",
-				"So",
-				"Te",
-				"Wa",
-				"We" _
+				"Physiomancy",
+				"Psychomancy",
+				"Sortilege",
+				"Summonation"_
 				)_
 			),
-		#edit _
+		#ChoiceList(_
+			name(penalty),
+			title(New Technique: Choose a General Skill Modifier),
+			text(Please select the Spell's General Skill Modifier (see p. 194):),
+			picksallowed(1),
+			method(bynumber),
+			list(_
+				+0,
+				-1,
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-7,
+				-8,
+				-9,
+				-10,
+				-11,
+				-12,
+				-13,
+				-14_
+				)_
+			)_
 	), noresync(yes)
+
 _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0), points(0), initmods(Parent, -1),
 	description(_
 			In GCA a "Parent" item can have other traits assigned to it as "Children." This is essentially an organizational structure, allowing you to file multiple traits together under the parent item if you wish. _
@@ -4038,80 +3834,63 @@ _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0)
 			The child items will be hidden by default; you may show the child items by right clicking on the parent and selecting "Show Components." Once displayed the children will be shown in a "tree" format under the parent. _
 			Any item may be assigned as a parent by right clicking on it and selecting "Make Parent"; this entry is here for convenience, as it is automatically designated a Parent. _
 			),
-	x(#InputToTagReplace("Please specify a name for this item:", name, , "New Parent Item"))
+	x(#InputToTagReplace("Please specify a name for this categorisation or whatever:", name, , "New Parent Item"))
 
-_New Spell (Ritual), type(Tech/H), CountAsNeed(Ritual), cat(~Ritual, ~Ritual - %newspelllist%), mods(Spells), shortcat(Ri, %newspellaliaslist%), needs("SK:Path of %newspelllist%" | "SK:%newspelllist% College!" = 3pts | "SK:Magic!" = 3pts), default("SK:Path of %newspelllist%::level" - [default], "SK:%newspelllist%!::level" - [default], "SK:Magic!::Level" - [default]), upto(prereq), prereqcount([default]), class([class]), time([time]), duration([duration]), castingcost([castingcost]),
-   x(#InputToTagReplace("Please enter the name of this spell:", name, , "New Spell"),
-	#InputReplace("Please enter the Prerequisite Count of this Spell. _
-					DO NOT include a negative (or positive) sign; e.g. don't use -4 or +0", "[default]", 0, "New Spell"),
-	#InputReplace("Please enter the Class of this spell; i.e. Regular, Area, Missile, Blocking, Information, Enchantment, or Special. If Resisted use R- followed by the attribute or skill that resists the spell; e.g. R-Will:", "[class]", , "New Spell"),
-	#InputReplace("Please enter the Casting Time of this spell:", "[time]", "1 sec.", "New Spell"),
-	#InputReplace("Please enter the Duration of this spell:", "[duration]", , "New Spell"),
-	#InputReplace("Please enter the Casting Cost of this spell:", "[castingcost]", , "New Spell"),
-	#ChoiceList(_
-				name(newspell),
-				title("Choose a College"),
-				text(Choose the College of the new spell from the list below:),
-				picksallowed(1),
-				method(bynumber),
-				list(_
-					"Air",
-					"Animal",
-					"Body Control",
-					"Communication & Empathy",
-					"Earth",
-					"Enchantment",
-					"Fire",
-					"Food",
-					"Gate",
-					"Healing",
-					"Illusion & Creation",
-					"Knowledge",
-					"Light & Darkness",
-					"Making & Breaking",
-					"Meta-Spells",
-					"Mind Control",
-					"Movement",
-					"Necromancy",
-					"Plant",
-					"Protection & Warning",
-					"Sound",
-					"Technological",
-					"Water",
-					"Weather" _
-				),
-			aliaslist(_
-				"Ai",
-				"An",
-				"BC",
-				"CE",
-				"Ea",
-				"En",
-				"Fi",
-				"Fo",
-				"Ga",
-				"He",
-				"IC",
-				"Kn",
-				"LD",
-				"MB",
-				"MS",
-				"MC",
-				"Mo",
-				"Ne",
-				"Pl",
-				"PW",
-				"So",
-				"Te",
-				"Wa",
-				"We" _
-				)_
-			),
-		#edit _
-	), noresync(yes)
-
-
-
+Scry Shield (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level"), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
+Love's Name (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level"), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
+Scrying - Minimal Item (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level" - 14), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
+Scrying - Silver Mirror (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level" - 8), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
+Scrying - Crystal Ball (Magical Form (Divination)), Tech/H, default("SK:Magical Form (Divination)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(202), cat(_General, Spells, Divination Spells)
+Snap (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
+Visual Illusion (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
+Fireball (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
+Magic Lightning (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
+Balanced Levitation (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(203), cat(_General, Spells, Elementalism Spells)
+Gindle's Effortless Elevator (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
+Rock Soften (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
+Wind (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
+Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
+Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), Tech/H, default("SK:Magical Form (Elementalism)::level" - 6), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Elementalism Spells)
+Detect Magic (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level"), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Magianism Spells)
+Check Thaumic Flux (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(204), cat(_General, Spells, Magianism Spells)
+Analyse Magic (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
+Octagram (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
+Nul Zone (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
+Dispel Magic (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
+Emergency Power Drain (Magical Form (Magianism)), Tech/H, default("SK:Magical Form (Magianism)::level" - 8), needs(SK:Magic), upto(Prereq + 4), page(205), cat(_General, Spells, Magianism Spells)
+Detect Haunting (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level"), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Exorcise Ghost (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Speak With the Dead (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 2), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Last Vision (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Chill Finger (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Steal Zombie (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Animate Zombie (Magical Form (Necromancy)), Tech/H, default("SK:Magical Form (Necromancy)::level" - 6), needs(SK:Magic), upto(Prereq + 4), page(206), cat(_General, Spells, Necromancy Spells)
+Spolt's Forthright Respirator (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level"), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
+Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
+Transfer Pain (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
+Catch Wound (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(207), cat(_General, Spells, Physiomancy Spells)
+Stacklady's Morphic Resonator (Magical Form (Physiomancy)), Tech/H, default("SK:Magical Form (Physiomancy)::level" - 6), needs(SK:Magic), upto(Prereq + 4), page(208), cat(_General, Spells, Physiomancy Spells)
+Detect Mind (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level"), needs(SK:Magic), upto(Prereq + 4), page(209), cat(_General, Spells, Psychomancy Spells)
+Truth Tell (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(209), cat(_General, Spells, Psychomancy Spells)
+Mental Adjustment (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(209), cat(_General, Spells, Psychomancy Spells)
+Hide from Minds (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
+Mental Illusion (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
+Borrowing - Simple (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
+Borrowing - Carnivore (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 7), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
+Borrowing - Group Mind (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 10), needs(SK:Magic), upto(Prereq + 4), page(210), cat(_General, Spells, Psychomancy Spells)
+Follow the Plot Damn You (Magical Form (Psychomancy)), Tech/H, default("SK:Magical Form (Psychomancy)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Psychomancy Spells)
+A Little Luck (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level"), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Sortilege Spells)
+Mechanical Failure (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Sortilege Spells)
+Magical Fortune-Telling (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magic), upto(Prereq + 4), page(211), cat(_General, Spells, Sortilege Spells)
+Cursing (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(212), cat(_General, Spells, Sortilege Spells)
+Suspend Time (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 7), needs(SK:Magic), upto(Prereq + 4), page(212), cat(_General, Spells, Sortilege Spells)
+Narrative Manipulation (Magical Form (Sortilege)), Tech/H, default("SK:Magical Form (Sortilege)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(213), cat(_General, Spells, Sortilege Spells)
+Gate Scan (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level"), needs(SK:Magic), upto(Prereq + 4), page(214), cat(_General, Spells, Summonation Spells)
+The Rite of AshkEnte (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 1), needs(SK:Magic), upto(Prereq + 4), page(214), cat(_General, Spells, Summonation Spells)
+Summon Thing (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
+Exorcise Spirit (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
+Oracular Demon (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
+Summon Demon (Magical Form (Summonation)), Tech/H, default("SK:Magical Form (Summonation)::level" - 5), needs(SK:Magic), upto(Prereq + 4), page(215), cat(_General, Spells, Summonation Spells)
 
 ************************************************************************************************************************
 [GROUPS]
