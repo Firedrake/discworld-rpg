@@ -3808,9 +3808,9 @@ Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), de
 	needs(SK:Magical Form (Elementalism)), page(204)
 Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 6),
 	needs(SK:Magical Form (Elementalism)), page(204)
-Atavarr’s Personal Gravitational Upset (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
+Atavarr's Personal Gravitational Upset (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
 	needs(SK:Magical Form (Elementalism)), page()
-Quondum’s Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 5),
+Quondum's Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 5),
 	needs(SK:Magical Form (Elementalism)), page()
 
 <Techniques, Techniques - Spells, Spells, Magianism Spells>
@@ -3830,7 +3830,7 @@ Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magi
 	needs(SK:Magical Form (Magianism)),  page(205)
 Mystic Feedback (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 4),
 	needs(SK:Magical Form (Magianism)), page()
-Fresnel’s Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 7),
+Fresnel's Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 7),
 	needs(SK:Magical Form (Magianism)), page()
 
 <Techniques, Techniques - Spells, Spells, Necromancy Spells>
@@ -3860,7 +3860,7 @@ Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form
 	needs(SK:Magical Form (Physiomancy)), page(207)
 Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 6),
 	needs(SK:Magical Form (Physiomancy)), page(208)
-Englebert’s Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 2),
+Englebert's Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 2),
 	needs(SK:Magical Form (Physiomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Psychomancy Spells>
