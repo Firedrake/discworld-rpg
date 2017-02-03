@@ -305,21 +305,22 @@ name(All), group(All)
 * Basic Attributes
 ************************************************************************************************************************
 ST, symbol(ST), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::syslevels), 
-	up(10), down(-10), mainwin(1), mods(No Fine Manipulators, Size), 
+	up(10), down(-10), mainwin(1), mods(Quadruped, Size), 
 	disadat(-1), display(no),
 	initmods( Size, -10%, group(Size ST), 
 			formula(-@if(ST:Size Modifier > 0 & owner::level > 0 THEN ST:Size Modifier * 10 else 0)),
 			forceformula(yes) _
-		| No Fine Manipulators, -40%, group(No Fine Manipulators Stat),
-			formula(-@if(ST:No Fine Manipulators > 0 & owner::level > 0 then 40 else 0)), 
+		| Quadruped, -40%, group(Quadruped Stat),
+			formula(-@if(ST:Quadruped > 0 & owner::level > 0 then 40 else 0)), 
 			forceformula(yes) _
 		)
 
 DX, symbol(DX), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::syslevels), 
-	up(20), down(-20), mainwin(2), mods(No Fine Manipulators Stat), 
+	up(20), down(-20), mainwin(2), mods(Quadruped Stat), 
 	disadat(-1), display(no),
 	parryat(@int(me::score/2)+3), blockat(@int(me::score/2)+1),
-	initmods(No Fine Manipulators, -0%, formula(-@if(ST:No Fine Manipulators > 0 & owner::level > 0 then 40 else 0)), forceformula(yes), group(No Fine Manipulators Stat), page(B145))
+	initmods(Quadruped, -0%, formula(-@if(ST:Quadruped > 0 & owner::level > 0 then 40 else 0)),
+	forceformula(yes), group(Quadruped Stat), page(B145))
 
 IQ, symbol(IQ), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(20), down(-20), mainwin(3), disadat(-1), display(no)
 HT, symbol(HT), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(10), down(-10), mainwin(4), disadat(-1), display(no)
@@ -340,7 +341,7 @@ Will, basevalue(ST:IQ), step(1), maxscore(1000000), minscore(0 - me::syslevels),
 Perception, basevalue(ST:IQ), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(5), down(-5), symbol(Per), mainwin(7), disadat(-1)
 Fatigue Points, basevalue(ST:HT), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(3), down(-3), symbol(FP), display(No), mainwin(8), disadat(-1)
 Basic Speed, basevalue((ST:HT + ST:DX) / 4), step(0.25), maxscore(1000000), minscore(0 - me::syslevels), up(5), down(-5), display(No), mainwin(9), disadat(-1)
-Basic Move, basevalue(@if("DI:No Legs (Sessile)" THEN 0 ELSE ST:Basic Speed)), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(5), down(-5), round(-1), display(No), mainwin(10), disadat(-1)
+Basic Move, basevalue(ST:Basic Speed), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(5), down(-5), round(-1), display(No), mainwin(10), disadat(-1)
 
 Striking ST, basevalue(ST:ST), step(1), maxscore(1000000), minscore(ST:ST), up(5), down(0), round(-1), display(No),
 	initmods( Size, -10%, group(Size), 
@@ -522,7 +523,7 @@ Kick, display(no), mode(Kick), mods(Combat Table),
 	damage(_
 		thr+ _
 		@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0))) + _
-		@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
+		@if(ST:Quadruped > 0 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
 		@max(_
 			@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Kick) else 0),
 			@if("SK:Karate::level" = ST:DX then @basethdice(ST:Kick) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Kick) else 0)) _
@@ -583,9 +584,9 @@ Enhanced Water Move, basevalue(0), hide(yes), display(no),
 		)
 
 Basic Ground Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
-	basevalue(@if("DI:No Legs (Aerial)" THEN 0 ELSE @if("DI:No Legs (Aquatic)" THEN 0 ELSE @if("DI:No Legs (Semi-Aquatic)" THEN ST:Basic Move/5 ELSE @if("DI:No Legs (Sessile)" THEN 0 ELSE ST:Basic Move)))))
+	basevalue(@if("DI:Aerial" THEN 0 ELSE ST:Basic Move))
 Basic Water Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
-	basevalue(ST:Basic Move / @if(AD:Amphibious THEN 1 ELSE @if("DI:No Legs (Aquatic)" THEN 1 ELSE @if("DI:No Legs (Semi-Aquatic)" THEN 1 ELSE 5))))
+	basevalue(ST:Basic Move / 5)
 Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
 				@if(@itemhasmod(AD:Flight, Gliding) THEN ST:Basic Move ELSE _
@@ -594,16 +595,14 @@ Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1
 					@if(@itemhasmod(Flight, Space Flight Only) THEN 0 ELSE 2 * ST:Basic Speed) ELSE _
 					0 )_
 				)))
-Basic Space Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
-	basevalue(@if(@itemhasmod(AD:Flight, Newtonian Space Flight) THEN 2 * Basic Speed ELSE @if(@itemhasmod(AD:Flight, Space Flight) THEN 2 * Basic Speed ELSE @if(@itemhasmod(AD:Flight, Space Flight Only) THEN 2 * Basic Speed ELSE 0 ))))
 Basic Brachiation Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
 				@if(AD:Brachiator THEN ST:Basic Move / 2 ELSE 0)_
 				)
 	
-No Fine Manipulators, basevalue(0), display(no), hide(yes)
 Native Languages, basevalue(0), display(no), hide(yes)
 Native Cultural Familiarities, basevalue(0), display(no), hide(yes)
+Quadruped, basevalue(0), display(no), hide(yes)
 
 * Magery Prerequisite Work-around Stats
 ************************************************************************************************************************
@@ -621,9 +620,9 @@ Status, basevalue(0), minscore(-2), maxscore(8 limitingtotal), up(5), down(-5), 
 [ADVANTAGES]
 ************************************************************************************************************************
 <Attributes>
-Extra ST, 10/20, page(B14), mods(Extra ST, Size, No Fine Manipulators), initmods(Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra ST, 10/20, page(B14), mods(Extra ST, Size, Quadruped), initmods(Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra ST advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra DX, 20/40, page(B15), mods(Extra DX, No Fine Manipulators), initmods(Affects displayed DX score, +0%, shortname(Affects DX), gives(+Owner::Level to ST:DX), group(Extra DX), description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra DX, 20/40, page(B15), mods(Extra DX, Quadruped), initmods(Affects displayed DX score, +0%, shortname(Affects DX), gives(+Owner::Level to ST:DX), group(Extra DX), description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra DX advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
 Extra IQ, 20/40, page(B15), mods(Extra IQ), initmods(Affects displayed IQ score, +0%, shortname(Affects IQ), gives(+Owner::Level to ST:IQ), group(Extra IQ), description(This modifier causes the Extra IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra IQ advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
@@ -990,15 +989,7 @@ Long Arms (2 Arms), 20/40, page(B53), cat(Exotic, Physical, Extra Arms/Legs), ta
 					
 
 Extra Head, 15/30, mods(Extra Head), page(B54), cat(Exotic, Physical)
-					
-
-Extra Legs (3 Legs), 5, mods(Extra Legs), page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Legs, AD:Extra Legs (4 Legs), AD:Extra Legs (5 Legs), AD:Extra Legs (6 Legs), AD:Extra Legs (7+ Legs), DI:Quadriplegic, DI:Cannot Kick)
-Extra Legs (4 Legs), 5, mods(Extra Legs), page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Legs, AD:Extra Legs (3 Legs), AD:Extra Legs (5 Legs), AD:Extra Legs (6 Legs), AD:Extra Legs (7+ Legs), DI:Quadriplegic, DI:Cannot Kick)
-Extra Legs (5 Legs), 10, mods(Extra Legs), page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Legs, AD:Extra Legs (3 Legs), AD:Extra Legs (4 Legs), AD:Extra Legs (6 Legs), AD:Extra Legs (7+ Legs), DI:Quadriplegic, DI:Cannot Kick)
-Extra Legs (6 Legs), 10, mods(Extra Legs), page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Legs, AD:Extra Legs (3 Legs), AD:Extra Legs (4 Legs), AD:Extra Legs (5 Legs), AD:Extra Legs (7+ Legs), DI:Quadriplegic, DI:Cannot Kick)
-Extra Legs (7+ Legs), 15, mods(Extra Legs), page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Legs, AD:Extra Legs (3 Legs), AD:Extra Legs (4 Legs), AD:Extra Legs (5 Legs), AD:Extra Legs (6 Legs), DI:Quadriplegic, DI:Cannot Kick),
-	x(#InputReplace("Please specify the number of legs the character posses (minimum 7)", "7+", "7", "Extra Legs"))
-					
+				
 
 Long Legs, 10/20, page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Extra Legs (3 Legs), AD:Extra Legs (4 Legs), AD:Extra Legs (5 Legs), AD:Extra Legs (6 Legs), AD:Extra Legs (7+ Legs), DI:Quadriplegic), gives(+1 to ST:Leg Reach)
 					
@@ -1420,9 +1411,7 @@ Regrowth, 40, mods(Regrowth), page(B80), cat(Exotic, Physical),
 	taboo(DI:Missing Digit,
 		DI:One Eye::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Arm::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
-		DI:Lame (Crippled Legs)::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
-		DI:Lame (Legless)::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
-		DI:Lame (Missing Legs)::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
+		DI:No Legs::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Hand::level > @if(@hasmod(Minor) THEN 1 ELSE 0) _
 		)
 					
@@ -1806,7 +1795,7 @@ Flexibility, 5/15, displaycost(5), upto(2), levelnames(,Double-Jointed), conditi
 Double-Jointed, 15, conditional(+5 To ST:DX when "ignoring penalties for working in close quarters"), gives(+5 To GR:Flexibility), page(B56), cat(Mundane, Physical), taboo(AD:Flexibility)
 Hard to Kill, 2/4, page(B58), cat(Mundane, Physical), taboo(DI:Easy to Kill, AD:Unkillable, DI:Fragile (Unnatural)), gives(+1 to ST:Death Check)
 Hard to Subdue, 2/4, page(B59), cat(Mundane, Physical), gives(+1 to ST:Consciousness Check)
-High Manual Dexterity, 5/10, page(B59), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:No Fine Manipulators, DI:No Manipulators),
+High Manual Dexterity, 5/10, page(B59), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:Quadruped),
 	conditional(_
 			+1 to GR:High Manual Dexterity when "performing DX-based tasks",
 			+1 to SK:Mechanic when "performing fine DX-based tasks" _
@@ -2204,70 +2193,70 @@ Tenure, 5, page(B93), cat(Mundane, Social),
 ************************************************************************************************************************
 <Perks>
 _New Perk, 1, noresync(yes), x(#InputToTagReplace("Please enter the name of this Perk:" , name, , "New Perk")), x(#edit)
-Alcohol Tolerance, 1, page(50), cat(Mundane)
-Archaic Training (NEEDS MORE WORK), 1, page(50), cat(Mundane)
-Assassin in Good Standing, 1, page(50), cat(Mundane)
-Autotrance, 1, page(50), cat(Magical, Mundane, Priestly)
-Blade-Proof Bare-Chestedness, 1, page(50), needs(DI:Compulsive Barbarian Heroism | DI:Odious Personal Habit (Barbarian Heroism)), cat(Mundane)
+Alcohol Tolerance, 1, page(50), cat(Non-Racial)
+Archaic Training (NEEDS MORE WORK), 1, page(50), cat(Non-Racial)
+Assassin in Good Standing, 1, page(50), cat(Non-Racial)
+Autotrance, 1, page(50), cat(Magical, Non-Racial, Priestly)
+Blade-Proof Bare-Chestedness, 1, page(50), needs(DI:Compulsive Barbarian Heroism | DI:Odious Personal Habit (Barbarian Heroism)), cat(Non-Racial)
 Boredom Immunity, 1, page(93), cat(Racial)
-Check the Exits, 1, page(50), cat(Mundane)
-Climatic Emphasis, 1, page(50), cat(Mundane)
-Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Mundane),
+Check the Exits, 1, page(50), cat(Non-Racial)
+Climatic Emphasis, 1, page(50), cat(Non-Racial)
+Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Non-Racial),
 	x(InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
-Cold Resistance, 1, page(50), cat(Mundane)
-Controllable Disadvantage, 1, page(51), cat(Mundane),
+Cold Resistance, 1, page(50), cat(Non-Racial)
+Controllable Disadvantage, 1, page(51), cat(Non-Racial),
 	x(InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
-Crossbow Safety, 1, page(51), cat(Mundane)
-Cutting-Edge Training (NEEDS MORE WORK), 1, page(51), cat(Mundane)
-Deep Sleeper, 1, page(51), taboo(DI:Light Sleeper), cat(Mundane)
-Divine News-Feed, 1, page(51), cat(Mundane, Priestly)
-Dual Ready, 1, page(51), cat(Mundane),
+Crossbow Safety, 1, page(51), cat(Non-Racial)
+Cutting-Edge Training (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
+Deep Sleeper, 1, page(51), taboo(DI:Light Sleeper), cat(Non-Racial)
+Divine News-Feed, 1, page(51), cat(Non-Racial, Priestly)
+Dual Ready, 1, page(51), cat(Non-Racial),
 	x(InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
 Feathers, 1, page(93), cat(Racial)
-Forgettable Face, 1, page(51), cat(Mundane)
+Forgettable Face, 1, page(51), cat(Non-Racial)
 Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable 2), cat(Racial, Vampiric)
 Fur, 1, page(93), cat(Racial)
-Good with (Animal) (NEEDS MORE WORK), 1, page(51), cat(Mundane)
-Good with (Social Group) (NEEDS MORE WORK), 1, page(51), cat(Mundane)
+Good with (Animal) (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
+Good with (Social Group) (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
 Heartbeat Counter (NEEDS MORE WORK), 1, page(94), cat(Racial, Vampiric)
-Heat Resistance, 1, page(50), cat(Mundane)
-High-Heeled Heroine, 1, page(51), cat(Mundane)
-Honest Face, 1, page(51), cat(Mundane)
-Hyper-Specialisation, 1, page(51), cat(Mundane),
+Heat Resistance, 1, page(50), cat(Non-Racial)
+High-Heeled Heroine, 1, page(51), cat(Non-Racial)
+Honest Face, 1, page(51), cat(Non-Racial)
+Hyper-Specialisation, 1, page(51), cat(Non-Racial),
 	x(InputToTagReplace("Specify the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
-Improvised Weapons (NEEDS MORE WORK), 1, page(52), cat(Mundane)
+Improvised Weapons (NEEDS MORE WORK), 1, page(52), cat(Non-Racial)
 Limited Camouflage, 1, page(94), cat(Racial),
 	x(InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage")),
 	conditional(+2 to SK:Camouflage when "stationary and unclad in a specific environment",_
 	+2 to SK:Stealth when "stationary and unclad in a specific environment")
-Longevity, 1, page(52), cat(Mundane)
+Longevity, 1, page(52), cat(Non-Racial)
 Name Hearing, 1, page(94), cat(Racial, Godly)
-No Hangover, 1, page(52), cat(Mundane)
-Off-Hand Training, 1, page(52), cat(Mundane),
+No Hangover, 1, page(52), cat(Non-Racial)
+Off-Hand Training, 1, page(52), cat(Non-Racial),
 	x(InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
-Oggham Reader, 1, page(52), cat(Mundane)
-One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery (Non-Improvisational) 0), cat(Magical, Mundane),
+Oggham Reader, 1, page(52), cat(Non-Racial)
+One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery (Non-Improvisational) 0), cat(Magical, Non-Racial),
 	x(InputToTagReplace("Please describe the single Spell:", nameext, , "Shtick"))
-Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Mundane)
+Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial)
 Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
-Secret Name, 1, page(52), needs(AD:Magery 0), cat(Magical, Mundane)
-Self-Styling Hair, 1, page(52), cat(Magical, Mundane)
+Secret Name, 1, page(52), needs(AD:Magery 0), cat(Magical, Non-Racial)
+Self-Styling Hair, 1, page(52), cat(Magical, Non-Racial)
 Sordid Claws, 1, page(94), needs(AD:Claws), cat(Racial)
-Statuesque, 1, page(52), cat(Mundane)
+Statuesque, 1, page(52), cat(Non-Racial)
 Striking Surface (NEEDS MORE WORK - MINIMUM DR 3), 1, page(94), needs(AD:Damage Resistance), cat(Racial)
-There on Call, 1, page(52), needs(SK:Savoir-Faire (Servant), SK:Stealth, SK:Traps), cat(Mundane)
-Understands the Librarian, 1, page(53), cat(Mundane)
+There on Call, 1, page(52), needs(SK:Savoir-Faire (Servant), SK:Stealth, SK:Traps), cat(Non-Racial)
+Understands the Librarian, 1, page(53), cat(Non-Racial)
 Unfased by Size (NEEDS MORE WORK - SM -1 OR LESS), 1, page(94), cat(Racial)
-Wordless Influence (NEEDS MORE WORK), 1, page(52), cat(Mundane)
+Wordless Influence (NEEDS MORE WORK), 1, page(52), cat(Non-Racial)
 
 ************************************************************************************************************************
 [DISADVANTAGES]
 ************************************************************************************************************************
 <Attributes>
-Reduced ST, -10/-20, page(B14), mods(Reduced ST, Size, No Fine Manipulators), initmods(Affects displayed ST score, +0%, shortname(Affects ST), gives(-owner::Level to ST:ST), group(Reduced ST), description(This modifier causes the Reduced ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Reduced ST, -10/-20, page(B14), mods(Reduced ST, Size, Quadruped), initmods(Affects displayed ST score, +0%, shortname(Affects ST), gives(-owner::Level to ST:ST), group(Reduced ST), description(This modifier causes the Reduced ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Reduced ST disadvantage allows you to take reduced levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Reduced ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Reduced DX, -20/-40, page(B15), mods(Reduced DX, No Fine Manipulators), initmods(Affects displayed DX score, +0%, shortname(Affects DX), gives(-owner::Level to ST:DX), group(Reduced DX), description(This modifier causes the Reduced DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Reduced DX, -20/-40, page(B15), mods(Reduced DX, Quadruped), initmods(Affects displayed DX score, +0%, shortname(Affects DX), gives(-owner::Level to ST:DX), group(Reduced DX), description(This modifier causes the Reduced DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Reduced DX disadvantage allows you to take reduced levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Reduced DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
 Reduced IQ, -20/-40, page(B15), mods(Reduced IQ), initmods(Affects displayed IQ score, +0%, shortname(Affects IQ), gives(-owner::Level to ST:IQ), group(Reduced IQ), description(This modifier causes the Reduced IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Reduced IQ disadvantage allows you to take reduced levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Reduced IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
@@ -2316,14 +2305,20 @@ _New Parent Item, 0, isparent(yes),
 	x(#InputToTagReplace("Please specify a name for this item:", name, , "New Parent Item"))
 
 <Exotic Physical>
-Aerial, 0, page(94), cat(Exotic, Physical), needs(AD:Flight), taboo(DI:Cannot Kick),
+Aerial, 0, page(94), cat(Exotic, Physical), needs(AD:Flight), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	gives(=nobase to ST:Kick::reach$)
 
-Cannot Kick, -5, page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Legs, DI:Quadriplegic)
 
 No Physical Attack (1 Arm), -5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Physical Attack (2 Arms))
 No Physical Attack (2 Arms), -10, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Physical Attack (1 Arm), DI:One Arm)
+
+
+Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Extra Arms/Legs, Physical, Racial),
+	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
+	mods(Extra Legs)
+
+
 Short Arms (1 Arm), -5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:Short Arms (2 Arms), AD:Long Arms)
 Short Arms (2 Arms), -10, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:Short Arms (1 Arm), AD:Long Arms, DI:One Arm)
 Weak Arms (1 Arm), -2/-5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), levelnames(1/2 ST, 1/4 ST), upto(2), taboo(DI:Weak Arms (2 Arms), AD:Arm ST),
@@ -2363,41 +2358,12 @@ Fragile (Explosive), -15, page(B136), cat(Exotic, Physical)
 Fragile (Flammable), -10, page(B136), cat(Exotic, Physical)
 Fragile (Unnatural), -50, page(B136), cat(Exotic, Physical), taboo(AD:Unkillable, AD:Hard to Kill, DI:Easy to Kill), conditional(-ST:Death Check to ST:Death Check when "you automatically fail all Death Checks")
 
-Horizontal, -10, page(B138), cat(Exotic, Physical), taboo(DI:Semi-Upright)
 Invertebrate, -20, page(B140), cat(Exotic, Physical),
 	gives(=-(0.75 * "ST:No Encumbrance::basescore") to "ST:No Encumbrance", =-(0.75 * "ST:Light Encumbrance::basescore") to "ST:Light Encumbrance", =-(0.75 * "ST:Medium Encumbrance::basescore") to "ST:Medium Encumbrance", =-(0.75 * "ST:Heavy Encumbrance::basescore") to "ST:Heavy Encumbrance", =-(0.75 * "ST:X-Heavy Encumbrance::basescore") to "ST:X-Heavy Encumbrance", =-(0.75 * "ST:One-Handed Lift::basescore") to "ST:One-Handed Lift", =-(0.75 * "ST:Two-Handed Lift::basescore") to "ST:Two-Handed Lift", =-(0.75 * "ST:Carry on Back::basescore") to "ST:Carry on Back")
 
-No Fine Manipulators, -30, gives(+1 to ST:No Fine Manipulators), taboo(DI:One Arm, DI:Bad Grip, AD:High Manual Dexterity, "DI:Ham-Fisted", DI:No Manipulators), page(B145), cat(Exotic, Physical)
-No Manipulators, -50, gives(+1 to ST:No Fine Manipulators), taboo(DI:One Arm, DI:Bad Grip, AD:High Manual Dexterity, "DI:Ham-Fisted", DI:No Fine Manipulators), page(B145), cat(Exotic, Physical)
-
-No Legs (Aquatic), 0, mods(No Legs), page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Water Move" with "mainwin(11), noresync(yes)", in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Bounces), 0, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Kick" with "hide(yes), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Rolls), 0, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Kick" with "hide(yes), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Slithers), 0, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Kick" with "hide(yes), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Semi-Aquatic), 0, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Sessile), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Water Move" with "mainwin(11), noresync(yes)", in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Sessile), -50, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Tracked), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Basic Move" with "basevalue(0), noresync(yes), minscore(0)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Tracked), -20, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Wheeled)),
-	replacetags(in "ST:Kick" with "hide(yes), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-No Legs (Wheeled), -20, page(B145), cat(Exotic, Physical), taboo(DI:Cannot Kick, DI:No Legs (Aerial), DI:No Legs (Aquatic), DI:No Legs (Bounces), DI:No Legs (Rolls), DI:No Legs (Slithers), DI:No Legs (Semi-Aquatic), DI:No Legs (Sessile), DI:No Legs (Tracked)),
-	replacetags(in "ST:Kick" with "hide(yes), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
-
 Nocturnal, -20, mods(Nocturnal), page(B146), cat(Exotic, Physical)
 Self-Destruct, -10, page(B153), cat(Exotic, Physical), taboo(AD:Unaging, DI:Terminally Ill)
-Semi-Upright, -5, page(B153), cat(Exotic, Physical), taboo(DI:Horizontal)
+Semi-Upright, -5, page(B153), cat(Exotic, Physical), taboo(DI:Quadruped)
 Short Lifespan, -10/-20, page(B154), upto(4), cat(Exotic, Physical), taboo(AD:Extended Lifespan, AD:Unaging, DI:Terminally Ill)
 
 Sleepy, -8/-16/-20/-26, upto(4), page(B154), cat(Exotic, Physical), taboo(AD:Doesn't Sleep),
@@ -2514,17 +2480,9 @@ Addiction (Tobacco), -5, levelnames(Cheap),
 			Legality: Legal, +5, shortname(Legal), group(Addiction), page(B122) _
 			)
 
-Addiction (Heroin), -20, displaycost(-40), levelnames(Cheap, Expensive, Very Expensive),
-	mods(Addiction), page(B122), cat(Mundane, Physical),
-	initmods(_
-			Effect: Incapacitating, -10, shortname(Incapacitating), group(Addiction), page(B122) | _
-			Effect: Totally addictive (-10 on withdrawal roll), -10, shortname(Totally addictive), group(Addiction), page(B122) | _
-			Legality: Illegal, +0, shortname(Illegal), group(Addiction), page(B122) _
-			)
-
 Alcoholism, -15, mods(Alcoholism), page(B122), cat(Mundane, Physical)
 Bad Back, -15/-25, levelnames(Mild, Severe), page(B123), upto(2), cat(Mundane, Physical)
-Bad Grip, -5/-10, page(B123), cat(Mundane, Physical), taboo(DI:No Fine Manipulators, DI:No Manipulators)
+Bad Grip, -5/-10, page(B123), cat(Mundane, Physical), taboo(DI:Quadruped)
 Bad Sight (Nearsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Farsighted), AD:Acute Vision), mods(Bad Sight),
 	conditional(_
 			-6 to ST:Vision when "item is more than 1 yard away",
@@ -2561,7 +2519,7 @@ Easy to Kill, -2/-4, page(B134), upto(ST:HT - 3), cat(Mundane, Physical), taboo(
 Epilepsy, -30, page(B136), cat(Mundane, Physical)
 Extra Sleep, -2/-4, page(B136), cat(Mundane, Physical), taboo(AD:Doesn't Sleep, DI:Less Sleep)
 G-Intolerance, -10/-20, upto(2), levelnames(0.1G, 0.05G), cat(Mundane, Physical), page(B137), taboo("AD:Improved G-Tolerance")
-Ham-Fisted, -5/-10, page(B138), cat(Mundane, Physical), taboo(AD:High Manual Dexterity, DI:No Fine Manipulators, DI:No Manipulators),
+Ham-Fisted, -5/-10, page(B138), cat(Mundane, Physical), taboo(AD:High Manual Dexterity, DI:Quadruped),
 	upto(2), gives(-3 to SK:Fast-Draw, -3 to GR:High Manual Dexterity), conditional(-1 to ST:Reaction when "being tidy or well-groomed matters")
 Hard of Hearing, -10, gives(-4 To ST:Hearing), page(B138), cat(Mundane, Physical), mods(Hard of Hearing), taboo(DI:Deafness)
 Hemophilia, -30, needs(HT <= 10), page(B138), cat(Mundane, Physical)
@@ -2580,16 +2538,10 @@ Killjoy, -15, gives(-3 To GR:Killjoy), page(B140), cat(Mundane, Physical),
 	conditional(-1 to ST:Reaction when "lack of appreciation becomes obvious (upto -3)")
 Klutz, -5/-15, levelnames( , Total), needs(DX <= 13), page(B141), upto(2), cat(Mundane, Physical)
 
-Lame (Crippled Legs), -10, page(B141), cat(Mundane, Physical), taboo(ST:Basic Move > @int(ST:Basic Speed/2)), sets(ST:Basic Move = @int(ST:Basic Speed/2)), taboo(DI:Cannot Kick, DI:No Legs, DI:Lame (Missing Legs), DI:Lame (Legless), DI:Lame (Paraplegic), @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
+Lame, -10, page(63), cat(Mundane, Physical), taboo(ST:Basic Move > @int(ST:Basic Speed/2)), sets(ST:Basic Move = @int(ST:Basic Speed/2)), taboo(DI:No Legs, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	gives(-3 to "CL:Melee Combat")
-Lame (Missing Legs), -20, page(B141), cat(Mundane, Physical), taboo(ST:Basic Move > 2), sets(ST:Basic Move = 2), taboo(DI:Cannot Kick, DI:No Legs, DI:Lame (Crippled Legs), DI:Lame (Legless), DI:Lame (Paraplegic), @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
+No Legs, -30, page(63), cat(Mundane, Physical), taboo(ST:Basic Move > 0), sets(ST:Basic Move = 0), taboo(DI:Lame, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
-	gives(-6 to "CL:Melee Combat")
-Lame (Legless), -30, page(B141), cat(Mundane, Physical), taboo(ST:Basic Move > 0), sets(ST:Basic Move = 0), taboo(DI:Cannot Kick, DI:No Legs, DI:Lame (Crippled Legs), DI:Lame (Missing Legs), DI:Lame (Paraplegic), @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
-	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
-	gives(-6 to "CL:Melee Combat")
-Lame (Paraplegic), -30, page(B141), cat(Mundane, Physical), needs(ST:Basic Move <= 0), sets(ST:Basic Move = 0), taboo(DI:Lame (Crippled Legs), DI:Lame (Missing Legs), DI:Lame (Legless), DI:Quadriplegic),
-	conditional(-6 to ST:DX when "using any skill which requires your legs"),
 	gives(-6 to "CL:Melee Combat")
 
 Light Sleeper, -5, page(B142), cat(Mundane, Physical), taboo(PE:Deep Sleeper)
@@ -2613,11 +2565,10 @@ No Sense of Smell/Taste, -5, page(B146), mods(No Sense of Smell/Taste), cat(Mund
 Noisy, -2/-4, page(B146), cat(Mundane, Physical), taboo(AD:Silence), conditional(-1 to ST:Reaction)
 Numb, -20, page(B146), cat(Mundane, Physical), taboo(AD:Acute Touch, AD:Sensitive Touch)
 One Arm, -20, page(B147), gives(-ST:Two Arm Lifting ST::basescore to ST:Two Arm Lifting ST, -ST:Two Arm Striking ST::basescore to ST:Two Arm Striking ST), cat(Mundane, Physical),
-	taboo(DI:No Fine Manipulators, DI:No Manipulators, AD:Long Arms (2 Arms), AD:Extra-Flexible Arms (2 Arms), DI:Short Arms (2 Arms), DI:Weapon Mount (2 Arms), DI:No Physical Attack (2 Arms), AD:Extra Arms, DI:Weak Arms (2 Arms), DI:One Hand, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
+	taboo(DI:Quadruped, AD:Long Arms (2 Arms), AD:Extra-Flexible Arms (2 Arms), DI:Short Arms (2 Arms), DI:Weapon Mount (2 Arms), DI:No Physical Attack (2 Arms), AD:Extra Arms, DI:Weak Arms (2 Arms), DI:One Hand, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 One Eye, -15, page(B147), cat(Mundane, Physical), taboo(DI:No Depth Perception, DI:Blindness, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-3 to CL:Ranged Combat when "not aiming"), gives(-1 to CL:Melee Combat)
 One Hand, -15, page(B148), cat(Mundane, Physical), taboo(DI:One Arm, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
-Quadriplegic, -80, page(B150), cat(Mundane, Physical), taboo(DI:Lame, DI:One Arm, DI:One Hand, AD:Extra Arms, AD:Extra Legs, AD:Long Legs, DI:Cannot Kick)
 Restricted Diet, -10/-20/-30/-40, mods(Restricted Diet), levelnames(Very Common, Common, Occasional, Rare), page(B151), upto(4), cat(Mundane, Physical), taboo(AD:Doesn't Eat or Drink, AD:Universal Digestion)
 Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2), page(B151), cat(Mundane, Physical), taboo(DI:Blindness)
 Slow Healing, -5/-10, page(B155), upto(3), cat(Mundane, Physical), taboo(AD:Regeneration, AD:Rapid Healing, AD:Very Rapid Healing)
@@ -3051,49 +3002,49 @@ _Unused Quirk 4, -1, page(B163)
 _Unused Quirk 5, -1, page(B163)
 
 <Mental>
-Attentive, -1, page(66), cat(Mundane)
-Autocondimentor (NEEDS DETAILS), -1, page(66), cat(Mundane)
+Attentive, -1, page(66), cat(Non-Racial)
+Autocondimentor (NEEDS DETAILS), -1, page(66), cat(Non-Racial)
 Brawling Society, -1, page(99), cat(Racial)
-Broad-Minded, -1, page(66), cat(Mundane)
-Careful, -1, page(67), cat(Mundane)
-Chauvinistic, -1, page(67), cat(Mundane)
-Code of Honour ([specify]), -1, page(67), x( #InputReplace("Specify the character's minor Code:", "[specify]", , "Minor Code of Honour") ), cat(Mundane)
-Congenial, -1, page(67), cat(Mundane)
-Delusion, -1 ([specify]), page(67), x( #InputReplace("Specify the character's trivial Delusion:", "[specify]", , "Trivial Delusion") ), cat(Mundane)
+Broad-Minded, -1, page(66), cat(Non-Racial)
+Careful, -1, page(67), cat(Non-Racial)
+Chauvinistic, -1, page(67), cat(Non-Racial)
+Code of Honour ([specify]), -1, page(67), x( #InputReplace("Specify the character's minor Code:", "[specify]", , "Minor Code of Honour") ), cat(Non-Racial)
+Congenial, -1, page(67), cat(Non-Racial)
+Delusion, -1 ([specify]), page(67), x( #InputReplace("Specify the character's trivial Delusion:", "[specify]", , "Trivial Delusion") ), cat(Non-Racial)
 Delusion (Spelling my name backwards disguises it perfectly), -1, page(99), cat(Racial, Vampiric)
-Dislikes [specify], -1, page(67), x( #InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes") ), cat(Mundane)
-Distractible, -1, page(67), cat(Mundane)
+Dislikes [specify], -1, page(67), x( #InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes") ), cat(Non-Racial)
+Distractible, -1, page(67), cat(Non-Racial)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
-Dreamer, -1, page(67), cat(Mundane)
-Dull, -1, page(67), cat(Mundane)
-Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Mundane)
-Giggles a Lot, -1, page(67), cat(Mundane)
-Habit, -1, page(67), x( #InputToTag("Specify what the character's habit is:", nameext, , "Habit") ), cat(Mundane)
+Dreamer, -1, page(67), cat(Non-Racial)
+Dull, -1, page(67), cat(Non-Racial)
+Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Non-Racial)
+Giggles a Lot, -1, page(67), cat(Non-Racial)
+Habit, -1, page(67), x( #InputToTag("Specify what the character's habit is:", nameext, , "Habit") ), cat(Non-Racial)
 "Hunter's Habits", -1, page(99), cat(Racial)
-Expression, -1, page(67), x( #InputToTag("Specify what the character's expression is:", nameext, , "Expression") ), cat(Mundane)
-Humble, -1, page(67), cat(Mundane)
-Imaginative, -1, page(67), cat(Mundane)
-Likes [specify], -1, page(67), x( #InputReplace("Specify what the character likes:", "[specify]", , "Likes") ), cat(Mundane)
-Nosy, -1, page(67), cat(Mundane)
-Obsession, -1, page(67), x( #InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession") ), cat(Mundane)
-Personality Change, -1, page(67), x( #InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change") ), cat(Mundane)
-Proud, -1, page(68), cat(Mundane)
-Responsive, -1, page(68), cat(Mundane)
-Staid, -1, page(68), cat(Mundane)
-Terrifying Singer, -1, page(68), needs(ST:HT = 12), taboo(SK:Singing), cat(Mundane)
-Uncongenial, -1, page(68), cat(Mundane)
-Vow, -1, page(68), x( #InputToTag("Specify the character's trivial Vow:", nameext, , "Vow") ), cat(Mundane)
+Expression, -1, page(67), x( #InputToTag("Specify what the character's expression is:", nameext, , "Expression") ), cat(Non-Racial)
+Humble, -1, page(67), cat(Non-Racial)
+Imaginative, -1, page(67), cat(Non-Racial)
+Likes [specify], -1, page(67), x( #InputReplace("Specify what the character likes:", "[specify]", , "Likes") ), cat(Non-Racial)
+Nosy, -1, page(67), cat(Non-Racial)
+Obsession, -1, page(67), x( #InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession") ), cat(Non-Racial)
+Personality Change, -1, page(67), x( #InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change") ), cat(Non-Racial)
+Proud, -1, page(68), cat(Non-Racial)
+Responsive, -1, page(68), cat(Non-Racial)
+Staid, -1, page(68), cat(Non-Racial)
+Terrifying Singer, -1, page(68), needs(ST:HT = 12), taboo(SK:Singing), cat(Non-Racial)
+Uncongenial, -1, page(68), cat(Non-Racial)
+Vow, -1, page(68), x( #InputToTag("Specify the character's trivial Vow:", nameext, , "Vow") ), cat(Non-Racial)
 
 <Physical>
-Alcohol Intolerance, -1, page(68), cat(Mundane)
-Bowlegged, -1, page(68), cat(Mundane)
+Alcohol Intolerance, -1, page(68), cat(Non-Racial)
+Bowlegged, -1, page(68), cat(Non-Racial)
 Cannot Float, -1, page(99), cat(Racial)
 Cannot Run Long Distances, -1, page(99), cat(Racial)
-Distinctive Feature, -1, page(68), x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") ), cat(Mundane)
-Horrible Hangovers, -1, page(68), cat(Mundane)
-Minor Handicap, -1, page(68), x( #InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap") ), cat(Mundane)
-Nervous Stomach, -1, page(68), cat(Mundane)
-No Staff, -1, page(68), needs(SK:Magic (Wizardry)), cat(Magical, Mundane)
+Distinctive Feature, -1, page(68), x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") ), cat(Non-Racial)
+Horrible Hangovers, -1, page(68), cat(Non-Racial)
+Minor Handicap, -1, page(68), x( #InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap") ), cat(Non-Racial)
+Nervous Stomach, -1, page(68), cat(Non-Racial)
+No Staff, -1, page(68), needs(SK:Magic (Wizardry)), cat(Magical, Non-Racial)
 Short Lifespan, -1, page(99), cat(Racial)
 Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons)), cat(Lycanthropic, Racial)
 Sunburns Easily, -1, page(99), cat(Racial)
@@ -3537,7 +3488,7 @@ Brawling, DX/E, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat,
 	newmode(Kick, damage(_
 				thr+ _
 					@if(me::level > ST:DX+1 then @basethdice(ST:Kick) else 0) + _
-					@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
+					@if(ST:Quadruped > 0 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
 					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0)))_
 				), damtype(_
 					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
@@ -3561,7 +3512,7 @@ Karate, DX/H, page(83), parryat(@int(%level/2)+3), cat(_General, Melee Combat, U
 	newmode(Kick, damage(_
 				thr+ _ 
 					@if(me::level = ST:DX then @basethdice(ST:Kick) else @if(me::level > ST:DX then 2 * @basethdice(ST:Kick) else 0)) + _
-					@if("DI:Horizontal::level" = 1 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
+					@if(ST:Quadruped > 0 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
 					@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0)))_
 				), damtype(_
 					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
@@ -3808,7 +3759,9 @@ _New One-Form Spell, (Magical Form (%FormList%)), type(Tech/H), default("SK:Magi
 				-11,
 				-12,
 				-13,
-				-14_
+				-14,
+				-15,
+				-16_
 				)_
 			)_
 	), noresync(yes)
@@ -3823,75 +3776,159 @@ _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0)
 	x(#InputToTagReplace("Please specify a name for this categorisation or whatever:", name, , "New Parent Item"))
 
 <Techniques, Techniques - Spells, Spells, Divination Spells>
-Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"), needs(SK:Magical Form (Divination)), page(202)
-Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"), needs(SK:Magical Form (Divination)), page(202)
-Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 14), needs(SK:Magical Form (Divination)), page(202)
-Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 8), needs(SK:Magical Form (Divination)), page(202)
-Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 3), needs(SK:Magical Form (Divination)), page(202)
+Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"),
+	needs(SK:Magical Form (Divination)), page(202)
+Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"),
+	needs(SK:Magical Form (Divination)), page(202)
+Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 14),
+	needs(SK:Magical Form (Divination)), page(202)
+Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 8),
+	needs(SK:Magical Form (Divination)), page(202)
+Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 3),
+	needs(SK:Magical Form (Divination)), page(202)
 
 <Techniques, Techniques - Spells, Spells, Elementalism Spells>
-Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 1), needs(SK:Magical Form (Elementalism)), page(203)
-Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
-Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
-Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
-Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(203)
-Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magical Form (Elementalism)), page(204)
-Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3), needs(SK:Magical Form (Elementalism)), page(204)
-Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magical Form (Elementalism)), page(204)
-Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4), needs(SK:Magical Form (Elementalism)), page(204)
-Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 6), needs(SK:Magical Form (Elementalism)), page(204)
+Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 1),
+	needs(SK:Magical Form (Elementalism)), page(203)
+Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
+	needs(SK:Magical Form (Elementalism)), page(203)
+Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
+	needs(SK:Magical Form (Elementalism)), page(203)
+Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
+	needs(SK:Magical Form (Elementalism)), page(203)
+Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
+	needs(SK:Magical Form (Elementalism)), page(203)
+Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
+	needs(SK:Magical Form (Elementalism)), page(204)
+Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
+	needs(SK:Magical Form (Elementalism)), page(204)
+Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
+	needs(SK:Magical Form (Elementalism)), page(204)
+Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
+	needs(SK:Magical Form (Elementalism)), page(204)
+Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 6),
+	needs(SK:Magical Form (Elementalism)), page(204)
+Atavarr’s Personal Gravitational Upset (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
+	needs(SK:Magical Form (Elementalism)), page()
+Quondum’s Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 5),
+	needs(SK:Magical Form (Elementalism)), page()
 
 <Techniques, Techniques - Spells, Spells, Magianism Spells>
-Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level"), needs(SK:Magical Form (Magianism)), page(204)
-Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 1), needs(SK:Magical Form (Magianism)),  page(204)
-Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magical Form (Magianism)),  page(205)
-Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magical Form (Magianism)),  page(205)
-Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3), needs(SK:Magical Form (Magianism)),  page(205)
-Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 5), needs(SK:Magical Form (Magianism)),  page(205)
-Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 8), needs(SK:Magical Form (Magianism)),  page(205)
+Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level"),
+	needs(SK:Magical Form (Magianism)), page(204)
+Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 1),
+	needs(SK:Magical Form (Magianism)),  page(204)
+Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3),
+	needs(SK:Magical Form (Magianism)),  page(205)
+Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3),
+	needs(SK:Magical Form (Magianism)),  page(205)
+Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3),
+	needs(SK:Magical Form (Magianism)),  page(205)
+Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 5),
+	needs(SK:Magical Form (Magianism)),  page(205)
+Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 8),
+	needs(SK:Magical Form (Magianism)),  page(205)
+Mystic Feedback (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 4),
+	needs(SK:Magical Form (Magianism)), page()
+Fresnel’s Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 7),
+	needs(SK:Magical Form (Magianism)), page()
 
 <Techniques, Techniques - Spells, Spells, Necromancy Spells>
-Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level"), needs(SK:Magical Form (Necromancy)), page(206)
-Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magical Form (Necromancy)),  page(206)
-Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 2), needs(SK:Magical Form (Necromancy)),  page(206)
-Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3), needs(SK:Magical Form (Necromancy)),  page(206)
-Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magical Form (Necromancy)),  page(206)
-Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4), needs(SK:Magical Form (Necromancy)),  page(206)
-Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 6), needs(SK:Magical Form (Necromancy)),  page(206)
+Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level"),
+	needs(SK:Magical Form (Necromancy)), page(206)
+Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3),
+	needs(SK:Magical Form (Necromancy)),  page(206)
+Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 2),
+	needs(SK:Magical Form (Necromancy)),  page(206)
+Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3),
+	needs(SK:Magical Form (Necromancy)),  page(206)
+Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4),
+	needs(SK:Magical Form (Necromancy)),  page(206)
+Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4),
+	needs(SK:Magical Form (Necromancy)),  page(206)
+Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 6),
+	needs(SK:Magical Form (Necromancy)),  page(206)
 
 <Techniques, Techniques - Spells, Spells, Physiomancy Spells>
-Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level"), needs(SK:Magical Form (Necromancy)), page(207)
-Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magical Form (Necromancy)), page(207)
-Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3), needs(SK:Magical Form (Necromancy)), page(207)
-Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(207)
-Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 6), needs(SK:Magical Form (Necromancy)), page(208)
+Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level"),
+	needs(SK:Magical Form (Physiomancy)), page(207)
+Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3),
+	needs(SK:Magical Form (Physiomancy)), page(207)
+Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3),
+	needs(SK:Magical Form (Physiomancy)), page(207)
+Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 4),
+	needs(SK:Magical Form (Physiomancy)), page(207)
+Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 6),
+	needs(SK:Magical Form (Physiomancy)), page(208)
+Englebert’s Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 2),
+	needs(SK:Magical Form (Physiomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Psychomancy Spells>
-Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level"), needs(SK:Magical Form (Necromancy)), page(209)
-Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 1), needs(SK:Magical Form (Necromancy)), page(209)
-Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 3), needs(SK:Magical Form (Necromancy)), page(209)
-Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(210)
-Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(210)
-Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4), needs(SK:Magical Form (Necromancy)), page(210)
-Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 7), needs(SK:Magical Form (Necromancy)), page(210)
-Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 10), needs(SK:Magical Form (Necromancy)), page(210)
-Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 5), needs(SK:Magical Form (Necromancy)), page(211)
+Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level"),
+	needs(SK:Magical Form (Psychomancy)), page(209)
+Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 1),
+	needs(SK:Magical Form (Psychomancy)), page(209)
+Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 3),
+	needs(SK:Magical Form (Psychomancy)), page(209)
+Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
+	needs(SK:Magical Form (Psychomancy)), page(210)
+Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
+	needs(SK:Magical Form (Psychomancy)), page(210)
+Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
+	needs(SK:Magical Form (Psychomancy)), page(210)
+Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 7),
+	needs(SK:Magical Form (Psychomancy)), page(210)
+Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 10),
+	needs(SK:Magical Form (Psychomancy)), page(210)
+Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 5),
+	needs(SK:Magical Form (Psychomancy)), page(211)
+Break Mental Walls (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
+	needs(SK:Magical Form (Psychomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Sortilege Spells>
-A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level"), needs(SK:Magical Form (Sortilege)), page(211)
-Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magical Form (Sortilege)), page(211)
-Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2), needs(SK:Magical Form (Sortilege)), page(211)
-Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 3), needs(SK:Magical Form (Sortilege)), page(212)
-Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 7), needs(SK:Magical Form (Sortilege)), page(212)
-Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 5), needs(SK:Magical Form (Sortilege)), page(213)
+A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level"),
+	needs(SK:Magical Form (Sortilege)), page(211)
+Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2),
+	needs(SK:Magical Form (Sortilege)), page(211)
+Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2),
+	needs(SK:Magical Form (Sortilege)), page(211)
+Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 3),
+	needs(SK:Magical Form (Sortilege)), page(212)
+Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 7),
+	needs(SK:Magical Form (Sortilege)), page(212)
+Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 5),
+	needs(SK:Magical Form (Sortilege)), page(213)
 
 <Techniques, Techniques - Spells, Spells, Summonation Spells>
-Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level"), needs(SK:Magical Form (Summonation)), page(214)
-The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 1), needs(SK:Magical Form (Summonation)), page(214)
-Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magical Form (Summonation)), page(215)
-Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magical Form (Summonation)), page(215)
-Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3), needs(SK:Magical Form (Summonation)), page(215)
-Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 5), needs(SK:Magical Form (Summonation)), page(215)
+Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level"),
+	needs(SK:Magical Form (Summonation)), page(214)
+The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 1),
+	needs(SK:Magical Form (Summonation)), page(214)
+Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3),
+	needs(SK:Magical Form (Summonation)), page(215)
+Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3),
+	needs(SK:Magical Form (Summonation)), page(215)
+Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3),
+	needs(SK:Magical Form (Summonation)), page(215)
+Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 5),
+	needs(SK:Magical Form (Summonation)), page(215)
+Divine Rider (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 4),
+	needs(SK:Magical Form (Summonation)), page()
+
+//Note that the following may need testing to make sure that defaults are working right.
+<Techniques, Techniques - Spells, Spells, Multiple-Form Spells>
+Necromantic Retrocognition - Good Equipment (Magical Forms (Divination & Necromancy)),
+	needs("SK:Magical Form (Divination)", "SK:Magical Form (Necromancy)"),
+	type(Tech/H), default(lowprereq - 5), page(216)
+Shatter Bolt (Magical Forms (Elementalism & Magianism)),
+	needs("SK:Magical Form (Elementalism)", "SK:Magical Form (Magianism)"),
+	type(Tech/H), default(lowprereq - 3), page(217)
+Hurled Curse (Magical Forms (Magianism & Sortilege)),
+	needs("SK:Magical Form (Sortilege)", "SK:Magical Form (Magianism)"),
+	type(Tech/H), default(lowprereq - 5), page(217)
+Teleportation (Magical Forms (Magianism & Summonation)),
+	needs("SK:Magical Form (Summonation)", "SK:Magical Form (Magianism)"),
+	type(Tech/H), default(lowprereq - 5), page(217)
 
 ************************************************************************************************************************
 [GROUPS]
@@ -3908,11 +3945,6 @@ TE:Body of Ice
 TE:Body of Metal
 TE:Body of Stone
 TE:Body of Water
-TE:Domestic Animal
-TE:Ground Vehicle
-TE:Ichthyoid
-TE:Machine
-TE:Quadruped
 TE:Spirit
 TE:Vermiform
 TE:Wild Animal
@@ -3947,9 +3979,6 @@ AD:Amphibious
 AD:Animal Control Talent
 AD:Animal Empathy
 AD:Animal Friend
-AD:Anti-Magic Talent
-AD:Antipsi Talent
-AD:Anti-Super Talent
 AD:Appearance
 AD:Arm DX
 AD:Arm ST
@@ -4331,6 +4360,7 @@ DI:Addiction ([Physiological])
 DI:Addiction ([Psychological])
 DI:Addiction (Heroin)
 DI:Addiction (Tobacco)
+DI:Aerial
 DI:Alcoholism
 DI:Amnesia (Partial)
 DI:Amnesia (Total)
@@ -4425,7 +4455,6 @@ DI:Hard of Hearing
 DI:Hemophilia
 DI:Hidebound
 DI:Honesty
-DI:Horizontal
 DI:Hunchback
 DI:Impulsiveness
 DI:Increased Consumption
@@ -4445,10 +4474,8 @@ DI:Jealousy
 DI:Killjoy
 DI:Kleptomania
 DI:Klutz
-DI:Lame (Crippled Legs)
-DI:Lame (Legless)
-DI:Lame (Missing Legs)
-DI:Lame (Paraplegic)
+DI:Lame
+DI:No Legs
 DI:Laziness
 DI:Lecherousness
 DI:Lifebane
@@ -4466,23 +4493,12 @@ DI:Megalomania
 DI:Miserliness
 DI:Missing Digit
 DI:Motion Sickness
-DI:Mundane Background
 DI:Mute
 DI:Neurological Disorder
 DI:Night Blindness
 DI:Nightmares
 DI:No Depth Perception
-DI:No Fine Manipulators
-DI:No Legs (Aerial)
-DI:No Legs (Aquatic)
-DI:No Legs (Bounces)
-DI:No Legs (Rolls)
-DI:No Legs (Semi-Aquatic)
-DI:No Legs (Sessile)
-DI:No Legs (Slithers)
-DI:No Legs (Tracked)
-DI:No Legs (Wheeled)
-DI:No Manipulators
+DI:Quadruped
 DI:No Physical Attack (1 Arm)
 DI:No Physical Attack (2 Arms)
 DI:No Sense of Humor
@@ -4511,7 +4527,7 @@ DI:Phobia (%examplelist%)
 DI:Phobia
 DI:Post-Combat Shakes
 DI:Pyromania
-DI:Quadriplegic
+DI:Quadruped
 DI:Reprogrammable
 DI:Reputation
 DI:Restricted Diet
@@ -4814,6 +4830,7 @@ SK:Fire Eating
 SK:First Aid
 SK:Fishing
 SK:Flail
+SK:Flamethrower
 SK:Flight
 SK:Forced Entry
 SK:Forensics
@@ -4834,20 +4851,7 @@ SK:Games
 SK:Gardening
 SK:Garrote
 SK:Geography
-SK:Geography (Earthlike)
-SK:Geography (Gas Giants)
-SK:Geography (Hostile Terrestrial)
-SK:Geography (Ice Dwarfs)
-SK:Geography (Ice Worlds)
-SK:Geography (Political)
-SK:Geography (Rock Worlds)
 SK:Geology
-SK:Geology (Earthlike)
-SK:Geology (Gas Giants)
-SK:Geology (Hostile Terrestrial)
-SK:Geology (Ice Dwarfs)
-SK:Geology (Ice Worlds)
-SK:Geology (Rock Worlds)
 SK:Gesture
 SK:Group Performance
 SK:Group Performance (Choreography)
@@ -4855,25 +4859,12 @@ SK:Group Performance (Conducting)
 SK:Group Performance (Directing)
 SK:Group Performance (Fight Choreography)
 SK:Gunner
-SK:Gunner (Beams)
 SK:Gunner (Cannon)
 SK:Gunner (Catapult)
-SK:Gunner (Machine Gun)
-SK:Gunner (Rockets)
 SK:Guns
-SK:Guns (Grenade Launcher)
-SK:Guns (Gyroc)
-SK:Guns (Light Anti-Armor Weapon)
-SK:Guns (Light Machine Gun)
-SK:Guns (Musket)
 SK:Guns (Pistol)
 SK:Guns (Rifle)
 SK:Guns (Shotgun)
-SK:Guns (Submachine Gun)
-SK:Hazardous Materials
-SK:Hazardous Materials (Biological)
-SK:Hazardous Materials (Chemical)
-SK:Hazardous Materials (Radioactive)
 SK:Heraldry
 SK:Herb Lore
 SK:Hidden Lore
@@ -4914,11 +4905,6 @@ SK:Lifting
 SK:Light Walk
 SK:Linguistics
 SK:Lip Reading
-SK:Liquid Projector
-SK:Liquid Projector (Flamethrower)
-SK:Liquid Projector (Sprayer)
-SK:Liquid Projector (Squirt Gun)
-SK:Liquid Projector (Water Cannon)
 SK:Literature
 SK:Lockpicking
 SK:Makeup
@@ -5763,191 +5749,22 @@ SK:Bolas
 SK:Bow
 SK:Crossbow
 SK:Dropping
-SK:Gunner (Beams)
+SK:Flamethrower
 SK:Gunner (Cannon)
 SK:Gunner (Catapult)
-SK:Gunner (Machine Gun)
-SK:Gunner (Rockets)
-SK:Guns (Grenade Launcher)
-SK:Guns (Gyroc)
-SK:Guns (Light Anti-Armor Weapon)
-SK:Guns (Light Machine Gun)
-SK:Guns (Musket)
 SK:Guns (Pistol)
 SK:Guns (Rifle)
 SK:Guns (Shotgun)
-SK:Guns (Submachine Gun)
 SK:Innate Attack (Beam)
 SK:Innate Attack (Breath)
 SK:Innate Attack (Gaze)
 SK:Innate Attack (Projectile)
-SK:Lasso
-SK:Liquid Projector (Flamethrower)
-SK:Liquid Projector (Sprayer)
-SK:Liquid Projector (Squirt Gun)
-SK:Liquid Projector (Water Cannon)
-SK:Net
 SK:Sling
-SK:Spear Thrower
 SK:Thrown Weapon (Axe/Mace)
 SK:Thrown Weapon (Knife)
 SK:Thrown Weapon (Spear)
 SK:Thrown Weapon (Stick)
 SK:Thrown Weapon (Throwing Star)
-
-
-************************************************************************************************************************
-* [GROUPS]
-* These GROUPS are from the Magic Data File to try to aleviate a possible crash bug
-* with spells that have Groups in their Prerequisites
-************************************************************************************************************************
-
-<Animal Control>
-SP:Bird Control
-SP:Fish Control
-SP:Mammal Control
-SP:Reptile Control
-SP:Vermin Control
-
-<Create Spells>
-SP:Create Acid
-SP:Create Air
-SP:Create Air Elemental
-SP:Create Animal
-SP:Create Door
-SP:Create Earth
-SP:Create Earth Elemental
-SP:Create Fire
-SP:Create Fire Elemental
-SP:Create Food
-SP:Create Fuel
-SP:Create Gate
-SP:Create Ice
-SP:Create Mount
-SP:Create Object
-SP:Create Plant
-SP:Create Servant
-SP:Create Spring
-SP:Create Steam
-SP:Create Warrior
-SP:Create Water
-SP:Create Water Elemental
-
-<Dull Senses>
-SP:Dull Hearing
-SP:Dull Taste and Smell
-SP:Dull Vision
-
-<Energy Spells>
-SP:Seek Power
-SP:Seek Fuel
-SP:Test Fuel
-SP:Preserve Fuel
-SP:Purify Fuel
-SP:Create Fuel
-SP:Essential Fuel
-SP:Stop Power
-SP:Lend Power
-SP:Propel
-SP:Conduct Power
-SP:Steal Power
-SP:Draw Power
-SP:Magnetic Vision
-SP:Radio Hearing
-SP:Spectrum Vision
-
-<Keen Senses>
-SP:Keen Hearing
-SP:Keen Taste and Smell
-SP:Keen Vision
-
-<Lightning Spells>
-SP:Ball of Lightning
-SP:Body of Lightning
-SP:Explosive Lightning
-SP:Lightning
-SP:Lightning Armor
-SP:Lightning Missiles
-SP:Lightning Stare
-SP:Lightning Weapon
-SP:Lightning Whip
-SP:Resist Lightning
-SP:Wall of Lightning
-
-<Radiation Spells>
-SP:Breathe Radiation
-SP:Cure Radiation
-SP:Extinguish Radiation
-SP:Irradiate
-SP:Radiation Jet
-SP:Resist Radiation
-SP:See Radiation
-SP:Seek Radiation
-
-<Restore Spells>
-SP:Restore Hearing
-SP:Restore Memory
-SP:Restore Sight
-SP:Restore Speech
-
-<Seek Spells>
-SP:Seek Air
-SP:Seek Coastline
-SP:Seek Earth
-SP:Seek Fire
-SP:Seek Food
-SP:Seek Fuel
-SP:Seek Gate
-SP:Seek Machine
-SP:Seek Magic
-SP:Seek Pass
-SP:Seek Plant
-SP:Seek Plastic
-SP:Seek Power
-SP:Seek Radiation
-SP:Seek Water
-
-<Shape Spells>
-SP:Shape Air
-SP:Shape Darkness
-SP:Shape Earth
-SP:Shape Fire
-SP:Shape Light
-SP:Shape Metal
-SP:Shape Plant
-SP:Shape Plastic
-SP:Shape Water
-
-<Shapeshifting>
-SP:Shapeshifting
-
-<Transmutation Spells>
-SP:Earth to Air
-SP:Earth to Stone
-SP:Earth to Water
-SP:Flesh to Ice
-SP:Flesh to Stone
-SP:Stone to Earth
-SP:Stone to Flesh
-SP:Water to Wine
-
-<Weapon Enchantments>
-SP:Accuracy
-SP:Bane
-SP:Blank Spell Arrow
-SP:Cornucopia
-SP:Dancing Weapon
-SP:Defending Weapon
-SP:Ghost Weapon
-SP:Graceful Weapon
-SP:Loyal Sword
-SP:Penetration Weapon
-SP:Puissance
-SP:Quick-Aim
-SP:Quick-Draw
-SP:Speed Spell Arrow
-SP:Spell Arrow
-SP:Weapon Spirit
 
 ************************************************************************************************************************
 [MODIFIERS]
@@ -7894,11 +7711,12 @@ Retains Shape, -20%, group(Morph), page(B85)
 Power Theft, +200%, group(Neutralize), page(B71)
 One Power, -50%, group(Neutralize), page(B71)
 
-<No Fine Manipulators>
-No Fine Manipulators, -40%, group(No Fine Manipulators), page(B145)
+<Quadruped>
+Quadruped, -40%, group(Quadruped), page(96)
 
-<No Fine Manipulators Stat>
-No Fine Manipulators, -0%, formula(-@if(ST:No Fine Manipulators > 0 & owner::level > 0 then 40 else 0)), forceformula(yes), group(No Fine Manipulators Stat), page(B145)
+<Quadruped Stat>
+Quadruped, -0%, formula(-@if(ST:Quadruped > 0 & owner::level > 0 then 40 else 0)),
+	forceformula(yes), group(Quadruped Stat), page(96)
 
 <No Legs>
 Mobility depends on fins/mast/paddles/sails, -5, group(No Legs), page(B145)
@@ -9285,13 +9103,13 @@ _New Racial Template, displaycost(variable), cost(0),
 			),
 		select2(tagwith(hide(yes)), text("Please select the Racial Attribute Modifiers:"), pointswanted(atleast -1000, upto 10000), itemswanted(upto 10000),
 			list(_
-				#newitem(AD:_New Racial Template ST Bonus, 10/20, page(B14), mods(Size, No Fine Manipulators), gives(+1 to ST:ST), cat(Attributes)),
-				#newitem(AD:_New Racial Template DX Bonus, 20/40, page(B15), mods(No Fine Manipulators), gives(+1 to ST:DX), cat(Attributes)),
+				#newitem(AD:_New Racial Template ST Bonus, 10/20, page(B14), mods(Size, Quadruped), gives(+1 to ST:ST), cat(Attributes)),
+				#newitem(AD:_New Racial Template DX Bonus, 20/40, page(B15), mods(Quadruped), gives(+1 to ST:DX), cat(Attributes)),
 				#newitem(AD:_New Racial Template IQ Bonus, 20/40, page(B15), gives(+1 to ST:IQ), cat(Attributes)),
 				#newitem(AD:_New Racial Template HT Bonus, 10/20, page(B15), gives(+1 to ST:HT), cat(Attributes)),
 				#newitem(AD:_New Racial Template Will Bonus, 5/10, page(B16), gives(+1 to ST:Will), cat(Attributes)),
 				#newitem(AD:_New Racial Template Perception Bonus, 5/10, page(B16), gives(+1 to ST:Perception), cat(Attributes)),
-				#newitem(AD:_New Racial Template Hit Points Bonus, 2/4, page(B16), mods(Size, No Fine Manipulators), gives(+1 to ST:Hit Points), cat(Attributes)),
+				#newitem(AD:_New Racial Template Hit Points Bonus, 2/4, page(B16), mods(Size, Quadruped), gives(+1 to ST:Hit Points), cat(Attributes)),
 				#newitem(AD:_New Racial Template Fatigue Points Bonus, 3/6, page(B16), gives(+1 to ST:Fatigue Points), cat(Attributes)),
 				#newitem(AD:_New Racial Template Basic Move Bonus, 5/10, page(B17), gives(+1 to ST:Basic Move), cat(Attributes)),
 				#newitem(AD:_New Racial Template Basic Speed Bonus, 5/10, page(B17), upto(80), gives(+0.25 to ST:Basic Speed), cat(Attributes),
@@ -9401,7 +9219,7 @@ Dragon (Basic Set), displaycost(260), cost(30),
 			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121)",
 		DI:Greed _
 			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121)",
-		DI:Horizontal,
+		DI:Quadruped,
 		DI:Miserliness _
 			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121)"_
 		)
@@ -9511,7 +9329,7 @@ Vampire (Basic Set), displaycost(150), cost(23),
 			with "Rarity: Very Common, *3, shortname(Very Common), group(Weakness)" _
 		),
 	creates(_
-		"AD:Racial ST Bonus, 10/20, cat(Exotic Physical, Exotic, Physical), gives(+1 to ST:ST), initmods(Size, -10%, group(Size ST), formula(-@if(ST:Size Modifier > 0 then ST:Size Modifier * 10 else 0)), forceformula(yes) | No Fine Manipulators, -40%, group(No Fine Manipulators Stat), formula(-@if(ST:No Fine Manipulators > 0 & ST:ST::level > 0 then 40 else 0)), forceformula(yes))"=6,
+		"AD:Racial ST Bonus, 10/20, cat(Exotic Physical, Exotic, Physical), gives(+1 to ST:ST), initmods(Size, -10%, group(Size ST), formula(-@if(ST:Size Modifier > 0 then ST:Size Modifier * 10 else 0)), forceformula(yes) | Quadruped, -40%, group(Quadruped Stat), formula(-@if(ST:Quadruped > 0 & ST:ST::level > 0 then 40 else 0)), forceformula(yes))"=6,
 		"AD:Alternate Form (Bat & Wolf), 30, mods(Alternate Form), page(B83), cat(Exotic, Physical, Exotic Physical)",
 		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)",
 		"DI:Divine Curse (Cannot enter dwelling for first time unless invited), -10, cat(Supernatural, Mental, Supernatural Mental)" _
@@ -9556,13 +9374,13 @@ _New Meta-Trait, displaycost(variable), cost(0), gives(),
 	),
 		select1(tagwith(hide(yes)), text("Please select the Meta-Trait Attribute Modifiers:"), pointswanted(atleast -1000, upto 10000), itemswanted(upto 10000),
 			list(_
-				#newitem(AD:_New Meta-Trait ST Bonus, 10/20, page(B14), mods(Size, No Fine Manipulators), gives(+1 to ST:ST), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait DX Bonus, 20/40, page(B15), mods(No Fine Manipulators), gives(+1 to ST:DX), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait ST Bonus, 10/20, page(B14), mods(Size, Quadruped), gives(+1 to ST:ST), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait DX Bonus, 20/40, page(B15), mods(Quadruped), gives(+1 to ST:DX), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait IQ Bonus, 20/40, page(B15), gives(+1 to ST:IQ), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait HT Bonus, 10/20, page(B15), gives(+1 to ST:HT), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait Will Bonus, 5/10, page(B16), gives(+1 to ST:Will), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait Perception Bonus, 5/10, page(B16), gives(+1 to ST:Perception), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Hit Points Bonus, 2/4, page(B16), mods(Size, No Fine Manipulators), gives(+1 to ST:Hit Points), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Hit Points Bonus, 2/4, page(B16), mods(Size, Quadruped), gives(+1 to ST:Hit Points), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait Fatigue Points Bonus, 3/6, page(B16), gives(+1 to ST:Fatigue Points), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait Basic Move Bonus, 5/10, page(B17), gives(+1 to ST:Basic Move), cat(Attributes)),
 				#newitem(AD:_New Meta-Trait Basic Speed Bonus, 5/10, page(B17), upto(80), gives(+0.25 to ST:Basic Speed), cat(Attributes),
@@ -9626,34 +9444,6 @@ _New Meta-Trait, displaycost(variable), cost(0), gives(),
 			), noresync(yes)
 
 <Meta-Traits - Elemental>
-Body of Air, displaycost(36), cost(-80),
-	description(Your body is made of gas.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	sets(ST:ST=10),
-	gives(_
-		-10 to ST:ST,
-		+10 to ST:Hit Points _
-		),
-	adds(_
-		AD:Doesn't Breathe,
-		AD:Flight _
-			with "Lighter Than Air, -10%, group(Flight)",
-		AD:Injury Tolerance _
-			with "Diffuse, +100, group(Injury Tolerance)",
-		DI:No Legs (Aerial),
-		DI:No Manipulators,
-		DI:Vulnerability (Vacuum and wind-based attacks)=2 _ 
-			with "Wounding Multiplier x2, *1, shortname(x2), group(Vulnerability)"_
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)" _
-		),
-	taboo(ST:ST>0)
 Body of Earth, displaycost(175), cost(0),
 	description(Your body is made of sand or earth.),
 	page(B262),
@@ -9674,68 +9464,6 @@ Body of Earth, displaycost(175), cost(0),
 		),
 	creates(_
 		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)" _
-		)
-Body of Fire, displaycost(6), cost(-80),
-	description(Your body is a living flame! If your flames are very hot, increase burning attack and DR.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	sets(ST:ST=10),
-	gives(_
-		-10 to ST:ST,
-		+10 to ST:Hit Points_
-		),
-	adds(_
-		AD:Burning Attack _
-			with "Always On, -40%, group(_General)" _
-			and  "Aura, +80%, group(_Attack Enhancements)" _
-			and  "Melee Attack: Reach C, -30%, group(_Attack Limitations), page(B112), gives(=nobase to owner::rangehalfdam$, =nobase to owner::rangemax$, =nobase to owner::reach$, ="C" to owner::reach$)" _
-			respond 1,
-		AD:Doesn't Breathe _
-			with "Oxygen Combustion, -50%, group(Doesn't Breathe)",
-		AD:Damage Resistance=10 _
-			with "Limited: Heat/Fire, -40%, group(Limited Defense)",
-		AD:Injury Tolerance _
-			with "Diffuse, +100, group(Injury Tolerance)",
-		DI:No Manipulators,
-		DI:Weakness (Water)=3 _
-			with "Rarity: Common, *2, shortname(Common), group(Weakness)" _
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)" _
-		),
-	taboo(ST:ST>0)
-Body of Ice, displaycost(99), cost(0),
-	description(Your body is made of ice.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Doesn't Breathe,
-		AD:Damage Resistance=3,
-		AD:Injury Tolerance _
-			with "Homogenous, +40, group(Injury Tolerance)" _
-			and  "No Blood, +5, group(Injury Tolerance)",
-		AD:Pressure Support=3,
-		AD:Sealed,
-		AD:Slippery=3,
-		AD:Terrain Adaptation (Ice),
-		AD:Vacuum Support,
-		DI:Fragile (Brittle),
-		DI:Vulnerability (Heat/fire attacks)=3 _ 
-			with "Wounding Multiplier x2, *1, shortname(x2), group(Vulnerability)",
-		DI:Weakness (Intense normal heat)=3 _
-			with "Rarity: Occasional, *1, shortname(Occasional), group(Weakness)" _
-			and  "Variable, -40%, group(Weakness)" _
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
 		)
 Body of Metal, displaycost(175), cost(0),
 	description(Your body is made of metal.),
@@ -9899,60 +9627,6 @@ Wild Animal, displaycost(-30), cost(0),
 		DI:Hidebound _
 		),
 	taboo(ST:IQ>0pts)
-
-<Meta-Traits - Morphology>
-Ground Vehicle, displaycost(-100), cost(0),
-	description(Your body is like a car, tank, etc.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		DI:Horizontal,
-		DI:No Legs (Wheeled),
-		DI:No Manipulators,
-		DI:Numb_
-		)
-Ichthyoid, displaycost(-50), cost(0),
-	description(You have a fish-like body.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		DI:No Legs (Aquatic),
-		DI:No Manipulators_
-		)
-Quadruped, displaycost(-35), cost(0),
-	description(You are a four-legged creature with no arms.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Extra Legs (4 Legs),
-		DI:Horizontal,
-		DI:No Fine Manipulators _
-		)
-Vermiform, displaycost(-35), cost(0),
-	description(Your body is similar to that of a snake or a worm.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Double-Jointed,
-		DI:No Legs (Slithers),
-		DI:No Manipulators _
-		)
 
 <Meta-Traits - Spirit>
 Spirit, displaycost(261), cost(0),
@@ -10544,7 +10218,7 @@ Water (per quart), techlvl(0), basecost(0), baseweight(2), description(TL:0), pa
 
 <Domestic Animals>
 Camel, page(353), st(22), dx(10), iq(13), ht(12), will(13), per(13), speed(5.50), dodge(8), move(7), sm(+1), size(3 hexes), weight(1000 lbs.), traits(Enhanced Move 1 (Ground Speed 14); Hooves; Mathematical Ability 4; Obsession (Pursuit of Pure Mathematics) (12); Peripheral Vision; Quadruped; Reduced Consumption 3 (Water Only); Stubbornness; Tacitly Sarcastic; Weak Bite.), skills(Survival (Desert)-12.), basecost(75), description(ST:22 DX:10 IQ:13 HT:12 Will:13 Per:13 Speed:5.50 Dodge:8 Move:7 SM:+1 (3 hexes); 1000 lbs. Traits: Enhanced Move 1 (Ground Speed 14); Hooves; Mathematical Ability 4; Obsession (Pursuit of Pure Mathematics) (12); Peripheral Vision; Quadruped; Reduced Consumption 3 (Water Only). Skills: Mathematics (all specialiisations)-19; Survival (Desert)-15. Notes: A dry-plains native and secret mathematical genius, the camel can go for days without drinking. Its stubborn temper gives -4 to Animal Handling rolls. It can spit as a ranged attack (skill-12, Max 3, Acc 2) to blind a target for 1d-2 turns, or spit date stones (skill-16, 1/2D 5, Max 10, Acc 2) for 1d-3 cr damage.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals)
-Elephant, page(355), st(45), dx(12), iq(5), ht(12), will(10), per(10), speed(4), dodge(7), move(4), sm(+3), size(10 hexes), weight(12000 lbs.), traits(Crushing Striker (Tusks); Domestic (or Wild) Animal; DR 4; Enhanced Move 1 (Ground Speed 8); Peripheral Vision; Quadruped (but replace No Fine Manipulators with One Arm); Trunk (Extra-Flexible; Long, +1 SM; Weak, 1/4 ST); Weak Bite), skills(), basecost(500), description(ST:45 DX:12 IQ:5 HT:12 Will:10 Per:10 Speed:4 Dodge:7 Move:4 SM:+3 (10 hexes); 12000 lbs. Traits: Crushing Striker (Tusks); Domestic (or Wild) Animal; DR 4; Enhanced Move 1 (Ground Speed 8); Peripheral Vision; Quadruped (but replace No Fine Manipulators with One Arm); Trunk (Extra-Flexible; Long, +1 SM; Weak, 1/4 ST); Weak Bite Notes: Often domesticated. Intelligent, loyal, and hard working.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals)
+Elephant, page(355), st(45), dx(12), iq(5), ht(12), will(10), per(10), speed(4), dodge(7), move(4), sm(+3), size(10 hexes), weight(12000 lbs.), traits(Crushing Striker (Tusks); Domestic (or Wild) Animal; DR 4; Enhanced Move 1 (Ground Speed 8); Peripheral Vision; Quadruped (but with One "Arm"); Trunk (Extra-Flexible; Long, +1 SM; Weak, 1/4 ST); Weak Bite), skills(), basecost(500), description(ST:45 DX:12 IQ:5 HT:12 Will:10 Per:10 Speed:4 Dodge:7 Move:4 SM:+3 (10 hexes); 12000 lbs. Traits: Crushing Striker (Tusks); Domestic (or Wild) Animal; DR 4; Enhanced Move 1 (Ground Speed 8); Peripheral Vision; Quadruped (but with One "Arm"); Trunk (Extra-Flexible; Long, +1 SM; Weak, 1/4 ST); Weak Bite Notes: Often domesticated. Intelligent, loyal, and hard working.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals)
 Fourecksian Emu, page(355), st(13), dx(11), iq(3), ht(11), will(10), per(11), speed(5.50), dodge(8), move(7), sm(0), size(1 hex), weight(150 lbs.), traits(Bad Temper (15); Blunt Claws; Domestic Animal; Enhanced Move 1 (Ground Speed 14); Long Neck (Reach 1 with beak); Peripheral Vision; No Arms; Sharp Beak.), skills(Brawling-12.), basecost(25), description(ST:13 DX:11 IQ:3 HT:11 Will:10 Per:11 Speed:5.50 Dodge:8 Move:7 SM:0 (1 hex); 150 lbs. Traits: Bad Temper (15); Blunt Claws; Domestic Animal; Enhanced Move 1 (Ground Speed 14); Long Neck (Reach 1 with beak); Peripheral Vision; No Arms; Sharp Beak. Skills: Brawling-12. Notes: A large and very formidable flightless bird which can be used to pull miniature carts.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals),
 	initmods(Animal: War-Trained, *2, page(356), group(Animal), shortname(War-Trained))
 Cavalry Horse, page(356), st(22), dx(9), iq(3), ht(11), will(11), per(12), speed(5), dodge(9), move(8), sm(+1), size(3 hexes), weight(1400 lbs.), traits(Combat Reflexes; Domestic Animal; Enhanced Move 1 (Ground Speed 16); Hooves; Peripheral Vision; Quadruped; Weak Bite.), skills(Brawling-10; Mount-12.), basecost(100), displaycost(200), description(ST:22 DX:9 IQ:3 HT:11 Will:11 Per:12 Speed:5 Dodge:9 Move:8 SM:+1 (3 hexes); 1,400 lbs. Traits: Combat Reflexes; Domestic Animal; Enhanced Move 1 (Ground Speed 16); Hooves; Peripheral Vision; Quadruped; Weak Bite. Skills: Brawling-10; Mount-12. Notes: A light warhorse.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals),
@@ -10563,7 +10237,7 @@ Large Mule, page(B460), st(22), dx(10), iq(3), ht(12), will(12), per(12), speed(
 Racehorse, page(B460), st(20), dx(9), iq(3), ht(11), will(11), per(11), speed(5), dodge(8), move(9), sm(+1), size(3 hexes), weight(1100 lbs.), traits(Domestic Animal; Enhanced Move 1 (Ground Speed 18); Hooves; Peripheral Vision; Quadruped; Weak Bite.), skills(), basecost(200), description(ST:20 DX:9 IQ:3 HT:11 Will:11 Per:11 Speed:5 Dodge:8 Move:9 SM:+1 (3 hexes); 1100 lbs. Traits: Domestic Animal; Enhanced Move 1 (Ground Speed 18); Hooves; Peripheral Vision; Quadruped; Weak Bite. Notes: Racing horse.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 Oxen, page(B460), st(27), dx(8), iq(3), ht(12), will(12), per(10), speed(5), dodge(8), move(4), sm(+2), size(3 hexes), weight(2500 lbs.), traits(Domestic Animal; DR 2 (Skull only); Enhanced Move 1 (Ground Speed 8); Impaling Striker (Horns); Neutered; Quadruped; Weak Bite.), skills(), basecost(75), description(ST:27 DX:8 IQ:3 HT:12 Will:12 Per:10 Speed:5 Dodge:8 Move:4 SM:+2 (3 hexes); 2500 lbs. Traits: Domestic Animal; DR 2 (Skull only); Enhanced Move 1 (Ground Speed 8); Impaling Striker (Horns); Neutered; Quadruped; Weak Bite. Notes: Oxen are steers trained to work in the fields. They are hardier and easier to keep than horses.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 Large Guard Dog, page(B457), st(9), dx(10), iq(4), ht(12), will(10), per(12), speed(5.75), dodge(8), move(10), sm(0), size(), weight(90 lbs.), traits(Chummy; Discriminatory Smell; Domestic Animal; Quadruped; Sharp Teeth.), skills(Brawling-13; Tracking-13 (bloodhounds have Tracking-15 or better!).), basecost(10), description(ST:9 DX:10 IQ:4 HT:12 Will:10 Per:12 Speed:5.75 Dodge:8 Move:10 SM:0; 90 lbs. Traits: Chummy; Discriminatory Smell; Domestic Animal; Quadruped; Sharp Teeth. Skills: Brawling-13; Tracking-13 (bloodhounds have Tracking-15 or better!). Notes: There are many breeds of dog; statistics can vary greatly. Cost ranges from neg. to $500+. A healthy, trained dog - even a mongrel - is always worth at least $10.), baseweight(0), mods(Equipment, Animal), cat(Basic Set, Basic Set - Animals)
-Large Falcon, page(B457), st(3), dx(14), iq(3), ht(10), will(10), per(12), speed(6), dodge(9), move(2), sm(-4), size(), weight(5 lbs.), traits(Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); No Fine Manipulators; Sharp Beak; Sharp Claws.), skills(Brawling-16.), basecost(0), description(ST:3 DX:14 IQ:3 HT:10 Will:10 Per:12 Speed:6 Dodge:9 Move:2 SM:-4; 5 lbs. Traits: Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); No Fine Manipulators; Sharp Beak; Sharp Claws. Skills: Brawling-16. Notes: These birds of prey are commonly used for sport hunting. A trained falcon â€“ or one disturbed by a stranger â€“ might attack a human. A diving falcon can reach Move 70!), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
+Large Falcon, page(B457), st(3), dx(14), iq(3), ht(10), will(10), per(12), speed(6), dodge(9), move(2), sm(-4), size(), weight(5 lbs.), traits(Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); Sharp Beak; Sharp Claws.), skills(Brawling-16.), basecost(0), description(ST:3 DX:14 IQ:3 HT:10 Will:10 Per:12 Speed:6 Dodge:9 Move:2 SM:-4; 5 lbs. Traits: Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); Sharp Beak; Sharp Claws. Skills: Brawling-16. Notes: These birds of prey are commonly used for sport hunting. A trained falcon â€“ or one disturbed by a stranger â€“ might attack a human. A diving falcon can reach Move 70!), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 House Cat, page(B456), st(4), dx(14), iq(4), ht(10), will(11), per(12), speed(6), dodge(10), move(10), sm(-3), size(), weight(10 lbs.), traits(Catfall; Combat Reflexes; Domestic Animal; Night Vision 5; Quadruped; Sharp Claws; Sharp Teeth.), skills(Brawling-16; Jumping-14; Stealth-14.), basecost(0), description(ST:4 DX:14 IQ:4 HT:10 Will:11 Per:12 Speed:6 Dodge:10 Move:10 SM:-3; 10 lbs. Traits: Catfall; Combat Reflexes; Domestic Animal; Night Vision 5; Quadruped; Sharp Claws; Sharp Teeth. Skills: Brawling-16; Jumping-14; Stealth-14. Notes: A domestic feline, kept as a pet, familiar, or mouser.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 
 <Discworld RPG, Discworld RPG - Animals - Equestrian Gear>
