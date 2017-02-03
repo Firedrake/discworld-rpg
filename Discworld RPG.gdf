@@ -1390,7 +1390,7 @@ Toxic Attack, 4/8, page(B61), cat(Exotic, Physical, Innate Attack, Natural Attac
 	), noresync(yes)
 					
 
-Lifting ST, 3/6, gives(+1 to ST:Lifting ST), conditional(+1 to ST:ST), mods(Lifting ST, No Fine Manipulator, Size), page(B65), cat(Exotic, Physical)
+Lifting ST, 3/6, gives(+1 to ST:Lifting ST), conditional(+1 to ST:ST), mods(Lifting ST, Quadruped, Size), page(B65), cat(Exotic, Physical)
 Metabolism Control, 5/10, mods(Metabolism Control), page(B68), cat(Exotic, Physical), taboo(TE:Machine)
 Microscopic Vision, 5/10, page(B68), cat(Exotic, Physical), taboo(DI:Blindness)
 Nictitating Membrane, 1/2, page(B71), cat(Exotic, Physical)
@@ -1516,7 +1516,7 @@ Striker (Impaling), 8/16, displaycost(8), mods(Striker, Alternative Attack), pag
 	damtype(imp), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Karate), mode([Description]), reachbasedon(0)
 					
 
-Striking ST, 5/10, gives(+1 to ST:Striking ST), mods(Striking ST, No Fine Manipulator, Size), page(B89), cat(Exotic, Physical), conditional(+1 to ST:ST)
+Striking ST, 5/10, gives(+1 to ST:Striking ST), mods(Striking ST, Quadruped, Size), page(B89), cat(Exotic, Physical), conditional(+1 to ST:ST)
 					
 
 Subsonic Hearing, 5, mods(Subsonic Hearing), page(B89), cat(Exotic, Physical), taboo(AD:Subsonic Speech, DI:Deafness),
