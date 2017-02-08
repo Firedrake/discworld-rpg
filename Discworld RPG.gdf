@@ -3189,7 +3189,7 @@ Throwing, DX/A, default(DX - 3), page(78), cat(_General, Athletic, Missile Weapo
 Accounting, IQ/H, default(IQ - 6), page(79), cat(_General, Business, Professional)
 Administration, IQ/A, default(IQ - 5), page(71), cat(_General, Business, Social)
 Current Affairs (Business), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Business, Everyman, Social)
-Diplomacy, IQ/H, default(IQ - 6), page(74), cat(_General, Business, Police/Watch, Social),
+Diplomacy, IQ/H, default(IQ - 6), page(74), cat(_General, Business, Influence, Police/Watch, Social),
 	gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
 Finance, IQ/H, page(79), cat(_General, Business, Professional)
 Law, IQ/H, default(IQ - 6), page(76), cat(_General, Business, Police/Watch),
@@ -3234,25 +3234,29 @@ Smith (Tinsmith), IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Craft,
 
 <Criminal/Street>
 Carousing, HT/E, default(HT - 4), page(72), cat(_General, Criminal/Street, Social)
+Counterfeiting, IQ/H, tl(0-5), default(IQ - 6), page(75), cat(_General, Larcenous)
 Disguise, IQ/A, tl(0-5), default(IQ - 5), page(72), cat(_General, Criminal/Street),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Disguise"))
 Escape, DX/H, default(DX - 6), page(73), cat(_General, Criminal/Street)
-
-Fast-Talk, IQ/A, default(IQ - 5), page(B195), cat(_General, Criminal/Street, Social), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
+Fast-Talk, IQ/A, default(IQ - 5), page(74), cat(_General, Criminal/Street, Influence, Social),
+	gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
+Filch, DX/A, default(DX - 5), page(75), cat(_General, Larcenous)
+Forced Entry, DX/E, page(76), cat(_General, Larcenous, Police/Watch)
+Forgery, IQ/H, tl(0-5), default(IQ - 6), page(76), cat(_General, Larcenous)
 Gambling, IQ/A, default(IQ - 5), page(73), cat(_General, Criminal/Street, Game/Sport, Social)
-Holdout, IQ/A, default(IQ - 5), page(B200), cat(_General, Criminal/Street)
-Intimidation, Will/A, default(Will - 5), page(B202), cat(_General, Criminal/Street, Police/Watch, Social)
-Lockpicking, IQ/A, tl(0-5), default(IQ - 5), page(B206), cat(_General, Criminal/Street, Police/Watch, Technical)
+Holdout, IQ/A, default(IQ - 5), page(76), cat(_General, Criminal/Street, Larcenous)
+Intimidation, Will/A, default(Will - 5), page(74), cat(_General, Criminal/Street, Influence, Police/Watch, Social)
+Lockpicking, IQ/A, tl(0-5), default(IQ - 5), page(76), cat(_General, Criminal/Street, Larcenous, Police/Watch, Technical)
 Observation, Per/A, default(Per - 5), page(B211), cat(_General, Criminal/Street, Military, Police/Watch)
 Panhandling, IQ/E, default(IQ - 4), page(80), cat(_General, Criminal/Street, Professional, Social)
-Pickpocket, DX/H, default(DX - 6), page(B213), cat(_General, Criminal/Street)
-Poisons, IQ/H, tl(0-5), default(IQ - 6), page(B214), cat(_General, Criminal/Street, Medical)
+Pickpocket, DX/H, default(DX - 6), page(76), cat(_General, Criminal/Street, Larcenous)
+Poisons, IQ/H, tl(0-5), default(IQ - 6), page(79), cat(_General, Criminal/Street, Social)
 Savoir-Faire (Organised Crime), IQ/E, default(IQ - 4), page(75), cat(_General, Criminal/Street, Influence, Social)
 Scrounging, Per/E, default(Per - 4), page(B218), cat(_General, Criminal/Street)
 Shadowing, IQ/A, default(IQ - 5), page(B219), cat(_General, Criminal/Street, Police/Watch)
-Smuggling, IQ/A, default(IQ - 5), page(B221), cat(_General, Criminal/Street)
+Smuggling, IQ/A, default(IQ - 5), page(76), cat(_General, Criminal/Street, Larcenous)
 Stealth, DX/A, default(DX - 5, IQ - 5), page(B222), cat(_General, Criminal/Street, Police/Watch)
-Streetwise, IQ/A, default(IQ - 5), page(B223), cat(_General, Criminal/Street, Police/Watch, Social)
+Streetwise, IQ/A, default(IQ - 5), page(75), cat(_General, Criminal/Street, Influence, Police/Watch, Social)
 Traps, IQ/A, tl(0-5), default(IQ - 5), page(82), cat(_General, Criminal/Street)
 Urban Survival, Per/A, default(Per - 5), page(B228), cat(_General, Criminal/Street, Police/Watch)
 
@@ -3359,12 +3363,6 @@ Hidden Lore (Spirit Lore), IQ/A, page(75), cat(_General, Knowledge, Occult/Magic
 Occultism, IQ/A, default(IQ - 5), page(75), cat(_General, Occult/Magical)
 Sacred Texts, IQ/A, page(75), cat(_General, Priestly)
 
-<Larcenous>
-Counterfeiting, IQ/H, tl(0-5), default(IQ - 6), page(75), cat(_General)
-Filch, DX/A, default(DX - 5), page(75), cat(_General)
-Forced Entry, DX/E, page(76), cat(_General, Police/Watch)
-Forgery, IQ/H, tl(0-5), default(IQ - 6), page(76), cat(_General, Police/Watch)
-
 <Medical>
 Diagnosis, IQ/H, tl(0-5), default(IQ - 6), page(77), cat(_General, Medical),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Diagnosis"))
@@ -3382,8 +3380,8 @@ Axe/Mace, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3), cat(_Gener
 Broadsword, DX/A, default(DX - 5, SK:Shortsword - 2), page(78), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Swords)
 Fast-Draw, DX/E, page(73), cat(_General, Ranged Combat),
 	x(#InputToTag("You must specialize in a type of Weapon:", nameext, , "Fast-Draw"))
-Fast-Draw (Knife), DX/E, page(73), cat(_General, Ranged Combat), default(SK:Sword!)
-Fast-Draw (Knuckledusters), DX/E, page(73), cat(_General, Ranged Combat), default(SK:Sword!)
+Fast-Draw (Knife), DX/E, page(73), cat(_General, Ranged Combat)
+Fast-Draw (Knuckledusters), DX/E, page(73), cat(_General)
 Fast-Draw (Sword), DX/E, page(73), cat(_General)
 Fast-Draw (Two-Handed Sword), DX/E, page(73), cat(_General)
 Flail, DX/H, default(DX - 6), page(77), parryat(@int(%level/2)+3), cat(_General, Melee Weapon)
@@ -3472,18 +3470,15 @@ Karate, DX/H, page(83), parryat(@int(%level/2)+3), cat(_General, Melee Combat, U
 
 <Military>
 Camouflage, IQ/E, default(IQ - 4), page(71), cat(_General, Military, Outdoor/Exploration)
-
 Cryptography, IQ/H, tl(0-5), page(72), cat(_General, Military)
-
 Explosives (Demolition), IQ/A, tl(0-5), default(IQ - 5), page(73), cat(_General, Military, Technical)
-
-Intelligence Analysis, IQ/H, tl(0-5), default(IQ - 6, SK:Strategy - 6), page(B201), cat(_General, Military, Officer, Police/Watch)
-Interrogation, IQ/A, default(IQ - 5, SK:Intimidation - 3, SK:Psychology - 4), page(B202), cat(_General, Military, Police/Watch)
-Leadership, IQ/A, default(IQ - 5), page(B204), cat(_General, Military, Social)
-Soldier, IQ/A, tl(0-5), default(IQ - 5), page(B221), cat(_General, Military)
-Strategy (Land), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military, Officer)
-Strategy (Naval), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military, Officer)
-Tactics, IQ/H, default(IQ - 6, SK:Strategy - 6), page(B224), cat(_General, Military, Officer, Police/Watch)
+Intelligence Analysis, IQ/H, tl(0-5), default(IQ - 6), page(79), cat(_General, Military, Officer, Police/Watch)
+Interrogation, IQ/A, default(IQ - 5), page(75), cat(_General, Military, Police/Watch)
+Leadership, IQ/A, default(IQ - 5), page(76), cat(_General, Military, Social)
+Soldier, IQ/A, tl(0-5), default(IQ - 5), page(81), cat(_General, Military)
+Strategy (Land), IQ/H, default(IQ - 6), page(79), cat(_General, Military, Officer)
+Strategy (Naval), IQ/H, default(IQ - 6), page(79), cat(_General, Military, Officer)
+Tactics, IQ/H, default(IQ - 6), page(79), cat(_General, Military, Officer, Police/Watch)
 
 <Missile Weapons>
 Blowpipe, DX/H, default(DX - 6), page(78), cat(_General, Ranged Combat)
@@ -5071,11 +5066,8 @@ SK:Staff
 SK:Stage Combat
 SK:Stealth
 SK:Strategy
-SK:Strategy (Air)
-SK:Strategy (Interstellar)
 SK:Strategy (Land)
 SK:Strategy (Naval)
-SK:Strategy (Space)
 SK:Streetwise
 SK:Submarine
 SK:Submarine (Free-Flooding Sub)
