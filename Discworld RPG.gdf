@@ -598,7 +598,6 @@ MagicSkill, basevalue(0), display(no), hide(yes)
 
 * Magery Prerequisite Work-around Stats
 ************************************************************************************************************************
-Magery 0, basevalue(0), display(no), minscore(0), maxscore(100), hide(yes)	
 Magery, basevalue(0), display(no), minscore(0), maxscore(1000000), hide(yes)
 
 * Reaction
@@ -1684,41 +1683,41 @@ Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
 Jumper (World), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(World Jump)
 
-Magery 0, 5, mods(Magery 0), page(44), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+Magery 0, 5, page(44), cat(Supernatural, Mental),
+	gives(+AD:Magery::level to me::skillscore),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
 Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery, Talents), needs(AD:Magery 0), page(44), cat(Supernatural, Mental),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
 Magery 0 (No Spellcasting), 1, mods(Magery 0), page(44), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	gives(+AD:Magery (No Spellcasting)::level to me::skillscore),
+	taboo(AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (No Spellcasting), 2/4, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery 0 (No Spellcasting) 0), page(44), cat(Supernatural, Mental),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
+Magery (No Spellcasting), 2/4, mods(Magery, Talents),
+	needs(AD:Magery 0 (No Spellcasting)), page(44), cat(Supernatural, Mental)
 
 Magery 0 (Engineering Only), 4, mods(Magery 0), page(44), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	gives(+AD:Magery (Engineering Only)::level to me::skillscore),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with touch-only Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (Engineering Only), 6/12, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.),
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
+Magery (Engineering Only), 6/12, mods(Magery, Talents),
+	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental),
 	conditional(+1 to SK:Magic when "for engineering purposes",
 			+1 to SK:Magical Form when "for engineering purposes",
 			+1 to Spells when "for engineering purposes")
 					
 Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	gives(+AD:Magery (Non-Improvisational)::level to me::skillscore),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
 Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form,
-	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)), page(45), cat(Supernatural, Mental),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
+	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)), page(45), cat(Supernatural, Mental)
 
 Medium, 10, page(45), cat(Supernatural, Mental)
 Spirit Empathy (Full), 10, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
@@ -3579,11 +3578,11 @@ Thrown Weapon (Throwing Star), DX/E, default(DX - 4), page(78), cat(_General, Ra
 
 <Occult/Magical>
 Alchemy, IQ/VH, tl(0-5), page(71), cat(_General, Occult/Magical, Scholarly)
-Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly), gives=+me::level to ST:MagicSkill),
+Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly), gives(=+me to ST:MagicSkill),
 	needs(AD:Magery 0 | AD:Magery 0 (Engineering Only) | Magery 0 (Non-Improvisational)),
 	x(#InputToTag("You must specialize in a branch of magic (Witchcraft, Wizardry, etc.):", nameext, "Witchcraft", "Magic Skill"))
 Magical Form (%formlist%), IQ/VH, default(SK:Magic - 6), page(76), cat(_General, Occult/Magical, Scholarly),
-	needs(SK:Magic), upto(ST:MagicSkill),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery),
 	x(#ChoiceList(_
 			name(form),
 			title(Magical Form: Choose a Form),
@@ -3742,7 +3741,7 @@ Submariner, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
 <%NewSpellList%>
 _New One-Form Spell, (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)" %penaltylist%),
 	needs(SK:Magical Form (%FormList%)), page(203), cat(_General, _New Spells, Techniques, Spells, %FormList% Spells),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	x(#InputToTagReplace("Please enter the name of this Spell:" , name, , "New Spell"),
 		#ChoiceList(_
 			name(form),
@@ -3800,224 +3799,224 @@ _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0)
 
 <Techniques, Techniques - Spells, Spells, Divination Spells>
 Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
 Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
 Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 14),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
 Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 8),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
 Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
 
 <Techniques, Techniques - Spells, Spells, Elementalism Spells>
 Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 1),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
 Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
 Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
 Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
 Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
 Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
 Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
 Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
 Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
 Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 6),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
 Atavarr's Personal Gravitational Upset (Magical Form (Elementalism)), type(Tech/H),
 	default("SK:Magical Form (Elementalism)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page()
 Quondum's Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 5),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page()
 
 <Techniques, Techniques - Spells, Spells, Magianism Spells>
 Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)), page(204)
 Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 1),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(204)
 Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
 Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
 Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
 Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 5),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
 Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 8),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
 Mystic Feedback (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)), page()
 Fresnel's Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 7),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)), page()
 
 <Techniques, Techniques - Spells, Spells, Necromancy Spells>
 Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)), page(206)
 Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 2),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 6),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 
 <Techniques, Techniques - Spells, Spells, Physiomancy Spells>
 Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
 Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
 Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
 Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
 Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 6),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(208)
 Englebert's Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 2),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Psychomancy Spells>
 Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(209)
 Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 1),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(209)
 Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(209)
 Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
 Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
 Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
 Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 7),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
 Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 10),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
 Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 5),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(211)
 Break Mental Walls (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Sortilege Spells>
 A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(211)
 Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 2),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(211)
 Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 2),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(211)
 Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(212)
 Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 7),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(212)
 Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 5),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(213)
 
 <Techniques, Techniques - Spells, Spells, Summonation Spells>
 Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(214)
 The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 1),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(214)
 Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
 Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
 Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
 Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 5),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
 Divine Rider (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 4),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page()
 
 //Note that the following may need testing to make sure that defaults are working right.
 <Techniques, Techniques - Spells, Spells, Multiple-Form Spells>
 Necromantic Retrocognition - Good Equipment (Magical Forms (Divination & Necromancy)),
 	needs("SK:Magical Form (Divination)", "SK:Magical Form (Necromancy)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(216)
 Shatter Bolt (Magical Forms (Elementalism & Magianism)),
 	needs("SK:Magical Form (Elementalism)", "SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 3), page(217)
 Hurled Curse (Magical Forms (Magianism & Sortilege)),
 	needs("SK:Magical Form (Sortilege)", "SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(217)
 Teleportation (Magical Forms (Magianism & Summonation)),
 	needs("SK:Magical Form (Summonation)", "SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(217)
 
 ************************************************************************************************************************
@@ -4316,9 +4315,6 @@ AD:Regrowth
 AD:Religious Rank
 AD:Reputation
 AD:Resistant
-AD:Ritual Magery (%skilllist%)
-AD:Ritual Magery ([skill])
-AD:Ritual Magery 0
 AD:See Invisible
 AD:Sensitive Touch
 AD:Sensitive
@@ -7601,60 +7597,6 @@ Active, -40%, group(Luck), page(B66)
 Aspected, -20%, group(Luck), page(B66)
 Defensive, -20%, group(Luck), page(B66)
 
-<Magery>
-Dance, -40%, group(Magery), page(B67)
-Dark-Aspected, -50%, group(Magery), page(B67)
-Day-Aspected, -40%, group(Magery), page(B67)
-Musical, -50%, group(Magery), page(B67)
-Night-Aspected, -40%, group(Magery), page(B67)
-Solitary, -40%, group(Magery), page(B67)
-Song, -40%, group(Magery), page(B67)
-
-One College Only, -40%, group(Magery), page(B67), gives(-Owner::Level to ST:Magery, +Owner::Level to (ST:Magery One, CO:One, SP:Recover Energy)),
-	x(_
-		#InputReplace("Please enter the name of the college:", "One", , "One College Only"),
-		#Message(Use this limitation *ONLY* on the Magery advantage. It will cause errors if used on any other trait (including the Magery 0 advantage).) _
-	)
-One College Only (%CollegeList%), -40%, gives(-Owner::Level to ST:Magery, +Owner::Level to (ST:Magery %CollegeList%, CO:%CollegeList%, SP:Recover Energy)), group(Magery), page(B67),
-	x(_
-	#Message(Use this limitation *ONLY* on the Magery advantage. It will cause errors if used on any other trait (including the Magery 0 advantage).),
-	#ChoiceList(_
-			name(College),
-			title(One College Magery),
-			text(Choose which college your Magery is limited to:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Air",
-				"Body Control",
-				"Communication & Empathy",
-				"Earth",
-				"Enchantment",
-				"Fire",
-				"Gate",
-				"Healing",
-				"Knowledge",
-				"Light & Darkness",
-				"Meta-Spells",
-				"Mind Control",
-				"Movement",
-				"Necromancy",
-				"Protection & Warning",
-				"Water" _
-			)_
-		)_
-	)
-
-	
-<Magery 0>
-Dance, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Dark-Aspected, -50%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Day-Aspected, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Musical, -50%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Night-Aspected, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Solitary, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Song, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-
 <Maintenance>
 Maintenance Interval: Monthly, *1/5, shortname(Monthly), group(Maintenance), page(B143)
 Maintenance Interval: Bi-weekly, *1/3, shortname(Bi-weekly), group(Maintenance), page(B143)
@@ -8655,131 +8597,6 @@ Investigator (Basic Set), displaycost(100),
 				SK:Running #codes(upto 2pts, downto 2pts) _
 				)_
 			)
-Mage (Basic Set), displaycost(100),
-	cat(Character Templates - Basic Set),
-	description(You're a sorcerer, a wizard, a witch, an adept of the black arts...),
-		page(B260),
-		sets(_
-			ST:ST=9, 
-			ST:DX=11, 
-			ST:IQ=13, 
-			ST:HT=11,
-			ST:Hit Points=10, 
-			ST:Perception=10,
-			ST:Fatigue Points=13_
-			), 
-		adds(_
-			AD:Language=2,
-			AD:Magery 0,
-			AD:Magery=2_
-			),
-			x(_
-			#message("Primary Skills: _
-					In addition to the items you select in the following selection windows,
-					you need to select 2 spells at 4 points each,
-					and 10 more spells (12 total) at 1 point each._
-					~P~P_
-					In addition, you will be asked to specify a language after you've selected _
-					your other options from this template. The language is included in the listed _
-					cost of this template.")_
-			),
-		needs(_
-			2 Spells=4pts,
-			12 spells=1pts_
-			),
-		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
-			list(_
-				#newitem(AD:English, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
-				AD:Language - Native #codes(upto 3, downto 3),
-				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
-				AD:Language - Native (Written) _
-				)_
-			),
-		select2(text("If you have not already chosen one, please choose a native Cultural Familiarity."), pointswanted(0), itemswanted(upto 1),
-			list(_
-				AD:Cultural Familiarity (Native)_
-				)_
-			),
-		select3(_
-			text("Select the advantages you want for your character from the list below. You need to select 5 points worth."),
-			pointswanted(5), 
-			itemswanted(atleast 1),
-			list(AD:Eidetic Memory, 
-				AD:Reputation #codes(UPTO 1), 
-				AD:Single-Minded,
-				AD:Status #codes(UPTO 1), 
-				AD:Versatile, 
-				AD:Extra Will #codes(UPTO 1)_
-				)_
-			),
-		select4(_
-			text("Select the disadvantages you want for your character from the list below. You need to select -30 points worth."),
-			pointswanted(-30), 
-			itemswanted(atleast 1),
-			list(_
-				DI:Absent-Mindedness, 
-				#newitem(DI:Bad Sight (Nearsighted), -25, displaycost(-10), page(B123), cat(Mundane Physical, Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Farsighted)), mods(Bad Sight), initmods(Mitigator: Glasses, -60%, group(_General), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)) ),
-				#newitem(DI:Bad Sight (Farsighted), -25, displaycost(-10), page(B123), cat(Mundane Physical, Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Nearsighted)), mods(Bad Sight), initmods(Mitigator: Glasses, -60%, group(_General), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)) ),
-				DI:Bad Temper, 
-				DI:Curious, 
-				DI:Duty,
-				DI:Gluttony, 
-				DI:Obsession, 
-				DI:Secret, 
-				DI:Sense of Duty, 
-				DI:Shyness_
-				)_
-			),
-		select5(_
-			text("Select the secondary skills you want for your character from the list below. You need to select 2 skills (each will be taken at 2 points)."),
-			pointswanted(4), 
-			itemswanted(2),
-			list(_
-				SK:Hidden Lore #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Conspiracies) #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Demon Lore) #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Faerie Lore) #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Spirit Lore) #codes(upto 2pts, downto 2pts),
-				SK:Occultism #codes(upto 2pts, downto 2pts),
-				SK:Research #codes(upto 2pts, downto 2pts),
-				SK:Expert Skill #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Applied) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Computer Science) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Cryptology) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Pure) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Statistics) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Surveying) #codes(upto 2pts, downto 2pts),
-				SK:Naturalist #codes(upto 2pts, downto 2pts),
-				SK:Theology #codes(upto 2pts, downto 2pts), 			
-				SK:Dreaming #codes(upto 2pts, downto 2pts),
-				SK:Meditation #codes(upto 2pts, downto 2pts),
-				SK:Alchemy #codes(upto 2pts, downto 2pts),
-				SK:Thaumatology #codes(upto 2pts, downto 2pts)_
-				)_
-			),
-		select6(_
-			text("Select the background skill you want for your character from the list below. You need to select 1 skill (which will be taken at 1 points)."),
-			pointswanted(1), 
-			itemswanted(1),
-			list(_
-				SK:Guns (Pistol) #codes(upto 1pts, downto 1pts),
-				SK:Guns (Shotgun) #codes(upto 1pts, downto 1pts),
-				SK:Knife #codes(upto 1pts, downto 1pts),
-				SK:Computer Operation #codes(upto 1pts, downto 1pts),
-				SK:Driving (Automobile) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Construction Equipment) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Halftrack) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Heavy Wheeled) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Hovercraft) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Locomotive) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Mecha) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Motorcycle) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Tracked) #codes(upto 1pts, downto 1pts),
-				SK:Riding #codes(upto 1pts, downto 1pts),
-				SK:Shortsword #codes(upto 1pts, downto 1pts),
-				SK:Staff #codes(upto 1pts, downto 1pts)_
-				)_
-			)
 Heroic Knight (Basic Set), displaycost(95),
 	cat(Character Templates - Basic Set),
 		description(You are a brave knight out of fantasy or fairy tales - strong, honerable, a wise leader, and a skilled warrior.),
@@ -9218,121 +9035,6 @@ Dwarf (Basic Set), displaycost(35), cost(15),
 			with "Vague, -50%, group(Detect)",
 		AD:Extended Lifespan=1,
 		AD:Night Vision=5_
-		)
-Felinoid (Basic Set), displaycost(35), cost(20),
-	cat(Racial Templates - Basic Set),
-	description("Cat people" often appear in science fiction, fantasy, and horror settings. _
-			This is a typical felinoid: humanoid, but with a number of catlike features, _
-			including a tail. This could also be the "were-form" of a human with the _
-			Alternate Form advantage (p. 83).),
-	page(B261),
-	race(Felinoid),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+1 to ST:DX_
-		),
-	adds(_
-		AD:Acute Hearing=2,
-		AD:Acute Taste and Smell,
-		AD:Catfall,
-		AD:Claws (Sharp Claws),
-		AD:Combat Reflexes,
-		AD:Damage Resistance,
-		AD:Teeth (Sharp Teeth),
-		AD:Temperature Tolerance,
-		DI:Impulsiveness _
-			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)",
-		DI:Sleepy _
-		),
-	creates(_
-			"DI:Racial ST Penalty, -10/-20, cat(Exotic Physical, Exotic, Physical), gives(-1 to ST:ST), initmods(), forceformula()" _
-		),
-	features(Purring Voice, Tail)
-Vampire (Basic Set), displaycost(150), cost(23),
-	cat(Racial Templates - Basic Set),
-	description(This is a "Bram Stoker"-style vampire. It possesses some, but not all, _
-			of the powers and weaknesses that fiction ascribes to bloodsucking undead. _
-			Notably, horror-movie vampires often have Supernatural Durability *instead* _
-			of Unkillable (increases cost by 100 points).),
-	page(B262),
-	noresync(yes),
-	race(Vampire),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+4 to ST:Hit Points,
-		+3 to ST:Perception_
-		),
-	adds(_
-		"AD:Doesn't Breathe",
-		"AD:Dominance",
-		"AD:Injury Tolerance" _
-			with "Unliving, +20, group(Injury Tolerance)",
-		"AD:Insubstantiality" _
-			with "Costs Fatigue: 2 FP, -10%, shortname(2 FP), group(_General)",
-		"AD:Night Vision"=5,
-		"AD:Speak with Animals" _
-			with "Wolves and Bats, -60%, group(Speak with Animals)",
-		"AD:Unaging",
-		"AD:Unkillable"=2 _
-			with "Achilles' Heel (Wood), -50%, group(Unkillable)",
-		"AD:Vampiric Bite",
-		"DI:Dependency (Coffin with soil of homeland)"=3 _
-			with "Frequency Needed: Daily, *3, group(Dependency), shortname(Daily)",
-		"DI:Draining (Human Blood)" _
-			with "Illegal, -5, group(Draining)",
-		"DI:Dread (Garlic)",
-		"DI:Dread (Religious Symbols)" _
-			with "5 yards, -4, group(Dread)",
-		"DI:Dread (Running Water)" _
-			with "Rarity: Common, *2, group(Dread)",
-		"DI:Supernatural Feature" _
-			with "No Body Heat: Can gain warmth temporarily, -1, group(Supernatural Feature), shortname(No Body Heat (unless fed))" _
-			and  "No Reflection, -10, group(Supernatural Feature)" _
-			and  "Pallor: can gain the flush of life temporarily, -5, group(Supernatural Feature), shortname(Pallor (unless fed))",
-		"DI:Uncontrollable Appetite (Human Blood)" _
-			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)",
-		"DI:Unhealing",
-		"DI:Weakness (Sunlight)"=3 _
-			with "Rarity: Very Common, *3, shortname(Very Common), group(Weakness)" _
-		),
-	creates(_
-		"AD:Racial ST Bonus, 10/20, cat(Exotic Physical, Exotic, Physical), gives(+1 to ST:ST), initmods(Size, -10%, group(Size ST), formula(-@if(ST:Size Modifier > 0 then ST:Size Modifier * 10 else 0)), forceformula(yes) | Quadruped, -40%, group(Quadruped Stat), formula(-@if(ST:Quadruped > 0 & ST:ST::level > 0 then 40 else 0)), forceformula(yes))"=6,
-		"AD:Alternate Form (Bat & Wolf), 30, mods(Alternate Form), page(B83), cat(Exotic, Physical, Exotic Physical)",
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)",
-		"DI:Divine Curse (Cannot enter dwelling for first time unless invited), -10, cat(Supernatural, Mental, Supernatural Mental)" _
-		),
-	features(Sterile)
-Elf (Basic Set), displaycost(70), cost(15),
-	cat(Racial Templates - Basic Set),
-	description(Elves are the quintessential fantasy race: very similar to humans (and cross-fertile with them, in many settings), but exceptionally beautiful, ageless, and naturally magical.),
-	page(B316),
-	noresync(yes),
-	race(Elf),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+1 to ST:HT,
-		+1 to ST:Perception _
-		),
-	adds(_
-		AD:Racial Skill Point Bonus ([skill]) respond "Connoisseur (Natural Environments)",
-		AD:Appearance=1,
-		AD:Language Talent,
-		AD:Magery 0,
-		AD:Perfect Balance,
-		AD:Telescopic Vision=1,
-		AD:Unaging,
-		AD:Voice,
-		{SK:Connoisseur (Natural Environments)}==0pts#DoNotOwn_
-		),
-	creates(_
-			"DI:Racial ST Penalty, -10/-20, cat(Exotic Physical, Exotic, Physical), gives(-1 to ST:ST), initmods(), forceformula()" _
 		)
 
 <Meta-Traits>
