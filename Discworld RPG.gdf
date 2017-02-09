@@ -598,7 +598,6 @@ MagicSkill, basevalue(0), display(no), hide(yes)
 
 * Magery Prerequisite Work-around Stats
 ************************************************************************************************************************
-Magery 0, basevalue(0), display(no), minscore(0), maxscore(100), hide(yes)	
 Magery, basevalue(0), display(no), minscore(0), maxscore(1000000), hide(yes)
 
 * Reaction
@@ -776,17 +775,10 @@ Racial Skill Point Bonus (%skillslist%), 1/2, page(B452), cat(Exotic Mental, Exo
 			)_
 		)
 					
-					
-
-360° Vision, 25, mods(360° Vision), page(B34), cat(Exotic, Physical), taboo(DI:Blindness, AD:Peripheral Vision)
-					
-
-Acute [sense], 2/4, page(B35), cat(Exotic, Physical),
-	x(#InputReplace("Specify the exact name of the specialized sense that is superior (Scanning Sense, Vibration Sense, etc.):", "[sense]", , "Acute Sense")),
+Acute [sense], 2/4, page(41), cat(Exotic, Physical),
+	x(#InputReplace("Specify the exact name of the specialized sense that is superior (Scanning Sense, Vibration Sense, etc.):",
+		"[sense]", , "Acute Sense")),
 	gives(+1 to ST:[sense]::skillscore, +1 to AD:[sense]::skillscore), needs(AD:[sense])
-					
-					
-					
 
 * Detect, Scanning Sense, Vibration Sense
 * Radar, Imaging Radar, Ladar, Para-Radar, Sonar
@@ -1585,7 +1577,6 @@ Detect, 5/10/20/30, mods(Detect), levelnames(Rare, Occasional, Common, Very Comm
 					
 
 Duplication, 35/70, mods(Duplication), page(B50), cat(Exotic Physical, Exotic, Mental, Physical)
-Enhanced Time Sense, 45, gives(+1 To GR:Combat Reflexes, +2 to ST:Fright Check), page(B52), cat(Exotic, Mental), taboo(AD:Combat Reflexes)
 Extra Life, 25/50, mods(Extra Life), page(B55), cat(Exotic, Mental)
 Insubstantiality, 80, mods(Insubstantiality), page(B62), cat(Exotic Physical, Exotic, Mental, Physical)
 Invisibility, 40, mods(Invisibility), page(B63), cat(Exotic, Mental),
@@ -1681,7 +1672,7 @@ Supernatural Durability, 150, page(B89), cat(Supernatural, Physical), taboo(DI:L
 
 <Supernatural Mental>
 
-Channeling, 10, page(B41), cat(Supernatural, Mental)
+Channelling, 10, page(42), cat(Supernatural, Mental)
 Clairsentience, 50, mods(Clairsentience), page(B42), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Sense)
 Destiny, 5/10/15, levelnames(Minor, Major, Great), page(B48), upto(3), cat(Supernatural, Mental)
@@ -1692,41 +1683,41 @@ Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
 Jumper (World), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(World Jump)
 
-Magery 0, 5, mods(Magery 0), page(44), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+Magery 0, 5, page(44), cat(Supernatural, Mental),
+	gives(+AD:Magery::level to me::skillscore),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
 Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery, Talents), needs(AD:Magery 0), page(44), cat(Supernatural, Mental),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
 Magery 0 (No Spellcasting), 1, mods(Magery 0), page(44), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	gives(+AD:Magery (No Spellcasting)::level to me::skillscore),
+	taboo(AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (No Spellcasting), 2/4, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery 0 (No Spellcasting) 0), page(44), cat(Supernatural, Mental),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
+Magery (No Spellcasting), 2/4, mods(Magery, Talents),
+	needs(AD:Magery 0 (No Spellcasting)), page(44), cat(Supernatural, Mental)
 
 Magery 0 (Engineering Only), 4, mods(Magery 0), page(44), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	gives(+AD:Magery (Engineering Only)::level to me::skillscore),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with touch-only Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
-Magery (Engineering Only), 6/12, gives(+1 to ST:Magery), mods(Magery, Talents), needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.),
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
+Magery (Engineering Only), 6/12, mods(Magery, Talents),
+	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental),
 	conditional(+1 to SK:Magic when "for engineering purposes",
 			+1 to SK:Magical Form when "for engineering purposes",
 			+1 to Spells when "for engineering purposes")
 					
 Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, Mental),
-	gives(+1 to ST:Magery 0, +AD:Magery::level to me::skillscore),
+	gives(+AD:Magery (Non-Improvisational)::level to me::skillscore),
+	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
-	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req. _
-			WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other item can cause your spells to be miscalculated.)
+	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
 Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form,
-	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)), page(45), cat(Supernatural, Mental),
-	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
+	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)), page(45), cat(Supernatural, Mental)
 
 Medium, 10, page(45), cat(Supernatural, Mental)
 Spirit Empathy (Full), 10, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
@@ -1736,33 +1727,20 @@ Spirit Empathy (Specialised: [specify]), 5, mods(Spirit Empathy), page(42), cat(
 	x( #InputReplace("Specify the class of spirits:", "[specify]", , "Class of Spirits") )
 True Faith, 15, page(48), cat(Supernatural, Mental)
 
+Superior Staff, 5/10, upto(3), needs(SK:Magic (Wizardry)), page(47), cat(Supernatural),
+	description(Gives +1 MP/level to points stored in staff.), taboo(QU:No Staff),
+	conditional(+1 to SK:Magic when "holding staff", +1 to SK:Magical Form when "holding staff",
+			+1 to Spells when "holding staff")
+Sapient Pearwood Staff, 10, needs(AD:Superior Staff 3), page(47), cat(Supernatural),
+	conditional(+2 to ST:Reaction when "admiring wizards", -2 to ST:Reaction when "jealous wizards")
+
 <Mundane Physical>
-Appearance, 4/12/12/16/16/20, mods(Attractive, Appearance), upto(6), page(B21),
-	levelnames([Average], Attractive, Beautiful, Handsome, Very Beautiful, Very Handsome, Transcendent),
+Appearance, 4/12/12/16/16, mods(Attractive, Appearance), upto(5), page(29),
+	levelnames([Average], Attractive, Beautiful, Handsome, Very Beautiful, Very Handsome),
 	cat(Mundane, Physical, Physical Appearance), taboo(DI:Appearance),
-	gives(_
-		=@if(_
-			(@hasmod(Androgynous) | @hasmod(Impressive) | @hasmod(Universal)) & %level >= 2 _
-			then _
-				@indexedvalue(%level, 0, 3, 3, 4, 4, 5) _
-			else _
-				@indexedvalue(%level, 1, 2, 2, 2, 2, 2) _
-			) to ST:Unappealing,
-		=@if(_
-			(@hasmod(Androgynous) | @hasmod(Impressive) | @hasmod(Universal)) & %level >= 2 _
-			then _
-				@indexedvalue(%level, 0, 3, 3, 4, 4, 5) _
-			else _
-				@indexedvalue(%level, 1, 4, 4, 6, 6, 8) _
-			) to ST:Appealing,
-		=@if(_
-			(@hasmod(Androgynous) | @hasmod(Impressive) | @hasmod(Universal)) & %level >= 2 _
-			then _
-				@indexedvalue(%level, 0, 3, 3, 4, 4, 5) _
-			else _
-				@indexedvalue(%level, 1, 4, 4, 6, 6, 8) _
-			) to SK:Sex Appeal _
-		)
+	gives(@indexedvalue(%level, 1, 2, 2, 2, 2) to ST:Unappealing,
+		@indexedvalue(%level, 1, 4, 4, 6, 6) to ST:Appealing,
+		@indexedvalue(%level, 1, 4, 4, 6, 6) to SK:Sex Appeal)
 					
 
 Absolute Direction, 5/10, displaycost(5), upto(2), levelnames(,3D Spatial Sense), gives(=+3 To GR:Absolute Direction, =+@indexedvalue(me::level, 0, 1) To SK:Piloting, =+@indexedvalue(me::level, 0, 2) To GR:3D Spatial Sense), mods(Absolute Direction), page(B34), cat(Mundane Mental, Mundane, Physical, Mental), taboo(AD:3D Spatial Sense)
@@ -1771,7 +1749,7 @@ Acute Hearing, 2/4, gives(+1 To ST:Hearing), skillused(ST:Hearing), mode(hear), 
 Acute Taste and Smell, 2/4, gives(+1 To ST:Taste/Smell), skillused(ST:Taste/Smell), mode(taste/smell), page(B35), cat(Mundane, Physical), taboo("DI:No Sense of Smell/Taste")
 Acute Touch, 2/4, gives(+1 To ST:Touch), skillused(ST:Touch), mode(feel), page(B35), cat(Mundane, Physical), taboo(DI:Numb)
 Acute Vision, 2/4, gives(+1 To ST:Vision, +1 To SK:Observation), skillused(ST:Vision), mode(see), conditional(+1 To SK:Tracking when "vision is a factor"), page(B35), cat(Mundane, Physical), taboo(DI:Blindness)
-Ambidexterity, 5, page(B39), cat(Mundane, Physical), taboo(DI:One Arm, DI:One Hand)
+Ambidexterity, 5, page(41), cat(Mundane, Physical), taboo(DI:One Arm, DI:One Hand)
 Extra Attack, 25/50, page(B54), cat(Mundane, Physical)
 Fit, 5/15, displaycost(5), upto(2), levelnames(,Very Fit), page(B55), cat(Mundane, Physical), taboo(AD:Very Fit, DI:Unfit, DI:Very Unfit), conditional(+1 to ST:HT), gives(+1 to ST:Consciousness Check, +1 to ST:Death Check)
 Very Fit, 15, page(B55), cat(Mundane, Physical), taboo(AD:Fit, DI:Unfit, DI:Very Unfit), conditional(+2 to ST:HT), gives(+2 to ST:Consciousness Check, +2 to ST:Death Check)
@@ -1816,17 +1794,22 @@ Voice, 10, gives(+2 To GR:Voice), page(30), cat(Mundane, Physical), taboo(DI:Mut
 Animal Empathy, 5, page(B40), cat(Mundane, Mental), taboo(DI:Frightens Animals),
 	skillused(ST:IQ), mode(empathize)
 Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(B41), cat(Mundane, Mental)
-Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check), page(42), cat(Mundane, Mental), taboo(DI:Combat Paralysis)
-Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental), taboo(AD:Precognition),
+Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
+	page(42), cat(Mundane, Mental), taboo(DI:Combat Paralysis)
+Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental),
 	skillused(ST:Perception), mode(sense danger)
 Daredevil, 15, page(43), cat(Mundane, Mental)
-Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2), page(45), cat(Mundane, Mental), taboo(AD:Photographic Memory),
+Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2),
+	page(45), cat(Mundane, Mental), taboo(AD:Photographic Memory),
 	skillused(ST:IQ), mode(recall)
 Photographic Memory, 10, page(45), cat(Mundane, Mental), taboo(AD:Eidetic Memory),
 	skillused(ST:IQ), mode(recall)
-Sensitive, 5, gives(+1 To GR:Empathy), conditional(+1 to SK:Psychology when "you can converse with subject"), page(B51), cat(Mundane, Mental), taboo(DI:Low Empathy),
+Sensitive, 5, gives(+1 To GR:Empathy),
+	conditional(+1 to SK:Psychology when "you can converse with subject"),
+	page(42), cat(Mundane, Mental), taboo(DI:Low Empathy),
 	skillused(ST:IQ), mode(empathize)
-Empathy, 15, gives(+3 To GR:Empathy), conditional(+3 to SK:Psychology when "you can converse with subject"), page(42), cat(Mundane, Mental), taboo(DI:Low Empathy),
+Empathy, 15, gives(+3 To GR:Empathy), conditional(+3 to SK:Psychology when "you can converse with subject"),
+	page(42), cat(Mundane, Mental), taboo(DI:Low Empathy),
 	skillused(ST:IQ), mode(empathize)
 Enhanced Block, 5/10, gives(+1 To Block), page(B51), cat(Mundane, Mental, Attributes)
 Enhanced Dodge, 15/30, gives(+1 To Dodge), page(B51), cat(Mundane, Mental, Attributes)
@@ -2384,7 +2367,7 @@ Reprogrammable, -10, page(B150), cat(Exotic, Mental)
 Stress Atavism, -10/-15/-20, mods(Self-Control), levelnames(Mild, Moderate, Severe), 
 	page(B156), upto(3), cat(Exotic, Mental),
 	initmods(_
-			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) _
+			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53) _
 			)
 
 <Supernatural Physical>
@@ -2414,7 +2397,7 @@ Supersensitive, -15, page(B158), cat(Supernatural, Mental)
 
 Uncontrollable Appetite, -15, mods(Self-Control), page(B159), cat(Supernatural, Mental),
 	initmods(_
-			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) _
+			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53) _
 			),
 	x(#InputToTag("Specify the substance you must consume:", nameext, , "Uncontrollable Appetite"))
 
@@ -2440,13 +2423,13 @@ Dwarfism, -15, gives(-1 To ST:Basic Move, -2 To SK:Disguise, -1 To ST:Size Modif
 Gigantism, 0, gives(-2 To SK:Disguise, +1 to ST:Size Modifier, +1 to ST:Basic Move), 
 	conditional(-2 to SK:Shadowing when "you are trying to follow someone in a crowd"),
 	page(B20), cat(Mundane, Physical, Build, Size Modifier), taboo(DI:Dwarfism)
-Appearance, -4/-8/-16/-20/-24, mods(Appearance), upto(5), page(B21),
-	levelnames([Average], Unattractive, Ugly, Hideous, Monstrous, Horrific), 
- 	page(B21), cat(Mundane, Physical, Physical Appearance), taboo(AD:Appearance),
+Appearance, -4/-8/-16, mods(Appearance), upto(3), page(28),
+	levelnames([Average], #ive, Ugly, Hideous), 
+ 	cat(Mundane, Physical, Physical Appearance), taboo(AD:Appearance),
 	gives(_
-		=@indexedvalue(%level, 0, 0, +2, +3, +4) to SK:Intimidation,
-		=@indexedvalue(%level, -1, -2, -4, -5, -6) To GR:Appeal,
-		=@indexedvalue(%level, -2, -4, -8, -10, -12) To SK:Sex Appeal _
+		=@indexedvalue(%level, 0, 0, +2) to SK:Intimidation,
+		=@indexedvalue(%level, -1, -2, -4) To GR:Appeal,
+		=@indexedvalue(%level, -2, -4, -8) To SK:Sex Appeal _
 		)
 
 Unnatural Feature, -1/-2, upto(5), gives(-1 To SK:Disguise, -1 To SK:Shadowing), page(B22), cat(Mundane, Physical, Other Physical Features),
@@ -2585,28 +2568,56 @@ Addiction ([Psychological]), -5/-10/-20, upto(3),
 Amnesia (Partial), -10, page(B123), cat(Mundane, Mental), taboo(DI:Amnesia (Total))
 Amnesia (Total), -25, page(B123), cat(Mundane, Mental), taboo(DI:Amnesia (Partial))
 
-Bad Temper, -10, mods(Self-Control), page(B124), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental), 
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
+				when "foul-tempered behaviour observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
+				when "foul-tempered behaviour observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
+				when "foul-tempered behaviour observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "foul-tempered behaviour observed" _
+			)
 
-Berserk, -10, mods(Self-Control, Berserk), page(B124), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Berserk, -10, mods(Self-Control, Berserk), page(64), cat(Mundane, Mental), 
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Bloodlust, -10, mods(Self-Control), page(B125), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Bloodlust, -10, mods(Self-Control), page(64), cat(Mundane, Mental),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
+				when "violent behaviour observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
+				when "violent behaviour observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
+				when "violent behaviour observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "violent behaviour observed" _
+			)
 
 Bully, -10, mods(Self-Control), page(B125), cat(Mundane, Mental), gives(-2 to ST:Reaction),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
+				when "bullying observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
+				when "bullying observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
+				when "bullying observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "bullying observed" _
+			)
 
 Callous, -5, gives(-3 To SK:Teaching), page(B125), cat(Mundane, Mental),
-	conditional(-1 to ST:Reaction when "past victim, or has Empathy", -3 to SK:Psychology when "attempting to help people", +1 to SK:Interrogation when "you use threats or torture", +1 to SK:Intimidation when "you use threats or torture")
+	conditional(-1 to ST:Reaction when "past victim, or has Empathy", -3 to SK:Psychology when "attempting to help people",
+	+1 to SK:Interrogation when "you use threats or torture", +1 to SK:Intimidation when "you use threats or torture")
    
 Cannot Learn, -30, page(B125), cat(Mundane, Mental)
 
 Charitable, -15, mods(Self-Control), page(B125), cat(Mundane, Mental), taboo(DI:Greed),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
-
-Chronic Depression, -15, mods(Self-Control), page(B126), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Chummy, -5, page(B126), cat(Mundane, Mental), taboo(DI:Loner, DI:Gregarious), conditional(-1 to ST:IQ when "alone")
 Gregarious, -10, page(B126), cat(Mundane, Mental), taboo(DI:Chummy, DI:Loner), conditional(-1 to ST:IQ when "in a group of four or less", -4 to ST:IQ when "alone")
@@ -2622,21 +2633,21 @@ Code of Honor (Soldier's), -10, page(B127), cat(Mundane, Mental)
 Code of Honor (Chivalry), -15, page(B127), cat(Mundane, Mental)
 
 Compulsive Behavior, -5/-10, mods(Self-Control), page(B128), upto(3), cat(Mundane, Mental), levelnames(,,), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x( #InputToTag("Specify the type of compulsive behavior:", nameext, , "Compulsive Behavior") )
 Compulsive Carousing, -5, mods(Self-Control), page(B128), cat(Mundane, Mental),
 	conditional(+1 to ST:Reaction when "from like-minded extroverts", -1 to ST:Reaction when "from sober-minded citizens (upto -4)"),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Gambling, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), 
 	conditional(=$solver(@int(me::points/5)) to ST:Reaction),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Generosity, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), taboo(DI:Miserliness), 
 	conditional(+1 to ST:Reaction when "from pios folks"),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Lying, -15, mods(Self-Control), page(B128), cat(Mundane, Mental), taboo(DI:Truthfulness), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Spending, -5, mods(Self-Control), page(B128), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to SK:Merchant when "you bargain or haggle",
 			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to SK:Merchant when "you bargain or haggle",
@@ -2645,13 +2656,13 @@ Compulsive Spending, -5, mods(Self-Control), page(B128), cat(Mundane, Mental),
 			)
 
 Compulsive Vowing, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Confused, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Cowardice, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), taboo(AD:Fearlessness),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	gives(_
 		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Fright Check,
 		=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Fright Check,
@@ -2659,61 +2670,118 @@ Cowardice, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), taboo(AD:F
 		=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Fright Check_
 	),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from trained fighters, when cowadice matters",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from trained fighters, when cowadice matters",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from trained fighters, when cowadice matters",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from trained fighters, when cowadice matters" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
+				when "from non-cowards, when cowardice matters",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
+				when "from non-cowards, when cowardice matters",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
+				when "from non-cowards, when cowardice matters",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "from non-cowards, when cowardice matters" _
 			)
 
-Curious, -5, mods(Self-Control), page(B129), cat(Mundane, Mental), taboo(DI:Incurious),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Incurious),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction
+				when "excessive curiosity observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction
+				when "excessive curiosity observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction
+				when "excessive curiosity observed" _
+			)
 
-Delusion, -5/-10/-15, upto(3), levelnames(Minor, Major, Severe), page(B130), 
+
+Delusion, -5/-10/-15, upto(3), levelnames(Minor, Major, Severe), page(59), 
 	cat(Mundane, Mental), gives(-1 to ST:Reaction),
 	x(#InputToTag("Specify your delusion here:", nameext, , "Delusion"))
 
-Discipline of Faith, -5/-10, upto(3), page(B132), cat(Mundane, Mental), levelnames(,,),
-	x(#InputToTag("Specify your set of rules here:", nameext, , "Discipline of Faith"))
-Discipline of Faith (Asceticism), -15, page(B132), cat(Mundane, Mental), taboo(AD:Wealth, AD:Status::baselevel > 0)
-Discipline of Faith (Monasticism), -10, page(B132), cat(Mundane, Mental), taboo(AD:Wealth, AD:Status::baselevel > 0)
-Discipline of Faith (Mysticism), -10, page(B132), cat(Mundane, Mental), conditional(-2 to ST:Reaction when "not a devout co-religionist")
-Discipline of Faith (Ritualism), -5, page(B132), cat(Mundane, Mental)
+Disciplines of Faith, -5/-10, upto(3), page(59), cat(Mundane, Mental), levelnames(,,),
+	x(#InputToTag("Specify your set of rules here:", nameext, , "Disciplines of Faith"))
+Disciplines of Faith (Asceticism), -15, page(59), cat(Mundane, Mental), taboo(AD:Wealth, AD:Status::baselevel > 0)
+Disciplines of Faith (Monasticism), -10, page(59), cat(Mundane, Mental), taboo(AD:Wealth, AD:Status::baselevel > 0)
+Disciplines of Faith (Mysticism), -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction when "not a devout co-religionist")
+Disciplines of Faith (Ritualism), -5, page(59), cat(Mundane, Mental)
 
-Dyslexia, -10, page(B134), cat(Mundane, Mental), taboo(CA:Language - Written > 0, DI:Blindness)
-Easy to Read, -10, page(B134), cat(Mundane, Mental)
-Fanaticism, -15/-15, levelnames( , Extreme), page(B136), upto(2), cat(Mundane, Mental),
-	x(#InputToTag("Specify the country, organization, philosiphy, or religion that you put ahead of everything else:", nameext, , "Fanaticism")),
+Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable),
+	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
+				when "when rampant greed is observed by non-dwarfs",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
+				when "when rampant greed is observed by non-dwarfs",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
+				when "when rampant greed is observed by non-dwarfs",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "when rampant greed is observed by non-dwarfs" _
+			)
+
+Easy to Read, -10, page(60), cat(Mundane, Mental), description(Gives others +4 on all Empathy, Body Language, and 
+	Psychology rolls to discern your intentions or the truth of your words, and +4 to their IQ, Detect Lies, and Gambling rolls in any Quick Contest
+	with your Acting, Fast-Talk, or Gambling skill when you try to lie or bluff.)
+Fanaticism, -15/-15, levelnames( , Extreme), page(62), upto(2), cat(Mundane, Mental),
+	x(#InputToTag("Specify the country, organization, philosophy, or religion that you put ahead of everything else:",
+	nameext, , "Fanaticism")),
 	conditional(=+@if(%level = 2 THEN 3) to ST:Will when "resisting Brainwashing, Interrogation, and Mind Control")
-Fearfulness, -2/-4, gives(-1 To Fright Check), page(B136), upto(ST:Will - 3), cat(Mundane, Mental), taboo(AD:Fearlessness, AD:Unfazeable)
-Flashbacks, -5/-10/-20, levelnames(Mild, Severe, Crippling), upto(3), page(B136), cat(Mundane, Mental)
+Fearfulness, -2/-4, gives(-1 To Fright Check), page(60), upto(ST:Will - 3), cat(Mundane, Mental),
+	taboo(AD:Fearlessness, AD:Unfazeable)
 
-Gluttony, -5, mods(Self-Control), page(B137), cat(Mundane, Mental), taboo(AD:Doesn't Eat or Drink),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(AD:Doesn't Eat or Drink),
+	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction
+				when "when gluttony is observed in action",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction
+				when "when gluttony is observed in action",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction
+				when "when gluttony is observed in action" _
+			)
 
-Greed, -15, mods(Self-Control), page(B137), cat(Mundane, Mental), taboo(DI:Charitable),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+
+Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable),
+	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
+				when "when rampant greed is observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
+				when "when rampant greed is observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
+				when "when rampant greed is observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "when rampant greed is observed" _
+			)
 
 Guilt Complex, -5, page(B137), cat(Mundane, Mental)
 
 Gullibility, -10, gives(-3 To SK:Merchant), mods(Self-Control), page(B137), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	taboo(SK:Detect Lies)
 
 Hidebound, -5, page(B138), cat(Mundane, Mental),
 	conditional(-2 to SK:Artist when "creativity matters", -2 to SK:Engineer when "making a new invention")
 
 Honesty, -10, mods(Self-Control), page(B138), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(+1 to ST:Reaction when "honesty becomes known", +3 to ST:Reaction when "a question of honor or trust is involved")
 
 Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
+				when "from sensible people, when impulsiveness is observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
+				when "from sensible people, when impulsiveness is observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
+				when "from sensible people, when impulsiveness is observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "from sensible people, when impulsiveness is observed",
+			)
 
 Incurious, -5, mods(Self-Control), page(B140), cat(Mundane, Mental), taboo(DI:Curious),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Indecisive, -10, mods(Self-Control), page(B140), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Innumerate, -5, page(B140), cat(Mundane, Mental), taboo(AD:Lightning Calculator, AD:Intuitive Mathematician, AD:Mathematical Ability),
 	ndl(@if(ST:Tech Level::basescore <=4 THEN 1 ELSE 0)),
@@ -2726,46 +2794,52 @@ Intolerance, -5/-10, upto(2), page(B140), cat(Mundane, Mental),
 Jealousy, -10, page(B140), cat(Mundane, Mental)
 
 Kleptomania, -15, mods(Self-Control), page(B141), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Laziness, -10, page(B142), cat(Mundane, Mental), taboo(DI:Workaholic)
 
-Lecherousness, -15, mods(Self-Control), page(B142), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental), 
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
+				when "when lechery is observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
+				when "when lechery is observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
+				when "when lechery is observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "when lechery is observed" _
+			)
+
 
 Loner, -5, mods(Self-Control), page(B142), cat(Mundane, Mental), taboo(DI:Chummy, DI:Gregarious), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Low Empathy, -20, gives(-3 To GR:Low Empathy), page(B142), cat(Mundane, Mental), taboo(AD:Empathy, AD:Sensitive)
 Low Self-Image, -10, page(B143), cat(Mundane, Mental), taboo(DI:Overconfidence)
-Lunacy, -10, page(B143), cat(Mundane, Mental),
-	conditional(-2 to ST:Will when "it's a full moon")
-Manic-Depressive, -20, page(B143), cat(Mundane, Mental)
-Megalomania, -10, page(B144), cat(Mundane, Mental),
-	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "experienced NPCs")
+Megalomania, -10, page(59), cat(Mundane, Mental),
+	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "non-frothing NPCs")
 
 Miserliness, -10, mods(Self-Control), page(B144), cat(Mundane, Mental), taboo(DI:Compulsive Generosity, DI:Compulsive Spending),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
-
-Mundane Background, -10, page(B144), cat(Mundane, Mental)
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 No Sense of Humor, -10, page(B146), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
 Non-Iconographic, -10, page(B146), cat(Mundane, Mental)
 Oblivious, -5, gives(-1 To GR:Oblivious), page(B146), cat(Mundane, Mental)
 
 Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal), upto(2), page(B146), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTagReplace("Describe your Obsession:", nameext, , "Obsession"))
 
 On the Edge, -15, mods(Self-Control), page(B147), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(-2 to ST:Reaction when "people witness behavior", +2 to ST:Reaction when "witnessed by people who value bravery over self-preservation")
 
 Overconfidence, -5, mods(Self-Control), page(B148), cat(Mundane, Mental), taboo(DI:Low Self-Image),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "experienced NPCs")
 
 Pacifism (Reluctant Killer), -5, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Cannot Kill), DI:Pacifism (Self-Defense Only), DI:Pacifism (Total Nonviolence))
@@ -2774,15 +2848,14 @@ Pacifism (Cannot Kill), -15, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism
 Pacifism (Self-Defense Only), -15, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Cannot Kill), DI:Pacifism (Total Nonviolence))
 Pacifism (Total Nonviolence), -30, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Cannot Kill), DI:Pacifism (Self-Defense Only))
 
-Paranoia, -10, page(B148), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
-Phantom Voices, -5/-10/-15, levelnames(Annoying, Disturbing, Diabolical), page(B148), upto(3), cat(Mundane, Mental)
+Paranoia, -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
 
 Phobia, -5/-10, upto(4), mods(Self-Control), page(B148), cat(Mundane, Mental), levelnames(,,,), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
 
 Phobia (%examplelist%), %examplecostlist%, displaycost(variable), mods(Self-Control), page(B148), cat(Mundane, Mental),   
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#ChoiceList(_
 			name(example),
 			title(Phobia: Choose a Phobia),
@@ -2825,51 +2898,55 @@ Phobia (%examplelist%), %examplecostlist%, displaycost(variable), mods(Self-Cont
 			)_
 	), noresync(yes)
 
-Post-Combat Shakes, -5, mods(Self-Control), page(B150), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Post-Combat Shakes, -5, mods(Self-Control), page(64), cat(Mundane, Mental), 
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Pyromania, -5, mods(Self-Control), page(64), cat(Mundane, Mental), 
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Pyromania, -5, mods(Self-Control), page(B150), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+	conditional(_
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
+				when "when habitual cruelty is observed",
+			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
+				when "when habitual cruelty is observed",
+			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
+				when "when habitual cruelty is observed",
+			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
+				when "when habitual cruelty is observed" _
+			)
 
-Sadism, -15, mods(Self-Control), page(B152), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
-	conditional(-3 to ST:Reaction)
+Selfish, -5, mods(Self-Control), page(65), cat(Mundane, Mental), taboo(DI:Selfless),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Selfless, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:Selfish),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Selfish, -5, mods(Self-Control), page(B153), cat(Mundane, Mental), taboo(DI:Selfless),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
-
-Selfless, -5, mods(Self-Control), page(B153), cat(Mundane, Mental), taboo(DI:Selfish),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
-
-Sense of Duty, -2/-5/-10/-15/-20, levelnames(Individual, Small Group, Large Group, Entire Race, Every Living Being), page(B153), upto(5), cat(Mundane, Mental),
+Sense of Duty, -2/-5/-10/-15/-20, levelnames(Individual, Small Group, Large Group, Entire Race, Every Living Being),
+	page(B153), upto(5), cat(Mundane, Mental),
 	conditional(=+2 to ST:Reaction when "in dangerous situations if Sense of Duty is known"),
 	x(#InputToTag("Specify the person or group you have a Sense of Duty towards:", nameext, , "Sense of Duty"))
 
 Short Attention Span, -10, mods(Self-Control), page(B153), cat(Mundane, Mental), taboo("AD:Single-Minded")
-Shyness, -5/-10/-20, gives(=@indexedvalue(%level, -1, -2, -4) To GR:Shyness), levelnames(Mild, Severe, Crippling), page(B154), upto(3), cat(Mundane, Mental)
+Shyness, -5/-10/-20, gives(=@indexedvalue(%level, -1, -2, -4) To GR:Shyness),
+	levelnames(Mild, Severe, Crippling), page(B154), upto(3), cat(Mundane, Mental)
 Slave Mentality, -40, page(B154), cat(Mundane, Mental)
 
 Sleepwalker, -5, mods(Self-Control), page(B154), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) ),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	gives(-1 to ST:Reaction), conditional(-3 to ST:Reaction when "others witness a personality shift")
 
 Squeamish, -10, mods(Self-Control), page(B156), cat(Mundane, Mental), 
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
-
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Stubbornness, -5, page(B157), cat(Mundane, Mental), conditional(-1 to ST:Reaction)
-Trademark, -5/-10/-15, levelnames(Simple, Complex, Elaborate), page(B159), upto(3), cat(Mundane, Mental),
-	x(#InputToTag("Specify your Trademark:", nameext, , "Trademark"))
-
-Trickster, -15, mods(Self-Control), page(B159), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
-
-Truthfulness, -5, mods(Self-Control), page(B159), cat(Mundane, Mental), taboo(DI:Compulsive Lying), 
+Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:Compulsive Lying), 
 	gives(-5 to SK:Fast-Talk),
 	conditional(-5 to SK:Acting when "your purpose is to deceive"),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Unluckiness, -10, page(B160), cat(Mundane, Mental)
 Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Mundane, Mental),
@@ -2877,7 +2954,7 @@ Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Munda
 Workaholic, -5, page(B162), cat(Mundane, Mental), conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
 
 Xenophilia, -10, mods(Self-Control), page(B162), cat(Mundane, Mental),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121) )
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 <Mundane Social>
 Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Social, Other Physical Features),
@@ -3028,7 +3105,7 @@ Distinctive Feature, -1, page(68), x( #InputToTag("Specify the character's Disti
 Horrible Hangovers, -1, page(68), cat(Non-Racial)
 Minor Handicap, -1, page(68), x( #InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap") ), cat(Non-Racial)
 Nervous Stomach, -1, page(68), cat(Non-Racial)
-No Staff, -1, page(68), needs(SK:Magic (Wizardry)), cat(Magical, Non-Racial)
+No Staff, -1, page(68), needs(SK:Magic (Wizardry)), taboo(AD:Superior Staff), cat(Magical, Non-Racial)
 Short Lifespan, -1, page(99), cat(Racial)
 Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons)), cat(Lycanthropic, Racial)
 Sunburns Easily, -1, page(99), cat(Racial)
@@ -3189,7 +3266,7 @@ Throwing, DX/A, default(DX - 3), page(78), cat(_General, Athletic, Missile Weapo
 Accounting, IQ/H, default(IQ - 6), page(79), cat(_General, Business, Professional)
 Administration, IQ/A, default(IQ - 5), page(71), cat(_General, Business, Social)
 Current Affairs (Business), IQ/E, tl(0-5), default(IQ - 4), page(72), cat(_General, Business, Everyman, Social)
-Diplomacy, IQ/H, default(IQ - 6), page(74), cat(_General, Business, Police/Watch, Social),
+Diplomacy, IQ/H, default(IQ - 6), page(74), cat(_General, Business, Influence, Police/Watch, Social),
 	gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
 Finance, IQ/H, page(79), cat(_General, Business, Professional)
 Law, IQ/H, default(IQ - 6), page(76), cat(_General, Business, Police/Watch),
@@ -3234,25 +3311,29 @@ Smith (Tinsmith), IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Craft,
 
 <Criminal/Street>
 Carousing, HT/E, default(HT - 4), page(72), cat(_General, Criminal/Street, Social)
+Counterfeiting, IQ/H, tl(0-5), default(IQ - 6), page(75), cat(_General, Larcenous)
 Disguise, IQ/A, tl(0-5), default(IQ - 5), page(72), cat(_General, Criminal/Street),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Disguise"))
 Escape, DX/H, default(DX - 6), page(73), cat(_General, Criminal/Street)
-
-Fast-Talk, IQ/A, default(IQ - 5), page(B195), cat(_General, Criminal/Street, Social), gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
+Fast-Talk, IQ/A, default(IQ - 5), page(74), cat(_General, Criminal/Street, Influence, Social),
+	gives(=@if(me::level >= 20 then 2 else 0) to ST:Reaction)
+Filch, DX/A, default(DX - 5), page(75), cat(_General, Larcenous)
+Forced Entry, DX/E, page(76), cat(_General, Larcenous, Police/Watch)
+Forgery, IQ/H, tl(0-5), default(IQ - 6), page(76), cat(_General, Larcenous)
 Gambling, IQ/A, default(IQ - 5), page(73), cat(_General, Criminal/Street, Game/Sport, Social)
-Holdout, IQ/A, default(IQ - 5), page(B200), cat(_General, Criminal/Street)
-Intimidation, Will/A, default(Will - 5), page(B202), cat(_General, Criminal/Street, Police/Watch, Social)
-Lockpicking, IQ/A, tl(0-5), default(IQ - 5), page(B206), cat(_General, Criminal/Street, Police/Watch, Technical)
+Holdout, IQ/A, default(IQ - 5), page(76), cat(_General, Criminal/Street, Larcenous)
+Intimidation, Will/A, default(Will - 5), page(74), cat(_General, Criminal/Street, Influence, Police/Watch, Social)
+Lockpicking, IQ/A, tl(0-5), default(IQ - 5), page(76), cat(_General, Criminal/Street, Larcenous, Police/Watch, Technical)
 Observation, Per/A, default(Per - 5), page(B211), cat(_General, Criminal/Street, Military, Police/Watch)
 Panhandling, IQ/E, default(IQ - 4), page(80), cat(_General, Criminal/Street, Professional, Social)
-Pickpocket, DX/H, default(DX - 6), page(B213), cat(_General, Criminal/Street)
-Poisons, IQ/H, tl(0-5), default(IQ - 6), page(B214), cat(_General, Criminal/Street, Medical)
+Pickpocket, DX/H, default(DX - 6), page(76), cat(_General, Criminal/Street, Larcenous)
+Poisons, IQ/H, tl(0-5), default(IQ - 6), page(79), cat(_General, Criminal/Street, Social)
 Savoir-Faire (Organised Crime), IQ/E, default(IQ - 4), page(75), cat(_General, Criminal/Street, Influence, Social)
 Scrounging, Per/E, default(Per - 4), page(B218), cat(_General, Criminal/Street)
 Shadowing, IQ/A, default(IQ - 5), page(B219), cat(_General, Criminal/Street, Police/Watch)
-Smuggling, IQ/A, default(IQ - 5), page(B221), cat(_General, Criminal/Street)
+Smuggling, IQ/A, default(IQ - 5), page(76), cat(_General, Criminal/Street, Larcenous)
 Stealth, DX/A, default(DX - 5, IQ - 5), page(B222), cat(_General, Criminal/Street, Police/Watch)
-Streetwise, IQ/A, default(IQ - 5), page(B223), cat(_General, Criminal/Street, Police/Watch, Social)
+Streetwise, IQ/A, default(IQ - 5), page(75), cat(_General, Criminal/Street, Influence, Police/Watch, Social)
 Traps, IQ/A, tl(0-5), default(IQ - 5), page(82), cat(_General, Criminal/Street)
 Urban Survival, Per/A, default(Per - 5), page(B228), cat(_General, Criminal/Street, Police/Watch)
 
@@ -3359,12 +3440,6 @@ Hidden Lore (Spirit Lore), IQ/A, page(75), cat(_General, Knowledge, Occult/Magic
 Occultism, IQ/A, default(IQ - 5), page(75), cat(_General, Occult/Magical)
 Sacred Texts, IQ/A, page(75), cat(_General, Priestly)
 
-<Larcenous>
-Counterfeiting, IQ/H, tl(0-5), default(IQ - 6), page(75), cat(_General)
-Filch, DX/A, default(DX - 5), page(75), cat(_General)
-Forced Entry, DX/E, page(76), cat(_General, Police/Watch)
-Forgery, IQ/H, tl(0-5), default(IQ - 6), page(76), cat(_General, Police/Watch)
-
 <Medical>
 Diagnosis, IQ/H, tl(0-5), default(IQ - 6), page(77), cat(_General, Medical),
 	x(#InputToTag("You must specialize by species:", nameext, "Human", "Diagnosis"))
@@ -3382,8 +3457,8 @@ Axe/Mace, DX/A, default(DX - 5), page(78), parryat(@int(%level/2)+3), cat(_Gener
 Broadsword, DX/A, default(DX - 5, SK:Shortsword - 2), page(78), parryat(@int(%level/2)+3), cat(_General, Melee Weapon, Swords)
 Fast-Draw, DX/E, page(73), cat(_General, Ranged Combat),
 	x(#InputToTag("You must specialize in a type of Weapon:", nameext, , "Fast-Draw"))
-Fast-Draw (Knife), DX/E, page(73), cat(_General, Ranged Combat), default(SK:Sword!)
-Fast-Draw (Knuckledusters), DX/E, page(73), cat(_General, Ranged Combat), default(SK:Sword!)
+Fast-Draw (Knife), DX/E, page(73), cat(_General, Ranged Combat)
+Fast-Draw (Knuckledusters), DX/E, page(73), cat(_General)
 Fast-Draw (Sword), DX/E, page(73), cat(_General)
 Fast-Draw (Two-Handed Sword), DX/E, page(73), cat(_General)
 Flail, DX/H, default(DX - 6), page(77), parryat(@int(%level/2)+3), cat(_General, Melee Weapon)
@@ -3472,18 +3547,15 @@ Karate, DX/H, page(83), parryat(@int(%level/2)+3), cat(_General, Melee Combat, U
 
 <Military>
 Camouflage, IQ/E, default(IQ - 4), page(71), cat(_General, Military, Outdoor/Exploration)
-
 Cryptography, IQ/H, tl(0-5), page(72), cat(_General, Military)
-
 Explosives (Demolition), IQ/A, tl(0-5), default(IQ - 5), page(73), cat(_General, Military, Technical)
-
-Intelligence Analysis, IQ/H, tl(0-5), default(IQ - 6, SK:Strategy - 6), page(B201), cat(_General, Military, Officer, Police/Watch)
-Interrogation, IQ/A, default(IQ - 5, SK:Intimidation - 3, SK:Psychology - 4), page(B202), cat(_General, Military, Police/Watch)
-Leadership, IQ/A, default(IQ - 5), page(B204), cat(_General, Military, Social)
-Soldier, IQ/A, tl(0-5), default(IQ - 5), page(B221), cat(_General, Military)
-Strategy (Land), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military, Officer)
-Strategy (Naval), IQ/H, default(IQ - 6, SK:Intelligence Analysis - 6, SK:Tactics - 6, SK:Strategy - 4), page(B222), cat(_General, Military, Officer)
-Tactics, IQ/H, default(IQ - 6, SK:Strategy - 6), page(B224), cat(_General, Military, Officer, Police/Watch)
+Intelligence Analysis, IQ/H, tl(0-5), default(IQ - 6), page(79), cat(_General, Military, Officer, Police/Watch)
+Interrogation, IQ/A, default(IQ - 5), page(75), cat(_General, Military, Police/Watch)
+Leadership, IQ/A, default(IQ - 5), page(76), cat(_General, Military, Social)
+Soldier, IQ/A, tl(0-5), default(IQ - 5), page(81), cat(_General, Military)
+Strategy (Land), IQ/H, default(IQ - 6), page(79), cat(_General, Military, Officer)
+Strategy (Naval), IQ/H, default(IQ - 6), page(79), cat(_General, Military, Officer)
+Tactics, IQ/H, default(IQ - 6), page(79), cat(_General, Military, Officer, Police/Watch)
 
 <Missile Weapons>
 Blowpipe, DX/H, default(DX - 6), page(78), cat(_General, Ranged Combat)
@@ -3506,11 +3578,11 @@ Thrown Weapon (Throwing Star), DX/E, default(DX - 4), page(78), cat(_General, Ra
 
 <Occult/Magical>
 Alchemy, IQ/VH, tl(0-5), page(71), cat(_General, Occult/Magical, Scholarly)
-Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly), gives(+me::level to ST:MagicSkill),
+Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly), gives(=+me to ST:MagicSkill),
 	needs(AD:Magery 0 | AD:Magery 0 (Engineering Only) | Magery 0 (Non-Improvisational)),
 	x(#InputToTag("You must specialize in a branch of magic (Witchcraft, Wizardry, etc.):", nameext, "Witchcraft", "Magic Skill"))
 Magical Form (%formlist%), IQ/VH, default(SK:Magic - 6), page(76), cat(_General, Occult/Magical, Scholarly),
-	needs(SK:Magic), upto(ST:MagicSkill),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery),
 	x(#ChoiceList(_
 			name(form),
 			title(Magical Form: Choose a Form),
@@ -3667,9 +3739,9 @@ Submariner, IQ/E, tl(0-5), default(IQ - 4), page(B185), cat(_General, Vehicle)
 [SPELLS]
 ************************************************************************************************************************
 <%NewSpellList%>
-_New One-Form Spell, (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)::level" %penaltylist%),
+_New One-Form Spell, (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)" %penaltylist%),
 	needs(SK:Magical Form (%FormList%)), page(203), cat(_General, _New Spells, Techniques, Spells, %FormList% Spells),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	x(#InputToTagReplace("Please enter the name of this Spell:" , name, , "New Spell"),
 		#ChoiceList(_
 			name(form),
@@ -3726,225 +3798,225 @@ _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0)
 	x(#InputToTagReplace("Please specify a name for this categorisation or whatever:", name, , "New Parent Item"))
 
 <Techniques, Techniques - Spells, Spells, Divination Spells>
-Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"),
-	upto(ST:MagicSkill + 4),
+Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
-Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level"),
-	upto(ST:MagicSkill + 4),
+Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
-Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 14),
-	upto(ST:MagicSkill + 4),
+Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 14),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
-Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 8),
-	upto(ST:MagicSkill + 4),
+Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 8),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
-Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Divination)), page(202)
 
 <Techniques, Techniques - Spells, Spells, Elementalism Spells>
-Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 1),
-	upto(ST:MagicSkill + 4),
+Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 1),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
-Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
-Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
-Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
-Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
-Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
-Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
-Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
-Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
-Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 6),
-	upto(ST:MagicSkill + 4),
+Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 6),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(204)
 Atavarr's Personal Gravitational Upset (Magical Form (Elementalism)), type(Tech/H),
-	default("SK:Magical Form (Elementalism)::level" - 4),
-	upto(ST:MagicSkill + 4),
+	default("SK:Magical Form (Elementalism)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page()
-Quondum's Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)::level" - 5),
-	upto(ST:MagicSkill + 4),
+Quondum's Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 5),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page()
 
 <Techniques, Techniques - Spells, Spells, Magianism Spells>
-Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level"),
-	upto(ST:MagicSkill + 4),
+Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)), page(204)
-Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 1),
-	upto(ST:MagicSkill + 4),
+Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 1),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(204)
-Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
-Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
-Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
-Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 5),
-	upto(ST:MagicSkill + 4),
+Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 5),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
-Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 8),
-	upto(ST:MagicSkill + 4),
+Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 8),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)),  page(205)
-Mystic Feedback (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Mystic Feedback (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)), page()
-Fresnel's Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)::level" - 7),
-	upto(ST:MagicSkill + 4),
+Fresnel's Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 7),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Magianism)), page()
 
 <Techniques, Techniques - Spells, Spells, Necromancy Spells>
-Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level"),
-	upto(ST:MagicSkill + 4),
+Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)), page(206)
-Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
-Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 2),
-	upto(ST:MagicSkill + 4),
+Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 2),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
-Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
-Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
-Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
-Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)::level" - 6),
-	upto(ST:MagicSkill + 4),
+Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 6),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Necromancy)),  page(206)
 
 <Techniques, Techniques - Spells, Spells, Physiomancy Spells>
-Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level"),
-	upto(ST:MagicSkill + 4),
+Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
-Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
-Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
-Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(207)
-Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 6),
-	upto(ST:MagicSkill + 4),
+Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 6),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page(208)
-Englebert's Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)::level" - 2),
-	upto(ST:MagicSkill + 4),
+Englebert's Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 2),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Physiomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Psychomancy Spells>
-Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level"),
-	upto(ST:MagicSkill + 4),
+Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(209)
-Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 1),
-	upto(ST:MagicSkill + 4),
+Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 1),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(209)
-Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(209)
-Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
-Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
-Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
-Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 7),
-	upto(ST:MagicSkill + 4),
+Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 7),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
-Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 10),
-	upto(ST:MagicSkill + 4),
+Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 10),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(210)
-Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 5),
-	upto(ST:MagicSkill + 4),
+Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 5),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page(211)
-Break Mental Walls (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Break Mental Walls (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Psychomancy)), page()
 
 <Techniques, Techniques - Spells, Spells, Sortilege Spells>
-A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level"),
-	upto(ST:MagicSkill + 4),
+A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(211)
-Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2),
-	upto(ST:MagicSkill + 4),
+Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 2),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(211)
-Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 2),
-	upto(ST:MagicSkill + 4),
+Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 2),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(211)
-Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(212)
-Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 7),
-	upto(ST:MagicSkill + 4),
+Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 7),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(212)
-Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)::level" - 5),
-	upto(ST:MagicSkill + 4),
+Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 5),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Sortilege)), page(213)
 
 <Techniques, Techniques - Spells, Spells, Summonation Spells>
-Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level"),
-	upto(ST:MagicSkill + 4),
+Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)"),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(214)
-The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 1),
-	upto(ST:MagicSkill + 4),
+The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 1),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(214)
-Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
-Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
-Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 3),
-	upto(ST:MagicSkill + 4),
+Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
-Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 5),
-	upto(ST:MagicSkill + 4),
+Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 5),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page(215)
-Divine Rider (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)::level" - 4),
-	upto(ST:MagicSkill + 4),
+Divine Rider (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Summonation)), page()
 
 //Note that the following may need testing to make sure that defaults are working right.
 <Techniques, Techniques - Spells, Spells, Multiple-Form Spells>
 Necromantic Retrocognition - Good Equipment (Magical Forms (Divination & Necromancy)),
 	needs("SK:Magical Form (Divination)", "SK:Magical Form (Necromancy)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(216)
 Shatter Bolt (Magical Forms (Elementalism & Magianism)),
 	needs("SK:Magical Form (Elementalism)", "SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 3), page(217)
 Hurled Curse (Magical Forms (Magianism & Sortilege)),
 	needs("SK:Magical Form (Sortilege)", "SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(217)
 Teleportation (Magical Forms (Magianism & Summonation)),
 	needs("SK:Magical Form (Summonation)", "SK:Magical Form (Magianism)"),
-	upto(ST:MagicSkill + 4),
+	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(217)
 
 ************************************************************************************************************************
@@ -3971,10 +4043,7 @@ TE:Wild Animal
 AD:_New Advantage
 AD:_New Leveled Advantage
 AD:_New Parent Item
-AD:_New Power Talent
 AD:_New Talent
-AD:360° Vision
-AD:3D Spatial Sense
 AD:Absolute Direction
 AD:Absolute Timing
 AD:Active IR
@@ -4008,7 +4077,7 @@ AD:Burning Attack
 AD:Business Acumen
 AD:Catfall
 AD:Chameleon
-AD:Channeling
+AD:Channelling
 AD:Chaos Talent
 AD:Charisma
 AD:Chronolocation
@@ -4246,9 +4315,6 @@ AD:Regrowth
 AD:Religious Rank
 AD:Reputation
 AD:Resistant
-AD:Ritual Magery (%skilllist%)
-AD:Ritual Magery ([skill])
-AD:Ritual Magery 0
 AD:See Invisible
 AD:Sensitive Touch
 AD:Sensitive
@@ -4422,11 +4488,11 @@ DI:Delusion
 DI:Dependency
 DI:Dependent
 DI:Destiny
-DI:Discipline of Faith (Asceticism)
-DI:Discipline of Faith (Monasticism)
-DI:Discipline of Faith (Mysticism)
-DI:Discipline of Faith (Ritualism)
-DI:Discipline of Faith
+DI:Disciplines of Faith (Asceticism)
+DI:Disciplines of Faith (Monasticism)
+DI:Disciplines of Faith (Mysticism)
+DI:Disciplines of Faith (Ritualism)
+DI:Disciplines of Faith
 DI:Disturbing Voice
 DI:Divine Curse
 DI:Draining
@@ -5071,11 +5137,8 @@ SK:Staff
 SK:Stage Combat
 SK:Stealth
 SK:Strategy
-SK:Strategy (Air)
-SK:Strategy (Interstellar)
 SK:Strategy (Land)
 SK:Strategy (Naval)
-SK:Strategy (Space)
 SK:Streetwise
 SK:Submarine
 SK:Submarine (Free-Flooding Sub)
@@ -7034,8 +7097,9 @@ Difference in point costs, +1/+2, formula(@int(me::level * 0.9 + 0.9)), forcefor
 		#InputReplace("Please enter the differnce in point costs between the characters native template and his most expensive alternate form:", "[level]", "0", "Difference in point costs")_
 	)
 
+// Note that the following is definitely kept for Discworld purposes!
 <Appearance>
-Universal, +25%, group(Appearance), page(B21)
+Universal, +25%, group(Appearance), page(85)
 
 <Arm DX>
 One arm, *1, group(Arm DX), page(B40)
@@ -7532,60 +7596,6 @@ Limited Defense (Rare), -80%, group(Limited Defense), page(B46), shortname(Limit
 Active, -40%, group(Luck), page(B66)
 Aspected, -20%, group(Luck), page(B66)
 Defensive, -20%, group(Luck), page(B66)
-
-<Magery>
-Dance, -40%, group(Magery), page(B67)
-Dark-Aspected, -50%, group(Magery), page(B67)
-Day-Aspected, -40%, group(Magery), page(B67)
-Musical, -50%, group(Magery), page(B67)
-Night-Aspected, -40%, group(Magery), page(B67)
-Solitary, -40%, group(Magery), page(B67)
-Song, -40%, group(Magery), page(B67)
-
-One College Only, -40%, group(Magery), page(B67), gives(-Owner::Level to ST:Magery, +Owner::Level to (ST:Magery One, CO:One, SP:Recover Energy)),
-	x(_
-		#InputReplace("Please enter the name of the college:", "One", , "One College Only"),
-		#Message(Use this limitation *ONLY* on the Magery advantage. It will cause errors if used on any other trait (including the Magery 0 advantage).) _
-	)
-One College Only (%CollegeList%), -40%, gives(-Owner::Level to ST:Magery, +Owner::Level to (ST:Magery %CollegeList%, CO:%CollegeList%, SP:Recover Energy)), group(Magery), page(B67),
-	x(_
-	#Message(Use this limitation *ONLY* on the Magery advantage. It will cause errors if used on any other trait (including the Magery 0 advantage).),
-	#ChoiceList(_
-			name(College),
-			title(One College Magery),
-			text(Choose which college your Magery is limited to:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Air",
-				"Body Control",
-				"Communication & Empathy",
-				"Earth",
-				"Enchantment",
-				"Fire",
-				"Gate",
-				"Healing",
-				"Knowledge",
-				"Light & Darkness",
-				"Meta-Spells",
-				"Mind Control",
-				"Movement",
-				"Necromancy",
-				"Protection & Warning",
-				"Water" _
-			)_
-		)_
-	)
-
-	
-<Magery 0>
-Dance, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Dark-Aspected, -50%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Day-Aspected, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Musical, -50%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Night-Aspected, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Solitary, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
-Song, -40%, group(Magery 0), page(B67), x(#Message(Most Magery modifiers may not be applied to Magery 0. This modifier is provided for those people wishing to apply modifiers to Magery 0 anyway.))
 
 <Maintenance>
 Maintenance Interval: Monthly, *1/5, shortname(Monthly), group(Maintenance), page(B143)
@@ -8134,10 +8144,10 @@ Targeting Only, -40%, group(Scanning Sense), page(B82)
 Secret Identity: Status 3 or higher, -10, shortname(Status 3+), group(Secret Identity), page(B153)
 
 <Self-Control>
-You resist on a roll of  6 or less (quite rarely), *2, shortname(6 or less), group(Self-Control), page(B121)
-You resist on a roll of  9 or less (fairly often), *1.5, shortname(9 or less), group(Self-Control), page(B121)
-You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121)
-You resist on a roll of 15 or less (almost all the time), *0.5, shortname(15 or less), group(Self-Control), page(B121)
+You resist on a roll of  6 or less (quite rarely), *2, shortname(6 or less), group(Self-Control), page(53)
+You resist on a roll of  9 or less (fairly often), *1.5, shortname(9 or less), group(Self-Control), page(53)
+You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)
+You resist on a roll of 15 or less (almost all the time), *0.5, shortname(15 or less), group(Self-Control), page(53)
 
 <Shadow Form Advantage>
 Can Carry Objects, +10%/+20%/+50%/+100%, levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance), upto(4), group(Shadow Form Advantage), page(B83)
@@ -8587,131 +8597,6 @@ Investigator (Basic Set), displaycost(100),
 				SK:Running #codes(upto 2pts, downto 2pts) _
 				)_
 			)
-Mage (Basic Set), displaycost(100),
-	cat(Character Templates - Basic Set),
-	description(You're a sorcerer, a wizard, a witch, an adept of the black arts...),
-		page(B260),
-		sets(_
-			ST:ST=9, 
-			ST:DX=11, 
-			ST:IQ=13, 
-			ST:HT=11,
-			ST:Hit Points=10, 
-			ST:Perception=10,
-			ST:Fatigue Points=13_
-			), 
-		adds(_
-			AD:Language=2,
-			AD:Magery 0,
-			AD:Magery=2_
-			),
-			x(_
-			#message("Primary Skills: _
-					In addition to the items you select in the following selection windows,
-					you need to select 2 spells at 4 points each,
-					and 10 more spells (12 total) at 1 point each._
-					~P~P_
-					In addition, you will be asked to specify a language after you've selected _
-					your other options from this template. The language is included in the listed _
-					cost of this template.")_
-			),
-		needs(_
-			2 Spells=4pts,
-			12 spells=1pts_
-			),
-		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
-			list(_
-				#newitem(AD:English, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
-				AD:Language - Native #codes(upto 3, downto 3),
-				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
-				AD:Language - Native (Written) _
-				)_
-			),
-		select2(text("If you have not already chosen one, please choose a native Cultural Familiarity."), pointswanted(0), itemswanted(upto 1),
-			list(_
-				AD:Cultural Familiarity (Native)_
-				)_
-			),
-		select3(_
-			text("Select the advantages you want for your character from the list below. You need to select 5 points worth."),
-			pointswanted(5), 
-			itemswanted(atleast 1),
-			list(AD:Eidetic Memory, 
-				AD:Reputation #codes(UPTO 1), 
-				AD:Single-Minded,
-				AD:Status #codes(UPTO 1), 
-				AD:Versatile, 
-				AD:Extra Will #codes(UPTO 1)_
-				)_
-			),
-		select4(_
-			text("Select the disadvantages you want for your character from the list below. You need to select -30 points worth."),
-			pointswanted(-30), 
-			itemswanted(atleast 1),
-			list(_
-				DI:Absent-Mindedness, 
-				#newitem(DI:Bad Sight (Nearsighted), -25, displaycost(-10), page(B123), cat(Mundane Physical, Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Farsighted)), mods(Bad Sight), initmods(Mitigator: Glasses, -60%, group(_General), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)) ),
-				#newitem(DI:Bad Sight (Farsighted), -25, displaycost(-10), page(B123), cat(Mundane Physical, Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Nearsighted)), mods(Bad Sight), initmods(Mitigator: Glasses, -60%, group(_General), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)) ),
-				DI:Bad Temper, 
-				DI:Curious, 
-				DI:Duty,
-				DI:Gluttony, 
-				DI:Obsession, 
-				DI:Secret, 
-				DI:Sense of Duty, 
-				DI:Shyness_
-				)_
-			),
-		select5(_
-			text("Select the secondary skills you want for your character from the list below. You need to select 2 skills (each will be taken at 2 points)."),
-			pointswanted(4), 
-			itemswanted(2),
-			list(_
-				SK:Hidden Lore #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Conspiracies) #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Demon Lore) #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Faerie Lore) #codes(upto 2pts, downto 2pts),
-				SK:Hidden Lore (Spirit Lore) #codes(upto 2pts, downto 2pts),
-				SK:Occultism #codes(upto 2pts, downto 2pts),
-				SK:Research #codes(upto 2pts, downto 2pts),
-				SK:Expert Skill #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Applied) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Computer Science) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Cryptology) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Pure) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Statistics) #codes(upto 2pts, downto 2pts),
-				SK:Mathematics (Surveying) #codes(upto 2pts, downto 2pts),
-				SK:Naturalist #codes(upto 2pts, downto 2pts),
-				SK:Theology #codes(upto 2pts, downto 2pts), 			
-				SK:Dreaming #codes(upto 2pts, downto 2pts),
-				SK:Meditation #codes(upto 2pts, downto 2pts),
-				SK:Alchemy #codes(upto 2pts, downto 2pts),
-				SK:Thaumatology #codes(upto 2pts, downto 2pts)_
-				)_
-			),
-		select6(_
-			text("Select the background skill you want for your character from the list below. You need to select 1 skill (which will be taken at 1 points)."),
-			pointswanted(1), 
-			itemswanted(1),
-			list(_
-				SK:Guns (Pistol) #codes(upto 1pts, downto 1pts),
-				SK:Guns (Shotgun) #codes(upto 1pts, downto 1pts),
-				SK:Knife #codes(upto 1pts, downto 1pts),
-				SK:Computer Operation #codes(upto 1pts, downto 1pts),
-				SK:Driving (Automobile) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Construction Equipment) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Halftrack) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Heavy Wheeled) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Hovercraft) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Locomotive) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Mecha) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Motorcycle) #codes(upto 1pts, downto 1pts),
-				SK:Driving (Tracked) #codes(upto 1pts, downto 1pts),
-				SK:Riding #codes(upto 1pts, downto 1pts),
-				SK:Shortsword #codes(upto 1pts, downto 1pts),
-				SK:Staff #codes(upto 1pts, downto 1pts)_
-				)_
-			)
 Heroic Knight (Basic Set), displaycost(95),
 	cat(Character Templates - Basic Set),
 		description(You are a brave knight out of fantasy or fairy tales - strong, honerable, a wise leader, and a skilled warrior.),
@@ -9150,121 +9035,6 @@ Dwarf (Basic Set), displaycost(35), cost(15),
 			with "Vague, -50%, group(Detect)",
 		AD:Extended Lifespan=1,
 		AD:Night Vision=5_
-		)
-Felinoid (Basic Set), displaycost(35), cost(20),
-	cat(Racial Templates - Basic Set),
-	description("Cat people" often appear in science fiction, fantasy, and horror settings. _
-			This is a typical felinoid: humanoid, but with a number of catlike features, _
-			including a tail. This could also be the "were-form" of a human with the _
-			Alternate Form advantage (p. 83).),
-	page(B261),
-	race(Felinoid),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+1 to ST:DX_
-		),
-	adds(_
-		AD:Acute Hearing=2,
-		AD:Acute Taste and Smell,
-		AD:Catfall,
-		AD:Claws (Sharp Claws),
-		AD:Combat Reflexes,
-		AD:Damage Resistance,
-		AD:Teeth (Sharp Teeth),
-		AD:Temperature Tolerance,
-		DI:Impulsiveness _
-			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121)",
-		DI:Sleepy _
-		),
-	creates(_
-			"DI:Racial ST Penalty, -10/-20, cat(Exotic Physical, Exotic, Physical), gives(-1 to ST:ST), initmods(), forceformula()" _
-		),
-	features(Purring Voice, Tail)
-Vampire (Basic Set), displaycost(150), cost(23),
-	cat(Racial Templates - Basic Set),
-	description(This is a "Bram Stoker"-style vampire. It possesses some, but not all, _
-			of the powers and weaknesses that fiction ascribes to bloodsucking undead. _
-			Notably, horror-movie vampires often have Supernatural Durability *instead* _
-			of Unkillable (increases cost by 100 points).),
-	page(B262),
-	noresync(yes),
-	race(Vampire),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+4 to ST:Hit Points,
-		+3 to ST:Perception_
-		),
-	adds(_
-		"AD:Doesn't Breathe",
-		"AD:Dominance",
-		"AD:Injury Tolerance" _
-			with "Unliving, +20, group(Injury Tolerance)",
-		"AD:Insubstantiality" _
-			with "Costs Fatigue: 2 FP, -10%, shortname(2 FP), group(_General)",
-		"AD:Night Vision"=5,
-		"AD:Speak with Animals" _
-			with "Wolves and Bats, -60%, group(Speak with Animals)",
-		"AD:Unaging",
-		"AD:Unkillable"=2 _
-			with "Achilles' Heel (Wood), -50%, group(Unkillable)",
-		"AD:Vampiric Bite",
-		"DI:Dependency (Coffin with soil of homeland)"=3 _
-			with "Frequency Needed: Daily, *3, group(Dependency), shortname(Daily)",
-		"DI:Draining (Human Blood)" _
-			with "Illegal, -5, group(Draining)",
-		"DI:Dread (Garlic)",
-		"DI:Dread (Religious Symbols)" _
-			with "5 yards, -4, group(Dread)",
-		"DI:Dread (Running Water)" _
-			with "Rarity: Common, *2, group(Dread)",
-		"DI:Supernatural Feature" _
-			with "No Body Heat: Can gain warmth temporarily, -1, group(Supernatural Feature), shortname(No Body Heat (unless fed))" _
-			and  "No Reflection, -10, group(Supernatural Feature)" _
-			and  "Pallor: can gain the flush of life temporarily, -5, group(Supernatural Feature), shortname(Pallor (unless fed))",
-		"DI:Uncontrollable Appetite (Human Blood)" _
-			with "You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(B121)",
-		"DI:Unhealing",
-		"DI:Weakness (Sunlight)"=3 _
-			with "Rarity: Very Common, *3, shortname(Very Common), group(Weakness)" _
-		),
-	creates(_
-		"AD:Racial ST Bonus, 10/20, cat(Exotic Physical, Exotic, Physical), gives(+1 to ST:ST), initmods(Size, -10%, group(Size ST), formula(-@if(ST:Size Modifier > 0 then ST:Size Modifier * 10 else 0)), forceformula(yes) | Quadruped, -40%, group(Quadruped Stat), formula(-@if(ST:Quadruped > 0 & ST:ST::level > 0 then 40 else 0)), forceformula(yes))"=6,
-		"AD:Alternate Form (Bat & Wolf), 30, mods(Alternate Form), page(B83), cat(Exotic, Physical, Exotic Physical)",
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)",
-		"DI:Divine Curse (Cannot enter dwelling for first time unless invited), -10, cat(Supernatural, Mental, Supernatural Mental)" _
-		),
-	features(Sterile)
-Elf (Basic Set), displaycost(70), cost(15),
-	cat(Racial Templates - Basic Set),
-	description(Elves are the quintessential fantasy race: very similar to humans (and cross-fertile with them, in many settings), but exceptionally beautiful, ageless, and naturally magical.),
-	page(B316),
-	noresync(yes),
-	race(Elf),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+1 to ST:HT,
-		+1 to ST:Perception _
-		),
-	adds(_
-		AD:Racial Skill Point Bonus ([skill]) respond "Connoisseur (Natural Environments)",
-		AD:Appearance=1,
-		AD:Language Talent,
-		AD:Magery 0,
-		AD:Perfect Balance,
-		AD:Telescopic Vision=1,
-		AD:Unaging,
-		AD:Voice,
-		{SK:Connoisseur (Natural Environments)}==0pts#DoNotOwn_
-		),
-	creates(_
-			"DI:Racial ST Penalty, -10/-20, cat(Exotic Physical, Exotic, Physical), gives(-1 to ST:ST), initmods(), forceformula()" _
 		)
 
 <Meta-Traits>
