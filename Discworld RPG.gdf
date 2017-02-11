@@ -1,4 +1,4 @@
-Encoding=UTF-8
+FEncoding=UTF-8
 Version=3
 * The version information above MUST be the first line of the data file
 Program=4.0.408
@@ -1731,7 +1731,7 @@ Superior Staff, 5/10, upto(3), needs(SK:Magic (Wizardry)), page(47), cat(Superna
 	description(Gives +1 MP/level to points stored in staff.), taboo(QU:No Staff),
 	conditional(+1 to SK:Magic when "holding staff", +1 to SK:Magical Form when "holding staff",
 			+1 to Spells when "holding staff")
-Sapient Pearwood Staff, 10, needs(AD:Superior Staff 3), page(47), cat(Supernatural),
+Sapient Pearwood Staff, 10, needs(AD:Superior Staff = 3), page(47), cat(Supernatural),
 	conditional(+2 to ST:Reaction when "admiring wizards", -2 to ST:Reaction when "jealous wizards")
 
 <Mundane Physical>
@@ -2181,7 +2181,7 @@ Dual Ready, 1, page(51), cat(Non-Racial),
 	x(InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
 Feathers, 1, page(93), cat(Racial)
 Forgettable Face, 1, page(51), cat(Non-Racial)
-Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable 2), cat(Racial, Vampiric)
+Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable = 2), cat(Racial, Vampiric)
 Fur, 1, page(93), cat(Racial)
 Good with (Animal) (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
 Good with (Social Group) (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
@@ -3109,7 +3109,7 @@ No Staff, -1, page(68), needs(SK:Magic (Wizardry)), taboo(AD:Superior Staff), ca
 Short Lifespan, -1, page(99), cat(Racial)
 Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons)), cat(Lycanthropic, Racial)
 Sunburns Easily, -1, page(99), cat(Racial)
-Weak Spot (CHECK PREREQUISITE WORKS RIGHT), -1, page(99), needs(AD:Damage Resistance 2), cat(Racial)
+Weak Spot (CHECK PREREQUISITE WORKS RIGHT), -1, page(99), needs(AD:Damage Resistance = 2), cat(Racial)
 
 ************************************************************************************************************************
 [SKILLS]
