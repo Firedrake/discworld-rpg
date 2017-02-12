@@ -2161,37 +2161,51 @@ Tenure, 5, page(B93), cat(Mundane, Social),
 <Perks>
 _New Perk, 1, noresync(yes), x(#InputToTagReplace("Please enter the name of this Perk:" , name, , "New Perk")), x(#edit)
 Alcohol Tolerance, 1, page(50), cat(Non-Racial)
-Archaic Training (NEEDS MORE WORK), 1, page(50), cat(Non-Racial)
+Archaic Training, 1/2, page(50), cat(Non-Racial, Skill Perks),
+	x(#InputToTagReplace("Specify TL-based skill", nameext, , "TL-based skill needed"))
 Assassin in Good Standing, 1, page(50), cat(Non-Racial)
 Autotrance, 1, page(50), cat(Magical, Non-Racial, Priestly)
-Blade-Proof Bare-Chestedness, 1, page(50), needs(DI:Compulsive Barbarian Heroism | DI:Odious Personal Habit (Barbarian Heroism)), cat(Non-Racial)
+Blade-Proof Bare-Chestedness, 1, page(50),
+	needs(DI:Compulsive Barbarian Heroism | DI:Odious Personal Habit (Barbarian Heroism)), cat(Non-Racial)
 Boredom Immunity, 1, page(93), cat(Racial)
 Check the Exits, 1, page(50), cat(Non-Racial)
 Climatic Emphasis, 1, page(50), cat(Non-Racial)
 Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Non-Racial),
 	x(InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
-Cold Resistance, 1, page(50), cat(Non-Racial)
+Cold Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Cold))
 Controllable Disadvantage, 1, page(51), cat(Non-Racial),
 	x(InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
 Crossbow Safety, 1, page(51), cat(Non-Racial)
-Cutting-Edge Training (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
+Cutting-Edge Training, 1/2, page(51), cat(Non-Racial, Skill Perks),
+	x(#InputToTagReplace("Specify TL-based skill", nameext, , "TL-based skill needed"))
 Deep Sleeper, 1, page(51), taboo(DI:Light Sleeper), cat(Non-Racial)
 Divine News-Feed, 1, page(51), cat(Non-Racial, Priestly)
 Dual Ready, 1, page(51), cat(Non-Racial),
 	x(InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
+Fearsome Stare, 1, page(52), cat(Non-Racial, Wordless Influence),
+	description(Allows use of Intimidation skill without talking.)
 Feathers, 1, page(93), cat(Racial)
 Forgettable Face, 1, page(51), cat(Non-Racial)
-Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable = 2), cat(Racial, Vampiric)
+Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable = 2),
+	cat(Racial, Vampiric)
 Fur, 1, page(93), cat(Racial)
-Good with (Animal) (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
-Good with (Social Group) (NEEDS MORE WORK), 1, page(51), cat(Non-Racial)
-Heartbeat Counter (NEEDS MORE WORK), 1, page(94), cat(Racial, Vampiric)
-Heat Resistance, 1, page(50), cat(Non-Racial)
+Good with (Animal), 1, page(51),
+	x(#InputToTagReplace("Specify the Animal you're good with:", nameext, , "Good with (Animal)")),
+	cat(Non-Racial)
+Good with (Social Group), 1, page(51),
+	x(#InputToTagReplace("Specify the Social Group you're good with:", nameext, , "Good with (Social Group)")),
+	cat(Non-Racial)
+Haughty Sneer, 1, page(52), cat(Non-Racial, Wordless Influence),
+	description(Allows use of Savoir-Faire (High Society) skill without talking.)
+Heartbeat Counter, 1, page(94), needs(ST:Hearing = 18),
+	cat(Racial, Vampiric)
+Heat Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Heat))
 High-Heeled Heroine, 1, page(51), cat(Non-Racial)
 Honest Face, 1, page(51), cat(Non-Racial)
-Hyper-Specialisation, 1, page(51), cat(Non-Racial),
-	x(InputToTagReplace("Specify the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
-Improvised Weapons (NEEDS MORE WORK), 1, page(52), cat(Non-Racial)
+Hyper-Specialisation, 1, page(51), cat(Non-Racial, Skill Perks),
+	x(InputToTagReplace("Specify the skill and the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
+Improvised Weapons, 1, page(52), cat(Non-Racial, Skill Perks),
+	x(#InputToTagReplace("please enter the weapon skill you can use Improvised Weapons with:" , nameext, ,"Improvised Weapons"))
 Limited Camouflage, 1, page(94), cat(Racial),
 	x(InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage")),
 	conditional(+2 to SK:Camouflage when "stationary and unclad in a specific environment",_
@@ -2199,23 +2213,26 @@ Limited Camouflage, 1, page(94), cat(Racial),
 Longevity, 1, page(52), cat(Non-Racial)
 Name Hearing, 1, page(94), cat(Racial, Godly)
 No Hangover, 1, page(52), cat(Non-Racial)
-Off-Hand Training, 1, page(52), cat(Non-Racial),
+Off-Hand Training, 1, page(52), cat(Non-Racial, Skill Perks),
 	x(InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
 Oggham Reader, 1, page(52), cat(Non-Racial)
 One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery (Non-Improvisational) 0), cat(Magical, Non-Racial),
 	x(InputToTagReplace("Please describe the single Spell:", nameext, , "Shtick"))
-Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial)
+Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial),
+	conditional(+1 to SK:Intimidation when "surprising someone by yelling or roaring")
 Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
 Secret Name, 1, page(52), needs(AD:Magery 0), cat(Magical, Non-Racial)
 Self-Styling Hair, 1, page(52), cat(Magical, Non-Racial)
 Sordid Claws, 1, page(94), needs(AD:Claws), cat(Racial)
-Statuesque, 1, page(52), cat(Non-Racial)
-Striking Surface (NEEDS MORE WORK - MINIMUM DR 3), 1, page(94), needs(AD:Damage Resistance), cat(Racial)
+Statuesque, 1, page(52), cat(Non-Racial),
+	taboo(DI:Skinny, DI:Overweight, DI:Fat, DI:Very Fat, DI:Dwarfism, DI:Gigantism)
+Street Swagger, 1, page(52), cat(Non-Racial, Wordless Influence),
+	description(Allows use of Streetwise skill without talking.)
+Striking Surface, 1, page(94), needs(AD:Damage Resistance::level=3), cat(Racial)
 There on Call, 1, page(52), needs(SK:Savoir-Faire (Servant), SK:Stealth, SK:Traps), cat(Non-Racial)
 Understands the Librarian, 1, page(53), cat(Non-Racial)
-Unfased by Size (NEEDS MORE WORK - SM -1 OR LESS), 1, page(94), cat(Racial)
-Wordless Influence (NEEDS MORE WORK), 1, page(52), cat(Non-Racial)
+Unfazed by Size, 1, page(94), cat(Racial), needs(ST:Size Modifier < 0)
 
 ************************************************************************************************************************
 [DISADVANTAGES]
@@ -3056,60 +3073,71 @@ Social Stigma (Valuable Property), -10, page(B155), cat(Mundane, Social),
 <General>
 _New Quirk, -1, noresync(yes), x(#edit)
 
-_Unused Quirk 1, -1, page(B163)
-_Unused Quirk 2, -1, page(B163)
-_Unused Quirk 3, -1, page(B163)
-_Unused Quirk 4, -1, page(B163)
-_Unused Quirk 5, -1, page(B163)
+_Unused Quirk 1, -1
+_Unused Quirk 2, -1
+_Unused Quirk 3, -1
+_Unused Quirk 4, -1
+_Unused Quirk 5, -1
 
 <Mental>
-Attentive, -1, page(66), cat(Non-Racial)
-Autocondimentor (NEEDS DETAILS), -1, page(66), cat(Non-Racial)
-Brawling Society, -1, page(99), cat(Racial)
-Broad-Minded, -1, page(66), cat(Non-Racial)
-Careful, -1, page(67), cat(Non-Racial)
-Chauvinistic, -1, page(67), cat(Non-Racial)
-Code of Honour ([specify]), -1, page(67), x( #InputReplace("Specify the character's minor Code:", "[specify]", , "Minor Code of Honour") ), cat(Non-Racial)
-Congenial, -1, page(67), cat(Non-Racial)
-Delusion, -1 ([specify]), page(67), x( #InputReplace("Specify the character's trivial Delusion:", "[specify]", , "Trivial Delusion") ), cat(Non-Racial)
+Attentive, -1, page(66), cat(Mental, Non-Racial)
+Autocondimentor, -1, page(66), cat(Mental, Non-Racial)
+Brawling Society, -1, page(99), cat(Racial, Trollish)
+Broad-Minded, -1, page(66), cat(Mental, Non-Racial)
+Careful, -1, page(67), cat(Mental, Non-Racial)
+Chauvinistic, -1, page(67), cat(Mental, Non-Racial)
+Code of Honour, -1, page(67), cat(Mental, Non-Racial),
+	x(#InputReplace("Specify the character's Minor Code:", nameext, , "Minor Code of Honour"))
+Congenial, -1, page(67), cat(Mental, Non-Racial)
+Delusion, -1 , page(67), cat(Mental, Non-Racial),
+	x(#InputReplace("Specify the character's trivial Delusion:", nameext, , "Trivial Delusion"))
 Delusion (Spelling my name backwards disguises it perfectly), -1, page(99), cat(Racial, Vampiric)
-Dislikes [specify], -1, page(67), x( #InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes") ), cat(Non-Racial)
-Distractible, -1, page(67), cat(Non-Racial)
+Dislikes [specify], -1, page(67), cat(Mental, Non-Racial),
+	x(#InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes"))
+Distractible, -1, page(67), cat(Mental, Non-Racial)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
-Dreamer, -1, page(67), cat(Non-Racial)
-Dull, -1, page(67), cat(Non-Racial)
-Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Non-Racial)
-Giggles a Lot, -1, page(67), cat(Non-Racial)
-Habit, -1, page(67), x( #InputToTag("Specify what the character's habit is:", nameext, , "Habit") ), cat(Non-Racial)
-"Hunter's Habits", -1, page(99), cat(Racial)
-Expression, -1, page(67), x( #InputToTag("Specify what the character's expression is:", nameext, , "Expression") ), cat(Non-Racial)
-Humble, -1, page(67), cat(Non-Racial)
-Imaginative, -1, page(67), cat(Non-Racial)
-Likes [specify], -1, page(67), x( #InputReplace("Specify what the character likes:", "[specify]", , "Likes") ), cat(Non-Racial)
-Nosy, -1, page(67), cat(Non-Racial)
-Obsession, -1, page(67), x( #InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession") ), cat(Non-Racial)
-Personality Change, -1, page(67), x( #InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change") ), cat(Non-Racial)
-Proud, -1, page(68), cat(Non-Racial)
-Responsive, -1, page(68), cat(Non-Racial)
-Staid, -1, page(68), cat(Non-Racial)
-Terrifying Singer, -1, page(68), needs(ST:HT = 12), taboo(SK:Singing), cat(Non-Racial)
-Uncongenial, -1, page(68), cat(Non-Racial)
-Vow, -1, page(68), x( #InputToTag("Specify the character's trivial Vow:", nameext, , "Vow") ), cat(Non-Racial)
+Dreamer, -1, page(67), cat(Mental, Non-Racial)
+Dull, -1, page(67), cat(Mental, Non-Racial)
+Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Mental, Non-Racial)
+Giggles a Lot, -1, page(67), cat(Elvish, Non-Racial)
+Habit, -1, page(67), cat(Mental, Non-Racial),
+	x(#InputToTag("Specify what the character's habit is:", nameext, , "Habit"))
+"Hunter's Habits", -1, page(99), cat(Lycanthropic, Racial)
+Expression, -1, page(67), cat(Mental, Non-Racial),
+	x(#InputToTag("Specify what the character's expression is:", nameext, , "Expression"))
+Humble, -1, page(67), cat(Mental, Non-Racial)
+Imaginative, -1, page(67), cat(Mental, Non-Racial)
+Likes [specify], -1, page(67), cat(Mental, Non-Racial),
+	x( #InputReplace("Specify what the character likes:", "[specify]", , "Likes") )
+Nosy, -1, page(67), cat(Mental, Non-Racial)
+Obsession, -1, page(67), cat(Mental, Non-Racial),
+	x(#InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession"))
+Personality Change, -1, page(67), cat(Mental, Non-Racial),
+	x(#InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change"))
+Proud, -1, page(68), cat(Mental, Non-Racial)
+Responsive, -1, page(68), cat(Mental, Non-Racial)
+Staid, -1, page(68), cat(Mental, Non-Racial)
+Terrifying Singer, -1, page(68), needs(ST:HT = 12), taboo(SK:Singing), cat(Mental, Non-Racial)
+Uncongenial, -1, page(68), cat(Mental, Non-Racial)
+Vow, -1, page(68), cat(Mental, Non-Racial),
+	x(#InputToTag("Specify the character's trivial Vow:", nameext, , "Vow"))
 
 <Physical>
 Alcohol Intolerance, -1, page(68), cat(Non-Racial)
-Bowlegged, -1, page(68), cat(Non-Racial)
-Cannot Float, -1, page(99), cat(Racial)
-Cannot Run Long Distances, -1, page(99), cat(Racial)
-Distinctive Feature, -1, page(68), x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") ), cat(Non-Racial)
+Bowlegged, -1, page(68), gives(-1 To SK:Jumping), cat(Non-Racial)
+Cannot Float, -1, page(99), cat(Racial, Trollish)
+Cannot Run Long Distances, -1, page(99), cat(Dwarfish, Racial)
+Distinctive Features, -1, page(68), gives(-1 To SK:Disguise, -1 to SK:Shadowing), cat(Non-Racial),
+	x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") )
 Horrible Hangovers, -1, page(68), cat(Non-Racial)
-Minor Handicap, -1, page(68), x( #InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap") ), cat(Non-Racial)
+Minor Handicap, -1, page(68), cat(Non-Racial),
+	x(#InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap"))
 Nervous Stomach, -1, page(68), cat(Non-Racial)
 No Staff, -1, page(68), needs(SK:Magic (Wizardry)), taboo(AD:Superior Staff), cat(Magical, Non-Racial)
 Short Lifespan, -1, page(99), cat(Racial)
-Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons)), cat(Lycanthropic, Racial)
-Sunburns Easily, -1, page(99), cat(Racial)
-Weak Spot (CHECK PREREQUISITE WORKS RIGHT), -1, page(99), needs(AD:Damage Resistance = 2), cat(Racial)
+Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons) | DI:Vulnerability (Silver)), cat(Lycanthropic, Racial)
+Sunburns Easily, -1, page(99), cat(Elven, Racial)
+Weak Spot, -1, page(99), needs(AD:Damage Resistance = 2), cat(Racial, Trollish)
 
 ************************************************************************************************************************
 [SKILLS]
