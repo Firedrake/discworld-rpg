@@ -582,6 +582,7 @@ Native Languages, basevalue(0), display(no), hide(yes)
 Native Cultural Familiarities, basevalue(0), display(no), hide(yes)
 Quadruped, basevalue(0), display(no), hide(yes)
 MagicSkill, basevalue(0), display(no), hide(yes)
+MagicDefaultBase, basevalue(0), display(no), hide(yes)
 
 * Magery Prerequisite Work-around Stats
 ************************************************************************************************************************
@@ -3535,10 +3536,11 @@ Thrown Weapon (Throwing Star), DX/E, default(DX - 4), page(78), cat(_General, Ra
 
 <Occult/Magical>
 Alchemy, IQ/VH, tl(0-5), page(71), cat(_General, Occult/Magical, Scholarly)
-Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly), gives(=+me to ST:MagicSkill),
+Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly),
+	gives(=+me to ST:MagicSkill, =+(@if((me::level > 20) THEN (20 - ST:Magery) ELSE (me::level - ST:Magery))) to ST:MagicDefaultBase),
 	needs(AD:Magery 0 | AD:Magery 0 (Engineering Only) | Magery 0 (Non-Improvisational)),
 	x(#InputToTag("You must specialise in a branch of magic (Witchcraft, Wizardry, etc.):", nameext, "Witchcraft", "Magic Skill"))
-Magical Form (%formlist%), IQ/VH, default(SK:Magic - 6), page(76), cat(_General, Occult/Magical, Scholarly),
+Magical Form (%formlist%), IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly),
 	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery),
 	x(#ChoiceList(_
 			name(form),
