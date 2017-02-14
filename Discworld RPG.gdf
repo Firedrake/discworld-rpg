@@ -206,7 +206,7 @@ st(116), thr(14d-1), sw(26d+2)
 * The LAST item in the list is always the item that is to be used
 * for anything that didn't fall under the preceding items.
 
-st(0), thr((@int(ST:Striking ST/10)+1)d), sw((@int(ST:Striking ST/10)+3)d)
+st(0), thr((@int(ST:ST/10)+1)d), sw((@int(ST:ST/10)+3)d)
 
 * you must use the extra set of parens to separate the math part
 * from the 'd' for the dice.
@@ -238,11 +238,11 @@ break(4), adddice(1), subtract(4)
 //by the next most encompassing, down to the least encompassing group. This means that if there's a question as to which
 //DR value should be used you can start with the rightmost group and work your way left, the first with a unique DR value
 //is the one that takes precedence.
-//  e.g. armor that has DR 30 on the Front Chest, DR 20 on the rest of the Torso, and DR 12 from the neck down
+//  e.g. armour that has DR 30 on the Front Chest, DR 20 on the rest of the Torso, and DR 12 from the neck down
 //		location(Full Suit, Torso, Front Chest),
 //		basedr(12, 20, 30)
 //
-// We can further expand this; lets say the same armor provides a uniform DR 3 against Burning attacks and half DR against crushing:
+// We can further expand this; lets say the same armour provides a uniform DR 3 against Burning attacks and half DR against crushing:
 //		location(Full Suit, Torso, Front Chest),
 //		basedr(12, 20, 30), burningdr(3), crushingdr(6, 10, 15)
 //
@@ -343,11 +343,6 @@ Fatigue Points, basevalue(ST:HT), step(1), maxscore(1000000), minscore(0 - me::s
 Basic Speed, basevalue((ST:HT + ST:DX) / 4), step(0.25), maxscore(1000000), minscore(0 - me::syslevels), up(5), down(-5), display(No), mainwin(9), disadat(-1)
 Basic Move, basevalue(ST:Basic Speed), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(5), down(-5), round(-1), display(No), mainwin(10), disadat(-1)
 
-Striking ST, basevalue(ST:ST), step(1), maxscore(1000000), minscore(ST:ST), up(5), down(0), round(-1), display(No),
-	initmods( Size, -10%, group(Size), 
-			formula(-@if(ST:Size Modifier > 0 & ST:Striking ST::level > 0 then ST:Size Modifier * 10 else 0)),
-			forceformula(yes) _
-		)
 Lifting ST, basevalue(ST:ST), step(1), maxscore(1000000), minscore(ST:ST), up(3), down(0), round(-1), display(No),
 	initmods( Size, -10%, group(Size), 
 			formula(-@if(ST:Size Modifier > 0 & ST:Lifting ST::level > 0 then ST:Size Modifier * 10 else 0)),
@@ -376,11 +371,6 @@ Two Arm SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display
  		=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Two Arm Reach _
 		)
 
-Extra Arm SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
-	gives(_
-		=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Extra Arm Reach _
-		)
-
 Leg SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
 	gives(=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Leg Reach)
 
@@ -389,7 +379,6 @@ Neck SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no
 
 One Arm Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 Two Arm Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
-Extra Arm Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 Leg Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 Neck Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 
@@ -397,7 +386,7 @@ Fright Check, basevalue(ST:Will)
 Consciousness Check, basevalue(ST:HT::score), maxscore(1000000), minscore(0), display(yes)
 Death Check, basevalue(ST:HT::score), maxscore(1000000), minscore(0), display(yes)
 DR, symbol(DR), round(-1), display(no)
-Damage Base, symbol(DamageBase), basevalue(ST:Striking ST), display(no)
+Damage Base, symbol(DamageBase), basevalue(ST:ST), display(no)
 
 * Encumbrance
 ************************************************************************************************************************
@@ -416,11 +405,9 @@ X-Heavy Encumbrance Move, basevalue(@MAX(@if(ST:Ground Move = 0 THEN 0 ELSE 1), 
 * Arm ST/Physical Feats
 ************************************************************************************************************************
 One Arm Lifting ST, basevalue(ST:Lifting ST), maxscore(1000000), minscore(0), round(-1)
-One Arm Striking ST, basevalue(ST:Striking ST), maxscore(1000000), minscore(0), round(-1)
+One Arm Striking ST, basevalue(ST:ST), maxscore(1000000), minscore(0), round(-1)
 Two Arm Lifting ST, basevalue(ST:Lifting ST), maxscore(1000000), minscore(0), round(-1)
-Two Arm Striking ST, basevalue(ST:Striking ST), maxscore(1000000), minscore(0), round(-1)
-Three Arm Lifting ST, basevalue(@if(AD:Extra Arms > 0 THEN ST:Lifting ST ELSE 0)), maxscore(1000000), minscore(0), round(-1)
-Three Arm Striking ST, basevalue(@if(AD:Extra Arms > 0 THEN ST:Striking ST ELSE 0)), maxscore(1000000), minscore(0), round(-1)
+Two Arm Striking ST, basevalue(ST:ST), maxscore(1000000), minscore(0), round(-1)
 
 One-Handed Lift, basevalue(2 * @if(ST:One Arm Lifting ST::score <= 7 then ST:One Arm Lifting ST * ST:One Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5) else @int((ST:One Arm Lifting ST * ST:One Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5))+0.5))), maxscore(1000000), minscore(0), round(1), page(B353), units(lb|kg)
 Two-Handed Lift, basevalue(8 * @if(ST:Two Arm Lifting ST::score <= 7 then ST:Two Arm Lifting ST * ST:Two Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5) else @int((ST:Two Arm Lifting ST * ST:Two Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5))+0.5))), maxscore(1000000), minscore(0), round(1), page(B353), units(lb|kg)
@@ -531,7 +518,7 @@ Kick, display(no), mode(Kick), mods(Combat Table),
 			), damtype(_
 				$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
 				), reach(C,1), parry(No), skillused(ST:DX-2, SK:Brawling-2, SK:Karate-2, SK:Kicking (Karate), SK:Kicking (Brawling)), mods(Punch/Kick),
-	damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach), basevalue(ST:Striking ST)
+	damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach), basevalue(ST:ST)
 
 Bite, display(no), mode(Bite), mods(Combat Table),
 	damage(_
@@ -540,7 +527,7 @@ Bite, display(no), mode(Bite), mods(Combat Table),
 		-@if("DI:Weak Bite::level" = 1 then 2 * @basethdice(ST:Bite) else 0)_
 		),
 	damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE $if("AD:Vampiric Bite::level" = 1 THEN "cut" ELSE "cr"))))), reach(C), parry(No), skillused(ST:DX, SK:Brawling),
-	damagebasedon(ST:Bite), reachbasedon(ST:Neck Reach), basevalue(ST:Striking ST)
+	damagebasedon(ST:Bite), reachbasedon(ST:Neck Reach), basevalue(ST:ST)
 
 * Helper stats
 ************************************************************************************************************************
@@ -837,40 +824,6 @@ Affliction, 10/20, mods(Affliction, Affliction Enhancements, Affliction Limitati
 			)_
 	), noresync(yes)
 					
-					
-
-Amphibious, 10, page(B40), cat(Exotic, Physical),
-	replacetags(in "ST:Water Move" with "mainwin(11), noresync(yes)")
-					
-
-Arm DX, 12/24, mods(Arm DX), page(B40), cat(Exotic, Physical),
-	initmods(_
-			One arm, *1, group(Arm DX) _
-			)
-					
-
-Arm ST, 3/6, mods(Arm ST, Punch/Kick), page(B40), cat(Exotic, Physical), taboo(DI:Weak Arms),
-	conditional(+1 to ST:ST),
-	damage(_
-		$if(@hasmod(One Arm) THEN @sw(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @sw(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @sw(ST:Three Arm Striking ST::score) ELSE 0))) _
-		| $if(@hasmod(One Arm) THEN @thr(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @thr(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @thr(ST:Three Arm Striking ST::score) ELSE 0))) _
-		| $if(@hasmod(One Arm) THEN @thr(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @thr(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @thr(ST:Three Arm Striking ST::score) ELSE 0))) _
-			-1 + @if("AD:Claws (Blunt Claws)::level" = 1 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 then @basethdice(ST:Punch) else 0)) + _
-			@max(_
-				@if("SK:Brawling::level" > ST:DX+1 THEN $if(@hasmod(One Arm) THEN @basethdice(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @basethdice(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @basethdice(ST:Three Arm Striking ST::score) ELSE 0))) ELSE 0),
-				@if("SK:Boxing::level" = ST:DX+1 then $if(@hasmod(One Arm) THEN @basethdice(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @basethdice(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @basethdice(ST:Three Arm Striking ST::score) ELSE 0))) else @if("SK:Boxing::level" > ST:DX+1 then 2 * $if(@hasmod(One Arm) THEN @basethdice(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @basethdice(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @basethdice(ST:Three Arm Striking ST::score) ELSE 0))) else 0)),
-				@if("SK:Karate::level" = ST:DX then $if(@hasmod(One Arm) THEN @basethdice(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @basethdice(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @basethdice(ST:Three Arm Striking ST::score) ELSE 0))) else @if("SK:Karate::level" > ST:DX then 2 * $if(@hasmod(One Arm) THEN @basethdice(ST:One Arm Striking ST::score) ELSE $if(@hasmod(Two Arms) THEN @basethdice(ST:Two Arm Striking ST::score) ELSE $if(@hasmod(Three Arms) THEN @basethdice(ST:Three Arm Striking ST::score) ELSE 0))) else 0)) _
-			) _
-		),
-	reach(N/A|N/A|C), reachbasedon(ST:Two Arm Reach|ST:Two Arm Reach|ST:Two Arm Reach),
-	parry(||0),
-	damtype(sw|thr|$if("AD:Claws (Sharp Claws)::level" = 1 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 THEN "cut/imp" ELSE "cr")))),
-	skillused(||ST:DX, SK:Brawling, SK:Boxing, SK:Karate), mode(swing|thrust|punch),
-	initmods(_
-			One arm, *1, gives(+owner::level to ST:One Arm Lifting ST, +owner::level to ST:One Arm Striking ST), group(Arm ST) _
-			)
-					
-
 Binding, 2/4, mods(Binding, _Attack Enhancements, _Attack Limitations, Alternative Attack), page(B40), cat(Exotic, Physical, Natural Attacks),
 	skillused(%examplealiaslist%), mode(bind), damage(ST%level), damtype(spcl.), acc(3), rangemax(100), rof(1), shots(), rcl(1),
 	x(_
@@ -964,21 +917,6 @@ Enhanced Tracking, 5/10, page(B53), cat(Exotic, Physical)
 Extended Lifespan, 2/4, page(B53), cat(Exotic, Physical), taboo(AD:Unaging, DI:Short Lifespan, DI:Terminally Ill),
 	levelnames(x2, x4, x8, x16, x32, x64, x128), upto(7)
 					
-
-Extra Arms, 10/20, mods(Extra Arms), page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:One Arm, DI:Quadriplegic)
-Extra-Flexible Arms (1 Arm), 5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Extra-Flexible (2 Arms))
-Extra-Flexible Arms (2 Arms), 10, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Extra-Flexible (1 Arm), DI:One Arm)
-Long Arms (1 Arm), 10/20, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Arms (2 Arms), DI:Short Arms), gives(+1 to ST:One Arm SM)
-Long Arms (2 Arms), 20/40, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Long Arms (1 Arm), DI:Short Arms, DI:One Arm), gives(+1 to ST:One Arm SM, +1 to ST:Two Arm SM)
-					
-
-Extra Head, 15/30, mods(Extra Head), page(B54), cat(Exotic, Physical)
-				
-
-Long Legs, 10/20, page(B55), cat(Exotic, Physical, Extra Arms/Legs), taboo(AD:Extra Legs (3 Legs), AD:Extra Legs (4 Legs), AD:Extra Legs (5 Legs), AD:Extra Legs (6 Legs), AD:Extra Legs (7+ Legs), DI:Quadriplegic), gives(+1 to ST:Leg Reach)
-					
-
-Extra Mouth, 5/10, page(B55), cat(Exotic, Physical)
 Filter Lungs, 5, page(B55), cat(Exotic, Physical), taboo(AD:Doesn't Breathe)
 Flight, 40, mods(Flight), page(B56), cat(Exotic, Physical),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)", in "ST:Space Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
@@ -1500,20 +1438,6 @@ Striker (Impaling), 8/16, displaycost(8), mods(Striker, Alternative Attack), pag
 	damtype(imp), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Karate), mode([Description]), reachbasedon(0)
 					
 
-Striking ST, 5/10, gives(+1 to ST:Striking ST), mods(Striking ST, Quadruped, Size), page(B89), cat(Exotic, Physical), conditional(+1 to ST:ST)
-					
-
-Subsonic Hearing, 5, mods(Subsonic Hearing), page(B89), cat(Exotic, Physical), taboo(AD:Subsonic Speech, DI:Deafness),
-	conditional(+1 to SK:Tracking when "quarry is moving on the ground"),
-	skillused(ST:Perception, ST:Hearing), mode(Hear)
-Subsonic Speech, 10, mods(Subsonic Speech), page(B89), cat(Exotic, Physical), taboo(AD:Subsonic Hearing, DI:Deafness),
-	conditional(_
-			+1 to SK:Tracking when "quarry is moving on the ground",
-			-2 to SK:Fast-Talk _
-			),
-	skillused(ST:Perception, ST:Hearing), mode(Hear)
-					
-
 Super Climbing, 3/6, page(B89), cat(Exotic, Physical)
 Super Jump, 10/20, page(B89), cat(Exotic, Physical), gives(+1 to ST:Super Jump)
 					
@@ -1880,7 +1804,7 @@ Healer, 10/20, gives(+1 To GR:Healer), page(B90), upto(4), cat(Mundane, Mental, 
 Mathematical Ability, 10/20, gives(+1 To GR:Mathematical Ability), page(B90), upto(4), cat(Mundane, Mental, Talents), taboo(DI:Innumerate), mods(_Talents),
 	conditional(+1 to ST:Reaction), description(Accounting, Astronomy, Cryptography, Engineer, Finance, Market Analysis, Mathematics, Physics)
 Musical Ability, 5/10, gives(+1 To GR:Musical Ability), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
-	conditional(+1 to ST:Reaction), description(Group Performance (Conducting), Musical Composition, Musical Influence, Musical Instrument, Singing)
+	conditional(+1 to ST:Reaction), description(Conducting, Musical Composition, Musical Instrument, Singing)
 Outdoorsman, 10/20, gives(+1 To GR:Outdoorsman), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
 	conditional(+1 to ST:Reaction), description(Camouflage, Fishing, Mimicry, Naturalist, Navigation, Survival, Tracking)
 Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
@@ -2287,31 +2211,12 @@ _New Parent Item, 0, isparent(yes),
 Aerial, 0, page(94), cat(Exotic, Physical), needs(AD:Flight), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	gives(=nobase to ST:Kick::reach$)
-
-
-No Physical Attack (1 Arm), -5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Physical Attack (2 Arms))
-No Physical Attack (2 Arms), -10, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Physical Attack (1 Arm), DI:One Arm)
-
-
 Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Extra Arms/Legs, Physical, Racial),
 	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
 	mods(Extra Legs)
+Short Arms (1 Arm), -5, page(96), cat(Exotic, Physical, Extra Arms/Legs), needs(DI:One Arm), taboo(DI:Short Arms (2 Arms))
+Short Arms (2 Arms), -10, page(96), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:Short Arms (1 Arm), DI:One Arm)
 
-
-Short Arms (1 Arm), -5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:Short Arms (2 Arms), AD:Long Arms)
-Short Arms (2 Arms), -10, page(B53), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:Short Arms (1 Arm), AD:Long Arms, DI:One Arm)
-Weak Arms (1 Arm), -2/-5, page(B53), cat(Exotic, Physical, Extra Arms/Legs), levelnames(1/2 ST, 1/4 ST), upto(2), taboo(DI:Weak Arms (2 Arms), AD:Arm ST),
-		gives(_
-			=-(ST:Two Arm Lifting ST::basescore * @if(me::level = 1 THEN 0.5 ELSE 0.75)) to ST:Two Arm Lifting ST, 
-			=-(ST:Two Arm Striking ST::basescore * @if(me::level = 1 THEN 0.5 ELSE 0.75)) to ST:Two Arm Striking ST _
-			)
-Weak Arms (2 Arms), -5/-10, page(B53), cat(Exotic, Physical, Extra Arms/Legs), levelnames(1/2 ST, 1/4 ST), upto(2), taboo(DI:Weak Arms (1 Arm), AD:Arm ST, DI:One Arm, DI:One Arm),
-		gives(_
-			=-(ST:One Arm Lifting ST::basescore * @if(me::level = 1 THEN 0.5 ELSE 0.75)) to ST:One Arm Lifting ST,
-			=-(ST:One Arm Striking ST::basescore * @if(me::level = 1 THEN 0.5 ELSE 0.75)) to ST:One Arm Striking ST,
-			=-(ST:Two Arm Lifting ST::basescore * @if(me::level = 1 THEN 0.5 ELSE 0.75)) to ST:Two Arm Lifting ST,
-			=-(ST:Two Arm Striking ST::basescore * @if(me::level = 1 THEN 0.5 ELSE 0.75)) to ST:Two Arm Striking ST _
-			)
 Shadow Form, -20, mods(Shadow Form Disadvantage), page(B83), cat(Exotic, Physical), taboo(AD:Shadow Form)
 Cold-Blooded, -5/-10, upto(2), page(B127), cat(Exotic, Physical),
 	levelnames(You "stiffen up" below 50°, You "stiffen up" below 65°),
@@ -2499,7 +2404,7 @@ Ham-Fisted, -5/-10, page(B138), cat(Mundane, Physical), taboo(AD:High Manual Dex
 	upto(2), gives(-3 to SK:Fast-Draw, -3 to GR:High Manual Dexterity), conditional(-1 to ST:Reaction when "being tidy or well-groomed matters")
 Hard of Hearing, -10, gives(-4 To ST:Hearing), page(B138), cat(Mundane, Physical), mods(Hard of Hearing), taboo(DI:Deafness)
 Hemophilia, -30, needs(HT <= 10), page(B138), cat(Mundane, Physical)
-Hunchback, -10, gives(-1 to ST:Reaction, -3 To GR:Hunchback), page(B139), cat(Mundane, Physical)
+Hunchback, -10, gives(-1 to ST:Reaction, -3 To GR:Hunchback), page(63), cat(Mundane, Physical)
 Increased Consumption, -10/-20, page(B139), cat(Mundane, Physical), taboo(AD:Doesn't Eat or Drink, AD:Reduced Consumption)
 
 Increased Life Support, -10, page(B139), cat(Mundane, Physical),
@@ -2507,11 +2412,8 @@ Increased Life Support, -10, page(B139), cat(Mundane, Physical),
 Increased Life Support (Extreme Heat/Cold), -10, page(B139), cat(Mundane, Physical)
 Increased Life Support (Massive), -10, page(B139), cat(Mundane, Physical)
 Increased Life Support (Pressurized), -10, page(B139), cat(Mundane, Physical)
-Increased Life Support (Radioactive), -10, page(B139), cat(Mundane, Physical)
 
 Insomniac, -10/-15, levelnames(Mild, Severe), upto(2), page(B140), cat(Mundane, Physical), taboo(AD:Doesn't Sleep)
-Killjoy, -15, gives(-3 To GR:Killjoy), page(B140), cat(Mundane, Physical),
-	conditional(-1 to ST:Reaction when "lack of appreciation becomes obvious (upto -3)")
 Klutz, -5/-15, levelnames( , Total), needs(DX <= 13), page(B141), upto(2), cat(Mundane, Physical)
 
 Lame, -10, page(63), cat(Mundane, Physical), taboo(ST:Basic Move > @int(ST:Basic Speed/2)), sets(ST:Basic Move = @int(ST:Basic Speed/2)), taboo(DI:No Legs, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
@@ -2530,7 +2432,7 @@ Maintenance, -10/-20, mods(Maintenance), page(B143), cat(Mundane, Physical),
 	x(#InputToTag("Specify the type of maintenance required:", nameext, , "Maintenance"))
    
 Missing Digit, -2/-5, levelnames(Finger, Thumb), page(B144), upto(2), cat(Mundane, Physical), taboo(AD:Regrowth)
-Motion Sickness, -10, page(B144), cat(Mundane, Physical)
+Motion Sickness, -10, page(63), cat(Mundane, Physical)
 Neurological Disorder, -15/-35/-55, levelnames(Mild, Severe, Crippling), page(B144), upto(3), cat(Mundane, Physical),
 	gives(-2 to GR:High Manual Dexterity),
 	conditional(-2 to CL:Social when "your condition becomes known", -2 to SK:Performance when "your condition becomes known")
@@ -2540,11 +2442,13 @@ No Depth Perception, -15, page(B145), cat(Mundane, Physical), taboo(DI:One Eye, 
 No Sense of Smell/Taste, -5, page(B146), mods(No Sense of Smell/Taste), cat(Mundane, Physical), taboo(AD:Discriminatory Smell, AD:Acute Taste and Smell), gives(-"ST:Taste/Smell::basescore" to "ST:Taste/Smell")
 Noisy, -2/-4, page(B146), cat(Mundane, Physical), taboo(AD:Silence), conditional(-1 to ST:Reaction)
 Numb, -20, page(B146), cat(Mundane, Physical), taboo(AD:Acute Touch, AD:Sensitive Touch)
-One Arm, -20, page(B147), gives(-ST:Two Arm Lifting ST::basescore to ST:Two Arm Lifting ST, -ST:Two Arm Striking ST::basescore to ST:Two Arm Striking ST), cat(Mundane, Physical),
-	taboo(DI:Quadruped, AD:Long Arms (2 Arms), AD:Extra-Flexible Arms (2 Arms), DI:Short Arms (2 Arms), DI:No Physical Attack (2 Arms), AD:Extra Arms, DI:Weak Arms (2 Arms), DI:One Hand, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
+One Arm, -20, page(64), cat(Mundane, Physical),
+	gives(-ST:Two Arm Lifting ST::basescore to ST:Two Arm Lifting ST, -ST:Two Arm Striking ST::basescore to ST:Two Arm Striking ST),
+	taboo(DI:Quadruped, DI:Short Arms (2 Arms), DI:One Hand, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 One Eye, -15, page(B147), cat(Mundane, Physical), taboo(DI:No Depth Perception, DI:Blindness, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-3 to CL:Ranged Combat when "not aiming"), gives(-1 to CL:Melee Combat)
-One Hand, -15, page(B148), cat(Mundane, Physical), taboo(DI:One Arm, AD:Ambidexterity, DI:Quadriplegic, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
+One Hand, -15, page(64), cat(Mundane, Physical),
+	taboo(DI:One Arm, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 Restricted Diet, -10/-20/-30/-40, mods(Restricted Diet), levelnames(Very Common, Common, Occasional, Rare), page(B151), upto(4), cat(Mundane, Physical), taboo(AD:Doesn't Eat or Drink, AD:Universal Digestion)
 Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2), page(B151), cat(Mundane, Physical), taboo(DI:Blindness)
 Slow Healing, -5/-10, page(B155), upto(3), cat(Mundane, Physical), taboo(AD:Regeneration, AD:Rapid Healing, AD:Very Rapid Healing)
@@ -2851,11 +2755,12 @@ Overconfidence, -5, mods(Self-Control), page(B148), cat(Mundane, Mental), taboo(
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "experienced NPCs")
 
-Pacifism (Reluctant Killer), -5, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Cannot Kill), DI:Pacifism (Self-Defense Only), DI:Pacifism (Total Nonviolence))
-Pacifism (Cannot Harm Innocents), -10, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Kill), DI:Pacifism (Self-Defense Only), DI:Pacifism (Total Nonviolence))
-Pacifism (Cannot Kill), -15, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Self-Defense Only), DI:Pacifism (Total Nonviolence))
-Pacifism (Self-Defense Only), -15, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Cannot Kill), DI:Pacifism (Total Nonviolence))
-Pacifism (Total Nonviolence), -30, page(B148), cat(Mundane, Mental), taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Cannot Kill), DI:Pacifism (Self-Defense Only))
+Pacifism (Reluctant Killer), -5, page(62), cat(Mundane, Mental),
+	taboo(DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Self-Defence Only))
+Pacifism (Cannot Harm Innocents), -10, page(62), cat(Mundane, Mental),
+	taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Self-Defence Only))
+Pacifism (Self-Defence Only), -15, page(62), cat(Mundane, Mental),
+	taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents))
 
 Paranoia, -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
 
@@ -3236,7 +3141,7 @@ Naturalist, IQ/H, default(IQ - 6), page(79), cat(_General, Animal, Outdoor/Explo
 Packing, IQ/A, default(IQ - 5), page(80), cat(_General, Animal, Professional, Travel)
 Riding, DX/A, default(DX - 5), page(81), cat(_General, Animal, Travel),
 	x(#InputToTag("You must specialise by riding beast type:", nameext, "Equines", "Riding"))
-Teamster, IQ/A, default(IQ - 5), page(83), cat(_General, Animal, Travel),
+Teamster, IQ/A, default(IQ - 5), page(83), taboo(DI:Motion Sickness), cat(_General, Animal, Travel),
 	x(#InputToTag("You must specialise by animal type:", nameext, "Equines", "Teamster"))
 Veterinary, IQ/H, tl(0-5), page(77), cat(_General, Animal, Medical)
 
@@ -3264,7 +3169,7 @@ Singing, HT/E, default(HT - 4), page(71), cat(_General, Entertainment, Social)
 <Athletic>
 Acrobatics, DX/H, default(DX - 6), page(78), cat(_General, Assassin, Movement)
 Aerobatics, DX/H, default(DX - 6), page(78), cat(_General, Movement)
-Bicycling, DX/E, default(DX - 4), page(83), cat(_General, Travel, Vehicle)
+Bicycling, DX/E, default(DX - 4), page(83), taboo(DI:Motion Sickness), cat(_General, Travel, Vehicle)
 Climbing, DX/A, default(DX - 5), page(79), cat(_General, Assassin, Movement, Criminal/Street, Outdoor/Exploration)
 Hiking, HT/A, default(HT - 5), page(79), cat(_General, Military, Movement, Outdoor/Exploration, Travel)
 Jumping, DX/E, page(79), cat(_General, Assassin, Movement)
@@ -3302,7 +3207,7 @@ Armoury (%examplelist%), IQ/A, tl(0-5), page(80), default(IQ - 5), cat(_General,
 			text(Choose an Armoury Specialisation from the list of examples provided:),
 			picksallowed(1), method(bynumber),
 			list(_
-				"Body Armor",
+				"Body Armour",
 				"Heavy Weapons",
 				"Melee Weapons",
 				"Missile Weapons" _
@@ -3656,9 +3561,9 @@ Magical Form (%formlist%), IQ/VH, default(SK:Magic - 6), page(76), cat(_General,
 Thaumatology, IQ/VH, default(IQ - 7), page(82), cat(_General, Occult/Magical, Scholarly)
 
 <Outdoor/Exploration>
-Boating (Sailboat), DX/A, tl(0-5), default(DX - 5, IQ - 5),
+Boating (Sailboat), DX/A, tl(0-5), taboo(DI:Motion Sickness), default(DX - 5, IQ - 5),
 	page(83), cat(_General, Outdoor/Exploration, Travel, Vehicle)
-Boating (Unpowered), DX/A, tl(0-5), default(DX - 5, IQ - 5),
+Boating (Unpowered), DX/A, tl(0-5), taboo(DI:Motion Sickness), default(DX - 5, IQ - 5),
 	page(83), cat(_General, Outdoor/Exploration, Travel, Vehicle)
 Cartography, IQ/A, default(IQ - 5), page(79), cat(_General, Outdoor/Exploration, Professional)
 Fishing, Per/E, default(Per - 4), page(73), cat(_General, Outdoor/Exploration)
@@ -3675,7 +3580,7 @@ Navigation (%modelist%), IQ/A, tl(0-5), default(IQ - 5), cat(_General, Outdoor/E
 			)_
 	), noresync(yes)
 Prospecting, IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Outdoor/Exploration)
-Shiphandling, IQ/H, tl(0-5), default(IQ - 6),
+Shiphandling, IQ/H, tl(0-5), taboo(DI:Motion Sickness), default(IQ - 6),
 	needs(SK:Seamanship, SK:Leadership, "SK:Navigation (Sea)"), page(81), cat(_General, Travel)
 Survival, Per/A, default(Per - 5), page(81), cat(_General, Outdoor/Exploration),
   x(#InputToTag("You must specialise by a particular terrain type:", nameext, , "Survival"))
@@ -3725,7 +3630,7 @@ Professional Skill (Barber), IQ/A, default(IQ - 5), page(), cat(_General)
 Professional Skill (Bartender), IQ/A, default(IQ - 5), page(80), cat(_General) 
 Professional Skill (Freight Handling), IQ/A, tl(0-5), default(IQ - 5), page(80), cat(_General, Travel)
 Professional Skill (Prostitute), IQ/A, default(IQ - 5), page(), cat(_General, Social)
-Seamanship, IQ/E, tl(0-5), default(IQ - 4), page(80), cat(_General, Travel)
+Seamanship, IQ/E, tl(0-5), default(IQ - 4), taboo(DI:Motion Sickness), page(80), cat(_General, Travel)
 Telegraphy, IQ/E, tl(4-5), page(80), cat(_General, Technical)
 
 <Ranged Combat>
@@ -3753,11 +3658,11 @@ Psychology, IQ/H, default(IQ - 6), page(80), cat(_General, Social),
 	x(#InputToTag("You must specialise by species:", nameext, "Human", "Psychology"))
 
 <Vehicle>
-Driving, DX/A, default(DX - 5, IQ - 5), page(83), cat(_General, Travel, Vehicle),
+Driving, DX/A, default(DX - 5, IQ - 5), page(83), taboo(DI:Motion Sickness), cat(_General, Travel, Vehicle),
 	x(#InputToTag("You must specialise by precise vehicle type:", nameext, "Steam Car", "Driving"))
-Piloting, DX/A, default(IQ - 6), page(83), cat(_General, Travel, Vehicle),
+Piloting, DX/A, default(IQ - 6), page(83), taboo(DI:Motion Sickness), cat(_General, Travel, Vehicle),
 	x(#InputToTag("You must specialise by precise vehicle type:", nameext, "Hang Glider", "Piloting"))
-Submarine, DX/A, default(IQ - 6), page(83), cat(_General, Travel, Vehicle),
+Submarine, DX/A, default(IQ - 6), page(83), taboo(DI:Motion Sickness), cat(_General, Travel, Vehicle),
 	x(#InputToTag("You must specialise by precise vehicle type:", nameext, "Exploratory Submersible", "Submarine"))
 
 ************************************************************************************************************************
@@ -4091,8 +3996,6 @@ AD:Animal Control Talent
 AD:Animal Empathy
 AD:Animal Friend
 AD:Appearance
-AD:Arm DX
-AD:Arm ST
 AD:Artificer
 AD:Astral Projection Talent
 AD:Binding
@@ -4149,8 +4052,6 @@ AD:Darkness Talent
 AD:Death Talent
 AD:Destiny
 AD:Detect
-AD:Digital Mind
-AD:Dimension Travel Talent
 AD:Diplomatic Immunity
 AD:Discriminatory Hearing
 AD:Discriminatory Smell
@@ -4184,18 +4085,9 @@ AD:Enhanced Tracking
 AD:ESP Talent
 AD:Evil Talent
 AD:Extended Lifespan
-AD:Extra Arms
 AD:Extra Attack
-AD:Extra Head
-AD:Extra Legs (3 Legs)
-AD:Extra Legs (4 Legs)
-AD:Extra Legs (5 Legs)
-AD:Extra Legs (6 Legs)
-AD:Extra Legs (7+ Legs)
 AD:Extra Life
 AD:Extra Mouth
-AD:Extra-Flexible Arms (1 Arm)
-AD:Extra-Flexible Arms (2 Arms)
 AD:Fashion Sense
 AD:Fatigue Attack
 AD:Fearlessness
@@ -4255,9 +4147,6 @@ AD:Life Talent
 AD:Lifting ST
 AD:Light Talent
 AD:Lightning Calculator
-AD:Long Arms (1 Arm)
-AD:Long Arms (2 Arms)
-AD:Long Legs
 AD:Long Spines
 AD:Luck
 AD:Machine Telepathy Talent
@@ -4375,7 +4264,6 @@ AD:Striker (Cutting)
 AD:Striker (Impaling)
 AD:Striker (Large Piercing)
 AD:Striker (Piercing)
-AD:Striking ST
 AD:Subsonic Hearing
 AD:Subsonic Speech
 AD:Super Climbing
@@ -4572,7 +4460,6 @@ DI:Insomniac
 DI:Intolerance
 DI:Invertebrate
 DI:Jealousy
-DI:Killjoy
 DI:Kleptomania
 DI:Klutz
 DI:Lame
@@ -4600,9 +4487,7 @@ DI:Night Blindness
 DI:Nightmares
 DI:No Depth Perception
 DI:Quadruped
-DI:No Physical Attack (1 Arm)
-DI:No Physical Attack (2 Arms)
-DI:No Sense of Humor
+DI:No Sense of Humour
 DI:No Sense of Smell/Taste
 DI:Nocturnal
 DI:Noisy
@@ -4618,10 +4503,8 @@ DI:One Hand
 DI:Overconfidence
 DI:Overweight
 DI:Pacifism (Cannot Harm Innocents)
-DI:Pacifism (Cannot Kill)
 DI:Pacifism (Reluctant Killer)
-DI:Pacifism (Self-Defense Only)
-DI:Pacifism (Total Nonviolence)
+DI:Pacifism (Self-Defence Only)
 DI:Paranoia
 DI:Phantom Voices
 DI:Phobia (%examplelist%)
@@ -4697,13 +4580,9 @@ DI:Very Fat
 DI:Very Unfit
 DI:Vow
 DI:Vulnerability
-DI:Weak Arms (1 Arm)
-DI:Weak Arms (2 Arms)
 DI:Weak Bite
 DI:Weakness
 DI:Wealth
-DI:Weapon Mount (1 Arm)
-DI:Weapon Mount (2 Arms)
 DI:Weirdness Magnet
 DI:Workaholic
 DI:Wounded
@@ -4768,21 +4647,13 @@ SK:Archaeology
 SK:Architecture
 SK:Area Knowledge
 SK:Armoury
-SK:Armoury (Battlesuits)
-SK:Armoury (Body Armor)
-SK:Armoury (Force Shields)
+SK:Armoury (Body Armour)
 SK:Armoury (Heavy Weapons)
 SK:Armoury (Melee Weapons)
 SK:Armoury (Missile Weapons)
-SK:Armoury (Small Arms)
-SK:Armoury (Vehicular Armor)
 SK:Artillery
-SK:Artillery (Beams)
-SK:Artillery (Bombs)
 SK:Artillery (Cannon)
 SK:Artillery (Catapult)
-SK:Artillery (Guided Missile)
-SK:Artillery (Torpedoes)
 SK:Artist
 SK:Artist (Body Art)
 SK:Artist (Calligraphy)
@@ -4844,6 +4715,7 @@ SK:Cloak
 SK:Computer Hacking
 SK:Computer Operation
 SK:Computer Programming
+SK:Conducting
 SK:Connoisseur
 SK:Connoisseur (Dance)
 SK:Connoisseur (Literature)
@@ -4865,6 +4737,7 @@ SK:Dancing
 SK:Detect Lies
 SK:Diagnosis
 SK:Diplomacy
+SK:Directing
 SK:Disguise
 SK:Diving Suit
 SK:Dreaming
@@ -4911,10 +4784,7 @@ SK:Expert Skill (Thanatology)
 SK:Expert Skill (Xenology)
 SK:Explosives
 SK:Explosives (Demolition)
-SK:Explosives (Explosive Ordnance Disposal)
 SK:Explosives (Fireworks)
-SK:Explosives (Nuclear Ordnance Disposal)
-SK:Explosives (Underwater Demolition)
 SK:Falconry
 SK:Farming
 SK:Fast-Draw
@@ -4950,15 +4820,8 @@ SK:Freight Handling
 SK:Gambling
 SK:Games
 SK:Gardening
-SK:Garrote
-SK:Geography
 SK:Geology
 SK:Gesture
-SK:Group Performance
-SK:Group Performance (Choreography)
-SK:Group Performance (Conducting)
-SK:Group Performance (Directing)
-SK:Group Performance (Fight Choreography)
 SK:Gunner
 SK:Gunner (Cannon)
 SK:Gunner (Catapult)
@@ -4979,7 +4842,6 @@ SK:Hobby Skill
 SK:Holdout
 SK:Housekeeping
 SK:Hypnotism
-SK:Immovable Stance
 SK:Innate Attack
 SK:Innate Attack (Beam)
 SK:Innate Attack (Breath)
@@ -4989,7 +4851,6 @@ SK:Intelligence Analysis
 SK:Interrogation
 SK:Intimidation
 SK:Jeweler
-SK:Jitte/Sai
 SK:Judo
 SK:Jumping
 SK:Karate
@@ -5013,23 +4874,13 @@ SK:Market Analysis
 SK:Masonry
 SK:Mathematics
 SK:Mathematics (Applied)
-SK:Mathematics (Computer Science)
-SK:Mathematics (Cryptology)
 SK:Mathematics (Pure)
-SK:Mathematics (Statistics)
-SK:Mathematics (Surveying)
 SK:Mechanic
 SK:Meditation
 SK:Mental Strength
 SK:Merchant
 SK:Metallurgy
 SK:Meteorology
-SK:Meteorology (Earthlike)
-SK:Meteorology (Gas Giants)
-SK:Meteorology (Hostile Terrestrial)
-SK:Meteorology (Ice Dwarfs)
-SK:Meteorology (Ice Worlds)
-SK:Meteorology (Rock Worlds)
 SK:Mimicry
 SK:Mimicry (Animal Sounds)
 SK:Mimicry (Bird Calls)
@@ -5037,28 +4888,17 @@ SK:Mimicry (Speech)
 SK:Mind Block
 SK:Mount
 SK:Musical Composition
-SK:Musical Influence
 SK:Musical Instrument
 SK:Naturalist
 SK:Navigation
 SK:Navigation (Air)
-SK:Navigation (Hyperspace)
 SK:Navigation (Land)
 SK:Navigation (Sea)
-SK:Navigation (Space)
-SK:NBC Suit
-SK:Net
 SK:Observation
 SK:Occultism
 SK:Packing
-SK:Paleontology
-SK:Paleontology (Micropaleontology)
-SK:Paleontology (Paleoanthropology)
-SK:Paleontology (Paleobotany)
-SK:Paleontology (Paleozoology)
 SK:Panhandling
 SK:Parachuting
-SK:Parry Missile Weapons
 SK:Performance
 SK:Pharmacy
 SK:Philosophy
@@ -5068,32 +4908,14 @@ SK:Physics
 SK:Physiology
 SK:Pickpocket
 SK:Piloting
-SK:Piloting (Aerospace)
-SK:Piloting (Autogyro)
-SK:Piloting (Contragravity)
-SK:Piloting (Flight Pack)
-SK:Piloting (Glider)
-SK:Piloting (Heavy Airplane)
-SK:Piloting (Helicopter)
-SK:Piloting (High-Performance Airplane)
-SK:Piloting (High-Performance Spacecraft)
-SK:Piloting (Light Airplane)
-SK:Piloting (Lighter-Than-Air)
-SK:Piloting (Lightsail)
-SK:Piloting (Low-G Wings)
-SK:Piloting (Low-Performance Spacecraft)
-SK:Piloting (Ultralight)
-SK:Piloting (Vertol)
 SK:Poetry
 SK:Poisons
 SK:Polearm
 SK:Politics
-SK:Power Blow
-SK:Pressure Points
-SK:Pressure Secrets
 SK:Professional Skill
 SK:Professional Skill (Barber)
 SK:Professional Skill (Brewer)
+SK:Professional Skill (Choreographer)
 SK:Professional Skill (Cooper)
 SK:Professional Skill (Distiller)
 SK:Professional Skill (Dyer)
@@ -5115,7 +4937,6 @@ SK:Research
 SK:Riding
 SK:Ritual Magic
 SK:Running
-SK:Saber
 SK:Savoir-Faire
 SK:Savoir-Faire (High Society)
 SK:Savoir-Faire (Military)
@@ -5134,50 +4955,37 @@ SK:Shield (Buckler)
 SK:Shield (Force)
 SK:Shield (Shield)
 SK:Shiphandling
-SK:Shiphandling (Airship)
-SK:Shiphandling (Ship)
-SK:Shiphandling (Spaceship)
-SK:Shiphandling (Starship)
-SK:Shiphandling (Submarine)
 SK:Shortsword
 SK:Singing
 SK:Skating
-SK:Skiing
 SK:Sleight of Hand
 SK:Sling
 SK:Smallsword
 SK:Smith
-SK:Smith (Copper)
-SK:Smith (Iron)
-SK:Smith (Lead and Tin)
+SK:Smith (Blacksmith)
+SK:Smith (Coppersmith)
+SK:Smith (Tinsmith)
 SK:Smuggling
 SK:Sociology
 SK:Soldier
 SK:Spacer
 SK:Spear
 SK:Spear Thrower
-SK:Speed-Reading
 SK:Sports
 SK:Staff
-SK:Stage Combat
 SK:Stealth
 SK:Strategy
 SK:Strategy (Land)
 SK:Strategy (Naval)
 SK:Streetwise
 SK:Submarine
-SK:Submarine (Free-Flooding Sub)
-SK:Submarine (Large Sub)
-SK:Submarine (Mini-Sub)
-SK:Submariner
-SK:Sumo Wrestling
 SK:Surgery
 SK:Survival
 SK:Survival (Arctic)
-SK:Survival (Bank)
 SK:Survival (Desert)
 SK:Survival (Island/Beach)
 SK:Survival (Jungle)
+SK:Survival (L-Space)
 SK:Survival (Mountain)
 SK:Survival (Plains)
 SK:Survival (Swampland)
@@ -5199,361 +5007,22 @@ SK:Thrown Weapon (Throwing Star)
 SK:Tracking
 SK:Traps
 SK:Two-Handed Axe/Mace
-SK:Two-Handed Flail
 SK:Two-Handed Sword
-SK:Typing
 SK:Urban Survival
-SK:Ventriloquism
 SK:Veterinary
 SK:Weather Sense
 SK:Wrestling
 SK:Writing
-SK:Zen Archery
-
-<AllSpellsMagical>
-SP:Accuracy
-SP:Analyze Magic
-SP:Apportation
-SP:Armor
-SP:Aura
-SP:Awaken
-SP:Banish
-SP:Blur
-SP:Breathe Water
-SP:Clumsiness
-SP:Cold
-SP:Command
-SP:Continual Light
-SP:Counterspell
-SP:Create Air
-SP:Create Earth
-SP:Create Fire
-SP:Create Water
-SP:Darkness
-SP:Daze
-SP:Death Vision
-SP:Deathtouch
-SP:Deflect
-SP:Deflect Energy
-SP:Deflect Missile
-SP:Destroy Water
-SP:Detect Magic
-SP:Dispel Magic
-SP:Earth to Air
-SP:Earth to Stone
-SP:Enchant
-SP:Entombment
-SP:Explosive Fireball
-SP:Extinguish Fire
-SP:Fireball
-SP:Flesh to Stone
-SP:Fog
-SP:Foolishness
-SP:Forgetfulness
-SP:Fortify
-SP:Great Haste
-SP:Great Healing
-SP:Haste
-SP:Heat
-SP:Hide Thoughts
-SP:Hinder
-SP:Icy Weapon
-SP:Identify Spell
-SP:Ignite Fire
-SP:Itch
-SP:Lend Energy
-SP:Lend Vitality
-SP:Light
-SP:Lightning
-SP:Lockmaster
-SP:Magelock
-SP:Major Healing
-SP:Mass Daze
-SP:Mass Sleep
-SP:Mind-Reading
-SP:Minor Healing
-SP:No-Smell
-SP:Pain
-SP:Paralyze Limb
-SP:Planar Summons ([Plane])
-SP:Plane Shift ([Plane])
-SP:Power
-SP:Predict Weather
-SP:Puissance
-SP:Purify Air
-SP:Purify Water
-SP:Recover Energy
-SP:Resist Cold
-SP:Resist Fire
-SP:Rooted Feet
-SP:Seek Earth
-SP:Seek Water
-SP:Seeker
-SP:Sense Emotion
-SP:Sense Foes
-SP:Sense Spirit
-SP:Shape Air
-SP:Shape Earth
-SP:Shape Fire
-SP:Shape Water
-SP:Shield
-SP:Sleep
-SP:Spasm
-SP:Staff
-SP:Stench
-SP:Stone to Earth
-SP:Stone to Flesh
-SP:Summon Demon
-SP:Summon Spirit
-SP:Trace
-SP:Truthsayer
-SP:Turn Zombie
-SP:Walk on Air
-SP:Wither Limb
-SP:Zombie
-
-<AllSpellsRitual>
-SP:Accuracy (Ritual)
-SP:Analyze Magic (Ritual)
-SP:Apportation (Ritual)
-SP:Armor (Ritual)
-SP:Aura (Ritual)
-SP:Awaken (Ritual)
-SP:Banish (Ritual)
-SP:Blur (Ritual)
-SP:Breathe Water (Ritual)
-SP:Clumsiness (Ritual)
-SP:Cold (Ritual)
-SP:Command (Ritual)
-SP:Continual Light (Ritual)
-SP:Counterspell (Ritual)
-SP:Create Air (Ritual)
-SP:Create Earth (Ritual)
-SP:Create Fire (Ritual)
-SP:Create Water (Ritual)
-SP:Darkness (Ritual)
-SP:Daze (Ritual)
-SP:Death Vision (Ritual)
-SP:Deathtouch (Ritual)
-SP:Deflect (Ritual)
-SP:Deflect Energy (Ritual)
-SP:Deflect Missile (Ritual)
-SP:Destroy Water (Ritual)
-SP:Detect Magic (Ritual)
-SP:Dispel Magic (Ritual)
-SP:Earth to Air (Ritual)
-SP:Earth to Stone (Ritual)
-SP:Enchant (Ritual)
-SP:Entombment (Ritual)
-SP:Explosive Fireball (Ritual)
-SP:Extinguish Fire (Ritual)
-SP:Fireball (Ritual)
-SP:Flesh to Stone (Ritual)
-SP:Fog (Ritual)
-SP:Foolishness (Ritual)
-SP:Forgetfulness (Ritual)
-SP:Fortify (Ritual)
-SP:Great Haste (Ritual)
-SP:Great Healing (Ritual)
-SP:Haste (Ritual)
-SP:Heat (Ritual)
-SP:Hide Thoughts (Ritual)
-SP:Hinder (Ritual)
-SP:Icy Weapon (Ritual)
-SP:Identify Spell (Ritual)
-SP:Ignite Fire (Ritual)
-SP:Itch (Ritual)
-SP:Lend Energy (Ritual)
-SP:Lend Vitality (Ritual)
-SP:Light (Ritual)
-SP:Lightning (Ritual)
-SP:Lockmaster (Ritual)
-SP:Magelock (Ritual)
-SP:Major Healing (Ritual)
-SP:Mass Daze (Ritual)
-SP:Mass Sleep (Ritual)
-SP:Mind-Reading (Ritual)
-SP:Minor Healing (Ritual)
-SP:No-Smell (Ritual)
-SP:Pain (Ritual)
-SP:Paralyze Limb (Ritual)
-SP:Planar Summons ([Plane]; Ritual)
-SP:Plane Shift ([Plane]; Ritual)
-SP:Power (Ritual)
-SP:Predict Weather (Ritual)
-SP:Puissance (Ritual)
-SP:Purify Air (Ritual)
-SP:Purify Water (Ritual)
-SP:Recover Energy (Ritual)
-SP:Resist Cold (Ritual)
-SP:Resist Fire (Ritual)
-SP:Rooted Feet (Ritual)
-SP:Seek Earth (Ritual)
-SP:Seek Water (Ritual)
-SP:Seeker (Ritual)
-SP:Sense Emotion (Ritual)
-SP:Sense Foes (Ritual)
-SP:Sense Spirit (Ritual)
-SP:Shape Air (Ritual)
-SP:Shape Earth (Ritual)
-SP:Shape Fire (Ritual)
-SP:Shape Water (Ritual)
-SP:Shield (Ritual)
-SP:Sleep (Ritual)
-SP:Spasm (Ritual)
-SP:Staff (Ritual)
-SP:Stench (Ritual)
-SP:Stone to Earth (Ritual)
-SP:Stone to Flesh (Ritual)
-SP:Summon Demon (Ritual)
-SP:Summon Spirit (Ritual)
-SP:Trace (Ritual)
-SP:Truthsayer (Ritual)
-SP:Turn Zombie (Ritual)
-SP:Walk on Air (Ritual)
-SP:Wither Limb (Ritual)
-SP:Zombie (Ritual)
-
-<AllSpellsClerical>
-SP:Accuracy (Clerical)
-SP:Analyze Magic (Clerical)
-SP:Apportation (Clerical)
-SP:Armor (Clerical)
-SP:Aura (Clerical)
-SP:Awaken (Clerical)
-SP:Banish (Clerical)
-SP:Blur (Clerical)
-SP:Breathe Water (Clerical)
-SP:Clumsiness (Clerical)
-SP:Cold (Clerical)
-SP:Command (Clerical)
-SP:Continual Light (Clerical)
-SP:Counterspell (Clerical)
-SP:Create Air (Clerical)
-SP:Create Earth (Clerical)
-SP:Create Fire (Clerical)
-SP:Create Water (Clerical)
-SP:Darkness (Clerical)
-SP:Daze (Clerical)
-SP:Death Vision (Clerical)
-SP:Deathtouch (Clerical)
-SP:Deflect (Clerical)
-SP:Deflect Energy (Clerical)
-SP:Deflect Missile (Clerical)
-SP:Destroy Water (Clerical)
-SP:Detect Magic (Clerical)
-SP:Dispel Magic (Clerical)
-SP:Earth to Air (Clerical)
-SP:Earth to Stone (Clerical)
-SP:Enchant (Clerical)
-SP:Entombment (Clerical)
-SP:Explosive Fireball (Clerical)
-SP:Extinguish Fire (Clerical)
-SP:Fireball (Clerical)
-SP:Flesh to Stone (Clerical)
-SP:Fog (Clerical)
-SP:Foolishness (Clerical)
-SP:Forgetfulness (Clerical)
-SP:Fortify (Clerical)
-SP:Great Haste (Clerical)
-SP:Great Healing (Clerical)
-SP:Haste (Clerical)
-SP:Heat (Clerical)
-SP:Hide Thoughts (Clerical)
-SP:Hinder (Clerical)
-SP:Icy Weapon (Clerical)
-SP:Identify Spell (Clerical)
-SP:Ignite Fire (Clerical)
-SP:Itch (Clerical)
-SP:Lend Energy (Clerical)
-SP:Lend Vitality (Clerical)
-SP:Light (Clerical)
-SP:Lightning (Clerical)
-SP:Lockmaster (Clerical)
-SP:Magelock (Clerical)
-SP:Major Healing (Clerical)
-SP:Mass Daze (Clerical)
-SP:Mass Sleep (Clerical)
-SP:Mind-Reading (Clerical)
-SP:Minor Healing (Clerical)
-SP:No-Smell (Clerical)
-SP:Pain (Clerical)
-SP:Paralyze Limb (Clerical)
-SP:Planar Summons ([Plane]; Clerical)
-SP:Plane Shift ([Plane]; Clerical)
-SP:Power (Clerical)
-SP:Predict Weather (Clerical)
-SP:Puissance (Clerical)
-SP:Purify Air (Clerical)
-SP:Purify Water (Clerical)
-SP:Recover Energy (Clerical)
-SP:Resist Cold (Clerical)
-SP:Resist Fire (Clerical)
-SP:Rooted Feet (Clerical)
-SP:Seek Earth (Clerical)
-SP:Seek Water (Clerical)
-SP:Seeker (Clerical)
-SP:Sense Emotion (Clerical)
-SP:Sense Foes (Clerical)
-SP:Sense Spirit (Clerical)
-SP:Shape Air (Clerical)
-SP:Shape Earth (Clerical)
-SP:Shape Fire (Clerical)
-SP:Shape Water (Clerical)
-SP:Shield (Clerical)
-SP:Sleep (Clerical)
-SP:Spasm (Clerical)
-SP:Staff (Clerical)
-SP:Stench (Clerical)
-SP:Stone to Earth (Clerical)
-SP:Stone to Flesh (Clerical)
-SP:Summon Demon (Clerical)
-SP:Summon Spirit (Clerical)
-SP:Trace (Clerical)
-SP:Truthsayer (Clerical)
-SP:Turn Zombie (Clerical)
-SP:Walk on Air (Clerical)
-SP:Wither Limb (Clerical)
-SP:Zombie (Clerical)
-
-<AllCollegesMagical>
-CO:Air
-CO:Body Control
-CO:Communication & Empathy
-CO:Earth
-CO:Enchantment
-CO:Fire
-CO:Gate
-CO:Healing
-CO:Knowledge
-CO:Light & Darkness
-CO:Meta-Spells
-CO:Mind Control
-CO:Movement
-CO:Necromancy
-CO:Protection & Warning
-CO:Water
 
 ************************************************************************************************************************
 [GROUPS]
 ************************************************************************************************************************
-<Conducting>
-SK:Musical Instrument
-SK:Singing
-
-
 <Musical Instrument>
 SK:Musical Instrument
 
 <Appeal>
 ST:Appealing
 ST:Unappealing
-
-<3D Spatial Sense>
-SK:Aerobatics
-SK:Free Fall
-SK:Navigation (Hyperspace)
-SK:Navigation (Space)
 
 <Absolute Direction>
 SK:Body Sense
@@ -5572,7 +5041,6 @@ SK:Veterinary
 <Artificer>
 SK:Armoury
 SK:Carpentry
-SK:Electrician
 SK:Engineer
 SK:Masonry
 SK:Mechanic
@@ -5649,11 +5117,6 @@ SK:Surgery
 SK:Disguise
 SK:Shadowing
 
-<Hyperspectral Vision>
-SK:Forensics
-SK:Observation
-SK:Search
-
 <Influence Skills>
 SK:Diplomacy
 SK:Fast-Talk
@@ -5662,19 +5125,12 @@ SK:Savoir-Faire
 SK:Sex Appeal
 SK:Streetwise
 
-<Killjoy>
-SK:Carousing
-SK:Connoisseur
-SK:Erotic Art
-SK:Gambling
-
 <Low Empathy>
 SK:Acting
 SK:Carousing
 SK:Criminology
 SK:Detect Lies
 SK:Diplomacy
-SK:Enthrallment
 SK:Fast-Talk
 SK:Interrogation
 SK:Leadership
@@ -5692,14 +5148,12 @@ SK:Astronomy
 SK:Cryptography
 SK:Engineer
 SK:Finance
-SK:Market Analysis
 SK:Mathematics
 SK:Physics
 
 <Musical Ability>
-SK:Group Performance (Conducting)
+SK:Conducting
 SK:Musical Composition
-SK:Musical Influence
 SK:Musical Instrument
 SK:Singing
 
@@ -6356,8 +5810,8 @@ Area Effect, +50%/+100%, group(_Attack Enhancements), page(B102), upto(25), shor
 	levelnames("2 yd","4 yd","8 yd","16 yd","32 yd","64 yd","128 yd","256 yd","512 yd","0.58 mi","1.2 mi","2.3 mi","4.7 mi","9.3 mi","19.0 mi","37.0 mi","74.0 mi","150.0 mi","300.0 mi","600.0 mi","1,200 mi","2,400 mi","4,800 mi","9,500 mi","19,000 mi","38,000 mi","76,000 mi","150,000 mi","310,000 mi","610,000 mi","1,200,000 mi","2,400,000 mi","4,900,000 mi","9,800,000 mi","20,000,000 mi","39,000,000 mi"),
 	gives(=+@if(owner::radius > 0 THEN 0 ELSE (2^me::level)) to owner::radius, =*@if(owner::radius > 0 THEN (0.5 * (2^me::level))) to owner::radius)
 
-Armor Divisor, +50%/+100%, levelnames(2, 3, 5, 10), upto(4), group(_Attack Enhancements), page(B102),
-	gives(=@indexedvalue(me::level, 2, 3, 5, 10) to owner::armordivisor)
+Armour Divisor, +50%/+100%, levelnames(2, 3, 5, 10), upto(4), group(_Attack Enhancements), page(B102),
+	gives(=@indexedvalue(me::level, 2, 3, 5, 10) to owner::armourdivisor)
 Aura, +80%, group(_Attack Enhancements), page(B102),
 	x(#Message("Aura requires the Melee Attack: Reach C limitation"))
 
@@ -6531,8 +5985,8 @@ Wall: Rigid, +30%/+60%, upto(2), group(_Attack Enhancements), page(B109), leveln
 1/3 HP, *3, group(Symptom), page(B109)
 
 <_Attack Limitations>
-Armor Divisor, -30%/-50%/-70%, levelnames(0.5, 0.2, 0.1), upto(3), group(_Attack Limitations), page(B110),
-	gives(=+@indexedvalue(me::level, 0.5, 0.2, 0.1) to owner::armordivisor)
+Armour Divisor, -30%/-50%/-70%, levelnames(0.5, 0.2, 0.1), upto(3), group(_Attack Limitations), page(B110),
+	gives(=+@indexedvalue(me::level, 0.5, 0.2, 0.1) to owner::armourdivisor)
 Bombardment, -5%/-10%, levelnames(Skill 14, Skill 12, Skill 10, Skill 8), upto(4), group(_Attack Limitations), page(B111)
 Dissipation, -50%, group(_Attack Limitations), page(B112)
 Emanation, -20%, group(_Attack Limitations), page(B112),
@@ -7138,19 +6592,10 @@ Two arms, *5/3, gives(_
 				+owner::level to ST:Two Arm Lifting ST,
 				+owner::level to ST:Two Arm Striking ST _
 				), group(Arm ST), page(B40)
-Three arms, *8/3, gives(_
-				+owner::level to ST:One Arm Lifting ST,
-				+owner::level to ST:One Arm Striking ST,
-				+owner::level to ST:Two Arm Lifting ST,
-				+owner::level to ST:Two Arm Striking ST,
-				+owner::level to ST:Three Arm Lifting ST,
-				+owner::level to ST:Three Arm Striking ST _
-				), group(Arm ST), page(B40)
 
 <Attractive>
 Androgynous, 0, group(Attractive), page(B21)
 Impressive, 0, group(Attractive), page(B21)
-Off-the-Shelf Looks, -50%, conditional(*1/2 to GR:Appeal when "dealing with people from your own culture, you get only half the Appearance reaction bonus"), group(Attractive), page(B21)
 
 <Bad Sight>
 Mitigator: Glasses, -60%, group(Bad Sight), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)
@@ -7165,7 +6610,7 @@ Mitigator: Artificial Eyes, -60%, group(Blindness), page(B112), shortname(Artifi
 Battle Rage, +50%, group(Berserk), page(B124)
 
 <Bestial>
-Includes Odious Personal Habit, -5, group(Bestial), page(B124)
+Includes Odious Personal Habit, -5, group(Bestial), page(95)
 
 <Binding>
 Engulfing, +60%, group(Binding), page(B40)
@@ -7257,7 +6702,7 @@ Force Field, +20%, group(Damage Resistance), page(B47)
 Hardened, +20%/+40%, upto(6), group(Damage Resistance), page(B47)
 Reflection, +100%, group(Damage Resistance), page(B47)
 Ablative, -80%, group(Damage Resistance), page(B47)
-Can't Wear Armor, -40%, group(Damage Resistance), page(B47)
+Can't Wear Armour, -40%, group(Damage Resistance), page(B47)
 Directional: Front only, -20%, shortname(Front only), gives(-Owner::Level to DR), group(Damage Resistance), page(B47),
 	x(#message(Use this limitation *ONLY* on the Damage Resistance advantage. It will cause errors if used on any other trait.))
 Directional: Back only, -40%, shortname(Back only), gives(-Owner::Level to DR), group(Damage Resistance), page(B47),
@@ -7445,16 +6890,8 @@ Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(+Owner
 Gives conditional Air Move bonus, +0%, shortname(Conditional Air Move), conditional(+Owner::Level to ST:Basic Air Move), group(Extra Air Move), description(This modifier causes the Extra Air Move advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
 
 <Extra Arms>
-Extra-Flexible, +50%, group(Extra Arms), page(B53)
-Long, +100%/+200%, group(Extra Arms), page(B53), gives(+1 to ST:Extra Arm SM)
 Foot Manipulators, -30%, group(Extra Arms), page(B53)
-No Physical Attack, -50%, group(Extra Arms), page(B53)
 Short, -50%, group(Extra Arms), page(B53)
-Weak, -25%/-50%, upto(2), group(Extra Arms), page(B53), levelnames(1/2 ST, 1/4 ST)
-Weapon Mount, -80%, group(Extra Arms), page(B53)
-
-<Extra Head>
-Extraneous, -20%, group(Extra Head), page(B54)
 
 <Extra Legs>
 Long, +100%/+200%, group(Extra Legs), page(B55), gives(+1 to ST:Leg SM)
@@ -8231,12 +7668,6 @@ Specialized, -50%, group(Spirit Empathy), page(B88),
 <Status>
 Heir, +3/+5, page(B33), formula(@int(me::level * 2.5 + 0.9)), forceformula(yes), gives(=+@int(me::level/2) to ST:Status), upto(8 - owner::level)
 
-<Striking ST>
-Doesn't give general damage bonus (e.g. for Limited: One Weapon), -0%, gives(-owner::level to ST:Striking ST)
-Bite Only, -60%, group(Striking ST), page(P79), gives(-owner::level to ST:Striking ST, +owner::level to ST:Bite)
-Kick Only, -60%, group(Striking ST), page(P79), gives(-owner::level to ST:Striking ST, +owner::level to ST:Kick)
-Punch Only, -60%, group(Striking ST), page(P79), gives(-owner::level to ST:Striking ST, +owner::level to ST:Punch)
-
 <Striker>
 Long: any reach, +100%/+200%, group(Striker), page(B88), shortname(Long),
 	gives(=nobase to owner::reach$, ="C,$if(me::level=1 THEN "1" ELSE "1-$solver(me::level)")" to owner::reach$)
@@ -8490,9 +7921,7 @@ Investigator (Basic Set), displaycost(100),
 				DI:Honesty,
 				DI:Pacifism (Reluctant Killer), 
 				DI:Pacifism (Cannot Harm Innocents), 
-				DI:Pacifism (Cannot Kill), 
-				DI:Pacifism (Self-Defense Only), 
-				DI:Pacifism (Total Nonviolence), 
+				DI:Pacifism (Self-Defence Only), 
 				DI:Secret, 
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
@@ -8808,19 +8237,10 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			pointswanted(8), 
 			itemswanted(2),
 			list(_
-				SK:Beam Weapons (Pistol) #codes(upto 4pts, downto 4pts),
-				SK:Beam Weapons (Projector) #codes(upto 4pts, downto 4pts),
-				SK:Beam Weapons (Rifle) #codes(upto 4pts, downto 4pts),
 				SK:Crossbow #codes(upto 4pts, downto 4pts),
-				SK:Guns (Grenade Launcher) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Gyroc) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Light Anti-Armor Weapon) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Light Machine Gun) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Musket) #codes(upto 4pts, downto 4pts),
 				SK:Guns (Pistol) #codes(upto 4pts, downto 4pts),
 				SK:Guns (Rifle) #codes(upto 4pts, downto 4pts),
 				SK:Guns (Shotgun) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Submachine Gun) #codes(upto 4pts, downto 4pts),
 				SK:Axe/Mace #codes(upto 4pts, downto 4pts),
 				SK:Bow #codes(upto 4pts, downto 4pts),
 				SK:Broadsword #codes(upto 4pts, downto 4pts),
@@ -8838,28 +8258,19 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			list(_
 				SK:Brawling #codes(upto 2pts, downto 2pts),
 				SK:Fast-Draw (Knife) #codes(upto 2pts, downto 2pts),
-				SK:Fast-Draw (Long Arm) #codes(upto 2pts, downto 2pts),
-				SK:Fast-Draw (Pistol) #codes(upto 2pts, downto 2pts),
+				SK:Fast-Draw (Pistol Crossbow) #codes(upto 2pts, downto 2pts),
 				SK:Fast-Draw (Sword) #codes(upto 2pts, downto 2pts),
 				SK:Fast-Draw (Two-Handed Sword) #codes(upto 2pts, downto 2pts),
 				SK:Fast-Draw (Arrow) #codes(upto 2pts, downto 2pts),
 				SK:Fast-Draw (Ammo) #codes(upto 2pts, downto 2pts),
-				SK:Gunner (Beams) #codes(upto 2pts, downto 2pts),
 				SK:Gunner (Cannon) #codes(upto 2pts, downto 2pts),
 				SK:Gunner (Catapult) #codes(upto 2pts, downto 2pts),
-				SK:Gunner (Machine Gun) #codes(upto 2pts, downto 2pts),
-				SK:Gunner (Rockets) #codes(upto 2pts, downto 2pts),
 				SK:Knife #codes(upto 2pts, downto 2pts),
 				SK:Shield (Shield) #codes(upto 2pts, downto 2pts),
 				SK:Shield (Buckler) #codes(upto 2pts, downto 2pts),
 				SK:Shield (Force) #codes(upto 2pts, downto 2pts),
-				SK:Artillery (Beams) #codes(upto 2pts, downto 2pts),
-				SK:Artillery (Bombs) #codes(upto 2pts, downto 2pts),
 				SK:Artillery (Cannon) #codes(upto 2pts, downto 2pts),
-				SK:Artillery (Catapult) #codes(upto 2pts, downto 2pts),
-				SK:Artillery (Guided Missile) #codes(upto 2pts, downto 2pts),
-				SK:Artillery (Torpedoes) #codes(upto 2pts, downto 2pts),
-				SK:Forward Observer #codes(upto 2pts, downto 2pts)_
+				SK:Artillery (Catapult) #codes(upto 2pts, downto 2pts)_
 				)_
 			),
 		select7(_
@@ -9384,9 +8795,9 @@ Astral Entity, displaycost(171), cost(0),
 
 *Equipment, techlvl(), basecost(), baseweight(), mods()
 
-*Armor, techlvl(), basecost(), baseweight(), location(), dr(), notes(), mods()
+*Armour, techlvl(), basecost(), baseweight(), location(), dr(), notes(), mods()
 
-*Standard armor locations  for the fulkl Basic Set system include:
+*Standard armour locations  for the fulkl Basic Set system include:
 *  all, arms, eyes, face, feet, full suit, groin, hands, head, legs, limbs, neck, skull, torso
 
 *Muscle-Powered Ranged Weapon, techlvl(), basecost(), baseweight(), mods(),
@@ -9420,7 +8831,7 @@ _New Equipment, noresync(yes),
 		#InputReplace("Please enter the Weight of this piece of equipment:", "[weight]", , "New Equipment"),
 		#edit)
 
-_New Armor, noresync(yes),
+_New Armour, noresync(yes),
 		displaycost(varies),
 		displayweight(varies),
 		techlvl([techlevel]),
@@ -9431,15 +8842,15 @@ _New Armor, noresync(yes),
 		notes([notes]),
 		mods(Equipment),
 	x(_
-		#InputToTagReplace("Please enter the name of this piece of armor:", name, , "New Armor"),
-		#InputReplace("Please enter the Tech Level of this piece of armor:", "[techlevel]", , "New Armor"),
-		#InputReplace("Please enter the Cost of this piece of armor. DO NOT include a dollar sign or comma:", "[cost]", , "New Armor"),
-		#InputReplace("Please enter the Weight of this piece of armor:", "[weight]", , "New Armor"),
-		#InputReplace("Please enter the Damage Resistance of this piece of armor:", "[damageresistance]", , "New Armor"),
+		#InputToTagReplace("Please enter the name of this piece of armour:", name, , "New Armour"),
+		#InputReplace("Please enter the Tech Level of this piece of armour:", "[techlevel]", , "New Armour"),
+		#InputReplace("Please enter the Cost of this piece of armour. DO NOT include a dollar sign or comma:", "[cost]", , "New Armour"),
+		#InputReplace("Please enter the Weight of this piece of armour:", "[weight]", , "New Armour"),
+		#InputReplace("Please enter the Damage Resistance of this piece of armour:", "[damageresistance]", , "New Armour"),
 		#ChoiceList(_
 				name(location),
-				title(_New Armor),
-				text(Choose the locations covered by this piece of armor:),
+				title(_New Armour),
+				text(Choose the locations covered by this piece of armour:),
 				picksallowed(atleast 1),
 				method(bynumber),
 				list(_
@@ -9479,7 +8890,7 @@ _New Firearm, noresync(yes),
 		baseweight([weight]),
 		damage([damage]),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		acc([accuracy]),
 		rangehalfdam([halfdamagerange]),
 		rangemax([maxrange]),
@@ -9495,8 +8906,8 @@ _New Firearm, noresync(yes),
 		#InputReplace("Please enter the Tech Level of this firearm:", "[techlevel]", " ", "New Firearm"),
 		#InputReplace("Please enter the Cost of this firearm. DO NOT include a dollar sign or comma:", "[cost]", " ", "New Firearm"),
 		#InputReplace("Please enter the Weight of this firearm:", "[weight]", " ", "New Firearm"),
-		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armor divisors or damage type in this field:", "[damage]", " ", "New Firearm"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", " ", "New Firearm"),
+		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armour divisors or damage type in this field:", "[damage]", " ", "New Firearm"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", " ", "New Firearm"),
 		#InputReplace("Please enter the damage type of this firearm (e.g. pi+ or cut):", "[damagetype]", " ", "New Firearm"),
 		#InputReplace("Please enter the accuracy of this firearm:", "[accuracy]", " ", "New Firearm"),
 		#InputReplace("Please enter the half damage range of this firearm:", "[halfdamagerange]", " ", "New Firearm"),
@@ -9534,7 +8945,7 @@ _New Melee Weapon, noresync(yes),
 		baseweight([weight]),
 		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		reach([reach]),
 		parry([parry]),
 		minst([minimumst]%usealiaslist%),
@@ -9545,8 +8956,8 @@ _New Melee Weapon, noresync(yes),
 		#InputReplace("Please enter the Tech Level of this hand weapon:", "[techlevel]", " ", "New Melee Weapon"),
 		#InputReplace("Please enter the Cost of this hand weapon. DO NOT include a dollar sign or comma:", "[cost]", " ", "New Melee Weapon"),
 		#InputReplace("Please enter the Weight of this hand weapon:", "[weight]", " ", "New Melee Weapon"),
-		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armor divisors or damage type:", "[damage]", " ", "New Melee Weapon"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", " ", "New Melee Weapon"),
+		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors or damage type:", "[damage]", " ", "New Melee Weapon"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", " ", "New Melee Weapon"),
 		#InputReplace("Please enter the damage type of this hand weapon (e.g. pi+ or cut):", "[damagetype]", " ", "New Melee Weapon"),
 		#InputReplace("Please enter the reach for this hand weapon:", "[reach]", " ", "New Melee Weapon"),
 		#InputReplace("Please enter the parry for this hand weapon; Parry should be a numerical entry as seen on the Weapons Tables (e.g. +2, 0, or -1):", "[parry]", "0", "New Melee Weapon"),
@@ -9598,7 +9009,7 @@ _New Muscle-Powered Ranged Weapon, noresync(yes),
 		basecost([cost]),
 		baseweight([weight]),
 		damage([damage]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		damtype([damagetype]),
 		acc([accuracy]),
 		calcrange(yes),
@@ -9615,8 +9026,8 @@ _New Muscle-Powered Ranged Weapon, noresync(yes),
 		#InputReplace("Please enter the Tech Level of this muscle-powered ranged weapon:", "[techlevel]", " ", "New Muscle-Powered Ranged Weapon"),
 		#InputReplace("Please enter the Cost of this muscle-powered ranged weapon. DO NOT include a dollar sign or comma:", "[cost]", " ", "New Muscle-Powered Ranged Weapon"),
 		#InputReplace("Please enter the Weight of this muscle-powered ranged weapon:", "[weight]", " ", "New Muscle-Powered Ranged Weapon"),
-		#InputReplace("Please enter the damage of this muscle-powered ranged weapon (e.g. 6dx5 or thr+1). DO NOT include armor divisors or damage type in this field :", "[damage]", " ", "New Muscle-Powered Ranged Weapon"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", " ", "New Muscle-Powered Ranged Weapon"),
+		#InputReplace("Please enter the damage of this muscle-powered ranged weapon (e.g. 6dx5 or thr+1). DO NOT include armour divisors or damage type in this field :", "[damage]", " ", "New Muscle-Powered Ranged Weapon"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", " ", "New Muscle-Powered Ranged Weapon"),
 		#InputReplace("Please enter the damage type of this muscle-powered ranged weapon (e.g. pi+ or cut):", "[damagetype]", " ", "New Muscle-Powered Ranged Weapon"),
 		#InputReplace("Please enter the accuracy of this muscle-powered ranged weapon:", "[accuracy]", " ", "New Muscle-Powered Ranged Weapon"),
 		#InputReplace("Please enter the half damage range of this muscle-powered ranged weapon (e.g. ST*10 or 25):", "[halfdamagerange]", " ", "New Muscle-Powered Ranged Weapon"),
@@ -9963,12 +9374,12 @@ Spinning Wheel, techlvl(3), basecost(5), baseweight(40), description(TL:3 Notes:
 Wheelbarrow, techlvl(2), basecost(3), baseweight(18), description(TL:2 Notes: Holds 350lbs Divide effective weight of load by 5.), page(B289), mods(Equipment)
 
 <_Armour, Discworld RPG, Discworld RPG - Armour, Discworld RPG - Protection>
-Very Light Armour, techlvl(1), basecost(7.50), baseweight(9), location(full suit, skull), dr(1), description(TL:1 DR:1 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armor. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
-Light Armour, techlvl(1), basecost(17.50), baseweight(20), location(full suit, skull), dr(2), description(TL:1 DR:2 Locations: all Notes:A full suit of armor. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armor. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
-Medium Armour, techlvl(2), basecost(26), baseweight(30), location(full suit, skull), dr(3), description(TL:2 DR:3 Locations: all Notes:A full suit of armor. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armor. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
-Mail Armour, techlvl(2), basecost(50), baseweight(75), location(full suit, skull), dr(4), description(TL:2 DR:4 Locations: all Notes:A full suit of armor. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armor. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
-Plate Armour, techlvl(3), basecost(200), baseweight(90), location(full suit, skull), dr(6), description(TL:3 DR:6 Locations: all Notes:A full suit of armor. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armor. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
-Jousting Plate Armour, techlvl(3), basecost(320), baseweight(110), location(full suit, skull), dr(7), description(TL:3 DR:7 Locations: all Notes:A full suit of armor. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armor. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
+Very Light Armour, techlvl(1), basecost(7.50), baseweight(9), location(full suit, skull), dr(1), description(TL:1 DR:1 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
+Light Armour, techlvl(1), basecost(17.50), baseweight(20), location(full suit, skull), dr(2), description(TL:1 DR:2 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
+Medium Armour, techlvl(2), basecost(26), baseweight(30), location(full suit, skull), dr(3), description(TL:2 DR:3 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
+Mail Armour, techlvl(2), basecost(50), baseweight(75), location(full suit, skull), dr(4), description(TL:2 DR:4 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
+Plate Armour, techlvl(3), basecost(200), baseweight(90), location(full suit, skull), dr(6), description(TL:3 DR:6 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
+Jousting Plate Armour, techlvl(3), basecost(320), baseweight(110), location(full suit, skull), dr(7), description(TL:3 DR:7 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
 Shield, basecost(3), baseweight(15), dr(7/40), db(2), techlvl(1), page(155),
 	cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Shield),
 	newmode(Bash, skillused(ST:DX-4, SK:Shield), damage(thr), damtype(cr), reach(1), parry(No), minst()),
@@ -10041,8 +9452,8 @@ Hatpin, techlvl(2), break(0), basecost(0.30), baseweight(0.10), page(151), cat(D
 	newmode(Thrust, damage(thr-2), damtype(imp), reach(C), parry(-2), minst(2), notes([5]), skillused(SK:Knife, ST:DX-4)),
 	description(TL:2 [Mode:thrust Dam:thr-2 imp Reach:C Parry:-2 ST:2 Skill:Knife Notes: [5].])
 Small Wooden Stake, techlvl(0), break(0), basecost(2), baseweight(1), page(150), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Improvised Weapons), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
-	newmode(Thrust, damage(thr), armordivisor(0.5), damtype(imp), reach(C), parry(-1), minst(6), notes([1]), skillused(SK:Knife, ST:DX-4)),
-	newmode(Thrown, damage(thr), armordivisor(0.5), damtype(imp), acc(0), rangehalfdam(ST*0.8), rangemax(ST*1.5), rof(1), shots(T(1)), minst(6), bulk(-2), skillused(SK:Thrown Weapon (Knife), ST:DX-4)),
+	newmode(Thrust, damage(thr), armourdivisor(0.5), damtype(imp), reach(C), parry(-1), minst(6), notes([1]), skillused(SK:Knife, ST:DX-4)),
+	newmode(Thrown, damage(thr), armourdivisor(0.5), damtype(imp), acc(0), rangehalfdam(ST*0.8), rangemax(ST*1.5), rof(1), shots(T(1)), minst(6), bulk(-2), skillused(SK:Thrown Weapon (Knife), ST:DX-4)),
 	description(TL:0, [Mode: thrown Dam:thr(0.5) imp Acc:0 Range:ST*0.8/ST*1.5 RoF:1 Shots:T(1) ST:5 Bulk:-2], [Mode:thrust Dam:thr(0.5) imp Reach:C Parry:-1 ST:6 Skill:Knife Notes: [1] Double target's DR. Can be thrown. See p. 150.])
 Halberd, techlvl(3), break(0), basecost(7.50), baseweight(12), page(151), mods(Equipment, Melee Quality, Cutting Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
 	newmode(Swing/cut, damage(sw+5), damtype(cut), reach(2,3*), parry(0U), minst(13‡), skillused(SK:Polearm, ST:DX-5)),
@@ -10080,12 +9491,12 @@ Javelin, techlvl(1), break(0), basecost(1.50), baseweight(2), page(152, 153), ca
 	newmode(Thrown, damage(thr+1), damtype(imp), acc(3), rangehalfdam(ST*1.5), rangemax(ST*2.5), rof(1), shots(T(1)), minst(6), bulk(-4), skillused(SK:Thrown Weapon (Spear), ST:DX-4)),
 	description(TL:1, [Mode: thrown Dam:thr+1 imp Acc:3 Range:ST*1.5/ST*2.5 RoF:1 Shots:T(1) ST:6 Bulk:-4], [Mode:thrust Dam:thr+1 imp Reach:1 Parry:0 ST:6 Skill:Spear Notes: [1] Can be thrown; see Muscle Powered Ranged Weapon Table (p. 153)])
 Large Wooden Stake, techlvl(0), break(0), basecost(2), baseweight(4), page(150), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Improvised Weapons), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
-	newmode(1H Thrust, damage(thr), armordivisor(0.5), damtype(imp), reach(1*), parry(0), minst(9), notes([1]), skillused(SK:Spear, ST:DX-5)),
-	newmode(2H Thrust, damage(thr+1), armordivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9†), skillused(SK:Spear, ST:DX-5)),
+	newmode(1H Thrust, damage(thr), armourdivisor(0.5), damtype(imp), reach(1*), parry(0), minst(9), notes([1]), skillused(SK:Spear, ST:DX-5)),
+	newmode(2H Thrust, damage(thr+1), armourdivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9†), skillused(SK:Spear, ST:DX-5)),
 	newmode(Thrown, damage(thr+1), damtype(imp), acc(2), rangehalfdam(ST*1), rangemax(ST*1.5), rof(1), minst(9), bulk(-3), shots(T(1)), skillused(SK:Thrown Weapon (Spear), ST:DX-4)),
 	description(TL:0, [Mode: thrown Dam:thr+1(0.5) imp Acc:2 Range:ST*1/ST*1.5 RoF:1 Shots:T(1) ST:9 Bulk:-3], [Mode:one-handed thrust Dam:thr(0.5) imp Reach:1* Parry:0 ST:9 Skill:Spear Notes: [1] Can be thrown.], [Mode:two-handed thrust Dam:thr+3(0.5) imp Reach:1,2* Parry:0 ST:9† Skill:Spear Notes: Requires two hands.])
 Pitchfork, techlvl(0), break(0), basecost(2), baseweight(4), page(150), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Improvised Weapons), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
-	newmode(2H Thrust, damage(thr+3), armordivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9†), skillused(SK:Spear-2, ST:DX-7)),
+	newmode(2H Thrust, damage(thr+3), armourdivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9†), skillused(SK:Spear-2, ST:DX-7)),
 	description(TL:0, [Mode:two-handed thrust Dam:thr+3(0.5) imp Reach:1,2* Parry:0 ST:9† Skill:Spear Notes: -1 to target's Dodge, +1 to target's Block or Parry.])
 Quarterstaff, techlvl(0), break(0), basecost(0.50), baseweight(4), page(152), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
 	newmode(Staff swing, damage(sw+2), damtype(cr), reach(1,2), parry(+2), minst(7†), skillused(SK:Staff, ST:DX-5)),
@@ -10207,7 +9618,7 @@ _New Ranged Innate Attack, noresync(yes),
 		mods(Equipment),
 	x(_
 		#InputToTagReplace("Please enter the name of this attack:", name, " ", "New Ranged Innate Attack"),
-		#InputReplace("Please enter the damage of this attack (e.g. 6dx5). DO NOT include armor divisors in this field (use the damage type field instead):", "[damage]", " ", "New Ranged Innate Attack"),
+		#InputReplace("Please enter the damage of this attack (e.g. 6dx5). DO NOT include armour divisors in this field (use the damage type field instead):", "[damage]", " ", "New Ranged Innate Attack"),
 		#InputReplace("Please enter the damage type of this attack (e.g. pi+ or (10)cut):", "[damagetype]", " ", "New Ranged Innate Attack"),
 		#InputReplace("Please enter the accuracy of this attack:", "[accuracy]", " ", "New Ranged Innate Attack"),
 		#InputReplace("Please enter the half damage range of this attack:", "[halfdamagerange]", " ", "New Ranged Innate Attack"),
@@ -10229,7 +9640,7 @@ _New Melee Innate Attack, noresync(yes),
 		mods(Equipment),
 	x(_
 		#InputToTagReplace("Please enter the name of this hand attack:", name, " ", "New Ranged Melee Attack"),
-		#InputReplace("Please enter the damage of this hand attack (e.g. 6dx5, sw+1, or thr-1). DO NOT include armor divisors in this field (use the damage type field instead):", "[damage]", " ", "New Ranged Melee Attack"),
+		#InputReplace("Please enter the damage of this hand attack (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors in this field (use the damage type field instead):", "[damage]", " ", "New Ranged Melee Attack"),
 		#InputReplace("Please enter the damage type of this hand attack (e.g. pi+ or (10)cut):", "[damagetype]", " ", "New Ranged Melee Attack"),
 		#InputReplace("Please enter the reach for this hand attack:", "[reach]", " ", "New Ranged Melee Attack"),
 		#InputReplace("Please enter the parry for this hand attack; Parry should be a numerical entry as seen on the Weapons Tables (e.g. +2, 0, or -1):", "[parry]", "0", "New Melee Weapon"),
@@ -10254,16 +9665,6 @@ _New Melee Innate Attack, noresync(yes),
 						)_
 				),
 		#edit)
-
-Punch (Weak Arms), basecost(0), baseweight(0), mode(Punch), damage(_
-		@thr(@int(ST:One Arm Striking ST::score * @indexedvalue(1+@itemhasmod(AD:Extra Arms, Weak),1,0.75,0.5))) -1 + _
-			@if("AD:Claws (Blunt Claws)::level" = 1 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 then @basethdice(ST:Punch) else 0)) + _
-			@max(_
-				@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Punch) else 0),
-				@if("SK:Boxing::level" = ST:DX+1 then @basethdice(ST:Punch) else @if("SK:Boxing::level" > ST:DX+1 then 2 * @basethdice(ST:Punch) else 0)),
-				@if("SK:Karate::level" = ST:DX then @basethdice(ST:Punch) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Punch) else 0)) _
-			) _
-		), damtype($if("AD:Claws (Sharp Claws)::level" = 1 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 THEN "cut/imp" ELSE "cr")))), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Boxing, SK:Karate), mods(Punch/Kick)
 
 ************************************************************************************************************************
 * EQUIPMENT MODIFIERS
@@ -10358,7 +9759,7 @@ _New Ranged Attack Mode, 0, group(Beams), noresync(yes),
 	addmode(_New Ranged Attack Mode, 
 		damage([damage]),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		acc([accuracy]),
 		rangehalfdam([halfdamagerange]),
 		rangemax([maxrange]),
@@ -10369,8 +9770,8 @@ _New Ranged Attack Mode, 0, group(Beams), noresync(yes),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of this firearm:", "_New Ranged Attack Mode", " ", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armor divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Ranged Attack Mode"),
+		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armour divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the damage type of this firearm (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the accuracy of this firearm:", "[accuracy]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the half damage range of this firearm:", "[halfdamagerange]", "%copyfirst", "New Ranged Attack Mode"),
@@ -10405,15 +9806,15 @@ _New Melee Attack Mode, 0, group(Beams), noresync(yes),
 	addmode(_New Melee Attack Mode, 
 		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		reach([reach]),
 		parry([parry]),
 		minst([minimumst]%usealiaslist%),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of the new attack mode below. Note that each weapon mode must have a unique mode name:", "_New Melee Attack Mode", " ", "New Melee Attack Mode"),
-		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armor divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the damage type of this hand weapon (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the reach for this hand weapon:", "[reach]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the parry for this hand weapon; Parry should be a numerical entry as seen on the Weapons Tables (e.g. +2, 0, or -1):", "[parry]", "%copyfirst", "New Melee Attack Mode"),
@@ -10490,15 +9891,15 @@ _New Melee Attack Mode, 0, group(Guns), noresync(yes),
 	addmode(_New Melee Attack Mode, 
 		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		reach([reach]),
 		parry([parry]),
 		minst([minimumst]%usealiaslist%),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of the new attack mode below. Note that each weapon mode must have a unique mode name:", "_New Melee Attack Mode", " ", "New Melee Attack Mode"),
-		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armor divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the damage type of this hand weapon (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the reach for this hand weapon:", "[reach]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the parry for this hand weapon:", "[parry]", "%copyfirst", "New Melee Attack Mode"),
@@ -10551,9 +9952,6 @@ _Remove Attack Mode ([Mode]), +0, group(Guns),
 	)
 
 <Ammunition>
-Ammunition: Hollow-Point, *1, page(B279), group(Ammunition), shortname(HP)
-Ammunition: Armor-Piercing Hard Core (LC2), *2, page(B279), group(Ammunition), shortname(APHC)
-Ammunition: Armor-Piercing Discarding-Sabot (LC1), *5, page(B280), group(Ammunition), shortname(APDS)
 Composition: Silver (TL4+), *50, page(B275), group(Ammunition), shortname(Silver)
 
 <Shield>
@@ -10633,7 +10031,7 @@ _New Ranged Attack Mode, 0, group(Bow Quality), noresync(yes),
 	addmode(_New Ranged Attack Mode, 
 		damage([damage]),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		acc([accuracy]),
 		rangehalfdam([halfdamagerange]),
 		rangemax([maxrange]),
@@ -10644,8 +10042,8 @@ _New Ranged Attack Mode, 0, group(Bow Quality), noresync(yes),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of this firearm:", "_New Ranged Attack Mode", " ", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armor divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Ranged Attack Mode"),
+		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armour divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the damage type of this firearm (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the accuracy of this firearm:", "[accuracy]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the half damage range of this firearm:", "[halfdamagerange]", "%copyfirst", "New Ranged Attack Mode"),
@@ -10680,15 +10078,15 @@ _New Melee Attack Mode, 0, group(Bow Quality), noresync(yes),
 	addmode(_New Melee Attack Mode, 
 		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		reach([reach]),
 		parry([parry]),
 		minst([minimumst]%usealiaslist%),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of the new attack mode below. Note that each weapon mode must have a unique mode name:", "_New Melee Attack Mode", " ", "New Melee Attack Mode"),
-		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armor divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the damage type of this hand weapon (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the reach for this hand weapon:", "[reach]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the parry for this hand weapon:", "[parry]", "%copyfirst", "New Melee Attack Mode"),
@@ -10774,7 +10172,7 @@ _Advantage: Weapon Master Damage Bonus, +0, shortname(Weapon Master Damage Bonus
 			) to owner::damage$ ListAs "Weapon Master Damage Bonus" _
 		)
 
-Composition: Stone (TL0+), *1, gives(+0.5 to owner::armor divisor), page(B275), group(Melee Quality), shortname(Stone)
+Composition: Stone (TL0+), *1, gives(+0.5 to owner::armour divisor), page(B275), group(Melee Quality), shortname(Stone)
 Composition: Obsidian (TL1+), *1, page(B275), group(Melee Quality), shortname(Obsidian), gives(=+@textindexedvalue( $modetag(damtype), ("cut", 1), ("imp", 1) ) to owner::damage$ listAs "+1 to cut/imp damage from Composition: Obsidian", +2 to owner::break)
 Composition: Bronze (TL1+), *1, page(B275), group(Melee Quality), shortname(Bronze)
 Composition: Iron (TL2+), *1, page(B275), group(Melee Quality), shortname(Iron)
@@ -10809,7 +10207,7 @@ _New Ranged Attack Mode, 0, group(Melee Quality), noresync(yes),
 	addmode(_New Ranged Attack Mode, 
 		damage([damage]),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		acc([accuracy]),
 		rangehalfdam([halfdamagerange]),
 		rangemax([maxrange]),
@@ -10820,8 +10218,8 @@ _New Ranged Attack Mode, 0, group(Melee Quality), noresync(yes),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of this firearm:", "_New Ranged Attack Mode", " ", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armor divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Ranged Attack Mode"),
+		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armour divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the damage type of this firearm (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the accuracy of this firearm:", "[accuracy]", "%copyfirst", "New Ranged Attack Mode"),
 		#InputReplace("Please enter the half damage range of this firearm:", "[halfdamagerange]", "%copyfirst", "New Ranged Attack Mode"),
@@ -10856,15 +10254,15 @@ _New Melee Attack Mode, 0, group(Melee Quality), noresync(yes),
 	addmode(_New Melee Attack Mode, 
 		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
 		damtype([damagetype]),
-		armordivisor([armordivisor]),
+		armourdivisor([armourdivisor]),
 		reach([reach]),
 		parry([parry]),
 		minst([minimumst]%usealiaslist%),
 		skillused([skillused])),
 	x(_
 		#InputReplace("Please enter the name of the new attack mode below. Note that each weapon mode must have a unique mode name:", "_New Melee Attack Mode", " ", "New Melee Attack Mode"),
-		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armor divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the armor divisor. If there is no armor divisor enter space (or just click enter). DO NOT include parenthesis:", "[armordivisor]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
+		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the damage type of this hand weapon (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the reach for this hand weapon:", "[reach]", "%copyfirst", "New Melee Attack Mode"),
 		#InputReplace("Please enter the parry for this hand weapon:", "[parry]", "%copyfirst", "New Melee Attack Mode"),
