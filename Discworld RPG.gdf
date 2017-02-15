@@ -915,8 +915,6 @@ Enhanced Move (Water), 10/20, gives(+0.5 To ST:Enhanced Water Move), mods(Enhanc
 					
 
 Enhanced Tracking, 5/10, page(B53), cat(Exotic, Physical)
-Extended Lifespan, 2/4, page(B53), cat(Exotic, Physical), taboo(AD:Unaging, DI:Short Lifespan, DI:Terminally Ill),
-	levelnames(x2, x4, x8, x16, x32, x64, x128), upto(7)
 					
 Filter Lungs, 5, page(B55), cat(Exotic, Physical), taboo(AD:Doesn't Breathe)
 Flight, 40, mods(Flight), page(B56), cat(Exotic, Physical),
@@ -1897,28 +1895,28 @@ Language (Written), 1/2, page(B24), upto(3 LimitingTotal), mods(Language), level
 					
 
 Language - Native, 2/4, displaycost(0/-2/+), init(3), page(B24), upto(3), mods(Language, Native Language), levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Language Written, Social Background), taboo(Native Languages > 1),
-	x(#InputToTagReplace("Specify the language here:", name, "English", "Language - Native")),
+	x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native")),
 	initmods(Native Language, -6, gives(=+1 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level), group(Native Language), page(B23))
 Language - Native (Spoken), 1/2, displaycost(0/-1/+), init(3), page(B24), upto(3), mods(Language, Native Language), levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Social Background), taboo(Native Languages > 1),
-	x(#InputToTagReplace("Specify the language here:", name, "English", "Language - Native (Spoken)")),
+	x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native (Spoken)")),
 	initmods(Native Speaker, -3, gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level), group(Native Language), page(B23))
 Language - Native (Written), 1/2, displaycost(-3/-2/+), init(0), page(B24), upto(3), mods(Language, Native Language), levelnames([Illiterate], Semi-Literate, Literate, Native), cat(Mundane, Social, Language, Language Written, Social Background), taboo(Native Languages > 1),
 	ndl(@if(ST:Tech Level::basescore <=4 THEN 1 ELSE 0)),
 	description(At TL 3 and below Illiteracy doesn't count against the Disadvantage Limit. This can be changed by checking (or unchecking) the 'Do Not Count Against Disadvantage Limit' box in the Edit window.),
-	x(#InputToTagReplace("Specify the language here:", name, "English", "Language - Native (Written)")),
+	x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native (Written)")),
 	initmods(Native Writer, -3, gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level), group(Native Language), page(B23))
 					
 
 *Language - Native, 2/4, displaycost(0/-2/+), init(3), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Language Written, Social Background), taboo(Native Languages > 1),
-*x(#InputToTagReplace("Specify the language here:", name, "English", "Language - Native")),
+*x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native")),
 *initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23))
 *Language - Native (Spoken), 1/2, displaycost(0/-1/+), init(3), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Social Background), taboo(Native Languages > 1),
-*x(#InputToTagReplace("Specify the language here:", name, "English", "Language - Native (Spoken)")),
+*x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native (Spoken)")),
 *initmods(Native Speaker, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23))
 *Language - Native (Written), 1/2, displaycost(-3/-2/+), init(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([Illiterate], Semi-Literate, Literate, Native), cat(Mundane, Social, Language, Language Written, Social Background), taboo(Native Languages > 1),
 *ndl(@if(ST:Tech Level::basescore <=4 THEN 1 ELSE 0)),
 *description(At TL 3 and below Illiteracy doesn't count against the Disadvantage Limit. This can be changed by checking (or unchecking) the 'Do Not Count Against Disadvantage Limit' box in the Edit window.),
-*x(#InputToTagReplace("Specify the language here:", name, "English", "Language - Native (Written)")),
+*x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native (Written)")),
 *initmods(Native Writer, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23))
 					
 
@@ -2091,17 +2089,17 @@ Boredom Immunity, 1, page(93), cat(Racial)
 Check the Exits, 1, page(50), cat(Non-Racial)
 Climatic Emphasis, 1, page(50), cat(Non-Racial)
 Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Non-Racial),
-	x(InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
+	x(#InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
 Cold Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Cold))
 Controllable Disadvantage, 1, page(51), cat(Non-Racial),
-	x(InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
+	x(#InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
 Crossbow Safety, 1, page(51), cat(Non-Racial)
 Cutting-Edge Training, 1/2, page(51), cat(Non-Racial, Skill Perks),
 	x(#InputToTagReplace("Specify TL-based skill", nameext, , "TL-based skill needed"))
 Deep Sleeper, 1, page(51), taboo(DI:Light Sleeper), cat(Non-Racial)
 Divine News-Feed, 1, page(51), cat(Non-Racial, Priestly)
 Dual Ready, 1, page(51), cat(Non-Racial),
-	x(InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
+	x(#InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
 Fearsome Stare, 1, page(52), cat(Non-Racial, Wordless Influence),
 	description(Allows use of Intimidation skill without talking.)
 Feathers, 1, page(93), cat(Racial)
@@ -2123,26 +2121,26 @@ Heat Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (H
 High-Heeled Heroine, 1, page(51), cat(Non-Racial)
 Honest Face, 1, page(51), cat(Non-Racial)
 Hyper-Specialisation, 1, page(51), cat(Non-Racial, Skill Perks),
-	x(InputToTagReplace("Specify the skill and the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
+	x(#InputToTagReplace("Specify the skill and the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
 Improvised Weapons, 1, page(52), cat(Non-Racial, Skill Perks),
-	x(#InputToTagReplace("please enter the weapon skill you can use Improvised Weapons with:" , nameext, ,"Improvised Weapons"))
+	x(#InputToTagReplace("Please enter the weapon skill you can use Improvised Weapons with:" , nameext, ,"Improvised Weapons"))
 Limited Camouflage, 1, page(94), cat(Racial),
-	x(InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage")),
 	conditional(+2 to SK:Camouflage when "stationary and unclad in a specific environment",_
-	+2 to SK:Stealth when "stationary and unclad in a specific environment")
+	+2 to SK:Stealth when "stationary and unclad in a specific environment"),
+	x(#InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage"))
 Longevity, 1, page(52), cat(Non-Racial)
 Name Hearing, 1, page(94), cat(Racial, Godly)
 No Hangover, 1, page(52), cat(Non-Racial)
 Off-Hand Training, 1, page(52), cat(Non-Racial, Skill Perks),
-	x(InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
+	x(#InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
 Oggham Reader, 1, page(52), needs(1 CA:Language Written = 2), cat(Non-Racial)
-One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery (Non-Improvisational) 0), cat(Magical, Non-Racial),
-	x(InputToTagReplace("Please describe the single Spell:", nameext, , "Shtick"))
+One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery 0 (Non-Improvisational)), cat(Magical, Non-Racial),
+	x(#InputToTagReplace("Please name the One Spell:", nameext, , "Shtick"))
 Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial),
 	conditional(+1 to SK:Intimidation when "surprising someone by yelling or roaring")
 Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
-Secret Name, 1, page(52), needs(AD:Magery 0), cat(Magical, Non-Racial)
+Secret Name, 1, page(52), needs(AD:Magery 0 | Magery 0 (Non-Improvisational)), cat(Magical, Non-Racial)
 Self-Styling Hair, 1, page(52), cat(Magical, Non-Racial)
 Sordid Claws, 1, page(94), needs(AD:Claws), cat(Racial)
 Statuesque, 1, page(52), cat(Non-Racial),
@@ -2244,9 +2242,7 @@ Invertebrate, -20, page(B140), cat(Exotic, Physical),
 	gives(=-(0.75 * "ST:No Encumbrance::basescore") to "ST:No Encumbrance", =-(0.75 * "ST:Light Encumbrance::basescore") to "ST:Light Encumbrance", =-(0.75 * "ST:Medium Encumbrance::basescore") to "ST:Medium Encumbrance", =-(0.75 * "ST:Heavy Encumbrance::basescore") to "ST:Heavy Encumbrance", =-(0.75 * "ST:X-Heavy Encumbrance::basescore") to "ST:X-Heavy Encumbrance", =-(0.75 * "ST:One-Handed Lift::basescore") to "ST:One-Handed Lift", =-(0.75 * "ST:Two-Handed Lift::basescore") to "ST:Two-Handed Lift", =-(0.75 * "ST:Carry on Back::basescore") to "ST:Carry on Back")
 
 Nocturnal, -20, mods(Nocturnal), page(B146), cat(Exotic, Physical)
-Self-Destruct, -10, page(B153), cat(Exotic, Physical), taboo(AD:Unaging, DI:Terminally Ill)
 Semi-Upright, -5, page(B153), cat(Exotic, Physical), taboo(DI:Quadruped)
-Short Lifespan, -10/-20, page(B154), upto(4), cat(Exotic, Physical), taboo(AD:Extended Lifespan, AD:Unaging, DI:Terminally Ill)
 
 Sleepy, -8/-16/-20/-26, upto(4), page(B154), cat(Exotic, Physical), taboo(AD:Doesn't Sleep),
 	levelnames(_
@@ -2383,16 +2379,9 @@ Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness), taboo(AD:Ac
 Cannot Speak, -15, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, DI:Mute, AD:Speak Underwater)
 Mute, -25, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, AD:Voice, PE:Penetrating Voice, DI:Cannot Speak, AD:Speak Underwater)
 
-Chronic Pain, -5/-10/-15, upto(3), levelnames(Mild, Severe, Agonizing), 
-	mods(Chronic Pain), page(B126), cat(Mundane, Physical), 
-	initmods(_
-			Interval: 2 hours, *1, shortname(2 hours), group(Chronic Pain) _
-			| Frequency: Attack occurs on a roll of 9 or less, *1, shortname(9 or less), group(Chronic Pain) _
-			)   
-
 Colorblindness, -10, page(B127), cat(Mundane, Physical), taboo(DI:Blindness),
 	conditional(-1 to SK:Artist, -1 to SK:Chemistry, -1 to SK:Driving, -1 to SK:Merchant, -1 to SK:Piloting, -1 to SK:Tracking)
-Combat Paralysis, -15, gives(-2 to ST:Fright Check), page(B127), cat(Mundane, Physical), taboo(AD:Combat Reflexes)
+Combat Paralysis, -15, gives(-2 to ST:Fright Check), page(57), cat(Mundane, Physical), taboo(AD:Combat Reflexes)
 Deafness, -20, page(B129), cat(Mundane, Physical), mods(Deafness), taboo(AD:Discriminatory Hearing, AD:Parabolic Hearing, AD:Subsonic Hearing, AD:Subsonic Speech, AD:Ultrahearing, AD:Ultrasonic Speech, AD:Acute Hearing),
 	gives(-ST:Perception to ST:Hearing)
 Disturbing Voice, -10, page(B132), cat(Mundane, Physical), taboo(AD:Voice, DI:Mute),
@@ -2401,8 +2390,8 @@ Easy to Kill, -2/-4, page(B134), upto(ST:HT - 3), cat(Mundane, Physical), taboo(
 Epilepsy, -30, page(B136), cat(Mundane, Physical)
 Extra Sleep, -2/-4, page(B136), cat(Mundane, Physical), taboo(AD:Doesn't Sleep, DI:Less Sleep)
 G-Intolerance, -10/-20, upto(2), levelnames(0.1G, 0.05G), cat(Mundane, Physical), page(B137), taboo("AD:Improved G-Tolerance")
-Ham-Fisted, -5/-10, page(B138), cat(Mundane, Physical), taboo(AD:High Manual Dexterity, DI:Quadruped),
-	upto(2), gives(-3 to SK:Fast-Draw, -3 to GR:High Manual Dexterity), conditional(-1 to ST:Reaction when "being tidy or well-groomed matters")
+Ham-Fisted, -5, page(60), cat(Mundane, Physical), taboo(AD:High Manual Dexterity, DI:Quadruped),
+	gives(-3 to SK:Fast-Draw, -3 to GR:High Manual Dexterity), conditional(-1 to ST:Reaction when "being tidy or well-groomed matters")
 Hard of Hearing, -10, gives(-4 To ST:Hearing), page(B138), cat(Mundane, Physical), mods(Hard of Hearing), taboo(DI:Deafness)
 Hemophilia, -30, needs(HT <= 10), page(B138), cat(Mundane, Physical)
 Hunchback, -10, gives(-1 to ST:Reaction, -3 To GR:Hunchback), page(63), cat(Mundane, Physical)
@@ -2423,8 +2412,7 @@ No Legs, -30, page(63), cat(Mundane, Physical), taboo(ST:Basic Move > 0), sets(S
 	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
 	gives(-6 to "CL:Melee Combat")
 
-Light Sleeper, -5, page(B142), cat(Mundane, Physical), taboo(PE:Deep Sleeper)
-Low Pain Threshold, -10, page(B142), cat(Mundane, Physical), taboo(AD:High Pain Threshold, AD:Supernatural Durability),
+Low Pain Threshold, -10, page(61), cat(Mundane, Physical), taboo(AD:High Pain Threshold, AD:Supernatural Durability),
 	conditional(-1 to ST:Reaction when "from ''macho'' individuals")
 
 Maintenance, -10/-20, mods(Maintenance), page(B143), cat(Mundane, Physical), 
@@ -2465,10 +2453,6 @@ Susceptible to [Common], -2/-4, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundan
 Susceptible to [Occasional], -1/-2, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
 	x( #InputReplace("SUSCEPTIBLE: Specify the environmentally Occasional class of noxious items or substances to which the character is susceptible:", "[Occasional]", , "Susceptible to [Occassional]") )
 
-Terminally Ill, -50/-75/-100, levelnames(Up to two years, Up to one year, Up to one month), page(B158), upto(3), cat(Mundane, Physical), taboo(AD:Unaging, DI:Self-Destruct, AD:Extended Lifespan, DI:Short Lifespan)
-Timesickness, -10, page(B158), cat(Mundane, Physical)
-Unfit, -5, page(B160), cat(Mundane, Physical), taboo(DI:Very Unfit, AD:Fit, AD:Very Fit), conditional(-1 to ST:HT), gives(-1 to ST:Death Check, -1 to ST:Consciousness Check)
-Very Unfit, -15, page(B160), cat(Mundane, Physical), taboo(DI:Unfit, AD:Fit, AD:Very Fit), conditional(-2 to ST:HT), gives(-2 to ST:Death Check, -2 to ST:Consciousness Check)
 Wounded, -5, page(B162), cat(Mundane, Physical)
 
 <Mundane Mental>
@@ -2536,15 +2520,23 @@ Charitable, -15, mods(Self-Control), page(B125), cat(Mundane, Mental), taboo(DI:
 Chummy, -5, page(B126), cat(Mundane, Mental), taboo(DI:Loner, DI:Gregarious), conditional(-1 to ST:IQ when "alone")
 Gregarious, -10, page(B126), cat(Mundane, Mental), taboo(DI:Chummy, DI:Loner), conditional(-1 to ST:IQ when "in a group of four or less", -4 to ST:IQ when "alone")
 
-Clueless, -10, gives(-4 To SK:Savoir-Faire, -2 to ST:Reaction), page(B126), cat(Mundane, Mental)
+Clueless, -10, gives(-4 To SK:Savoir-Faire, -2 to ST:Reaction), page(61), cat(Mundane, Mental, Mental Limitations)
 
-Code of Honor, -5/-10, page(B127), upto(3), cat(Mundane, Mental), levelnames(,,),
-	x(#InputToTag("Specify the type of Code of Honor:", nameext, , "Code of Honor"))
-Code of Honor (Pirate's), -5, page(B127), cat(Mundane, Mental)
-Code of Honor (Professional), -5, page(B127), cat(Mundane, Mental)
-Code of Honor (Gentleman's), -10, page(B127), cat(Mundane, Mental)
-Code of Honor (Soldier's), -10, page(B127), cat(Mundane, Mental)
-Code of Honor (Chivalry), -15, page(B127), cat(Mundane, Mental)
+Code of Honour, -5/-10, page(56), upto(3), cat(Mundane, Mental), levelnames(,,),
+	x(#InputToTag("Specify the type of Code of Honour:", nameext, , "Code of Honour"))
+Code of Honour (Academic), -5, page(56), cat(Mundane, Mental)
+Code of Honour (Assassin's), -10, page(56), cat(Mundane, Mental)
+Code of Honour (Chivalry), -15, page(56), cat(Mundane, Mental)
+Code of Honour (Dark Lord's), -10, page(56), cat(Mundane, Mental)
+Code of Honour (D'reg's), -5, page(57), cat(Mundane, Mental)
+Code of Honour (Gentleman's), -10, page(B127), cat(Mundane, Mental)
+Code of Honour (Igor's), -5, page(57), cat(Mundane, Mental)
+Code of Honour (Klatchian), -10, page(57), cat(Mundane, Mental)
+Code of Honour (Pirate's), -5, page(57), cat(Mundane, Mental)
+Code of Honour (Professional), -5, page(57), cat(Mundane, Mental)
+Code of Honour (Soldier's), -10, page(57), cat(Mundane, Mental)
+Code of Honour (Watchman's), -5, page(57), cat(Mundane, Mental)
+Code of Honour (Wise-Woman's), -5, page(57), cat(Mundane, Mental)
 
 Compulsive Behavior, -5/-10, mods(Self-Control), page(B128), upto(3), cat(Mundane, Mental), levelnames(,,), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2572,7 +2564,7 @@ Compulsive Spending, -5, mods(Self-Control), page(B128), cat(Mundane, Mental),
 Compulsive Vowing, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Confused, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), 
+Confused, -10, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Cowardice, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), taboo(AD:Fearlessness),
@@ -2607,8 +2599,13 @@ Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Incuri
 
 
 Delusion, -5/-10/-15, upto(3), levelnames(Minor, Major, Severe), page(59), 
-	cat(Mundane, Mental), gives(-1 to ST:Reaction),
+	cat(Delusions, Mundane, Mental), gives(-1 to ST:Reaction),
 	x(#InputToTag("Specify your delusion here:", nameext, , "Delusion"))
+Delusion ("My combat sports training is fully effective in a real fight"), -10, page(59), 
+	cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction when "noticed by a genuine veteran warrior")
+Delusion ("My superior social class automatically makes me a good warrior"), -10,
+	needs(), page(59), needs(ST:Status = 1),
+	cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction when "noticed by a genuine veteran warrior")
 
 Disciplines of Faith, -5/-10, upto(3), page(59), cat(Mundane, Mental), levelnames(,,),
 	x(#InputToTag("Specify your set of rules here:", nameext, , "Disciplines of Faith"))
@@ -2634,8 +2631,7 @@ Easy to Read, -10, page(60), cat(Mundane, Mental), description(Gives others +4 o
 	Psychology rolls to discern your intentions or the truth of your words, and +4 to their IQ, Detect Lies, and Gambling rolls in any Quick Contest
 	with your Acting, Fast-Talk, or Gambling skill when you try to lie or bluff.)
 Fanaticism, -15/-15, levelnames( , Extreme), page(62), upto(2), cat(Mundane, Mental),
-	x(#InputToTag("Specify the country, organization, philosophy, or religion that you put ahead of everything else:",
-	nameext, , "Fanaticism")),
+	x(#InputToTag("Specify the country, organization, philosophy, or religion that you put ahead of everything else:", nameext, , "Fanaticism")),
 	conditional(=+@if(%level = 2 THEN 3) to ST:Will when "resisting Brainwashing, Interrogation, and Mind Control")
 Fearfulness, -2/-4, gives(-1 To Fright Check), page(60), upto(ST:Will - 3), cat(Mundane, Mental),
 	taboo(AD:Fearlessness, AD:Unfazeable)
@@ -2671,7 +2667,7 @@ Gullibility, -10, gives(-3 To SK:Merchant), mods(Self-Control), page(B137), cat(
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	taboo(SK:Detect Lies)
 
-Hidebound, -5, page(B138), cat(Mundane, Mental),
+Hidebound, -5, page(61), cat(Mundane, Mental, Mental Limitations),
 	conditional(-2 to SK:Artist when "creativity matters", -2 to SK:Engineer when "making a new invention")
 
 Honesty, -10, mods(Self-Control), page(B138), cat(Mundane, Mental),
@@ -2691,7 +2687,7 @@ Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental),
 				when "from sensible people, when impulsiveness is observed",
 			)
 
-Incurious, -5, mods(Self-Control), page(B140), cat(Mundane, Mental), taboo(DI:Curious),
+Incurious, -5, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), taboo(DI:Curious),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Indecisive, -10, mods(Self-Control), page(B140), cat(Mundane, Mental),
@@ -2710,7 +2706,7 @@ Jealousy, -10, page(B140), cat(Mundane, Mental)
 Kleptomania, -15, mods(Self-Control), page(B141), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Laziness, -10, page(B142), cat(Mundane, Mental), taboo(DI:Workaholic)
+Laziness, -10, page(61), cat(Mundane, Mental)
 
 Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2726,12 +2722,18 @@ Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental),
 			)
 
 
+Literal-Minded, -10, page(61), cat(Mundane, Mental, Mental Limitations),
+	taboo(DI:Clueless, DI:No Sense of Humour)
+Literal-Minded (Combined with Clueless or No Sense of Humour), -5, page(61),
+	cat(Mundane, Mental, Mental Limitations), needs(DI:Clueless | DI:No Sense of Humour)
+
 Loner, -5, mods(Self-Control), page(B142), cat(Mundane, Mental), taboo(DI:Chummy, DI:Gregarious), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Low Empathy, -20, gives(-3 To GR:Low Empathy), page(B142), cat(Mundane, Mental), taboo(AD:Empathy, AD:Sensitive)
+Low Empathy, -20, gives(-3 To GR:Low Empathy), page(61), cat(Mundane, Mental, Mental Limitations),
+	taboo(AD:Empathy, AD:Sensitive)
 Low Self-Image, -10, page(B143), cat(Mundane, Mental), taboo(DI:Overconfidence)
-Megalomania, -10, page(59), cat(Mundane, Mental),
+Megalomania, -10, page(59), cat(Delusions, Mundane, Mental),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "non-frothing NPCs")
 
 Miserliness, -10, mods(Self-Control), page(B144), cat(Mundane, Mental), taboo(DI:Compulsive Generosity, DI:Compulsive Spending),
@@ -2740,9 +2742,10 @@ Miserliness, -10, mods(Self-Control), page(B144), cat(Mundane, Mental), taboo(DI
 Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-No Sense of Humor, -10, page(B146), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
+No Sense of Humour, -10, page(B146), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
 Non-Iconographic, -10, page(B146), cat(Mundane, Mental)
-Oblivious, -5, gives(-1 To GR:Oblivious), page(B146), cat(Mundane, Mental)
+Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
+	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Mental Limitations)
 
 Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal), upto(2), page(B146), cat(Mundane, Mental),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2763,7 +2766,7 @@ Pacifism (Cannot Harm Innocents), -10, page(62), cat(Mundane, Mental),
 Pacifism (Self-Defence Only), -15, page(62), cat(Mundane, Mental),
 	taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents))
 
-Paranoia, -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
+Paranoia, -10, page(59), cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction)
 
 Phobia, -5/-10, upto(4), mods(Self-Control), page(B148), cat(Mundane, Mental), levelnames(,,,), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2856,6 +2859,11 @@ Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental),
 Squeamish, -10, mods(Self-Control), page(B156), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Stubbornness, -5, page(B157), cat(Mundane, Mental), conditional(-1 to ST:Reaction)
+
+Totally Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
+	taboo(DI:Oblivious, SK:Acting, SK:Fast-Talk, SK:Fortune-Telling, SK:Intimidation, SK:Interrogation, SK:Politics),
+	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"), cat(Mundane, Mental, Mental Limitations)
+
 Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:Compulsive Lying), 
@@ -4084,12 +4092,8 @@ AD:Enhanced Parry (all parries)
 AD:Enhanced Parry (bare hands)
 AD:Enhanced Time Sense
 AD:Enhanced Tracking
-AD:ESP Talent
-AD:Evil Talent
-AD:Extended Lifespan
 AD:Extra Attack
 AD:Extra Life
-AD:Extra Mouth
 AD:Fashion Sense
 AD:Fatigue Attack
 AD:Fearlessness
@@ -4145,7 +4149,6 @@ AD:Leech
 AD:Legal Enforcement Powers
 AD:Legal Immunity
 AD:Less Sleep
-AD:Life Talent
 AD:Lifting ST
 AD:Light Talent
 AD:Lightning Calculator
@@ -4376,12 +4379,12 @@ DI:Chronic Depression
 DI:Chronic Pain
 DI:Chummy
 DI:Clueless
-DI:Code of Honor (Chivalry)
-DI:Code of Honor (Gentleman's)
-DI:Code of Honor (Pirate's)
-DI:Code of Honor (Professional)
-DI:Code of Honor (Soldier's)
-DI:Code of Honor
+DI:Code of Honour (Chivalry)
+DI:Code of Honour (Gentleman's)
+DI:Code of Honour (Pirate's)
+DI:Code of Honour (Professional)
+DI:Code of Honour (Soldier's)
+DI:Code of Honour
 DI:Cold-Blooded
 DI:Colorblindness
 DI:Combat Paralysis
@@ -4426,7 +4429,6 @@ DI:Extra Sleep
 DI:Fanaticism
 DI:Fat
 DI:Fearfulness
-DI:Flashbacks
 DI:Fragile (Brittle)
 DI:Fragile (Combustible)
 DI:Fragile (Explosive)
@@ -4531,7 +4533,6 @@ DI:Shadow Form
 DI:Short Arms (1 Arm)
 DI:Short Arms (2 Arms)
 DI:Short Attention Span
-DI:Short Lifespan
 DI:Shyness
 DI:Skinny
 DI:Slave Mentality
@@ -4566,8 +4567,6 @@ DI:Supersensitive
 DI:Susceptible to [Common]
 DI:Susceptible to [Occasional]
 DI:Susceptible to [Very Common]
-DI:Terminally Ill
-DI:Timesickness
 DI:Trademark
 DI:Trickster
 DI:Truthfulness
@@ -4600,7 +4599,7 @@ QU:Broad-Minded
 QU:Cannot Float
 QU:Careful
 QU:Chauvinistic
-QU:Code of Honor
+QU:Code of Honour
 QU:Congenial
 QU:Delusion
 QU:Dislikes [specify]
@@ -4625,6 +4624,7 @@ QU:Personality Change
 QU:Proud
 QU:Responsive
 QU:Sexless
+QU:Short Lifespan
 QU:Staid
 QU:Trademark
 QU:Uncongenial
@@ -7881,7 +7881,7 @@ Investigator (Basic Set), displaycost(100),
 			), 
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
 			list(_
-				#newitem(AD:English, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
+				#newitem(AD:Morporkian, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
 				AD:Language - Native #codes(upto 3, downto 3),
 				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
 				AD:Language - Native (Written) _
@@ -8066,7 +8066,7 @@ Heroic Knight (Basic Set), displaycost(95),
 		adds(_
 			AD:Status=2,
 			AD:Wealth,
-			DI:Code of Honor (Chivalry),
+			DI:Code of Honour (Chivalry),
 			DI:Duty (Liege lord)=2,
 			DI:Honesty _
 				with "You resist on a roll of  6 or less (quite rarely), *2, shortname(6 or less), group(Self-Control)",
@@ -8095,7 +8095,7 @@ Warrior (Basic Set), displaycost(101),
 			),
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
 			list(_
-				#newitem(AD:English, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
+				#newitem(AD:Morporkian, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
 				AD:Language - Native #codes(upto 3, downto 3),
 				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
 				AD:Language - Native (Written) _
@@ -8149,7 +8149,7 @@ Warrior - Knight (Basic Set), displaycost(+3),
 		adds(_
 			AD:Status = 2,
 			AD:Wealth,
-			DI:Code of Honor (Chivalry),
+			DI:Code of Honour (Chivalry),
 			DI:Duty (Liege lord) = 2,
 			SK:Heraldry = 1pts,
 			SK:Riding (Horse) = 2pts _
@@ -8169,7 +8169,7 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			),
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
 			list(_
-				#newitem(AD:English, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
+				#newitem(AD:Morporkian, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), mods(Language), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
 				AD:Language - Native #codes(upto 3, downto 3),
 				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
 				AD:Language - Native (Written) _
@@ -8216,12 +8216,11 @@ Soldier of Fortune (Basic Set), displaycost(100),
 				DI:Alcoholism,
 				DI:Bad Temper,
 				DI:Bloodlust,
-				DI:Code of Honor,
+				DI:Code of Honour,
 				DI:Compulsive Carousing,
 				DI:Compulsive Spending,
 				DI:Duty,
 				DI:Fanaticism,
-				DI:Flashbacks #codes(UPTO 1),
 				DI:Honesty,
 				DI:Impulsiveness,
 				DI:Lecherousness,
@@ -8708,7 +8707,7 @@ Automaton, displaycost(-85), cost(0),
 		DI:Incurious _
 			with "You resist quite rarely (roll of 6 or less), *2, shortname(6-), group(Self Control)",
 		DI:Low Empathy,
-		DI:No Sense of Humor,
+		DI:No Sense of Humour,
 		DI:Slave Mentality_
 		)
 Domestic Animal, displaycost(-30), cost(0),
