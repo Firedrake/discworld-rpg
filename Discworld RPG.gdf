@@ -2089,17 +2089,17 @@ Boredom Immunity, 1, page(93), cat(Racial)
 Check the Exits, 1, page(50), cat(Non-Racial)
 Climatic Emphasis, 1, page(50), cat(Non-Racial)
 Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Non-Racial),
-	x(InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
+	x(#InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
 Cold Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Cold))
 Controllable Disadvantage, 1, page(51), cat(Non-Racial),
-	x(InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
+	x(#InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
 Crossbow Safety, 1, page(51), cat(Non-Racial)
 Cutting-Edge Training, 1/2, page(51), cat(Non-Racial, Skill Perks),
 	x(#InputToTagReplace("Specify TL-based skill", nameext, , "TL-based skill needed"))
 Deep Sleeper, 1, page(51), taboo(DI:Light Sleeper), cat(Non-Racial)
 Divine News-Feed, 1, page(51), cat(Non-Racial, Priestly)
 Dual Ready, 1, page(51), cat(Non-Racial),
-	x(InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
+	x(#InputToTagReplace("Specify the two weapons you can draw simultaneously:", nameext, , "Dual Ready"))
 Fearsome Stare, 1, page(52), cat(Non-Racial, Wordless Influence),
 	description(Allows use of Intimidation skill without talking.)
 Feathers, 1, page(93), cat(Racial)
@@ -2121,26 +2121,26 @@ Heat Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (H
 High-Heeled Heroine, 1, page(51), cat(Non-Racial)
 Honest Face, 1, page(51), cat(Non-Racial)
 Hyper-Specialisation, 1, page(51), cat(Non-Racial, Skill Perks),
-	x(InputToTagReplace("Specify the skill and the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
+	x(#InputToTagReplace("Specify the skill and the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
 Improvised Weapons, 1, page(52), cat(Non-Racial, Skill Perks),
-	x(#InputToTagReplace("please enter the weapon skill you can use Improvised Weapons with:" , nameext, ,"Improvised Weapons"))
+	x(#InputToTagReplace("Please enter the weapon skill you can use Improvised Weapons with:" , nameext, ,"Improvised Weapons"))
 Limited Camouflage, 1, page(94), cat(Racial),
-	x(InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage")),
 	conditional(+2 to SK:Camouflage when "stationary and unclad in a specific environment",_
-	+2 to SK:Stealth when "stationary and unclad in a specific environment")
+	+2 to SK:Stealth when "stationary and unclad in a specific environment"),
+	x(#InputToTagReplace("Specify the environment where you get a hiding bonus:", nameext, , "Limited Camouflage"))
 Longevity, 1, page(52), cat(Non-Racial)
 Name Hearing, 1, page(94), cat(Racial, Godly)
 No Hangover, 1, page(52), cat(Non-Racial)
 Off-Hand Training, 1, page(52), cat(Non-Racial, Skill Perks),
-	x(InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
+	x(#InputToTagReplace("Specify the skill you can perform unpenalised with your off hand:", nameext, , "Off-Hand Training"))
 Oggham Reader, 1, page(52), needs(1 CA:Language Written = 2), cat(Non-Racial)
-One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery (Non-Improvisational) 0), cat(Magical, Non-Racial),
-	x(InputToTagReplace("Please name the One Spell:", nameext, , "Shtick"))
+One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery 0 (Non-Improvisational)), cat(Magical, Non-Racial),
+	x(#InputToTagReplace("Please name the One Spell:", nameext, , "Shtick"))
 Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial),
 	conditional(+1 to SK:Intimidation when "surprising someone by yelling or roaring")
 Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
-Secret Name, 1, page(52), needs(AD:Magery 0 | Magery (Non-Improvisational) 0), cat(Magical, Non-Racial)
+Secret Name, 1, page(52), needs(AD:Magery 0 | Magery 0 (Non-Improvisational)), cat(Magical, Non-Racial)
 Self-Styling Hair, 1, page(52), cat(Magical, Non-Racial)
 Sordid Claws, 1, page(94), needs(AD:Claws), cat(Racial)
 Statuesque, 1, page(52), cat(Non-Racial),
@@ -2742,7 +2742,7 @@ Miserliness, -10, mods(Self-Control), page(B144), cat(Mundane, Mental), taboo(DI
 Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-No Sense of Humor, -10, page(B146), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
+No Sense of Humour, -10, page(B146), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
 Non-Iconographic, -10, page(B146), cat(Mundane, Mental)
 Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
 	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Mental Limitations)
@@ -8707,7 +8707,7 @@ Automaton, displaycost(-85), cost(0),
 		DI:Incurious _
 			with "You resist quite rarely (roll of 6 or less), *2, shortname(6-), group(Self Control)",
 		DI:Low Empathy,
-		DI:No Sense of Humor,
+		DI:No Sense of Humour,
 		DI:Slave Mentality_
 		)
 Domestic Animal, displaycost(-30), cost(0),
