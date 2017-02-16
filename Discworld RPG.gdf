@@ -293,7 +293,7 @@ name(All), group(All)
 *  9 Basic Speed
 * 10 Basic Move
 * 11 Reserved for movement attributes activated by taking advantages or disadvantages
-*	(e.g. Flight, Tunneling, No Legs (Aquatic))
+*	(e.g. Flight)
 * 12 Size Modifier
 * 13 --------------------
 * 14 Tech Level
@@ -422,10 +422,8 @@ Shift Slightly, basevalue(50 * ST:Basic Lift), maxscore(1000000), minscore(0), p
 * Movement
 ************************************************************************************************************************
 Ground Move, basevalue(ST:Basic Ground Move), maxscore(1000000), minscore(0), round(-1)
-Water Move, basevalue(ST:Basic Water Move), step(1), maxscore(1000000), minscore(0), up(5), down(-5), round(-1)
+Water Move, basevalue(ST:Basic Water Move), step(1), maxscore(1000000), minscore(0), hide(yes), display(no), round(-1)
 Air Move, basevalue(ST:Basic Air Move), maxscore(1000000), minscore(0), hide(yes), display(no), up(2), down(-2), step(1), round(-1)
-Space Move, basevalue(ST:Basic Space Move), maxscore(1000000), minscore(0), hide(yes), display(no), up(2), down(-2), step(1), round(-1)
-Tunneling Move, basevalue(@itemhasmod(AD:Tunneling, Tunneling Move)), maxscore(1000000), minscore(0), hide(yes), display(no)
 Brachiation Move, basevalue(ST:Basic Brachiation Move), maxscore(1000000), minscore(0), hide(yes), display(no), round(-1)
 Jump Move, basevalue(@max(ST:Ground Move, @round((ST:Broad Jump/15)+0.49999, 0))), maxscore(1000000), minscore(0), hide(yes), display(no)
 
@@ -567,12 +565,8 @@ Basic Water Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(
 	basevalue(ST:Basic Move / 5)
 Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
-				@if(@itemhasmod(AD:Flight, Gliding) THEN ST:Basic Move ELSE _
-				@if(@itemhasmod(AD:Flight, Controlled Gliding) THEN ST:Basic Move ELSE _
-				@if(AD:Flight THEN _
-					@if(@itemhasmod(Flight, Space Flight Only) THEN 0 ELSE 2 * ST:Basic Speed) ELSE _
-					0 )_
-				)))
+				@if(AD:Flight THEN 2 * ST:Basic Speed ELSE 0)_
+				)
 Basic Brachiation Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
 				@if(AD:Brachiator THEN ST:Basic Move / 2 ELSE 0)_
@@ -583,7 +577,7 @@ Native Cultural Familiarities, basevalue(0), display(no), hide(yes)
 Quadruped, basevalue(0), display(no), hide(yes)
 MagicSkill, basevalue(0), display(no), hide(yes)
 MagicDefaultBase, basevalue(0), display(no), hide(yes)
-VoCBonus, basevalue(0), display(no), hide(yes)
+VoCBonus, basevalue(ST:IQ), display(no), hide(yes)
 
 * Magery Prerequisite Work-around Stats
 ************************************************************************************************************************
@@ -600,40 +594,37 @@ Status, basevalue(0), minscore(-2), maxscore(8 limitingtotal), up(5), down(-5), 
 [ADVANTAGES]
 ************************************************************************************************************************
 <Attributes>
-Extra ST, 10/20, page(B14), mods(Extra ST, Size, Quadruped), initmods(Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra ST, 10/20, page(26), mods(Extra ST, Size, Quadruped), initmods(Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra ST advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra DX, 20/40, page(B15), mods(Extra DX, Quadruped), initmods(Affects displayed DX score, +0%, shortname(Affects DX), gives(+Owner::Level to ST:DX), group(Extra DX), description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra DX, 20/40, page(26), mods(Extra DX, Quadruped), initmods(Affects displayed DX score, +0%, shortname(Affects DX), gives(+Owner::Level to ST:DX), group(Extra DX), description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra DX advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra IQ, 20/40, page(B15), mods(Extra IQ), initmods(Affects displayed IQ score, +0%, shortname(Affects IQ), gives(+Owner::Level to ST:IQ), group(Extra IQ), description(This modifier causes the Extra IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra IQ, 20/40, page(27), mods(Extra IQ), initmods(Affects displayed IQ score, +0%, shortname(Affects IQ), gives(+Owner::Level to ST:IQ), group(Extra IQ), description(This modifier causes the Extra IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra IQ advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra IQ advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra HT, 10/20, page(B15), mods(Extra HT), initmods(Affects displayed HT score, +0%, shortname(Affects HT), gives(+Owner::Level to ST:HT), group(Extra HT), description(This modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra HT, 10/20, page(27), mods(Extra HT), initmods(Affects displayed HT score, +0%, shortname(Affects HT), gives(+Owner::Level to ST:HT), group(Extra HT), description(This modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra HT advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-					
 
-Extra Will, 5/10, page(B16), mods(Extra Will), initmods(Affects displayed Will score, +0%, shortname(Affects Will), gives(+Owner::Level to ST:Will), group(Extra Will), description(This modifier causes the Extra Will advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Will, 5/10, page(27), mods(Extra Will), initmods(Affects displayed Will score, +0%, shortname(Affects Will), gives(+Owner::Level to ST:Will), group(Extra Will), description(This modifier causes the Extra Will advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Will advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Will advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra Perception, 5/10, page(B16), mods(Extra Perception), initmods(Affects displayed Per score, +0%, shortname(Affects Per), gives(+Owner::Level to ST:Perception), group(Extra Perception), description(This modifier causes the Extra Perception advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Perception, 5/10, page(27), mods(Extra Perception), initmods(Affects displayed Per score, +0%, shortname(Affects Per), gives(+Owner::Level to ST:Perception), group(Extra Perception), description(This modifier causes the Extra Perception advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Perception advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Perception advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra Hit Points, 2/4, page(B16), mods(Extra Hit Points, Size), initmods(Affects displayed HP score, +0%, shortname(Affects HP), gives(+Owner::Level to ST:Hit Points), group(Extra Hit Points), description(This modifier causes the Extra Hit Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Hit Points, 2/4, page(27), mods(Extra Hit Points, Size), initmods(Affects displayed HP score, +0%, shortname(Affects HP), gives(+Owner::Level to ST:Hit Points), group(Extra Hit Points), description(This modifier causes the Extra Hit Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Hit Points advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Hit Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra Fatigue Points, 3/6, page(B16), mods(Extra Fatigue Points), initmods(Affects displayed FP score, +0%, shortname(Affects FP), gives(+Owner::Level to ST:Fatigue Points), group(Extra Fatigue Points), description(This modifier causes the Extra Fatigue Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Fatigue Points, 3/6, page(27), mods(Extra Fatigue Points), initmods(Affects displayed FP score, +0%, shortname(Affects FP), gives(+Owner::Level to ST:Fatigue Points), group(Extra Fatigue Points), description(This modifier causes the Extra Fatigue Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Fatigue advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Fatigue advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
 
-Extra Basic Move, 5/10, page(B17), mods(Extra Basic Move), initmods(Affects displayed Basic Move score, +0%, shortname(Affects Move), gives(+Owner::Level to ST:Basic Move), group(Extra Basic Move), description(This modifier causes the Extra Basic Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Basic Move, 5/10, page(28), mods(Extra Basic Move), initmods(Affects displayed Basic Move score, +0%, shortname(Affects Move), gives(+Owner::Level to ST:Basic Move), group(Extra Basic Move), description(This modifier causes the Extra Basic Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Basic Move advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Basic Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra Basic Speed, 5/10, page(B17), mods(Extra Basic Speed), upto(80), initmods(Affects displayed Basic Speed score, +0%, shortname(Affects Speed), gives(+(Owner::Level/4) to ST:Basic Speed), group(Extra Basic Speed), description(This modifier causes the Extra Basic Speed advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Basic Speed, 5/10, page(28), mods(Extra Basic Speed), upto(80), initmods(Affects displayed Basic Speed score, +0%, shortname(Affects Speed), gives(+(Owner::Level/4) to ST:Basic Speed), group(Extra Basic Speed), description(This modifier causes the Extra Basic Speed advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Basic Speed advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Basic Speed advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.),
 	levelnames(_
 			+0.25, +0.5, +0.75, +1, +1.25, +1.5, +1.75, +2, +2.25, +2.5, +2.75, +3, +3.25, +3.5, +3.75, +4, +4.25, +4.5, +4.75, +5, +5.25, +5.5, +5.75, +6, +6.25, +6.5, +6.75, +7, +7.25, +7.5, +7.75, +8, +8.25, +8.5, +8.75, +9, +9.25, +9.5, +9.75, +10,
 			+10.25, +10.5, +10.75, +11, +11.25, +11.5, +11.75, +12, +12.25, +12.5, +12.75, +13, +13.25, +13.5, +13.75, +14, +14.25, +14.5, +14.75, +15, +15.25, +15.5, +15.75, +16, +16.25, +16.5, +16.75, +17, +17.25, +17.5, +17.75, +18, +18.25, +18.5, +18.75, +19, +19.25, +19.5, +19.75, +20 _
 			)
-Extra Water Move, 5/10, page(B18), mods(Extra Water Move), initmods(Affects displayed Water Move score, +0%, shortname(Affects Water Move), gives(+Owner::Level to ST:Basic Water Move), group(Extra Water Move), description(This modifier causes the Extra Water Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
-	description(The Extra Water Move advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Water Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-Extra Air Move, 2/4, page(B18), mods(Extra Air Move), initmods(Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(+Owner::Level to ST:Basic Air Move), group(Extra Air Move), description(This modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
+Extra Air Move, 2/4, page(89), mods(Extra Air Move), initmods(Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(+Owner::Level to ST:Basic Air Move), group(Extra Air Move), description(This modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)),
 	description(The Extra Air Move advantage allows you to take extra levels of the attribute which you can then apply enhancements and limitations to. The "Affects displayed score" modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove that modifier.)
-High TL, 5/10, page(B23), gives(+1 to ST:Tech Level), cat(Mundane, Social, Mundane Social),
-	upto(12 - ST:Tech Level::basevalue)
-Increased SM, 0/0, gives(+1 to ST:Size Modifier), page(B19)
+High TL, 5/10, page(31), gives(+1 to ST:Tech Level), cat(Mundane, Social, Mundane Social),
+	upto(5 - ST:Tech Level::basevalue)
+Increased SM, 0/0, gives(+1 to ST:Size Modifier), page(27)
 					
 
 <General>
@@ -691,66 +682,22 @@ _New Leveled Advantage, %Costaliaslist%, displaycost(varies), noresync(yes),
 			)_
 	#edit_
 		)
-					
-					
 
 _New Parent Item, 0, isparent(yes),
 	description(_
-			In GCA a "Parent" item can have other traits assigned to it as "Children." This is essentially an organizational structure, allowing you to file multiple traits together under the parent item if you wish. _
+			In GCA a "Parent" item can have other traits assigned to it as "Children." This is an organizational structure, allowing you to file multiple traits together under the parent item if you wish. _
 			To make an item a "child" right click on it and select "Make Child of..." _
 			The child items will be hidden by default; you may show the child items by right clicking on the parent and selecting "Show Components." Once displayed the children will be shown in a "tree" format under the parent. _
 			Any item may be assigned as a parent by right clicking on it and selecting "Make Parent"; this entry is here for convenience, as it is automatically designated a Parent. _
 			),
 	x(#InputToTagReplace("Please specify a name for this item:", name, ,"New Parent Item"))
-					
-
-_New Alternative Attacks, 0, isparent(yes), childprofile(1), page(B61), cat(Innate Attack),
-	description(_
-			In GCA Alternative Attacks are created using the Parent/Child trait relationship. Look at the Description of "_New Parent Item" for a full description of Parent items in GCA. _
-			To create an Alternative Attack in GCA simply add this trait to the character then make all the Attack traits Children of the New Alternative Attack Parent item._
-	),
-	x(#InputToTagReplace("Please specify a name for this item:", name, ,"New Alternative Attack"))
-					
-					
-					
 
 <Exotic Physical>
-Racial Skill Bonus ([skill]), 2/4, page(B452), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Talents),
-	gives(+1 to SK:[skill]), noresync(yes),
-	x(#InputReplace("Please enter the name of the skill:", "[skill]", , "Racial Skill Bonus"))
-					
-
-Racial Spell Bonus ([spell]), 2/4, page(B452), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Talents),
-	gives(+1 to SK:[spell]), noresync(yes),
-	x(#InputReplace("Please enter the name of the spell:", "[spell]", , "Racial spell Bonus"))
-					
-
-Racial Skill Point Bonus ([skill]), 1/2, page(B452), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Talents),
+Racial Skill Point Bonus ([skill]), 1/2, page(99), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial),
 	gives(+1pts to SK:[skill]), noresync(yes),
 	x(#InputReplace("Please enter the name of the skill:", "[skill]", , "Racial Skill Point Bonus"))
 					
-
-Racial Spell Point Bonus ([spell]), 1/2, page(B452), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Talents),
-	gives(+1pts to SP:[spell]), noresync(yes),
-	x(#InputReplace("Please enter the name of the spell:", "[spell]", , "Racial Spell Point Bonus"))
-					
-
-Racial Skill Bonus (%skillslist%), 2/4, page(B452), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Talents),
-	gives(+1 to SK:%skillslist%), noresync(yes),
-	x(#ChoiceList(_
-			name(skills),
-			title(Racial Skill Bonus: Choose a Skill),
-			text(Choose which skill the Racial Skill Bonus is for:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				#grouplist(GR:AllSkills, flags(NoPrefix))_
-				)_
-			)_
-		)
-					
-
-Racial Skill Point Bonus (%skillslist%), 1/2, page(B452), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Talents),
+Racial Skill Point Bonus (%skillslist%), 1/2, page(99), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial),
 	gives(+1pts to SK:%skillslist%), noresync(yes),
 	x(#ChoiceList(_
 			name(skills),
@@ -764,25 +711,6 @@ Racial Skill Point Bonus (%skillslist%), 1/2, page(B452), cat(Exotic Mental, Exo
 			)_
 		)
 					
-Acute [sense], 2/4, page(41), cat(Exotic, Physical),
-	x(#InputReplace("Specify the exact name of the specialised sense that is superior (Scanning Sense, Vibration Sense, etc.):",
-		"[sense]", , "Acute Sense")),
-	gives(+1 to ST:[sense]::skillscore, +1 to AD:[sense]::skillscore), needs(AD:[sense])
-
-* Detect, Scanning Sense, Vibration Sense
-* Radar, Imaging Radar, Ladar, Para-Radar, Sonar
-* Ultrahearing/Ultrasonic Speech
-* Ultravision
-* Subsonic Hearing/Subsonic Speech
-					
-
-* From Powers
-* Active IR, T-Ray Vision
-					
-					
-					
-					
-
 Affliction, 10/20, mods(Affliction, Affliction Enhancements, Affliction Limitations, _Attack Enhancements, _Attack Limitations, Alternative Attack), page(B35), cat(Exotic, Physical, Natural Attacks),
 	damage(HT-$solver(me::level - 1)),
 	damtype(aff), acc(3), rangehalfdam(10), rangemax(100), rof(1), shots(), rcl(1),
@@ -899,28 +827,23 @@ Doesn't Sleep, 20, page(B50), cat(Exotic, Physical), taboo(AD:Extra Sleep, DI:Le
 Elastic Skin, 20, gives(+4 To SK:Disguise), page(B51), cat(Exotic, Physical)
 					
 
-//Enhanced Move (Ground), 20/40, gives(+1 To ST:Enhanced Ground Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical),
-//	replacetags(in ST:Ground Move with "mainwin(11), noresync(yes)")
-Enhanced Move (Ground), 10/20, gives(+0.5 To ST:Enhanced Ground Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical),
+Enhanced Move (Ground), 10/20, gives(+0.5 To ST:Enhanced Ground Move), mods(Enhanced Move), page(89), cat(Exotic, Physical),
 	replacetags(in ST:Ground Move with "mainwin(11), noresync(yes)"),
 	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
-//Enhanced Move (Air), 20/40, gives(+1 To ST:Enhanced Air Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical)
-Enhanced Move (Air), 10/20, gives(+0.5 To ST:Enhanced Air Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical),
-	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
-//Enhanced Move (Space), 20/40, gives(+1 To ST:Enhanced Space Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical)
-Enhanced Move (Space), 10/20, gives(+0.5 To ST:Enhanced Space Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical),
-	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
-//Enhanced Move (Water), 20/40, gives(+1 To ST:Enhanced Water Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical)
-Enhanced Move (Water), 10/20, gives(+0.5 To ST:Enhanced Water Move), mods(Enhanced Move), page(B52), cat(Exotic, Physical),
-	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
-					
 
-Enhanced Tracking, 5/10, page(B53), cat(Exotic, Physical)
-					
+Enhanced Move (Air), 10/20, gives(+0.5 To ST:Enhanced Air Move), mods(Enhanced Move), page(89), cat(Exotic, Physical),
+	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
+
+Enhanced Move (Water), 10/20, gives(+0.5 To ST:Enhanced Water Move), mods(Enhanced Move), page(89), cat(Exotic, Physical),
+	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
+
 Filter Lungs, 5, page(B55), cat(Exotic, Physical), taboo(AD:Doesn't Breathe)
-Flight, 40, mods(Flight), page(B56), cat(Exotic, Physical),
-	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)", in "ST:Space Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
-					
+Flight (Levitation), 40, page(89), cat(Exotic, Physical, Racial),
+	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
+Flight, 30 (Winged, Can Hover), page(89), cat(Exotic, Physical, Racial),
+	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
+Flight, 24 (Winged, Cannot Hover), page(89), cat(Exotic, Physical, Racial),
+	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
 
 Growth, 10/20, mods(Growth), page(B58), cat(Exotic, Physical)
 Hermaphromorph, 5, page(B59), cat(Exotic, Physical)
@@ -1312,8 +1235,9 @@ Toxic Attack, 4/8, page(B61), cat(Exotic, Physical, Innate Attack, Natural Attac
 	), noresync(yes)
 					
 
-Lifting ST, 3/6, gives(+1 to ST:Lifting ST), conditional(+1 to ST:ST), mods(Lifting ST, Quadruped, Size), page(B65), cat(Exotic, Physical)
-Metabolism Control, 5/10, mods(Metabolism Control), page(B68), cat(Exotic, Physical), taboo(TE:Machine)
+Lifting ST, 3/6, gives(+1 to ST:Lifting ST), conditional(+1 to ST:ST),
+	mods(Lifting ST, Quadruped, Size), page(43), cat(Exotic, Physical)
+
 Microscopic Vision, 5/10, page(B68), cat(Exotic, Physical), taboo(DI:Blindness)
 Nictitating Membrane, 1/2, page(B71), cat(Exotic, Physical)
 Obscure, 2/4, mods(Obscure), page(B72), cat(Exotic, Physical), upto(10), radius(2),
@@ -1501,7 +1425,7 @@ Detect, 5/10/20/30, mods(Detect), levelnames(Rare, Occasional, Common, Very Comm
 					
 
 Duplication, 35/70, mods(Duplication), page(B50), cat(Exotic Physical, Exotic, Mental, Physical)
-Extra Life, 25/50, mods(Extra Life), page(B55), cat(Exotic, Mental)
+Extra Life, 25/50, page(43), cat(Exotic, Mental, Pawn of the Lady)
 Insubstantiality, 80, mods(Insubstantiality), page(B62), cat(Exotic Physical, Exotic, Mental, Physical)
 Invisibility, 40, mods(Invisibility), page(B63), cat(Exotic, Mental),
 	conditional(+9 to SK:Stealth when "being seen would matter"),
@@ -1556,39 +1480,13 @@ Snatcher, 80, mods(Snatcher), page(B86), cat(Exotic, Mental),
 
 Speak With Animals, 25, mods(Speak With Animals), page(B87), cat(Exotic, Mental)
 					
-
-Telekinesis, 5/10, mods(Telekinesis), page(B92), cat(Exotic Physical, Exotic, Mental, Physical, Natural Attacks),
-		gives(+1 to ST:TK ST, +1 to ST:TK Move),
-	conditional(_
-			=+4 to GR:High Manual Dexterity when "performing DX-based tasks",
-			=+4 to SK:Mechanic when "performing fine DX-based tasks" _
-			),
-	replacetags(_
-			in "ST:TK ST" with "hide(), display(yes), mainwin(11), noresync(yes)",
-			in "ST:TK Basic Lift" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Move" with "hide(), display(yes), mainwin(11), noresync(yes)",
-			in "ST:TK No Encumbrance" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Light Encumbrance" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Medium Encumbrance" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Heavy Encumbrance" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK X-Heavy Encumbrance" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK No Encumbrance Move" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Light Encumbrance Move" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Medium Encumbrance Move" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK Heavy Encumbrance Move" with "hide(), display(yes), noresync(yes)",
-			in "ST:TK X-Heavy Encumbrance Move" with "hide(), display(yes), noresync(yes)" _
-			),
-	rangemax(10), mode(thrust|swing), damage(thr|sw), damtype(cr), skillused(ST:DX), parry(0), damagebasedon(ST:TK ST)
-					
-
 Temperature Control, 5/10, mods(Temperature Control), page(B92), cat(Exotic Physical, Exotic, Mental, Physical)
 					
-
 <Supernatural Physical>
 Supernatural Durability, 150, page(B89), cat(Supernatural, Physical), taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
 	skillused(ST:Will+3), mode(ignore pain)
 Voice of Command, 90, mods(Voice of Command), page(49), cat(Supernatural, Physical), taboo(DI:Cannot Speak, DI:Mute),
-	skillused(ST:IQ + ST:VoCBonus)
+	skillused(ST:VoCBonus)
 Voice of Command IQ Bonus (+2 per level), 5/10, page(49), cat(Supernatural, Physical),
 	needs(AD:Voice of Command), gives(+2 to ST:VoCBonus)
 
@@ -1643,10 +1541,10 @@ Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology
 	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)), page(45), cat(Supernatural, Mental)
 
 Medium, 10, page(45), cat(Supernatural, Mental)
-Spirit Empathy (Full), 10, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(empathize)
-Spirit Empathy (Specialised: [specify]), 5, mods(Spirit Empathy), page(42), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(empathize),
+Spirit Empathy (Full), 10, page(42), cat(Empathic Abilities, Supernatural, Mental),
+	taboo(AD:Spirit Empathy), skillused(ST:IQ), mode(empathize)
+Spirit Empathy (Specialised: [specify]), 5, page(42), cat(Empathic Abilities, Supernatural, Mental),
+	taboo(AD:Spirit Empathy (Full)), skillused(ST:IQ), mode(empathize),
 	x( #InputReplace("Specify the class of spirits:", "[specify]", , "Class of Spirits") )
 True Faith, 15, page(48), cat(Supernatural, Mental)
 
@@ -1666,29 +1564,41 @@ Appearance, 4/12/12/16/16, mods(Attractive, Appearance), upto(5), page(29),
 		@indexedvalue(%level, 1, 4, 4, 6, 6) to SK:Sex Appeal)
 					
 
-Absolute Direction, 5/10, displaycost(5), upto(2), levelnames(,3D Spatial Sense), gives(=+3 To GR:Absolute Direction, =+@indexedvalue(me::level, 0, 1) To SK:Piloting, =+@indexedvalue(me::level, 0, 2) To GR:3D Spatial Sense), mods(Absolute Direction), page(B34), cat(Mundane Mental, Mundane, Physical, Mental), taboo(AD:3D Spatial Sense)
-3D Spatial Sense, 10, gives(+1 To SK:Piloting, +2 To GR:3D Spatial Sense, +3 To GR:Absolute Direction), mods(Absolute Direction), page(B34), cat(Mundane Mental, Mundane, Physical, Mental), taboo(AD:Absolute Direction)
-Acute Hearing, 2/4, gives(+1 To ST:Hearing), skillused(ST:Hearing), mode(hear), page(B35), cat(Mundane, Physical), taboo(DI:Deafness)
-Acute Taste and Smell, 2/4, gives(+1 To ST:Taste/Smell), skillused(ST:Taste/Smell), mode(taste/smell), page(B35), cat(Mundane, Physical), taboo("DI:No Sense of Smell/Taste")
-Acute Touch, 2/4, gives(+1 To ST:Touch), skillused(ST:Touch), mode(feel), page(B35), cat(Mundane, Physical), taboo(DI:Numb)
-Acute Vision, 2/4, gives(+1 To ST:Vision, +1 To SK:Observation), skillused(ST:Vision), mode(see), conditional(+1 To SK:Tracking when "vision is a factor"), page(B35), cat(Mundane, Physical), taboo(DI:Blindness)
+Absolute Direction, 5, displaycost(5), gives(=+3 To GR:Absolute Direction), page(45), cat(Mundane Mental, Mundane, Physical, Mental)
+
+Acute Hearing, 2/4, gives(+1 To ST:Hearing), skillused(ST:Hearing), mode(hear), page(41),
+	cat(Mundane, Physical), taboo(DI:Deafness)
+Acute Taste and Smell, 2/4, gives(+1 To ST:Taste/Smell), skillused(ST:Taste/Smell), mode(taste/smell), page(41),
+	cat(Mundane, Physical)
+Acute Touch, 2/4, gives(+1 To ST:Touch), skillused(ST:Touch), mode(feel), page(41),
+	cat(Mundane, Physical)
+Acute Vision, 2/4, gives(+1 To ST:Vision), skillused(ST:Vision), mode(see), page(41),
+	cat(Mundane, Physical), taboo(DI:Blindness)
+
 Ambidexterity, 5, page(41), cat(Mundane, Physical), taboo(DI:One Arm, DI:One Hand)
-Extra Attack, 25/50, page(B54), cat(Mundane, Physical)
+Extra Attack, 25/50, page(42), cat(Mundane, Physical)
 Fit, 5/15, displaycost(5), upto(2), levelnames(,Very Fit), page(B55), cat(Mundane, Physical), taboo(AD:Very Fit, DI:Unfit, DI:Very Unfit), conditional(+1 to ST:HT), gives(+1 to ST:Consciousness Check, +1 to ST:Death Check)
 Very Fit, 15, page(B55), cat(Mundane, Physical), taboo(AD:Fit, DI:Unfit, DI:Very Unfit), conditional(+2 to ST:HT), gives(+2 to ST:Consciousness Check, +2 to ST:Death Check)
-Flexibility, 5/15, displaycost(5), upto(2), levelnames(,Double-Jointed), conditional(=@indexedvalue(me::level, 3, 5) To ST:DX when "ignoring penalties for working in close quarters"), gives(=@indexedvalue(me::level, 3, 5) To GR:Flexibility), page(B56), cat(Mundane, Physical), taboo(AD:Double-Jointed)
-Double-Jointed, 15, conditional(+5 To ST:DX when "ignoring penalties for working in close quarters"), gives(+5 To GR:Flexibility), page(B56), cat(Mundane, Physical), taboo(AD:Flexibility)
-Hard to Kill, 2/4, page(B58), cat(Mundane, Physical), taboo(DI:Easy to Kill, AD:Unkillable, DI:Fragile (Unnatural)), gives(+1 to ST:Death Check)
-Hard to Subdue, 2/4, page(B59), cat(Mundane, Physical), gives(+1 to ST:Consciousness Check)
-High Manual Dexterity, 5/10, page(B59), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:Quadruped),
+
+Flexibility, 5/15, displaycost(5), upto(2), levelnames(,Double-Jointed),
+	conditional(=@indexedvalue(me::level, 3, 5) To ST:DX when "ignoring penalties for working in close quarters",
+		=@indexedvalue(me::level, 3, 0) To SK:Escape when "getting free of ropes, handcuffs, etc.",
+		=@indexedvalue(me::level, 0, 5) To "all attempts to break free of restraints"),
+	gives(=@indexedvalue(me::level, 3, 5) To SK:Climbing, =@indexedvalue(me::level, 0, 5) To SK:Escape),
+	page(43), cat(Mundane, Physical), taboo(AD:Double-Jointed)
+Double-Jointed, 15, conditional(+5 To ST:DX when "ignoring penalties for working in close quarters",
+		+5 To "all attempts to break free of restraints"),
+	gives(+5 To SK:Climbing, +5 To SK:Escape),
+	page(43), cat(Mundane, Physical), taboo(AD:Flexibility)
+
+High Manual Dexterity, 5/10, upto(4), page(43), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:Quadruped),
 	conditional(_
 			+1 to GR:High Manual Dexterity when "performing DX-based tasks",
 			+1 to SK:Mechanic when "performing fine DX-based tasks" _
 			)
-High Pain Threshold, 10, page(B59), cat(Mundane, Physical), taboo(DI:Low Pain Threshold, AD:Supernatural Durability),
+High Pain Threshold, 10, page(43), cat(Mundane, Physical), taboo(DI:Low Pain Threshold, AD:Supernatural Durability),
 	skillused(ST:Will+3), mode(ignore pain)
-Improved G-Tolerance, 5/10, upto(5), page(B60), levelnames(0.3G, 0.5G, 1G, 5G, 10G), cat(Mundane, Physical), taboo(DI:G-Intolerance)
-Less Sleep, 2/4, page(B65), cat(Mundane, Physical), taboo(AD:Doesn't Sleep, DI:Extra Sleep)
+Less Sleep, 2/4, page(43), upto(4), cat(Mundane, Physical), taboo(AD:Doesn't Sleep)
 Night Vision, 1/2, page(B71), upto(9), cat(Mundane, Physical), taboo(DI:Blindness, DI:Night Blindness, AD:Dark Vision)
 
 Perfect Balance, 15, gives(+1 To GR:Perfect Balance), page(46), cat(Mundane, Physical)
@@ -1714,42 +1624,41 @@ Voice, 10, gives(+2 To GR:Voice), page(30), cat(Mundane, Physical), taboo(DI:Mut
 					
 
 <Mundane Mental>
-Animal Empathy, 5, page(B40), cat(Mundane, Mental), taboo(DI:Frightens Animals),
+Animal Empathy, 5, page(B40), cat(Empathic Abilities, Mundane, Mental), taboo(DI:Frightens Animals),
 	skillused(ST:IQ), mode(empathize)
 Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(B41), cat(Mundane, Mental)
 Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
 	page(42), cat(Mundane, Mental), taboo(DI:Combat Paralysis)
 Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental),
 	skillused(ST:Perception), mode(sense danger)
-Daredevil, 15, page(43), cat(Mundane, Mental)
+Daredevil, 15, page(43), cat(Mundane, Mental, Luck Advantages, Pawn of the Lady)
 Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2),
 	page(45), cat(Mundane, Mental), taboo(AD:Photographic Memory),
 	skillused(ST:IQ), mode(recall)
+Empathy, 15, gives(+3 To GR:Empathy), conditional(+3 to SK:Psychology when "you can converse with the subject"),
+	page(42), cat(Empathic Abilities, Mundane, Mental), taboo(AD:Sensitive, DI:Low Empathy),
+	skillused(ST:IQ), mode(empathize)
 Photographic Memory, 10, page(45), cat(Mundane, Mental), taboo(AD:Eidetic Memory),
 	skillused(ST:IQ), mode(recall)
 Sensitive, 5, gives(+1 To GR:Empathy),
-	conditional(+1 to SK:Psychology when "you can converse with subject"),
-	page(42), cat(Mundane, Mental), taboo(DI:Low Empathy),
+	conditional(+1 to SK:Psychology when "you can converse with the subject"),
+	page(42), cat(Empathic Abilities, Mundane, Mental), taboo(AD:Empathy, DI:Low Empathy),
 	skillused(ST:IQ), mode(empathize)
-Empathy, 15, gives(+3 To GR:Empathy), conditional(+3 to SK:Psychology when "you can converse with subject"),
-	page(42), cat(Mundane, Mental), taboo(DI:Low Empathy),
-	skillused(ST:IQ), mode(empathize)
-Enhanced Block, 5/10, gives(+1 To Block), page(B51), cat(Mundane, Mental, Attributes)
-Enhanced Dodge, 15/30, gives(+1 To Dodge), page(B51), cat(Mundane, Mental, Attributes)
-Enhanced Parry (bare hands), 5/10, page(B51), cat(Mundane, Mental, Attributes),
+Enhanced Block, 5, gives(+1 To Block), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes)
+Enhanced Dodge, 15, gives(+1 To Dodge), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes)
+Enhanced Parry (bare hands), 5, page(42), cat(Enhanced Defences, Mundane, Mental, Attributes),
 	gives(_
 		+1 to ST:DX::parryat listAs "Enhanced Parry (bare hands)",
 		+1 to SK:Judo::parryat listAs "Enhanced Parry (bare hands)",
-		+1 to SK:Sumo Wrestling::parryat listAs "Enhanced Parry (bare hands)",
 		+1 to SK:Wrestling::parryat listAs "Enhanced Parry (bare hands)",
 		+1 to SK:Boxing::parryat listAs "Enhanced Parry (bare hands)",
 		+1 to SK:Brawling::parryat listAs "Enhanced Parry (bare hands)",
 		+1 to SK:Karate::parryat listAs "Enhanced Parry (bare hands)" _
 		)
-Enhanced Parry (%One-Handed Melee WeaponList%), 5/10, page(B51), cat(Mundane, Mental, Attributes),
-	gives(+1 to "SK:%One-Handed Melee WeaponList%::parryat" listAs "Enhanced Parry (%One-Handed Melee WeaponList%)"),
+Enhanced Parry (%Melee Weapon SkillList%), 5, page(42), cat(Enhanced Defences, Mundane, Mental, Attributes),
+	gives(+1 to "SK:%Melee Weapon SkillList%::parryat" listAs "Enhanced Parry (%Melee Weapon SkillList%)"),
 	x(#ChoiceList(_
-			name(One-Handed Melee Weapon),
+			name(Melee Weapon Skill),
 			title(Enhanced Parry: Choose a Melee Weapon),
 			text(Choose a Melee Weapon skill from the list:),
 			picksallowed(1),
@@ -1766,28 +1675,26 @@ Enhanced Parry (%One-Handed Melee WeaponList%), 5/10, page(B51), cat(Mundane, Me
 				"Spear",
 				"Staff",
 				"Two-Handed Axe/Mace",
-				"Two-Handed Flail",
 				"Two-Handed Sword" _
 			)_
 			)_
 	), noresync(yes)
-					
+Enhanced Parry (all parries), 10, gives(+1 To Parry), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes)
 
-Enhanced Parry (all parries), 10/20, gives(+1 To Parry), page(B51), cat(Mundane, Mental, Attributes)
-Fearlessness, 2/4, gives(+1 To ST:Fright Check), page(B55), cat(Mundane, Mental), taboo(DI:Fearfulness, DI:Cowardice, AD:Unfazeable)
-Gadgeteer, 25/50, page(B56), cat(Mundane, Mental), upto(2), levelnames( , Quick)
-					
-
-G-Experience, 1/2, upto(10), page(B57), cat(Mundane, Mental)
-					
-
+Fearlessness, 2/4, gives(+1 To ST:Fright Check), page(43), cat(Mundane, Mental),
+	taboo(DI:Fearfulness, DI:Cowardice, AD:Unfazeable)
+Gadgeteer, 25, page(43), cat(Mundane, Mental)
 Indomitable, 15, page(43), cat(Mundane, Mental)
+
 Language Talent, 10, gives(+1 To CA:Language), page(32), cat(Mundane, Mental)
 Lightning Calculator, 2, page(45), cat(Mundane, Mental), taboo(DI:Innumerate)
-Luck, 15/30/60, mods(Luck), levelnames( , Extraordinary, Ridiculous), page(B66), upto(3), cat(Mundane, Mental)
-Plant Empathy, 5, page(B75), cat(Mundane, Mental),
-	skillused(ST:IQ), mode(empathize)
-Serendipity, 15/30, page(B83), cat(Mundane, Mental)
+Luck, 15/30/60, levelnames( , Extraordinary, Ridiculous), page(44), upto(3),
+	cat(Mundane, Mental, Luck Advantages, Pawn of the Lady)
+
+Mad Medicine, 15, needs(AD:Gadgeteer, ((ST:Tech Level = 5) | (PE:Cutting-Edge Training (Physician and Surgery)))),
+	page(44), cat(Mundane, Mental)
+
+Serendipity, 15/30, page(44), cat(Mundane, Mental, Luck Advantages, Pawn of the Lady)
 Single-Minded, 5, page(B85), cat(Mundane, Mental), taboo(DI:Short Attention Span)
 Social Chameleon, 5, page(B86), cat(Mundane, Mental), conditional(+1 to ST:Reaction when "from those who demand respect (priests, kings, etc.)")
 					
@@ -2387,8 +2294,8 @@ Mute, -25, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, AD:Voice, PE
 Colorblindness, -10, page(B127), cat(Mundane, Physical), taboo(DI:Blindness),
 	conditional(-1 to SK:Artist, -1 to SK:Chemistry, -1 to SK:Driving, -1 to SK:Merchant, -1 to SK:Piloting, -1 to SK:Tracking)
 Combat Paralysis, -15, gives(-2 to ST:Fright Check), page(57), cat(Mundane, Physical), taboo(AD:Combat Reflexes)
-Deafness, -20, page(B129), cat(Mundane, Physical), mods(Deafness), taboo(AD:Discriminatory Hearing, AD:Parabolic Hearing, AD:Subsonic Hearing, AD:Subsonic Speech, AD:Ultrahearing, AD:Ultrasonic Speech, AD:Acute Hearing),
-	gives(-ST:Perception to ST:Hearing)
+Deafness, -20, page(B129), cat(Mundane, Physical), mods(Deafness),
+	taboo(AD:Acute Hearing, AD:Ultrahearing), gives(-ST:Perception to ST:Hearing)
 Disturbing Voice, -10, page(B132), cat(Mundane, Physical), taboo(AD:Voice, DI:Mute),
 	gives(-2 to GR:Stuttering), conditional(-2 to ST:Reaction)
 Easy to Kill, -2/-4, page(B134), upto(ST:HT - 3), cat(Mundane, Physical), taboo(AD:Hard To Kill, DI:Fragile (Unnatural), AD:Unkillable), gives(-1 to ST:Death Check)
@@ -2433,9 +2340,8 @@ Neurological Disorder, -15/-35/-55, levelnames(Mild, Severe, Crippling), page(B1
 Night Blindness, -10, page(B144), cat(Mundane, Physical), taboo(DI:Blindness, AD:Night Vision, AD:Dark Vision),
 	conditional(-3 to ST:Vision when "a darkness penalty applies; or double the darkness penalty, whichever is worse")
 No Depth Perception, -15, page(B145), cat(Mundane, Physical), taboo(DI:One Eye, DI:Blindness)
-No Sense of Smell/Taste, -5, page(B146), mods(No Sense of Smell/Taste), cat(Mundane, Physical), taboo(AD:Discriminatory Smell, AD:Acute Taste and Smell), gives(-"ST:Taste/Smell::basescore" to "ST:Taste/Smell")
 Noisy, -2/-4, page(B146), cat(Mundane, Physical), taboo(AD:Silence), conditional(-1 to ST:Reaction)
-Numb, -20, page(B146), cat(Mundane, Physical), taboo(AD:Acute Touch, AD:Sensitive Touch)
+
 One Arm, -20, page(64), cat(Mundane, Physical),
 	gives(-ST:Two Arm Lifting ST::basescore to ST:Two Arm Lifting ST, -ST:Two Arm Striking ST::basescore to ST:Two Arm Striking ST),
 	taboo(DI:Quadruped, DI:Short Arms (2 Arms), DI:One Hand, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
@@ -2876,7 +2782,7 @@ Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:C
 	conditional(-5 to SK:Acting when "your purpose is to deceive"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Unluckiness, -10, page(B160), cat(Mundane, Mental)
+Unluckiness, -10, page(65), cat(Mundane, Mental)
 Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Mundane, Mental),
 	x(#InputToTag("Please describe the nature of your Vow:", nameext, , "Vow"))
 Workaholic, -5, page(B162), cat(Mundane, Mental), conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
@@ -3992,7 +3898,6 @@ AD:_New Talent
 AD:Absolute Direction
 AD:Absolute Timing
 AD:Active IR
-AD:Acute [sense]
 AD:Acute Hearing
 AD:Acute Taste and Smell
 AD:Acute Touch
@@ -4208,8 +4113,6 @@ AD:Photographic Memory
 AD:Piercing Attack
 AD:Pitiable
 AD:PK Talent
-AD:Plant Control Talent
-AD:Plant Empathy
 AD:Police Rank
 AD:Possession
 AD:Power Investiture
@@ -4278,7 +4181,6 @@ AD:Subsonic Hearing
 AD:Subsonic Speech
 AD:Super Climbing
 AD:Super Jump
-AD:Super Luck
 AD:Supernatural Durability
 AD:Teeth (Blunt Teeth)
 AD:Teeth (Fangs)
@@ -5032,7 +4934,6 @@ ST:Appealing
 ST:Unappealing
 
 <Absolute Direction>
-SK:Body Sense
 SK:Navigation (Air)
 SK:Navigation (Land)
 SK:Navigation (Sea)
@@ -5079,11 +4980,6 @@ SK:Fast-Draw
 SK:Detect Lies
 SK:Fortune-Telling
 
-<Flexibility>
-SK:Climbing
-SK:Escape
-SK:Erotic Art
-
 <Gifted Artist>
 SK:Artist
 SK:Jeweler
@@ -5100,7 +4996,6 @@ SK:Naturalist
 
 <Healer>
 SK:Diagnosis
-SK:Esoteric Medicine
 SK:First Aid
 SK:Pharmacy
 SK:Physician
@@ -5111,9 +5006,8 @@ SK:Veterinary
 
 <High Manual Dexterity>
 SK:Artist
-SK:Jeweler
+SK:Jeweller
 SK:Knot-Tying
-SK:Leatherworking
 SK:Lockpicking
 SK:Pickpocket
 SK:Sewing
@@ -6510,9 +6404,6 @@ Mana Sensitive, -10%, group(_Origin), page(B33)
 Psionic, +0, group(_Origin), page(B33)
 Spirit, +0, group(_Origin), page(B33)
 
-<Absolute Direction>
-Requires Signal, -20%, group(Absolute Direction), page(B35)
-
 <Addiction>
 Effect: Incapacitating, -10, shortname(Incapacitating), group(Addiction), page(B122)
 Effect: Hallucinogenic, -10, shortname(Hallucinogenic), group(Addiction), page(B122)
@@ -6901,25 +6792,8 @@ Short, -50%, group(Extra Arms), page(B53)
 Long, +100%/+200%, group(Extra Legs), page(B55), gives(+1 to ST:Leg SM)
 Cannot Kick, -50%, group(Extra Legs), page(B55)
 
-<Extra Life>
-Copy, -20%, group(Extra Life), page(B55)
-Requires Body, -20%, group(Extra Life), page(B55)
-Requires Body (illegal/rare/expensive), -40%, group(Extra Life), page(B55)
-
 <Favor>
 Favor, *1/5, group(Favor), page(B55)
-
-<Flight>
-Newtonian Space Flight, +25%, group(Flight), page(B56)
-Space Flight, +50%, group(Flight), page(B56)
-Cannot Hover, -15%, group(Flight), page(B56)
-Controlled Gliding, -45%, group(Flight), page(B56), gives(+2 to ST:Enhanced Air Move)
-Gliding, -50%, group(Flight), page(B56), gives(+2 to ST:Enhanced Air Move)
-Lighter Than Air, -10%, group(Flight), page(B56)
-Low Ceiling, -10%/-20%/-25%, levelnames(30 foot ceiling, 10 foot ceiling, 5 foot ceiling), upto(3), group(Flight), page(B56)
-Small Wings, -10%, group(Flight), page(B56)
-Space Flight Only, -75%, group(Flight), page(B56)
-Winged, -25%, group(Flight), page(B56)
 
 <Frequency of Appearance>
 Frequency: roll of  6 or less (Quite rarely), *1/2, shortname(6 or less), group(Frequency of Appearance), page(B36)
@@ -7057,11 +6931,6 @@ Limited Defense (Rare), -80%, group(Limited Defense), page(B46), shortname(Limit
 		#InputReplace("Please specify the Rare attack this defends against; e.g. charged particle beams, dragon's fire, piercing lead, ultraviolet lasers, silver, or blessed weapons:" , "Rare", ,"Limited Defense") _
 	),
 	description(You will need to specify the attack type this defends against; e.g. charged particle beams, dragon's fire, piercing lead, ultraviolet lasers, silver, or blessed weapons.)
-
-<Luck>
-Active, -40%, group(Luck), page(B66)
-Aspected, -20%, group(Luck), page(B66)
-Defensive, -20%, group(Luck), page(B66)
 
 <Maintenance>
 Maintenance Interval: Monthly, *1/5, shortname(Monthly), group(Maintenance), page(B143)
@@ -7303,7 +7172,6 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"Para-Radar",
 					"Photographic Memory",
 					"Piercing Attack",
-					"Plant Empathy",
 					"Possession",
 					"Precognition",
 					"Psychometry",
@@ -7385,7 +7253,6 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"+owner::level to AD:Para-Radar::skillscore",
 					"+owner::level to AD:Photographic Memory::skillscore",
 					"+owner::level to AD:Piercing Attack::skillscore",
-					"+owner::level to AD:Plant Empathy::skillscore",
 					"+owner::level to AD:Possession::skillscore",
 					"+owner::level to AD:Precognition::skillscore",
 					"+owner::level to AD:Psychometry::skillscore",
@@ -7653,12 +7520,6 @@ Specialized: one family, -60%, group(Speak With Animals), page(B87),
 	description(A family of animals would include Felines, Parrots, Snakes, etc.)
 Specialized: one species, -80%, group(Speak With Animals), page(B87),
 	description(A species of animal would include House Cats, Macaws, Boa Constrictors, etc.)
-
-<Spirit Empathy>
-Specialized, -50%, group(Spirit Empathy), page(B88),
-	x(_
-		#InputToTagReplace("Please describe what category of spirit your Empathy is specialized to:",nameext,,Spirit Empathy)_
-	)
 
 <Status>
 Heir, +3/+5, page(B33), formula(@int(me::level * 2.5 + 0.9)), forceformula(yes), gives(=+@int(me::level/2) to ST:Status), upto(8 - owner::level)
