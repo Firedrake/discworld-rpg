@@ -1591,8 +1591,6 @@ Double-Jointed, 15, conditional(+5 To ST:DX when "ignoring penalties for working
 	gives(+5 To SK:Climbing, +5 To SK:Escape),
 	page(43), cat(Mundane, Physical), taboo(AD:Flexibility)
 
-Hard to Kill, 2/4, page(B58), cat(Mundane, Physical), taboo(DI:Easy to Kill, AD:Unkillable, DI:Fragile (Unnatural)), gives(+1 to ST:Death Check)
-Hard to Subdue, 2/4, page(B59), cat(Mundane, Physical), gives(+1 to ST:Consciousness Check)
 High Manual Dexterity, 5/10, upto(4), page(43), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:Quadruped),
 	conditional(_
 			+1 to GR:High Manual Dexterity when "performing DX-based tasks",
