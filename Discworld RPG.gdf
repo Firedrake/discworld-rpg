@@ -762,7 +762,7 @@ Claws (Long Talons), 11, page(88), cat(Exotic, Physical, Natural Attacks, Racial
 	taboo("AD:Claws (Blunt Claws)", "AD:Claws (Hooves)", "AD:Claws(Sharp Claws)", "AD:Claws (Talons)")
 
 Damage Resistance, 5/10, gives(+1 To ST:DR), mods(Damage Resistance),
-	page(88), cat(Exotic, Physical)
+	page(88), cat(Exotic, Physical, Racial)
 
 Dimension Shift, 80, page(88), cat(Exotic, Physical, Racial),
 	x(#InputToTagReplace("Specify the dimension to which you shift:", nameext, "Hell", "Dimension Shift"),
@@ -814,7 +814,7 @@ Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(B60), c
 					
 
 Burning Attack (Short-Range Flame), 4/8, page(87), cat(Exotic, Physical, Innate Attack, Natural Attacks, Racial),
-	damage((%level)d), damtype(bu), acc(), rangehalfdam(), rangemax(), rof(), shots(), rcl(), reach(C,1), parry(0),
+	damage((%level)d), damtype(bu), acc(), rangehalfdam(), rangemax(), rof(), shots(), rcl(), reach(C,1), parry(),
 	skillused(%examplealiaslist%), mode(Primary), reachbasedon(0),
 	x(#ChoiceList(_
 			name(example),
@@ -5917,28 +5917,28 @@ Can Obtain Information Using Supernatural Talents, +5, shortname(Supernatural), 
 Per point of abilities, 10/20, group(Cosmic Power), page(B71)
 
 <Damage Resistance>
-Can't Wear Armour, -2, group(Damage Resistance), page(88)
-Only vs. [verycommon], -1, group(Damage Resistance), page(88),
+Can't Wear Armour, -40%, group(Damage Resistance), page(88)
+Only vs. [verycommon], -20%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the Very Common form of damage this protects against:",
 			"[verycommon]", "0", "Very Common Damage Type")_
 	)
-Only vs. [common], -2, group(Damage Resistance), page(88),
+Only vs. [common], -40%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the Common form of damage this protects against:",
 			"[common]", "0", "Common Damage Type")_
 	)
-Only vs. [occasional], -3, group(Damage Resistance), page(88),
+Only vs. [occasional], -60%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the occasionally-encountered form of damage this protects against:",
 			"[occasional]", "0", "Occasional Damage Type")_
 	)
-Only vs. [infrequent], -3, group(Damage Resistance), page(88),
+Only vs. [infrequent], -80%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the infrequently-encountered form of damage this protects against:",
 			"[infrequent]", "0", "Infrequent Damage Type")_
 	)
-Tough Skin, -2, group(Damage Resistance), page(B47)
+Tough Skin, -40%, group(Damage Resistance), page(B47)
 
 <Partial>
 Covers only one hit location of that type, *2, group(Partial), page(B47)
