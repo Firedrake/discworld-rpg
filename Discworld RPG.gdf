@@ -1593,7 +1593,7 @@ Double-Jointed, 15, conditional(+5 To ST:DX when "ignoring penalties for working
 
 Hard to Kill, 2/4, page(B58), cat(Mundane, Physical), taboo(DI:Easy to Kill, AD:Unkillable, DI:Fragile (Unnatural)), gives(+1 to ST:Death Check)
 Hard to Subdue, 2/4, page(B59), cat(Mundane, Physical), gives(+1 to ST:Consciousness Check)
-High Manual Dexterity, 5/10, upto(41), page(43), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:Quadruped),
+High Manual Dexterity, 5/10, upto(4), page(43), cat(Mundane, Physical), taboo("DI:Ham-Fisted", DI:Quadruped),
 	conditional(_
 			+1 to GR:High Manual Dexterity when "performing DX-based tasks",
 			+1 to SK:Mechanic when "performing fine DX-based tasks" _
@@ -1693,7 +1693,7 @@ Lightning Calculator, 2, page(45), cat(Mundane, Mental), taboo(DI:Innumerate)
 Luck, 15/30/60, levelnames( , Extraordinary, Ridiculous), page(44), upto(3),
 	cat(Mundane, Mental, Luck Advantages, Pawn of the Lady)
 
-Mad Medicine, 15, needs(AD:Gadgeteer, (ST:Tech Level = 5) | (PE:Cutting-Edge Training (Physician and Surgery))),
+Mad Medicine, 15, needs(AD:Gadgeteer, ((ST:Tech Level = 5) | (PE:Cutting-Edge Training (Physician and Surgery)))),
 	page(44), cat(Mundane, Mental)
 
 Serendipity, 15/30, page(44), cat(Mundane, Mental, Luck Advantages, Pawn of the Lady)
