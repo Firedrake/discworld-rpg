@@ -765,7 +765,7 @@ Damage Resistance, 5/10, gives(+1 To ST:DR), mods(Damage Resistance),
 	page(88), cat(Exotic, Physical, Racial)
 
 Dimension Shift, 80, page(88), cat(Exotic, Physical, Racial),
-	x(#InputToTagReplace("Specify the dimension to which you shift:", nameext, "Hell", "Dimension Shift"),
+	x(#InputToTagReplace("Specify the dimension to which you shift:", nameext, , "Dimension Shift")),
 	skillused(ST:IQ), mode(shift dimensions)
 Discriminatory Smell, 15, conditional(+4 to SK:Tracking when "scent is a factor", +4 to ST:Taste/Smell when "it involves Smell"),
 	mods(Discriminatory Smell), page(88), cat(Exotic, Physical, Racial), taboo("DI:No Sense of Smell/Taste"),
@@ -1445,7 +1445,7 @@ Cultural Familiarity, 1, page(B23), mods(Cultural Familiarity), cat(Mundane, Soc
 Cultural Familiarity (Alien Culture), 2, page(B23), cat(Mundane, Social, Cultural Familiarity, Social Background), taboo(Native Cultural Familiarities > 1),
 	x(#InputToTagReplace("Specify the culture you're familiar with here:", name, , "Cultural Familiarity (Alien Culture)"))
 Cultural Familiarity (Native), 0, page(B23), cat(Mundane, Social, Cultural Familiarity, Social Background), gives(+1 to ST:Native Cultural Familiarities), taboo(Native Cultural Familiarities > 1),
-	x(#InputToTagReplace("Specify the culture you're familiar with here:", name, "Western", "Cultural Familiarity (Native)"))
+	x(#InputToTagReplace("Specify the culture you're familiar with here:", name, "Sto Plains/Uberwald", "Cultural Familiarity (Native)"))
 					
 
 Language, 2/4, page(B24), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Language Written, Social Background), taboo(Native Languages > 1),
@@ -3600,6 +3600,7 @@ AD:Darkness Talent
 AD:Death Talent
 AD:Destiny
 AD:Detect
+AD:Dimension Shift
 AD:Diplomatic Immunity
 AD:Discriminatory Smell
 AD:Doesn't Breathe
@@ -5921,22 +5922,22 @@ Can't Wear Armour, -40%, group(Damage Resistance), page(88)
 Only vs. [verycommon], -20%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the Very Common form of damage this protects against:",
-			"[verycommon]", "0", "Very Common Damage Type")_
+			"[verycommon]", , "Very Common Damage Type")_
 	)
 Only vs. [common], -40%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the Common form of damage this protects against:",
-			"[common]", "0", "Common Damage Type")_
+			"[common]", , "Common Damage Type")_
 	)
 Only vs. [occasional], -60%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the occasionally-encountered form of damage this protects against:",
-			"[occasional]", "0", "Occasional Damage Type")_
+			"[occasional]", , "Occasional Damage Type")_
 	)
 Only vs. [infrequent], -80%, group(Damage Resistance), page(88),
 	x(_
 		#InputReplace("Please Specify the infrequently-encountered form of damage this protects against:",
-			"[infrequent]", "0", "Infrequent Damage Type")_
+			"[infrequent]", , "Infrequent Damage Type")_
 	)
 Tough Skin, -40%, group(Damage Resistance), page(B47)
 
