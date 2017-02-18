@@ -2050,35 +2050,38 @@ Bully, -10, mods(Self-Control), page(B125), cat(Mundane, Mental), gives(-2 to ST
 				when "bullying observed" _
 			)
 
-Callous, -5, gives(-3 To SK:Teaching), page(B125), cat(Mundane, Mental),
+Callous, -5, gives(-3 To SK:Teaching), page(B125), cat(Mundane, Mental, Non-Racial, Racial),
 	conditional(-1 to ST:Reaction when "past victim, or has Empathy", -3 to SK:Psychology when "attempting to help people",
 	+1 to SK:Interrogation when "you use threats or torture", +1 to SK:Intimidation when "you use threats or torture")
    
 Cannot Learn, -30, page(B125), cat(Mundane, Mental)
 
-Charitable, -15, mods(Self-Control), page(B125), cat(Mundane, Mental), taboo(DI:Greed),
+Charitable, -15, mods(Self-Control), page(65),
+	cat(Mundane, Mental, Non-Racial, Virtuous Flaws), taboo(DI:Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Chummy, -5, page(B126), cat(Mundane, Mental), taboo(DI:Loner, DI:Gregarious), conditional(-1 to ST:IQ when "alone")
-Gregarious, -10, page(B126), cat(Mundane, Mental), taboo(DI:Chummy, DI:Loner), conditional(-1 to ST:IQ when "in a group of four or less", -4 to ST:IQ when "alone")
+Gregarious, -10, page(B126), cat(Mundane, Mental), taboo(DI:Chummy, DI:Loner),
+	conditional(-1 to ST:IQ when "in a group of four or less", -4 to ST:IQ when "alone")
 
 Clueless, -10, gives(-4 To SK:Savoir-Faire, -2 to ST:Reaction), page(61), cat(Mundane, Mental, Mental Limitations)
 
-Code of Honour, -5/-10, page(56), upto(3), cat(Mundane, Mental), levelnames(,,),
+Code of Honour, -5/-10, page(56), upto(3), cat(Mundane, Mental, Non-Racial),
+	levelnames(Informal or Safe, Formal or Dangerous, Highly Formal AND Dangerous),
 	x(#InputToTag("Specify the type of Code of Honour:", nameext, , "Code of Honour"))
-Code of Honour (Academic), -5, page(56), cat(Mundane, Mental)
-Code of Honour (Assassin's), -10, page(56), cat(Mundane, Mental)
-Code of Honour (Chivalry), -15, page(56), cat(Mundane, Mental)
-Code of Honour (Dark Lord's), -10, page(56), cat(Mundane, Mental)
-Code of Honour (D'reg's), -5, page(57), cat(Mundane, Mental)
-Code of Honour (Gentleman's), -10, page(B127), cat(Mundane, Mental)
-Code of Honour (Igor's), -5, page(57), cat(Mundane, Mental)
-Code of Honour (Klatchian), -10, page(57), cat(Mundane, Mental)
-Code of Honour (Pirate's), -5, page(57), cat(Mundane, Mental)
-Code of Honour (Professional), -5, page(57), cat(Mundane, Mental)
-Code of Honour (Soldier's), -10, page(57), cat(Mundane, Mental)
-Code of Honour (Watchman's), -5, page(57), cat(Mundane, Mental)
-Code of Honour (Wise-Woman's), -5, page(57), cat(Mundane, Mental)
+Code of Honour (Academic), -5, page(56), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Assassin's), -10, page(56), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Chivalry), -15, page(56), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Dark Lord's), -10, page(56), cat(Mundane, Mental, Non-Racial)
+Code of Honour (D'reg's), -5, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Gentleman's), -10, page(B127), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Igor's), -5, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Klatchian), -10, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Pirate's), -5, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Professional), -5, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Soldier's), -10, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Watchman's), -5, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Wise-Woman's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 
 Compulsive Behavior, -5/-10, mods(Self-Control), page(B128), upto(3), cat(Mundane, Mental), levelnames(,,), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2172,7 +2175,7 @@ Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(D
 Easy to Read, -10, page(60), cat(Mundane, Mental), description(Gives others +4 on all Empathy, Body Language, and 
 	Psychology rolls to discern your intentions or the truth of your words, and +4 to their IQ, Detect Lies, and Gambling rolls in any Quick Contest
 	with your Acting, Fast-Talk, or Gambling skill when you try to lie or bluff.)
-Fanaticism, -15/-15, levelnames( , Extreme), page(62), upto(2), cat(Mundane, Mental),
+Fanaticism, -15/-15, levelnames( , Extreme), page(62), upto(2), cat(Mundane, Mental, Non-Racial, Obsessive Ideas),
 	x(#InputToTag("Specify the country, organization, philosophy, or religion that you put ahead of everything else:", nameext, , "Fanaticism")),
 	conditional(=+@if(%level = 2 THEN 3) to ST:Will when "resisting Brainwashing, Interrogation, and Mind Control")
 Fearfulness, -2/-4, gives(-1 To Fright Check), page(60), upto(ST:Will - 3), cat(Mundane, Mental),
@@ -2264,32 +2267,35 @@ Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental),
 			)
 
 
-Literal-Minded, -10, page(61), cat(Mundane, Mental, Mental Limitations),
+Literal-Minded, -10, page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial),
 	taboo(DI:Clueless, DI:No Sense of Humour)
 Literal-Minded (Combined with Clueless or No Sense of Humour), -5, page(61),
-	cat(Mundane, Mental, Mental Limitations), needs(DI:Clueless | DI:No Sense of Humour)
+	cat(Mundane, Mental, Mental Limitations, Non-Racial), needs(DI:Clueless | DI:No Sense of Humour)
 
-Loner, -5, mods(Self-Control), page(B142), cat(Mundane, Mental), taboo(DI:Chummy, DI:Gregarious), 
+Loner, -5, mods(Self-Control), page(B142), cat(Mundane, Mental, Non-Racial), taboo(DI:Chummy, DI:Gregarious), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Low Empathy, -20, gives(-3 To GR:Low Empathy), page(61), cat(Mundane, Mental, Mental Limitations),
+Low Empathy, -20, gives(-3 To GR:Low Empathy), page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial),
 	taboo(AD:Empathy, AD:Sensitive)
-Low Self-Image, -10, page(B143), cat(Mundane, Mental), taboo(DI:Overconfidence)
-Megalomania, -10, page(59), cat(Delusions, Mundane, Mental),
+Low Self-Image, -10, page(B143), cat(Mundane, Mental, Non-Racial), taboo(DI:Overconfidence)
+Megalomania, -10, page(59), cat(Delusions, Mundane, Mental, Non-Racial),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "non-frothing NPCs")
 
-Miserliness, -10, mods(Self-Control), page(B144), cat(Mundane, Mental), taboo(DI:Compulsive Generosity, DI:Compulsive Spending),
+Miserliness, -10, mods(Self-Control), page(62),
+	cat(Mundane, Mental, Non-Racial), taboo(DI:Compulsive Generosity, DI:Compulsive Spending),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-No Sense of Humour, -10, page(B146), cat(Mundane, Mental), conditional(-2 to ST:Reaction)
+No Sense of Humour, -10, page(65), cat(Mundane, Mental, Non-Racial, Racial, Unsociable Flaws),
+	conditional(-2 to ST:Reaction)
 Non-Iconographic, -10, page(B146), cat(Mundane, Mental)
 Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
 	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Mental Limitations)
 
-Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal), upto(2), page(B146), cat(Mundane, Mental),
+Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal),
+	upto(2), page(62), cat(Mundane, Mental, Non-Racial, Obsessive Ideas),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTagReplace("Describe your Obsession:", nameext, , "Obsession"))
 
@@ -2297,24 +2303,25 @@ On the Edge, -15, mods(Self-Control), page(B147), cat(Mundane, Mental),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(-2 to ST:Reaction when "people witness behavior", +2 to ST:Reaction when "witnessed by people who value bravery over self-preservation")
 
-Overconfidence, -5, mods(Self-Control), page(B148), cat(Mundane, Mental), taboo(DI:Low Self-Image),
+Overconfidence, -5, mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), taboo(DI:Low Self-Image),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "experienced NPCs")
 
-Pacifism (Reluctant Killer), -5, page(62), cat(Mundane, Mental),
+Pacifism (Reluctant Killer), -5, page(62), cat(Mundane, Mental, Non-Racial),
 	taboo(DI:Pacifism (Cannot Harm Innocents), DI:Pacifism (Self-Defence Only))
-Pacifism (Cannot Harm Innocents), -10, page(62), cat(Mundane, Mental),
+Pacifism (Cannot Harm Innocents), -10, page(62), cat(Mundane, Mental, Non-Racial),
 	taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Self-Defence Only))
-Pacifism (Self-Defence Only), -15, page(62), cat(Mundane, Mental),
+Pacifism (Self-Defence Only), -15, page(62), cat(Mundane, Mental, Non-Racial),
 	taboo(DI:Pacifism (Reluctant Killer), DI:Pacifism (Cannot Harm Innocents))
 
 Paranoia, -10, page(59), cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction)
 
-Phobia, -5/-10, upto(4), mods(Self-Control), page(B148), cat(Mundane, Mental), levelnames(,,,), 
+Phobia, -5/-10, upto(4), mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), levelnames(,,,), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
 
-Phobia (%examplelist%), %examplecostlist%, displaycost(variable), mods(Self-Control), page(B148), cat(Mundane, Mental),   
+Phobia (%examplelist%), %examplecostlist%, displaycost(variable),
+	mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial, Phobias),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#ChoiceList(_
 			name(example),
@@ -2323,47 +2330,28 @@ Phobia (%examplelist%), %examplecostlist%, displaycost(variable), mods(Self-Cont
 			picksallowed(1),
 			method(bynumber),
 			list(_
-				"Autophobia: Being Alone"=-15,
-				"Hemophobia: Blood"=-10,
-				"Ailurophobia: Cats"=-5,
 				"Demophobia: Crowds"=-15,
 				"Scotophobia: Darkness"=-15,
-				"Necrophobia: Death and the Dead"=-10,
-				"Mysophobia: Dirt"=-10,
-				"Cynophobia: Dogs"=-5,
 				"Claustrophobia: Enclosed Spaces"=-15,
-				"Pyrophobia: Fire"=-5,
+				"Minor Pyrophobia: Uncontrolled Flames"=-5,
+				"Major Pyrophobia: Any Fire"=-10,
 				"Acrophobia: Heights"=-10,
-				"Entomophobia: Insects"=-10,
-				"Brontophobia: Loud Noises"=-10,
-				"Technophobia: Machinery (TL4-)"=-5,
-				"Technophobia: Machinery (TL5+)"=-15,
-				"Manaphobia: Magic (common magic)"=-15,
-				"Manaphobia: Magic (uncommon magic)"=-10,
-				"Manaphobia: Magic (unknown magic)"=-5,
 				"Teratophobia: Monsters"=-15,
-				"Triskaidekaphobia: The Number 13"=-5,
-				"Thalassophobia: Oceans"=-10,
+				"Octophobia: The Number 8"=-5,
 				"Agoraphobia: Open Spaces"=-10,
-				"Herpetophobia: Reptiles"=-10,
-				"Coitophobia: Sex"=-10,
-				"Aichmophobia: Sharp Things (TL5-)"=-15,
-				"Aichmophobia: Sharp Things (TL6+)"=-10,
-				"Arachnophobia: Spiders"=-5,
 				"Xenophobia: Strange and Unknown Things"=-15,
-				"Heliophobia: The Sun"=-15,
-				"Hoplophobia: Weapons"=-20,
+				"Heliophobia: The Sun"=-15
 				"Genuan Fairy-Tale Terror"=-5_
 			)_
 			)_
 	), noresync(yes)
 
-Post-Combat Shakes, -5, mods(Self-Control), page(64), cat(Mundane, Mental), 
+Post-Combat Shakes, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Pyromania, -5, mods(Self-Control), page(64), cat(Mundane, Mental), 
+Pyromania, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental),
+Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
@@ -2376,32 +2364,34 @@ Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental),
 				when "when habitual cruelty is observed" _
 			)
 
-Selfish, -5, mods(Self-Control), page(65), cat(Mundane, Mental), taboo(DI:Selfless),
+Selfish, -5, mods(Self-Control), page(65),
+	cat(Mundane, Mental, Non-Racial, Racial, Unsociable Flaws), taboo(DI:Selfless),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Selfless, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:Selfish),
+Selfless, -5, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial), taboo(DI:Selfish),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Sense of Duty, -2/-5/-10/-15/-20, levelnames(Individual, Small Group, Large Group, Entire Race, Every Living Being),
-	page(B153), upto(5), cat(Mundane, Mental),
+	page(B153), upto(5), cat(Mundane, Mental, Non-Racial),
 	conditional(=+2 to ST:Reaction when "in dangerous situations if Sense of Duty is known"),
 	x(#InputToTag("Specify the person or group you have a Sense of Duty towards:", nameext, , "Sense of Duty"))
 
 Short Attention Span, -10, mods(Self-Control), page(B153), cat(Mundane, Mental), taboo("AD:Single-Minded")
 Shyness, -5/-10/-20, gives(=@indexedvalue(%level, -1, -2, -4) To GR:Shyness),
-	levelnames(Mild, Severe, Crippling), page(B154), upto(3), cat(Mundane, Mental)
+	levelnames(Mild, Severe, Crippling), page(B154), upto(3), cat(Mundane, Mental, Non-Racial)
 Slave Mentality, -40, page(B154), cat(Mundane, Mental)
 
-Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental),
+Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	gives(-1 to ST:Reaction), conditional(-3 to ST:Reaction when "others witness a personality shift")
 
-Squeamish, -10, mods(Self-Control), page(B156), cat(Mundane, Mental), 
+Squeamish, -10, mods(Self-Control), page(63), cat(Mundane, Mental, Non-Racial, Phobias), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Stubbornness, -5, page(B157), cat(Mundane, Mental), conditional(-1 to ST:Reaction)
+Stubbornness, -5, page(65), cat(Mundane, Mental, Non-Racial, Unsociable Flaws),
+	conditional(-1 to ST:Reaction when "attitude noticed")
 
-Totally Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
+Totally Oblivious, -5, gives(-1 To GR:Oblivious), page(61),
 	taboo(DI:Oblivious, SK:Acting, SK:Fast-Talk, SK:Fortune-Telling, SK:Intimidation, SK:Interrogation, SK:Politics),
-	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"), cat(Mundane, Mental, Mental Limitations)
+	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"), cat(Mundane, Mental, Mental Limitations, Non-Racial)
 
 Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
@@ -2410,12 +2400,13 @@ Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:C
 	conditional(-5 to SK:Acting when "your purpose is to deceive"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Unluckiness, -10, page(65), cat(Mundane, Mental)
-Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Mundane, Mental),
+Unluckiness, -10, page(65), cat(Mundane, Mental, Non-Racial)
+Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Mundane, Mental, Non-Racial),
 	x(#InputToTag("Please describe the nature of your Vow:", nameext, , "Vow"))
-Workaholic, -5, page(B162), cat(Mundane, Mental), conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
+Workaholic, -5, page(B162), cat(Mundane, Mental, Non-Racial),
+	conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
 
-Xenophilia, -10, mods(Self-Control), page(B162), cat(Mundane, Mental),
+Xenophilia, -10, mods(Self-Control), page(B162), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 <Mundane Social>
