@@ -320,7 +320,7 @@ DX, symbol(DX), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::sysl
 	disadat(-1), display(no),
 	parryat(@int(me::score/2)+3), blockat(@int(me::score/2)+1),
 	initmods(Quadruped, -0%, formula(-@if(ST:Quadruped > 0 & owner::level > 0 then 40 else 0)),
-	forceformula(yes), group(Quadruped Stat), page(B145))
+	forceformula(yes), group(Quadruped Stat), page(96))
 
 IQ, symbol(IQ), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(20), down(-20), mainwin(3), disadat(-1), display(no)
 HT, symbol(HT), basevalue(10), step(1), maxscore(1000000), minscore(0 - me::syslevels), up(10), down(-10), mainwin(4), disadat(-1), display(no)
@@ -409,15 +409,15 @@ One Arm Striking ST, basevalue(ST:ST), maxscore(1000000), minscore(0), round(-1)
 Two Arm Lifting ST, basevalue(ST:Lifting ST), maxscore(1000000), minscore(0), round(-1)
 Two Arm Striking ST, basevalue(ST:ST), maxscore(1000000), minscore(0), round(-1)
 
-One-Handed Lift, basevalue(2 * @if(ST:One Arm Lifting ST::score <= 7 then ST:One Arm Lifting ST * ST:One Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5) else @int((ST:One Arm Lifting ST * ST:One Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5))+0.5))), maxscore(1000000), minscore(0), round(1), page(B353), units(lb|kg)
-Two-Handed Lift, basevalue(8 * @if(ST:Two Arm Lifting ST::score <= 7 then ST:Two Arm Lifting ST * ST:Two Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5) else @int((ST:Two Arm Lifting ST * ST:Two Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5))+0.5))), maxscore(1000000), minscore(0), round(1), page(B353), units(lb|kg)
+One-Handed Lift, basevalue(2 * @if(ST:One Arm Lifting ST::score <= 7 then ST:One Arm Lifting ST * ST:One Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5) else @int((ST:One Arm Lifting ST * ST:One Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5))+0.5))), maxscore(1000000), minscore(0), round(1), page(168), units(lb|kg)
+Two-Handed Lift, basevalue(8 * @if(ST:Two Arm Lifting ST::score <= 7 then ST:Two Arm Lifting ST * ST:Two Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5) else @int((ST:Two Arm Lifting ST * ST:Two Arm Lifting ST / @if(ST:Metric = 1 THEN 11 ELSE 5))+0.5))), maxscore(1000000), minscore(0), round(1), page(168), units(lb|kg)
 
-High Jump, basevalue((((6 * @max(ST:Basic Ground Move, SK:Jumping::level / 2)) - 10) * @if(ST:Metric = 1 THEN 2.5 ELSE 1)) * (2 ^ ST:Super Jump)), maxscore(1000000), minscore(0), page(B352), units(in|cm)
-Broad Jump, basevalue((((2 * @max(ST:Basic Ground Move, SK:Jumping::level / 2)) - 3) / @if(ST:Metric = 1 THEN 3 ELSE 1)) * (2 ^ ST:Super Jump)), maxscore(1000000), minscore(0), page(B352), units(ft|m)
+High Jump, basevalue((((6 * @max(ST:Basic Ground Move, SK:Jumping::level / 2)) - 10) * @if(ST:Metric = 1 THEN 2.5 ELSE 1))), maxscore(1000000), minscore(0), page(168), units(in|cm)
+Broad Jump, basevalue((((2 * @max(ST:Basic Ground Move, SK:Jumping::level / 2)) - 3) / @if(ST:Metric = 1 THEN 3 ELSE 1))), maxscore(1000000), minscore(0), page(168), units(ft|m)
 
-Shove/Knock Over, basevalue(12 * ST:Basic Lift), maxscore(1000000), minscore(0), page(B353), units(lb|kg)
-Carry on Back, basevalue(15 * ST:Basic Lift), maxscore(1000000), minscore(0), page(B353), units(lb|kg)
-Shift Slightly, basevalue(50 * ST:Basic Lift), maxscore(1000000), minscore(0), page(B353), units(lb|kg)
+Shove/Knock Over, basevalue(12 * ST:Basic Lift), maxscore(1000000), minscore(0), page(168), units(lb|kg)
+Carry on Back, basevalue(15 * ST:Basic Lift), maxscore(1000000), minscore(0), page(168), units(lb|kg)
+Shift Slightly, basevalue(50 * ST:Basic Lift), maxscore(1000000), minscore(0), page(168), units(lb|kg)
 
 * Movement
 ************************************************************************************************************************
@@ -468,27 +468,6 @@ Remaining Funds, basevalue(ST:Starting Wealth - char::equipmentcost), step(0), m
 Wealth Modifier, basevalue(10), step(1), minscore(0), display(No), round(-1)
 Signature Gear, basevalue(0), display(No), hide(yes), step(0), minscore(0), round(1)
 
-* Telekinesis Stats
-************************************************************************************************************************
-TK ST, basevalue(0), maxscore(1000000), minscore(0), hide(yes), display(no)
-TK Basic Lift, symbol(TK BL), basevalue(ST:TK ST * ST:TK ST / @if(ST:Metric = 1 THEN 11 ELSE 5)), maxscore(1000000), minscore(0), round(@if(ST:TK ST::score <= 7 then 0 else 1)), hide(yes), display(no), units(lb|kg)
-TK Max Lift, symbol(TK ML), basevalue(8 * "ST:TK Basic Lift"), maxscore(1000000), minscore(0), hide(yes), display(no), units(lb|kg)
-TK Shove/Knock Over, basevalue(12 * ST:TK Basic Lift), maxscore(1000000), minscore(0), hide(yes), display(no), page(B353), units(lb|kg)
-TK Shift Slightly, basevalue(50 * ST:TK Basic Lift), maxscore(1000000), minscore(0), hide(yes), display(no), page(B353), units(lb|kg)
-TK Move, basevalue(0), maxscore(1000000), minscore(0), hide(yes), display(no)
-
-TK No Encumbrance, basevalue(ST:TK Basic Lift), maxscore(10000000), minscore(0), symbol(TKNEnc), round(0), hide(yes), display(no)
-TK Light Encumbrance, basevalue(2 * ST:TK Basic Lift), maxscore(10000000), minscore(0), symbol(TKLEnc), round(0), hide(yes), display(no)
-TK Medium Encumbrance, basevalue(3 * ST:TK Basic Lift), maxscore(10000000), minscore(0), symbol(TKMEnc), round(0), hide(yes), display(no)
-TK Heavy Encumbrance, basevalue(6 * ST:TK Basic Lift), maxscore(10000000), minscore(0), symbol(TKHEnc), round(0), hide(yes), display(no)
-TK X-Heavy Encumbrance, basevalue(10 * ST:TK Basic Lift), maxscore(10000000), minscore(0), symbol(TKXEnc), round(0), hide(yes), display(no)
-
-TK No Encumbrance Move, basevalue(ST:TK Move), maxscore(10000000), minscore(0), symbol(TKNEncMove), round(-1), hide(yes), display(no)
-TK Light Encumbrance Move, basevalue(0.8 * ST:TK Move), maxscore(1000000), minscore(0), symbol(TKLEncMove), round(-1), hide(yes), display(no)
-TK Medium Encumbrance Move, basevalue(0.6 * ST:TK Move), maxscore(1000000), minscore(0), symbol(TKMEncMove), round(-1), hide(yes), display(no)
-TK Heavy Encumbrance Move, basevalue(0.4 * ST:TK Move), maxscore(1000000), minscore(0), symbol(TKHEncMove), round(-1), hide(yes), display(no)
-TK X-Heavy Encumbrance Move, basevalue(0.2 * ST:TK Move), maxscore(1000000), minscore(0), symbol(TKXEncMove), round(-1), hide(yes), display(no)
-
 * Melee Weapon Table listings
 ************************************************************************************************************************
 Punch, display(no), mode(Punch), mods(Combat Table), damage(_
@@ -530,7 +509,6 @@ Bite, display(no), mode(Bite), mods(Combat Table),
 * Helper stats
 ************************************************************************************************************************
 Metric, basevalue(0), up(0), down(0), step(1), maxscore(1), minscore(0), display(no), hide(yes)
-Super Jump, basevalue(0), hide(yes), display(no)
 Enhanced Ground Move, basevalue(0), hide(yes), display(no),
 	gives(_
 		=@if( me::score = @int(me::score) then _
@@ -795,10 +773,7 @@ Flight, 30 (Winged, Can Hover), page(89), cat(Exotic, Physical, Racial),
 Flight, 24 (Winged, Cannot Hover), page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
 
-Infravision, 10, mods(Infravision), page(B60), cat(Exotic, Physical), taboo(AD:Hyperspectral Vision, DI:Blindness),
-	conditional(+3 to SK:Tracking when "heat trail is less than an hour old", +2 to ST:Vision when "target emits heat", +2 to AD:Infravision when "target emits heat"),
-	skillused(ST:Perception, ST:Vision), mode(See)
-Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(B60), cat(Exotic, Physical), x(#buildit)
+Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(89), cat(Exotic, Physical), x(#buildit)
 					
 
 ************************************************************************************************************************
@@ -891,46 +866,23 @@ Burning Attack (Lightning Bolt), 10/20, page(87), cat(Exotic, Physical, Innate A
 Lifting ST, 3/6, gives(+1 to ST:Lifting ST), conditional(+1 to ST:ST),
 	mods(Lifting ST, Quadruped, Size), page(43), cat(Exotic, Non-Racial, Physical, Racial)
 
-Microscopic Vision, 5/10, page(B68), cat(Exotic, Physical), taboo(DI:Blindness)
-Nictitating Membrane, 1/2, page(B71), cat(Exotic, Physical)
-Obscure, 2/4, mods(Obscure), page(B72), cat(Exotic, Physical), upto(10), radius(2),
-	x(#InputToTag("You must pick a sense which Obscure ''jams'':", nameext, , "Obscure"))
-Parabolic Hearing, 4/8, page(B72), cat(Exotic, Physical), taboo(DI:Deafness)
-Payload, 1/2, mods(Payload), page(B74), cat(Exotic, Physical)
-Penetrating Vision, 10/20, mods(Penetrating Vision), page(B74), cat(Exotic, Physical), taboo(DI:Blindness)
-Permeation, 5/10/20/40, mods(Permeation), levelnames(Rare, Occasional, Common, Very Common), page(B75), upto(4), cat(Exotic, Physical)
-Pressure Support, 5/10, page(B77), upto(3), cat(Exotic, Physical)
-Protected [Sense], 5, page(B78), cat(Exotic, Physical),
-	x(#InputReplace("Please enter the sense that is protected:", "[Sense]", "Sense", "Protected Sense"))
-Radiation Tolerance, 5/10, page(B79), upto(9), cat(Exotic, Physical),
-	levelnames(PF 2, PF 5, PF 10, PF 20, PF 50, PF 100, PF 200, PF 500, "PF 1,000")
-Recovery, 10, page(B80), cat(Exotic, Physical)
-Regeneration, 10/25/50/100/150, levelnames(Slow: 1HP/12Hr, Regular: 1HP/Hr, Fast: 1HP/Min, Very Fast: 1HP/Sec, Extreme: 10 HP/Sec), mods(Regeneration), page(B80), upto(5), cat(Exotic, Physical), taboo(DI:Slow Healing, DI:Unhealing, AD:Rapid Healing)
-Regrowth, 40, mods(Regrowth), page(B80), cat(Exotic, Physical),
-	taboo(DI:Missing Digit,
-		DI:One Eye::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
+Pressure-Proof, 15, page(90), cat(Exotic, Physical, Racial)
+Protected Eyes, 1/2, page(90), cat(Exotic, Physical, Racial)
+
+Regeneration, 10/25/50/100,
+	levelnames(Slow: 1HP/12Hr, Regular: 1HP/Hr, Fast: 1HP/Min, Very Fast: 1HP/Sec),
+	page(90), upto(4), cat(Exotic, Physical, Racial),
+	taboo(AD:Rapid Healing, AD:Repairable, DI:Unhealing)
+Regrowth, 40, mods(Regrowth), page(90), cat(Exotic, Physical, Racial),
+	taboo(DI:One Eye::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Arm::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:No Legs::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Hand::level > @if(@hasmod(Minor) THEN 1 ELSE 0) _
 		)
-					
-
-Radar, 20, mods(Scanning Sense), page(B81), cat(Exotic, Physical), rangehalfdam(2000),
+Sonar, 20, page(91), cat(Exotic, Physical, Racial),
 	skillused(ST:Perception), mode(''See'')
-Imaging Radar, 20, mods(Scanning Sense), page(B81), cat(Exotic, Physical), rangehalfdam(200),
-	skillused(ST:Perception), mode(''See'')
-Ladar, 20, mods(Scanning Sense), page(B81), cat(Exotic, Physical), rangehalfdam(200),
-	skillused(ST:Perception), mode(''See'')
-Para-Radar, 40, mods(Scanning Sense), page(B81), cat(Exotic, Physical), rangehalfdam(200),
-	skillused(ST:Perception), mode(''See'')
-Sonar, 20, mods(Scanning Sense), page(B81), cat(Exotic, Physical), rangehalfdam(20), rangemax(2000),
-	skillused(ST:Perception), mode(''See'')
-					
-
-Sealed, 15, page(B82), cat(Exotic, Physical)
 See Invisible (Magical), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
 See Invisible (Spirit), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
-
 
 Alternate Form, 15/30, mods(Alternate Form), page(B83), cat(Exotic, Physical), levelnames(,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100),
 	x(_
@@ -1005,14 +957,16 @@ Striker (Impaling), 8/16, displaycost(8), mods(Striker, Alternative Attack), pag
 	damtype(imp), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Karate), mode([Description]), reachbasedon(0)
 					
 
-Super Climbing, 3/6, page(B89), cat(Exotic, Physical)
-Super Jump, 10/20, page(B89), cat(Exotic, Physical), gives(+1 to ST:Super Jump)
-					
+Super Climbing, 6, page(91), cat(Exotic, Physical, Racial)
 
-Teeth (Blunt Teeth), 0, page(B91), cat(Exotic, Physical, Natural Attacks), taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)")
-Teeth (Sharp Teeth), 1, page(B91), cat(Exotic, Physical, Natural Attacks), taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
-Teeth (Sharp Beak), 1, page(B91), cat(Exotic, Physical, Natural Attacks), taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
-Teeth (Fangs), 2, page(B91), cat(Exotic, Physical, Natural Attacks), taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)")
+Teeth (Blunt Teeth), 0, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+	taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)")
+Teeth (Sharp Teeth), 1, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
+Teeth (Sharp Beak), 1, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
+Teeth (Fangs), 2, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)")
 					
 
 Telescopic Vision, 5/10, mods(Telescopic Vision), page(B92), cat(Exotic, Physical), taboo(DI:Blindness)
@@ -1247,8 +1201,13 @@ Night Vision, 1/2, page(B71), upto(9), cat(Mundane, Physical), taboo(DI:Blindnes
 
 Perfect Balance, 15, gives(+1 To GR:Perfect Balance), page(46), cat(Mundane, Physical, Non-Racial, Racial)
 
-Rapid Healing, 5/15, displaycost(5), upto(2), levelnames(,Very Rapid Healing), needs(ST:HT = 10), page(B79), cat(Mundane, Physical), taboo(AD:Very Rapid Healing, DI:Slow Healing, AD:Regeneration)
-Very Rapid Healing, 15, needs(ST:HT = 12), page(B79), cat(Mundane, Physical), taboo(AD:Rapid Healing, DI:Slow Healing)
+Rapid Healing, 5/15, displaycost(5), upto(2),
+	levelnames(,Very Rapid Healing), needs(ST:HT = 10), page(B79),
+	cat(Mundane, Non-Racial, Physical),
+	taboo(AD:Very Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
+Very Rapid Healing, 15, needs(ST:HT = 12), page(B79),
+	cat(Mundane, Non-Racial, Physical),
+	taboo(AD:Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
 
 Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Very Common),
 	page(B80), upto(4), cat(Mundane, Physical),
@@ -1511,51 +1470,28 @@ Police Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influenc
 	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
 Religious Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
 	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
-Courtesy Rank, 1/2, page(B29), upto(8), cat(Mundane, Social, Influence),
+Courtesy Rank, 1/2, page(B29), upto(8), cat(Influence, Mundane, Non-Racial, Social),
 	x(#InputToTag("Please describe the nature of the Courtesy Rank:", nameext, , "Courtesy Rank"))
-					
 
-Ally, 1/2/3/5/10, upto(@if(@hasmod(Non-Sapient) THEN 0 ELSE 5)),
-	x(#InputToTag("Please describe the nature of the Ally:", nameext, , "Ally")),
-	levelnames("25% of starting points", "50% of starting points", "75% of starting points", "100% of starting points", "150% of starting points",
-	"200% of starting points", "250% of starting points", "300% of starting points", "350% of starting points", "400% of starting points", "450% of starting points", "500% of starting points",
-	"550% of starting points", "600% of starting points", "650% of starting points", "700% of starting points", "750% of starting points", "800% of starting points", "850% of starting points",
-	"900% of starting points", "950% of starting points", "1,000% of starting points", "1,050% of starting points", "1,100% of starting points", "1,150% of starting points", "1,200% of starting points",
-	"1,250% of starting points", "1,300% of starting points", "1,350% of starting points", "1,400% of starting points", "1,450% of starting points", "1,500% of starting points",
-	"1,550% of starting points", "1,600% of starting points", "1,650% of starting points", "1,700% of starting points", "1,750% of starting points", "1,800% of starting points",
-	"1,850% of starting points", "1,900% of starting points", "1,950% of starting points", "2,000% of starting points", "2,050% of starting points", "2,100% of starting points",
-	"2,150% of starting points", "2,200% of starting points", "2,250% of starting points", "2,300% of starting points", "2,350% of starting points", "2,400% of starting points",
-	"2,450% of starting points", "2,500% of starting points", "2,550% of starting points", "2,600% of starting points", "2,650% of starting points", "2,700% of starting points",
-	"2,750% of starting points", "2,800% of starting points", "2,850% of starting points", "2,900% of starting points", "2,950% of starting points", "3,000% of starting points",
-	"3,050% of starting points", "3,100% of starting points", "3,150% of starting points", "3,200% of starting points", "3,250% of starting points", "3,300% of starting points",
-	"3,350% of starting points", "3,400% of starting points", "3,450% of starting points", "3,500% of starting points", "3,550% of starting points", "3,600% of starting points",
-	"3,650% of starting points", "3,700% of starting points", "3,750% of starting points", "3,800% of starting points", "3,850% of starting points", "3,900% of starting points",
-	"3,950% of starting points", "4,000% of starting points", "4,050% of starting points", "4,100% of starting points", "4,150% of starting points", "4,200% of starting points",
-	"4,250% of starting points", "4,300% of starting points", "4,350% of starting points", "4,400% of starting points", "4,450% of starting points", "4,500% of starting points",
-	"4,550% of starting points", "4,600% of starting points", "4,650% of starting points", "4,700% of starting points", "4,750% of starting points", "4,800% of starting points",
-	"4,850% of starting points", "4,900% of starting points", "4,950% of starting points", "5,000% of starting points"),
-	mods(Ally, Frequency of Appearance, Favor), page(B36), cat(Mundane, Social),
-	initmods(_
-			Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
-			)
-					
-
-Alternate Identity, 5/15, levelnames(Legal, Illegal), page(B39), upto(2), cat(Mundane, Social)
-Claim to Hospitality, 1/2/5/10, page(B41), upto(4), cat(Mundane, Social), conditional(=+3 to ST:Reaction when "members of same group"),
+Alternate Identity, 5/15, levelnames(Legal, Illegal), page(B39), upto(2), cat(Mundane, Non-Racial, Social)
+Claim to Hospitality, 1/2/5/10, page(B41), upto(4), cat(Mundane, Non-Racial, Social),
+	conditional(=+3 to ST:Reaction when "members of same group"),
 	x(#InputToTag("Please describe the nature of the Claim to Hospitality:", nameext, , "Claim to Hospitality"))
-Clerical Investment, 5, page(B43), cat(Mundane, Social), conditional(+1 to ST:Reaction)
-					
+Clerical Investment, 5, page(B43), cat(Mundane, Non-Racial, Social), conditional(+1 to ST:Reaction)
 
-Contact Group, 5/10/15/20, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
-	x(#InputToTag("Please describe the nature of the Contact Group:", nameext, , "Contact Group")),
-	upto(4), cat(Mundane, Social), mods(Contact Group, Frequency of Appearance, Reliability, Favor), page(B44),
+Congregation, 10/12/15, upto(3), levelnames(Up to 20, Up to 50, Up to 100),
+	cat(Mundane, Non-Racial, Social), page(38)
+
+Contact, 1/2/3/4, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
+	x(#InputToTag("Please describe the nature of the Contact:", nameext, , "Contact")),
+	upto(4), cat(Mundane, Social), mods(Contact, Frequency of Appearance, Reliability, Favor), page(B44),
 	initmods(_
 			Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability) _
 			| Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
 			)
-Contact, 1/2/3/4, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
-	x(#InputToTag("Please describe the nature of the Contact:", nameext, , "Contact")),
-	upto(4), cat(Mundane, Social), mods(Contact, Frequency of Appearance, Reliability, Favor), page(B44),
+Contact Group, 5/10/15/20, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
+	x(#InputToTag("Please describe the nature of the Contact Group:", nameext, , "Contact Group")),
+	upto(4), cat(Mundane, Non-Racial, Social), mods(Contact Group, Frequency of Appearance, Reliability, Favor), page(B44),
 	initmods(_
 			Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability) _
 			| Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
@@ -1793,7 +1729,8 @@ Invertebrate, -20, page(B140), cat(Exotic, Physical),
 Nocturnal, -20, mods(Nocturnal), page(B146), cat(Exotic, Physical)
 Semi-Upright, -5, page(B153), cat(Exotic, Physical), taboo(DI:Quadruped)
 
-Unhealing, -20/-30, levelnames(Partial, Total), page(B160), upto(2), cat(Exotic, Physical), taboo(AD:Regeneration)
+Unhealing, -20/-30, levelnames(Partial, Total), page(98), upto(2),
+	cat(Exotic, Physical, Racial), taboo(AD:Regeneration, AD:Repairable)
 Unusual Biochemistry, -5, page(B160), cat(Exotic, Physical)
 
 Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4), 
@@ -1915,7 +1852,7 @@ Bad Sight (Farsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindn
 			-3 to "CL:Melee Combat" when "in Close Combat" _
 			)
 Bad Smell, -10, page(B124), cat(Mundane, Physical), gives(-2 to ST:Reaction)
-Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness), taboo(AD:Acute Vision, AD:Infravision, AD:Penetrating Vision, AD:Telescopic Vision, AD:Ultravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, AD:Microscopic Vision, DI:Dyslexia, DI:Restricted Vision),
+Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness), taboo(AD:Acute Vision, AD:Infravision, AD:Penetrating Vision, AD:Telescopic Vision, AD:Ultravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
 	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
 Cannot Speak, -15, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, DI:Mute, AD:Speak Underwater)
 Mute, -25, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, AD:Voice, PE:Penetrating Voice, DI:Cannot Speak, AD:Speak Underwater)
@@ -1971,9 +1908,7 @@ Restricted Diet, -10/-20/-30/-40, mods(Restricted Diet),
 	taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink),
 	x(#InputToTag("Specify the unusual sustenance required:", nameext, , "Restricted Diet"))
 Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2), page(B151), cat(Mundane, Physical), taboo(DI:Blindness)
-Slow Healing, -5/-10, page(B155), upto(3), cat(Mundane, Physical), taboo(AD:Regeneration, AD:Rapid Healing, AD:Very Rapid Healing)
 Social Disease, -5, page(B155), cat(Mundane, Physical), conditional(-1 to ST:Reaction)
-Space Sickness, -10, page(B156), cat(Mundane, Physical)
 Stuttering, -10, gives(-2 To GR:Stuttering), page(B157), cat(Mundane, Physical), taboo(DI:Mute), conditional(-2 to ST:Reaction)
 
 Susceptible to [Very Common], -4/-8, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
@@ -3639,9 +3574,7 @@ AD:High Pain Threshold
 AD:High TL
 AD:Huge Piercing Attack
 AD:Illusion
-AD:Imaging Radar
 AD:Impaling Attack
-AD:Improved G-Tolerance
 AD:Independent Income
 AD:Indomitable
 AD:Infravision
@@ -3653,7 +3586,6 @@ AD:Jumper (Spirit)
 AD:Jumper (Time)
 AD:Jumper (World)
 AD:Kinetic Energy Talent
-AD:Ladar
 AD:Language - Native (Spoken)
 AD:Language - Native (Written)
 AD:Language - Native
@@ -3683,7 +3615,6 @@ AD:Matter Control Talent
 AD:Medium
 AD:Merchant Rank
 AD:Metabolism Control
-AD:Microscopic Vision
 AD:Military Rank
 AD:Mimicry
 AD:Mind Control
@@ -3701,15 +3632,10 @@ AD:Morph (Cosmetic)
 AD:Morph
 AD:Musical Ability
 AD:Neutralize
-AD:Nictitating Membrane
 AD:Night Vision
-AD:Obscure
-AD:Oracle (Digital)
 AD:Oracle
 AD:Order Talent
 AD:Outdoorsman
-AD:Parabolic Hearing
-AD:Para-Radar
 AD:Patrons
 AD:Payload
 AD:Penetrating Vision
@@ -3719,7 +3645,6 @@ AD:Permeation
 AD:Photographic Memory
 AD:Piercing Attack
 AD:Pitiable
-AD:PK Talent
 AD:Police Rank
 AD:Possession
 AD:Power Investiture
@@ -3728,16 +3653,13 @@ AD:Pressure Support
 AD:Probability Alteration Talent
 AD:Protected [Power]
 AD:Protected [Sense]
-AD:Psi Static
+AD:Protected Eyes
 AD:Psychic Healing Talent
 AD:Psychokinesis Talent
 AD:Psychometry
 AD:Puppet (Group of Related Allies)
 AD:Puppet
 AD:Racial Memory
-AD:Radar
-AD:Radiation Talent
-AD:Radiation Tolerance
 AD:Rank
 AD:Rapid Healing
 AD:Rapier Wit
@@ -3786,23 +3708,11 @@ AD:Striker (Piercing)
 AD:Subsonic Hearing
 AD:Subsonic Speech
 AD:Super Climbing
-AD:Super Jump
 AD:Supernatural Durability
 AD:Teeth (Blunt Teeth)
 AD:Teeth (Fangs)
 AD:Teeth (Sharp Beak)
 AD:Teeth (Sharp Teeth)
-AD:Telecommunication (Directional Sound)
-AD:Telecommunication (Gravity-Ripple Comm)
-AD:Telecommunication (Infrared Communication)
-AD:Telecommunication (Laser Communication)
-AD:Telecommunication (Neutrino Comm)
-AD:Telecommunication (Radio)
-AD:Telecommunication (Sonar Comm)
-AD:Telecommunication (Telesend)
-AD:Telekinesis
-AD:Telepathy Talent
-AD:Teleportation Talent
 AD:Telescopic Vision
 AD:Temperature Control
 AD:Temperature Tolerance
@@ -5316,22 +5226,6 @@ Reduced Range (1/2D Range Only), -5%/-10%, levelnames(x1/2, x1/5, x1/10), upto(3
 Sense-Based (with Malediction), -20%/-15%/-10%, upto(3), group(_Attack Limitations), page(B115),
 	levelnames(One sense, Two senses, Three senses)
 
-<Homing>
-Radar, +20, group(Homing), page(B81)
-Imaging Radar, +20, group(Homing), page(B81)
-Ladar, +20, group(Homing), page(B81)
-Para-Radar, +40, group(Homing), page(B81)
-Sonar, +20, group(Homing), page(B81)
-Hyperspectral Vision, +25, group(Homing), page(B60), mods(Hyperspectral Vision)
-Infravision, +10, group(Homing), page(B60)
-Ultravision, +10, group(Homing), page(B94)
-Dark Vision, +25, group(Homing), page(B47), mods(Dark Vision)
-Night Vision, +1/+2, group(Homing), page(B71), upto(9)
-Penetrating Vision, +10/+20, group(Homing), page(B74), mods(Penetrating Vision)
-Telescopic Vision, +5/+10, group(Homing), page(B92)
-Vision, 0, group(Homing), page(B105)
-Vibration Sense, +10, group(Homing), page(B96)
-
 <_General>
 _User-Defined Enhancement, +0%, group(_General),
 	x(_
@@ -5759,16 +5653,6 @@ Stunning, +10%, mods(Secondary), group(Affliction), page(B36)
 <Secondary>
 Secondary, *1/5, group(Secondary), page(B36)
 
-<Ally>
-Group Size, *6/*8, levelnames(6-10, 11-20, 21-50, 51-100, 101-200, 201-500, "501-1,000", "1,001-2,000", "2,001-5,000", "5,001-10,000", "10,001-20,000", "20,001-50,000", "50,001-10,0000", "100,001-200,000", "200,001-500,000", "500,001-1,000,000"), group(Ally), page(B37)
-Non-Sapient, +0, group(Ally), page(B38)
-Minion, +0%/+50%, group(Ally), page(B38), upto(2), levelnames("w/IQ 0 or Slave mentality", "")
-Special Abilities, +50%, group(Ally), page(B38)
-Summonable, +100%, group(Ally), page(B38)
-Sympathy, -25%/-50%, upto(2), group(Ally), page(B38), levelnames(Death of one party reduces other to 0HP, Death of one party kills the other)
-Sympathy: Allies wounds don't affect you, -5%/-10%, upto(2), group(Ally), page(B38), levelnames(Death of one party reduces other to 0HP, Death of one party kills the other)
-Unwilling, -50%, group(Ally), page(B38)
-
 <Alternate Form>
 Difference in point costs, +1/+2, formula(@int(me::level * 0.9 + 0.9)), forceformula(yes), tier(1), group(Alternate Form), page(B84),
 	level([level]),
@@ -6087,15 +5971,9 @@ Unswitchable, *0, group(Infravision), page(B60)
 Switchable, +0, group(Infravision), page(B60)
 
 <Injury Tolerance>
-Diffuse, +100, group(Injury Tolerance), page(B60)
-Homogenous, +40, group(Injury Tolerance), page(B60)
-No Blood, +5, group(Injury Tolerance), page(B61)
-No Brain, +5, group(Injury Tolerance), page(B61)
-No Eyes, +5, group(Injury Tolerance), page(B61)
-No Head, +7, group(Injury Tolerance), page(B61)
-No Neck, +5, group(Injury Tolerance), page(B61)
-No Vitals, +5, group(Injury Tolerance), page(B61)
-Unliving, +20, group(Injury Tolerance), page(B61)
+No Blood, +5, group(Injury Tolerance), page(89)
+No Vitals, +5, group(Injury Tolerance), page(89)
+Unliving, +20, group(Injury Tolerance), page(89)
 
 <Alternative Attack>
 Alternative Attack, *1/5, group(Alternative Attack), page(B61), tier(2)
@@ -6172,13 +6050,6 @@ No Memory, +10%, group(Mind Control), page(B69)
 Conditioning Only, -50%, group(Mind Control), page(B69)
 Puppet, -40%, group(Mind Control), page(B69)
 
-<Mind Probe/Reading>
-Sensory, +20%, group(Mind Probe/Reading), page(B69)
-Universal, +50%, group(Mind Probe/Reading), page(B69)
-Racial, -20%, group(Mind Probe/Reading), page(B70)
-Sensory Only, -20%, group(Mind Probe/Reading), page(B70)
-Telecommunication, -20%, group(Mind Probe/Reading), page(B70)
-
 <Missing Legs>
 Mitigator: Prosthetic Leg, -60%, group(Missing Legs), page(B112), shortname(Prosthetic Leg), mitigator(yes)
 //, gives(+6 to "CL:Melee Combat")
@@ -6239,45 +6110,6 @@ Cannot dive, -5, group(No Legs), page(B145)
 
 <Nocturnal>
 Permanent Paralysis, +100%, group(Nocturnal), page(B146)
-
-<Obscure>
-Area Effect, +50%/+100%, group(Obscure), page(B72, B102), upto(24),
-	levelnames("4 yd","8 yd","16 yd","32 yd","64 yd","128 yd","256 yd","512 yd","0.58 mi","1.2 mi","2.3 mi","4.7 mi","9.3 mi","19.0 mi","37.0 mi","74.0 mi","150.0 mi","300.0 mi","600.0 mi","1,200 mi","2,400 mi","4,800 mi","9,500 mi","19,000 mi","38,000 mi","76,000 mi","150,000 mi","310,000 mi","610,000 mi","1,200,000 mi","2,400,000 mi","4,900,000 mi","9,800,000 mi","20,000,000 mi","39,000,000 mi"),
-	gives(_
-		=*(2^me::level) to owner::radius _
-		)
-Defensive, +50%, group(Obscure), page(B72)
-Extended, +20%/+40%, group(Obscure), page(B72),
-	x(#InputToTag("You must pick a sense which Obscure ''jams'':", nameext, , "Obscure"))
-Ranged, +50%, group(Obscure), page(B72),
-	addmode(Primary, damage(), damtype(spcl.), rangehalfdam(-), rangemax(100), acc(3), rof(1), shots(), rcl(1), skillused(%examplealiaslist%)),
-	x(#ChoiceList(_
-			name(example),
-			title(Burning Attack: Choose a Skill),
-			text(Choose a Skill that will be used with this Innate Attack. "DX, Brawling" is appropriate for attacks that will have one of the the Melee Attack limitations; "Will" for Maledictions:),
-			picksallowed(atleast 1),
-			method(bynumber),
-			list(_
-				"_None of these",
-				"Will",
-				"Innate Attack (Beam)",
-				"Innate Attack (Breath)",
-				"Innate Attack (Gaze)",
-				"Innate Attack (Projectile)" _
-				),
-			aliaslist(_
-				"",
-				"ST:Will",
-				"SK:Innate Attack (Beam), ST:DX-4, SK:Innate Attack (Beam)-2, SK:Innate Attack (Breath)-2, SK:Innate Attack (Gaze)-2, SK:Innate Attack (Projectile)-2",
-				"SK:Innate Attack (Breath), ST:DX-4, SK:Innate Attack (Beam)-2, SK:Innate Attack (Breath)-2, SK:Innate Attack (Gaze)-2, SK:Innate Attack (Projectile)-2",
-				"SK:Innate Attack (Gaze), ST:DX-4, SK:Innate Attack (Beam)-2, SK:Innate Attack (Breath)-2, SK:Innate Attack (Gaze)-2, SK:Innate Attack (Projectile)-2",
-				"SK:Innate Attack (Projectile), ST:DX-4, SK:Innate Attack (Beam)-2, SK:Innate Attack (Breath)-2, SK:Innate Attack (Gaze)-2, SK:Innate Attack (Projectile)-2" _
-				)_
-			)_
-	)
-
-Stealthy, +100%, group(Obscure), page(B72)
-Always On, -50%, group(Obscure), page(B72)
 
 <Patron>
 Equipment: no more than starting wealth, +50%, group(Patron), page(B73)
@@ -6364,13 +6196,8 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"Huge Piercing Attack",
 					"Illuminated",
 					"Illusion",
-					"Imaging Radar",
 					"Impaling Attack",
 					"Intuition",
-					"Jumper (Spirit)",
-					"Jumper (Time)",
-					"Jumper (World)",
-					"Ladar",
 					"Large Piercing Attack",
 					"Long Spines",
 					"Mimicry",
@@ -6379,14 +6206,12 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"Mind Reading",
 					"Oracle",
 					"Oracle (Digital)",
-					"Para-Radar",
 					"Photographic Memory",
 					"Piercing Attack",
 					"Possession",
 					"Precognition",
 					"Psychometry",
 					"Racial Memory",
-					"Radar",
 					"Rapier Wit",
 					"Sensitive",
 					"Short Spines",
@@ -6401,18 +6226,6 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"Striker (Piercing)",
 					"Subsonic Hearing",
 					"Subsonic Speech",
-					"Telecommunication (Directional Sound)",
-					"Telecommunication (Gravity-Ripple Comm)",
-					"Telecommunication (Infrared Communication)",
-					"Telecommunication (Laser Communication)",
-					"Telecommunication (Neutrino Comm)",
-					"Telecommunication (Radio)",
-					"Telecommunication (Sonar Comm)",
-					"Telecommunication (Telesend)",
-					"Telekinesis",
-					"Temporal Inertia",
-					"Toxic Attack",
-					"T-Ray Vision",
 					"Ultrahearing",
 					"Ultrasonic Speech",
 					"Ultravision",
@@ -6445,13 +6258,11 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"+owner::level to AD:Huge Piercing Attack::skillscore",
 					"+owner::level to AD:Illuminated::skillscore",
 					"+owner::level to AD:Illusion::skillscore",
-					"+owner::level to AD:Imaging Radar::skillscore",
 					"+owner::level to AD:Impaling Attack::skillscore",
 					"+owner::level to AD:Intuition::skillscore",
 					"+owner::level to AD:Jumper (Spirit)::skillscore",
 					"+owner::level to AD:Jumper (Time)::skillscore",
 					"+owner::level to AD:Jumper (World)::skillscore",
-					"+owner::level to AD:Ladar::skillscore",
 					"+owner::level to AD:Large Piercing Attack::skillscore",
 					"+owner::level to AD:Long Spines::skillscore",
 					"+owner::level to AD:Mimicry::skillscore",
@@ -6460,14 +6271,12 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"+owner::level to AD:Mind Reading::skillscore",
 					"+owner::level to AD:Oracle::skillscore",
 					"+owner::level to AD:Oracle (Digital)::skillscore",
-					"+owner::level to AD:Para-Radar::skillscore",
 					"+owner::level to AD:Photographic Memory::skillscore",
 					"+owner::level to AD:Piercing Attack::skillscore",
 					"+owner::level to AD:Possession::skillscore",
 					"+owner::level to AD:Precognition::skillscore",
 					"+owner::level to AD:Psychometry::skillscore",
 					"+owner::level to AD:Racial Memory::skillscore",
-					"+owner::level to AD:Radar::skillscore",
 					"+owner::level to AD:Rapier Wit::skillscore",
 					"+owner::level to AD:Sensitive::skillscore",
 					"+owner::level to AD:Short Spines::skillscore",
@@ -6482,18 +6291,6 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"+owner::level to AD:Striker (Piercing)::skillscore",
 					"+owner::level to AD:Subsonic Hearing::skillscore",
 					"+owner::level to AD:Subsonic Speech::skillscore",
-					"+owner::level to AD:Telecommunication (Directional Sound)::skillscore",
-					"+owner::level to AD:Telecommunication (Gravity-Ripple Comm)::skillscore",
-					"+owner::level to AD:Telecommunication (Infrared Communication)::skillscore",
-					"+owner::level to AD:Telecommunication (Laser Communication)::skillscore",
-					"+owner::level to AD:Telecommunication (Neutrino Comm)::skillscore",
-					"+owner::level to AD:Telecommunication (Radio)::skillscore",
-					"+owner::level to AD:Telecommunication (Sonar Comm)::skillscore",
-					"+owner::level to AD:Telecommunication (Telesend)::skillscore",
-					"+owner::level to AD:Telekinesis::skillscore",
-					"+owner::level to AD:Temporal Inertia::skillscore",
-					"+owner::level to AD:Toxic Attack::skillscore",
-					"+owner::level to AD:T-Ray Vision::skillscore",
 					"+owner::level to AD:Ultrahearing::skillscore",
 					"+owner::level to AD:Ultrasonic Speech::skillscore",
 					"+owner::level to AD:Ultravision::skillscore",
@@ -6635,10 +6432,6 @@ Gives conditional Water Move penalty, +0%, shortname(Conditional Water Move), co
 <Reduced Air Move>
 Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional Air Move penalty, +0%, shortname(Conditional Air Move), conditional(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
-
-<Regeneration>
-Heals Radiation, +40%, group(Regeneration), page(B80)
-Radiation Only, -60%, group(Regeneration), page(B80)
 
 <Regrowth>
 Minor, -50%, group(Regrowth), page(B80)
@@ -6810,33 +6603,6 @@ Gives Conditional Bonus to [skill category], +0, conditional(+owner::level to CL
 	x(_
 	#InputReplace("Please enter the name of the skill which will receive the conditional bonus:", "[skill category]", , "Talent Conditional Bonus")_
 	)
-
-<Telecommunication>
-Universal, +50%, group(Telecommunication), page(B91)
-Video, +40%, group(Telecommunication), page(B91)
-Racial, -20%, group(Telecommunication), page(B91)
-Vague, -50%, group(Telecommunication), page(B91)
-
-<Infrared Communication>
-Receive Only, -50%, group(Infrared Communication), page(B91)
-Send Only, -50%, group(Infrared Communication), page(B91)
-
-<Radio>
-Short Wave, +50%, group(Radio Communication), page(B91)
-Receive Only, -50%, group(Radio Communication), page(B91)
-Send Only, -50%, group(Radio Communication), page(B91)
-
-<Telesend>
-Broadcast, +50%, group(Telesend), page(B91)
-
-<Telekinesis>
-Magnetic, -50%, group(Telekinesis), page(B92)
-Visible, -20%, group(Telekinesis), page(B92)
-
-Remove Swing Mode, +0, addmode(Swing, damage(), damtype(), minst(), reach(), rangehalfdam(), rangemax()),
-	x(#Message(This modifier is destructive once added. You will need to Resynchronize the Advantages after removing this modifier to undo the changes made by it.))
-Remove Thrust Mode, +0, addmode(Thrust, damage(), damtype(), minst(), reach(), rangehalfdam(), rangemax()),
-	x(#Message(This modifier is destructive once added. You will need to Resynchronize the Advantages after removing this modifier to undo the changes made by it.))
 
 <Telescopic Vision>
 No Targeting, -60%, group(Telescopic Vision), page(B92)
@@ -7620,96 +7386,6 @@ _New Meta-Trait, displaycost(variable), cost(0), gives(),
 					"AD:Racial Spell Point Bonus ([spell])"_
 				)_
 			), noresync(yes)
-
-<Meta-Traits - Elemental>
-Body of Earth, displaycost(175), cost(0),
-	description(Your body is made of sand or earth.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Doesn't Breathe,
-		AD:Damage Resistance=2,
-		AD:Injury Tolerance _
-			with "Diffuse, +100, group(Injury Tolerance)",
-		AD:Pressure Support=3,
-		AD:Sealed,
-		AD:Vacuum Support,
-		DI:Invertebrate _
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)" _
-		)
-Body of Metal, displaycost(175), cost(0),
-	description(Your body is made of metal.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Doesn't Breathe,
-		AD:Damage Resistance=9,
-		AD:Injury Tolerance _
-			with "Homogenous, +40, group(Injury Tolerance)" _
-			and  "No Blood, +5, group(Injury Tolerance)",
-		AD:Pressure Support=3,
-		AD:Sealed,
-		AD:Vacuum Support _
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
-		)
-Body of Stone, displaycost(140), cost(0),
-	description(Your body is made of rock.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Doesn't Breathe,
-		AD:Damage Resistance=5,
-		AD:Injury Tolerance _
-			with "Homogenous, +40, group(Injury Tolerance)" _
-			and  "No Blood, +5, group(Injury Tolerance)",
-		AD:Pressure Support=3,
-		AD:Sealed,
-		AD:Vacuum Support,
-		DI:Fragile (Brittle) _
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
-		)
-Body of Water, displaycost(175), cost(0),
-	description(Your body is made of liquid.),
-	page(B262),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Amphibious,
-		AD:Chameleon,
-		AD:Constriction Attack,
-		AD:Doesn't Breathe,
-		AD:Injury Tolerance _
-			with "Diffuse, +100, group(Injury Tolerance)",
-		AD:Pressure Support=3,
-		AD:Slippery=5,
-		DI:Invertebrate,
-		DI:Vulnerability (Dehydration attacks) _ 
-			with "Wounding Multiplier x2, *1, shortname(x2), group(Vulnerability)"_
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
-		)
 
 <Meta-Traits - Machine>
 Machine, displaycost(25), cost(0),
