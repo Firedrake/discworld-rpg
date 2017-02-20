@@ -1034,9 +1034,6 @@ Dominance, 20, page(B50), cat(Supernatural, Mental)
 Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
 	skillused(ST:IQ), mode(Heal)
 					
-Jumper (World), 100, mods(Jumper), page(B64), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(World Jump)
-
 Magery 0, 5, page(44), cat(Supernatural, Mental, Non-Racial),
 	gives(+AD:Magery::level to me::skillscore),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
@@ -1125,7 +1122,6 @@ Double-Jointed, 15, conditional(+5 To ST:DX when "ignoring penalties for working
 		+5 To "all attempts to break free of restraints"),
 	gives(+5 To SK:Climbing, +5 To SK:Escape),
 	page(43), cat(Mundane, Physical, Non-Racial, Racial), taboo(AD:Flexibility)
-
 High Manual Dexterity, 5/10, upto(4), page(43), cat(Mundane, Physical, Non-Racial, Racial),
 	taboo("DI:Ham-Fisted", DI:Quadruped),
 	conditional(_
@@ -1136,15 +1132,13 @@ High Pain Threshold, 10, page(43), cat(Mundane, Physical, Non-Racial, Racial),
 	taboo(DI:Low Pain Threshold, AD:Supernatural Durability),
 	skillused(ST:Will+3), mode(ignore pain)
 Less Sleep, 2/4, page(43), upto(4), cat(Mundane, Physical, Non-Racial, Racial), taboo(AD:Doesn't Sleep)
-Night Vision, 1/2, page(B71), upto(9), cat(Mundane, Physical), taboo(DI:Blindness, DI:Night Blindness, AD:Dark Vision)
-
+Night Vision, 1/2, page(45), upto(9), cat(Mundane, Non-Racial, Physical), taboo(DI:Blindness)
 Perfect Balance, 15, gives(+1 To GR:Perfect Balance), page(46), cat(Mundane, Physical, Non-Racial, Racial)
-
 Rapid Healing, 5/15, displaycost(5), upto(2),
-	levelnames(,Very Rapid Healing), needs(ST:HT = 10), page(B79),
+	levelnames(,Very Rapid Healing), needs(ST:HT = 10), page(46),
 	cat(Mundane, Non-Racial, Physical),
 	taboo(AD:Very Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
-Very Rapid Healing, 15, needs(ST:HT = 12), page(B79),
+Very Rapid Healing, 15, needs(ST:HT = 12), page(46),
 	cat(Mundane, Non-Racial, Physical),
 	taboo(AD:Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
 
@@ -1156,12 +1150,11 @@ Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Ver
 		#buildit _
 	)
 
-Temperature Tolerance, 1/2, page(B93), cat(Mundane, Physical)
-
+Temperature Tolerance (Cold), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial),
+Temperature Tolerance (Heat), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial),
 
 Voice, 10, gives(+2 To GR:Voice), page(30), cat(Mundane, Physical), taboo(DI:Mute, DI:Disturbing Voice, DI:Stuttering),
 	conditional(+2 to ST:Reaction when "your voice can be heard")
-					
 
 <Mundane Mental>
 Animal Empathy, 5, page(B40), cat(Empathic Abilities, Mundane, Mental), taboo(DI:Frightens Animals),
@@ -1235,9 +1228,9 @@ Mad Medicine, 15, needs(AD:Gadgeteer, ((ST:Tech Level = 5) | (PE:Cutting-Edge Tr
 	page(44), cat(Mundane, Mental, Non-Racial)
 
 Serendipity, 15/30, page(44), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
-Single-Minded, 5, page(B85), cat(Mundane, Mental), taboo(DI:Short Attention Span)
+Single-Minded, 5, page(46), cat(Mundane, Mental), taboo(DI:Short Attention Span)
+
 Social Chameleon, 5, page(B86), cat(Mundane, Mental), conditional(+1 to ST:Reaction when "from those who demand respect (priests, kings, etc.)")
-					
 
 * Talents
 Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
@@ -1254,6 +1247,9 @@ Healer, 10/20, gives(+1 To GR:Healer), page(B90), upto(4), cat(Mundane, Mental, 
 	conditional(+1 to ST:Reaction), description(Diagnosis, Esoteric Medicine, First Aid, Pharmacy, Physician, Physiology, Psychology, Surgery, Veterinary)
 Mathematical Ability, 10/20, gives(+1 To GR:Mathematical Ability), page(B90), upto(4), cat(Mundane, Mental, Talents), taboo(DI:Innumerate), mods(_Talents),
 	conditional(+1 to ST:Reaction), description(Accounting, Astronomy, Cryptography, Engineer, Finance, Market Analysis, Mathematics, Physics)
+Metalwork, 10/20, gives(+1 To GR:Metalwork), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Racial, Talents),
+	mods(_Talents), conditional(+1 to ST:Reaction),
+	description(Armoury, Metal-Related Versions of Engineer, Jeweller, Mechanic, Metallurgy, Prospecting, Smith)
 Musical Ability, 5/10, gives(+1 To GR:Musical Ability), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
 	conditional(+1 to ST:Reaction), description(Conducting, Musical Composition, Musical Instrument, Singing)
 Outdoorsman, 10/20, gives(+1 To GR:Outdoorsman), page(B90), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
@@ -1635,11 +1631,6 @@ _New Parent Item, 0, isparent(yes),
 Aerial, 0, page(94), needs(AD:Flight), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	gives(=nobase to ST:Kick::reach$)
-Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Physical, Racial),
-	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
-	mods(Extra Legs)
-Short Arms (1 Arm), -5, page(96), cat(Exotic, Physical, Racial), needs(DI:One Arm), taboo(DI:Short Arms (2 Arms))
-Short Arms (2 Arms), -10, page(96), cat(Exotic, Physical, Racial), taboo(DI:Short Arms (1 Arm), DI:One Arm)
 
 Cold-Blooded, -5/-10, upto(2), page(B127), cat(Exotic, Physical),
 	levelnames(You "stiffen up" below 50°, You "stiffen up" below 65°),
@@ -1666,15 +1657,22 @@ Invertebrate, -20, page(B140), cat(Exotic, Physical),
 	gives(=-(0.75 * "ST:No Encumbrance::basescore") to "ST:No Encumbrance", =-(0.75 * "ST:Light Encumbrance::basescore") to "ST:Light Encumbrance", =-(0.75 * "ST:Medium Encumbrance::basescore") to "ST:Medium Encumbrance", =-(0.75 * "ST:Heavy Encumbrance::basescore") to "ST:Heavy Encumbrance", =-(0.75 * "ST:X-Heavy Encumbrance::basescore") to "ST:X-Heavy Encumbrance", =-(0.75 * "ST:One-Handed Lift::basescore") to "ST:One-Handed Lift", =-(0.75 * "ST:Two-Handed Lift::basescore") to "ST:Two-Handed Lift", =-(0.75 * "ST:Carry on Back::basescore") to "ST:Carry on Back")
 
 Nocturnal, -20, mods(Nocturnal), page(B146), cat(Exotic, Physical)
-Semi-Upright, -5, page(B153), cat(Exotic, Physical), taboo(DI:Quadruped)
 
+Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Physical, Racial),
+	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
+	mods(Extra Legs)
+Semi-Upright, -5, page(96), cat(Exotic, Physical, Racial), taboo(DI:Quadruped)
+Short Arms (1 Arm), -5, page(96), cat(Exotic, Physical, Racial), needs(DI:One Arm), taboo(DI:Short Arms (2 Arms))
+Short Arms (2 Arms), -10, page(96), cat(Exotic, Physical, Racial), taboo(DI:Short Arms (1 Arm), DI:One Arm)
+Troll Brain, -10, page(97), cat(Exotic, Physical, Racial)
 Unhealing, -20/-30, levelnames(Partial, Total), page(98), upto(2),
 	cat(Exotic, Physical, Racial), taboo(AD:Regeneration, AD:Repairable)
+
 Unusual Biochemistry, -5, page(B160), cat(Exotic, Physical)
 
 Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4), 
 	levelnames(Rare, Occasional, Common, Very Common), mods(Vulnerability), 
-	page(B161), cat(Exotic, Physical),
+	page(98), cat(Exotic, Physical, Racial),
 	x(_
 		#InputToTag("Specify the type of attack you take extra damage from:", nameext, , "Vulnerability"),
 		#buildit _
@@ -1775,7 +1773,8 @@ Addiction (Tobacco), -5, levelnames(Cheap),
 			Legality: Legal, +5, shortname(Legal), group(Addiction), page(B122) _
 			)
 
-Alcoholism, -15, mods(Alcoholism), page(B122), cat(Mundane, Physical)
+Alcoholism, -15, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism (Withdrawn), QU:Former Alcoholic)
+Alcoholism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism, QU:Former Alcoholic)
 Bad Back, -15/-25, levelnames(Mild, Severe), page(B123), upto(2), cat(Mundane, Physical)
 Bad Grip, -5/-10, page(B123), cat(Mundane, Physical), taboo(DI:Quadruped)
 Bad Sight (Nearsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Farsighted), AD:Acute Vision), mods(Bad Sight),
@@ -1850,6 +1849,8 @@ Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upt
 Social Disease, -5, page(B155), cat(Mundane, Physical), conditional(-1 to ST:Reaction)
 Stuttering, -10, gives(-2 To GR:Stuttering), page(B157), cat(Mundane, Physical), taboo(DI:Mute), conditional(-2 to ST:Reaction)
 
+Sulphurholism, -15, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism (Withdrawn), QU:Former Alcoholic)
+Sulphurlism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism, QU:Former Alcoholic)
 Susceptible to [Very Common], -4/-8, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
 	x( #InputReplace("Specify the environmentally Very Common class of noxious items or substances to which the character is susceptible:", "[Very Common]", , "Susceptible to [Very Common]") )
 Susceptible to [Common], -2/-4, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
@@ -2272,9 +2273,12 @@ Xenophilia, -10, mods(Self-Control), page(B162), cat(Mundane, Mental, Non-Racial
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 <Mundane Social>
-Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Social, Other Physical Features),
+Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Non-Racial, Social, Other Physical Features),
 	conditional(-1 to ST:Reaction when "people notice your problem"),
 	x(#InputToTag("Specify the Odious Personal Habit:", nameext, , "Odious Personal Habit"))
+Odious Racial Habit, -5/-10, upto(3), page(B22), cat(Mundane, Racial, Social, Other Physical Features),
+	conditional(-1 to ST:Reaction when "people are aware of the issue"),
+	x(#InputToTag("Specify the Odious Racial Habit:", nameext, , "Odious Racial Habit"))
 Wealth, -10/-15/-25, upto(3), page(B25), levelnames([Average], Struggling, Poor, Dead Broke), cat(Mundane, Social, Wealth),
 	gives(=@indexedvalue(%level, -5, -8, -10) To ST:Wealth Modifier),
 	taboo(AD:Wealth, DI:Wealth > me::level, DI:Wealth < me::level)
@@ -2380,23 +2384,28 @@ _Unused Quirk 5, -1
 <Mental>
 Attentive, -1, page(66), cat(Mental, Non-Racial)
 Autocondimentor, -1, page(66), cat(Mental, Non-Racial)
+Blunt and Tactless, -1, page(101), cat(Banshee, Racial)
 Brawling Society, -1, page(99), cat(Racial, Trollish)
 Broad-Minded, -1, page(66), cat(Mental, Non-Racial)
+Considers Dwarf Gender a Very Private Matter, -1, page(100), cat(Dwarfish, Mental, Racial)
 Careful, -1, page(67), cat(Mental, Non-Racial)
 Chauvinistic, -1, page(67), cat(Mental, Non-Racial)
 Code of Honour, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputReplace("Specify the character's Minor Code:", nameext, , "Minor Code of Honour"))
+Collects Own Snot and Earwax, -1, page(103), cat(Goblin, Mental, Racial)
 Congenial, -1, page(67), cat(Mental, Non-Racial)
 Delusion, -1 , page(67), cat(Mental, Non-Racial),
 	x(#InputReplace("Specify the character's trivial Delusion:", nameext, , "Trivial Delusion"))
 Delusion (Spelling my name backwards disguises it perfectly), -1, page(99), cat(Racial, Vampiric)
 Dislikes [specify], -1, page(67), cat(Mental, Non-Racial),
 	x(#InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes"))
+Dislikes Cramped Conditions, -1, page(101), cat(Banshee, Racial)
 Distractible, -1, page(67), cat(Mental, Non-Racial)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
 Dreamer, -1, page(67), cat(Mental, Non-Racial)
 Dull, -1, page(67), cat(Mental, Non-Racial)
 Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Mental, Non-Racial)
+Former Sulphurholic, -1, page(55), taboo(DI:Sulphurholism), cat(Mental, Non-Racial)
 Giggles a Lot, -1, page(67), cat(Elvish, Non-Racial)
 Habit, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify what the character's habit is:", nameext, , "Habit"))
@@ -2412,10 +2421,12 @@ Obsession, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession"))
 Personality Change, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change"))
+Prefers To Be Above Ground Level, -1, page(101), cat(Gargoyle, Mental, Non-Racial, Racial)
 Proud, -1, page(68), cat(Mental, Non-Racial)
 Responsive, -1, page(68), cat(Mental, Non-Racial)
 Staid, -1, page(68), cat(Mental, Non-Racial)
 Terrifying Singer, -1, page(68), needs(ST:HT = 12), taboo(SK:Singing), cat(Mental, Non-Racial)
+Touchy About Height and Beard, -1, page(100), cat(Dwarfish, Mental, Racial)
 Uncongenial, -1, page(68), cat(Mental, Non-Racial)
 Vow, -1, page(68), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify the character's trivial Vow:", nameext, , "Vow"))
@@ -2423,8 +2434,9 @@ Vow, -1, page(68), cat(Mental, Non-Racial),
 <Physical>
 Alcohol Intolerance, -1, page(68), cat(Non-Racial)
 Bowlegged, -1, page(68), gives(-1 To SK:Jumping), cat(Non-Racial)
-Cannot Float, -1, page(99), cat(Racial, Trollish)
+Cannot Float, -1, page(99), cat(Gargoyle, Racial, Trollish)
 Cannot Run Long Distances, -1, page(99), cat(Dwarfish, Racial)
+Closes Eyes and Screams to Intimidate Victims, -1, page(101), cat(Racial, Banshee)
 Distinctive Features, -1, page(68), gives(-1 To SK:Disguise, -1 to SK:Shadowing), cat(Non-Racial),
 	x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") )
 Horrible Hangovers, -1, page(68), cat(Non-Racial)
@@ -2432,9 +2444,10 @@ Minor Handicap, -1, page(68), cat(Non-Racial),
 	x(#InputToTag("Specify the character's Minor Handicap:", nameext, , "Minor Handicap"))
 Nervous Stomach, -1, page(68), cat(Non-Racial)
 No Staff, -1, page(68), needs(SK:Magic (Wizardry)), taboo(AD:Superior Staff), cat(Magical, Non-Racial)
+Reflexively Grabs and Consumes Small Flying Creatures, -1, page(101), cat(Banshee, Racial)
 Short Lifespan, -1, page(99), cat(Racial)
 Silver Aversion, -1, page(99), needs(DI:Vulnerability (Silver Weapons) | DI:Vulnerability (Silver)), cat(Lycanthropic, Racial)
-Sunburns Easily, -1, page(99), cat(Elven, Racial)
+Sunburns Easily, -1, page(99), cat(Elvish, Racial)
 Weak Spot, -1, page(99), needs(AD:Damage Resistance = 2), cat(Racial, Trollish)
 
 ************************************************************************************************************************
@@ -3386,9 +3399,6 @@ AD:Acute Touch
 AD:Acute Vision
 AD:Administrative Rank
 AD:Affliction
-AD:Air Talent
-AD:Ally
-AD:Altered Time Rate
 AD:Alternate Form (Cosmetic)
 AD:Alternate Form
 AD:Alternate Identity
@@ -3405,6 +3415,7 @@ AD:Brachiator
 AD:Breath-Holding
 AD:Burning Attack
 AD:Business Acumen
+AD:Cast-Iron Stomach
 AD:Catfall
 AD:Chameleon
 AD:Channelling
@@ -3435,11 +3446,6 @@ AD:Control [Very Common]
 AD:Corrosion Attack
 AD:Cosmic Talent
 AD:Courtesy Rank
-AD:Create [Large Category]
-AD:Create [Medium Category]
-AD:Create [Small Category]
-AD:Create [Specific Item]
-AD:Creation Pool
 AD:Crushing Attack
 AD:Cultural Adaptability
 AD:Cultural Familiarity (Alien Culture)
@@ -3544,14 +3550,11 @@ AD:Machine Telepathy Talent
 AD:Magery 0
 AD:Magery
 AD:Magic Resistance
-AD:Magnetism Talent
-AD:Mana Damper
-AD:Mana Enhancer
 AD:Mathematical Ability
-AD:Matter Control Talent
 AD:Medium
 AD:Merchant Rank
 AD:Metabolism Control
+AD:Metalwork
 AD:Military Rank
 AD:Mimicry
 AD:Mind Control
@@ -3582,17 +3585,8 @@ AD:Police Rank
 AD:Possession
 AD:Power Investiture
 AD:Precognition
-AD:Pressure Support
-AD:Probability Alteration Talent
-AD:Protected [Power]
-AD:Protected [Sense]
+AD:Pressure-Proof
 AD:Protected Eyes
-AD:Psychic Healing Talent
-AD:Psychokinesis Talent
-AD:Psychometry
-AD:Puppet (Group of Related Allies)
-AD:Puppet
-AD:Racial Memory
 AD:Rank
 AD:Rapid Healing
 AD:Rapier Wit
@@ -3639,8 +3633,8 @@ AD:Teeth (Sharp Beak)
 AD:Teeth (Sharp Teeth)
 AD:Telescopic Vision
 AD:Temperature Control
-AD:Temperature Tolerance
-AD:Temporal Inertia
+AD:Temperature Tolerance (Cold)
+AD:Temperature Tolerance (Heat)
 AD:Tenure
 AD:Terrain Adaptation
 AD:Terror (Awe)
@@ -3681,17 +3675,57 @@ AD:Wild Talent
 
 <AllPerks>
 PE:_New Perk
-PE:Accessory
 PE:Alcohol Tolerance
+PE:Archaic Training
+PE:Assassin in Good Standing
 PE:Autotrance
+PE:Blade-Proof Bare-Chestedness
+PE:Boredom Immunity
+PE:Check the Exits
+PE:Climatic Emphasis
+PE:Cobblestone Sense
+PE:Cold Resistance
+PE:Controllable Disadvantage
+PE:Crossbow Safety
+PE:Cutting-Edge Training
 PE:Deep Sleeper
+PE:Divine News-Feed
+PE:Dual Ready
+PE:Fearsome Stare
+PE:Feathers
+PE:Forgettable Face
+PE:Fully-Dressed Resurrection
 PE:Fur
+PE:Good with (Animal)
+PE:Good with (Social Group)
+PE:Haughty Sneer
+PE:Heartbeat Counter
+PE:Heat Resistance
+PE:High-Heeled Heroine
 PE:Honest Face
+PE:Hyper-Specialisation
+PE:Improvised Weapons [specify]
+PE:Limited Camouflage [specify]
 PE:Longevity
+PE:Name Hearing
 PE:No Hangover
+PE:Off-Hand Training
+PE:Oggham Reader
+PE:One Spell Doesn't Need Preparation
 PE:Penetrating Voice
+PE:Recognised Divinity
 PE:Sanitized Metabolism
+PE:Scales
+PE:Secret Name
 PE:Shtick
+PE:Self-Styling Hair
+PE:Sordid Claws
+PE:Statuesque
+PE:Street Swagger
+PE:Striking Surface
+PE:There on Call
+PE:Understands the Librarian
+PE:Unfazed by Size
 
 <AllDisadvantages>
 DI:_New Disadvantage
@@ -3703,6 +3737,7 @@ DI:Addiction (Heroin)
 DI:Addiction (Tobacco)
 DI:Aerial
 DI:Alcoholism
+DI:Alcoholism (Withdrawn)
 DI:Amnesia (Partial)
 DI:Amnesia (Total)
 DI:Appearance
@@ -3845,6 +3880,7 @@ DI:Numb
 DI:Oblivious
 DI:Obsession
 DI:Odious Personal Habit
+DI:Odious Racial Habit
 DI:On the Edge
 DI:One Arm
 DI:One Eye
@@ -3904,6 +3940,8 @@ DI:Status
 DI:Stress Atavism
 DI:Stubbornness
 DI:Stuttering
+DI:Sulphurholism
+DI:Sulphurholism (Withdrawn)
 DI:Supernatural Feature
 DI:Supersensitive
 DI:Susceptible to [Common]
@@ -3911,6 +3949,7 @@ DI:Susceptible to [Occasional]
 DI:Susceptible to [Very Common]
 DI:Trademark
 DI:Trickster
+DI:Troll Brain
 DI:Truthfulness
 DI:Uncontrollable Appetite
 DI:Unfit
@@ -3933,44 +3972,59 @@ DI:Xenophilia
 
 <AllQuirks>
 QU:_New Quirk
-QU:Acceleration Weakness
 QU:Alcohol Intolerance
 QU:Attentive
+QU:Autocondimentor
+QU:Blunt and Tactless
 QU:Bowlegged
+QU:Brawling Society
 QU:Broad-Minded
 QU:Cannot Float
+QU:Cannot Run Long Distances
 QU:Careful
 QU:Chauvinistic
+QU:Closes Eyes and Screams to Intimidate Victims
 QU:Code of Honour
+QU:Collects Own Snot and Earwax
 QU:Congenial
-QU:Delusion
+QU:Considers Dwarf Gender a Very Private Matter
+QU:Delusion [specify]
+QU:Delusion (Spelling my name backwards disguises it perfectly)
 QU:Dislikes [specify]
+QU:Dislikes Cramped Conditions
 QU:Distinctive Feature
 QU:Distractible
+QU:Doggy Responses
 QU:Dreamer
 QU:Dull
 QU:Expression
+QU:Former Alcoholic
+QU:Giggles a Lot
 QU:Habit
 QU:Horrible Hangovers
 QU:Humble
+QU:Hunter's Habits
 QU:Imaginative
-QU:Incompetence (%skillslist%)
-QU:Incompetence ([skill])
 QU:Likes [specify]
 QU:Minor Handicap
 QU:Nervous Stomach
 QU:Neutered
+QU:No Staff
 QU:Nosy
 QU:Obsession
-QU:Personality Change
+QU:Personality Change [specify]
+QU:Prefers To Be Above Ground Level
 QU:Proud
+QU:Reflexively Grabs and Consumes Small Flying Creatures
 QU:Responsive
-QU:Sexless
 QU:Short Lifespan
+QU:Silver Aversion
 QU:Staid
-QU:Trademark
+QU:Sunburns Easily
+QU:Terrifying Singer
 QU:Uncongenial
 QU:Vow
+QU:Weak Spot
 
 <AllSkills>
 SK:Accounting
@@ -4014,40 +4068,16 @@ SK:Astronomy
 SK:Astronomy (Observational)
 SK:Autohypnosis
 SK:Axe/Mace
-SK:Battlesuit
-SK:Beam Weapons
-SK:Beam Weapons (Pistol)
-SK:Beam Weapons (Projector)
-SK:Beam Weapons (Rifle)
 SK:Bicycling
-SK:Bioengineering
-SK:Bioengineering (Cloning)
-SK:Bioengineering (Genetic Engineering)
-SK:Bioengineering (Tissue Engineering)
-SK:Biology
-SK:Biology (Earthlike)
-SK:Biology (Gas Giants)
-SK:Biology (Hostile Terrestrial)
-SK:Biology (Ice Dwarfs)
-SK:Biology (Ice Worlds)
-SK:Biology (Rock Worlds)
-SK:Blind Fighting
 SK:Blowpipe
 SK:Boating
-SK:Boating (Large Powerboat)
-SK:Boating (Motorboat)
 SK:Boating (Sailboat)
 SK:Boating (Unpowered)
-SK:Body Control
 SK:Body Language
 SK:Body Sense
-SK:Bolas
 SK:Bow
 SK:Boxing
-SK:Brainwashing
 SK:Brawling
-SK:Breaking Blow
-SK:Breath Control
 SK:Broadsword
 SK:Camouflage
 SK:Carousing
@@ -4098,34 +4128,20 @@ SK:Driving (Tracked)
 SK:Dropping
 SK:Economics
 SK:Engineer
+SK:Engineer (Animal-Drawn Vehicles)
 SK:Engineer (Artillery)
+SK:Engineer (Bicycles)
 SK:Engineer (Civil)
+SK:Engineer (Clacks)
+SK:Engineer (Clockwork)
 SK:Engineer (Combat)
-SK:Engineer (Electrical)
-SK:Engineer (Electronics)
-SK:Engineer (Materials)
-SK:Engineer (Microtechnology)
+SK:Engineer (Low-Tech Machines)
+SK:Engineer (Magical)
 SK:Engineer (Mining)
-SK:Engineer (Nanotechnology)
-SK:Engineer (Parachronic)
-SK:Engineer (Psychotronics)
-SK:Engineer (Temporal)
-SK:Enthrallment
-SK:Enthrallment (Captivate)
-SK:Enthrallment (Persuade)
-SK:Enthrallment (Suggest)
-SK:Enthrallment (Sway Emotions)
+SK:Engineer (Ships)
+SK:Engineer (Steam Engines)
 SK:Escape
-SK:Esoteric Medicine
 SK:Exorcism
-SK:Expert Skill
-SK:Expert Skill (Epidemiology)
-SK:Expert Skill (Hydrology)
-SK:Expert Skill (Military Science)
-SK:Expert Skill (Political Science)
-SK:Expert Skill (Psionics)
-SK:Expert Skill (Thanatology)
-SK:Expert Skill (Xenology)
 SK:Explosives
 SK:Explosives (Demolition)
 SK:Explosives (Fireworks)
@@ -4485,7 +4501,24 @@ SK:Cryptography
 SK:Engineer
 SK:Finance
 SK:Mathematics
-SK:Physics
+
+<Metalwork>
+SK:Armoury
+SK:Engineer (Animal-Drawn Vehicles)
+SK:Engineer (Artillery)
+SK:Engineer (Bicycles)
+SK:Engineer (Clacks)
+SK:Engineer (Clockwork)
+SK:Engineer (Low-Tech Machines)
+SK:Engineer (Magical)
+SK:Engineer (Mining)
+SK:Engineer (Ships)
+SK:Engineer (Steam Engines)
+SK:Jeweller
+SK:Mechanic
+SK:Metallurgy
+SK:Prospecting
+SK:Smith
 
 <Musical Ability>
 SK:Conducting
@@ -6546,10 +6579,9 @@ Only affects [smallgroup], -25, shortname([smallgroup] Only), page(49),
 Only affects Redheads, -25, shortname(Redheads Only), page(49)
 
 <Vulnerability>
-Wounding Multiplier x2, *1, shortname(x2), group(Vulnerability), page(B161)
-Wounding Multiplier x3, *1.5, shortname(x3), group(Vulnerability), page(B161)
-Wounding Multiplier x4, *2, shortname(x4), group(Vulnerability), page(B161)
-Fatigue Only, -50%, group(Vulnerability), page(B161)
+Wounding Multiplier x2, *1, shortname(x2), group(Vulnerability), page(98)
+Wounding Multiplier x3, *1.5, shortname(x3), group(Vulnerability), page(98)
+Wounding Multiplier x4, *2, shortname(x4), group(Vulnerability), page(98)
 
 <Warp>
 Blind, +50%, group(Warp), page(B98)
