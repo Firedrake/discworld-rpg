@@ -768,9 +768,9 @@ Enhanced Move (Water), 10/20, gives(+0.5 To ST:Enhanced Water Move),
 
 Flight (Levitation), 40, page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
-Flight, 30 (Winged, Can Hover), page(89), cat(Exotic, Physical, Racial),
+Flight (Winged, Can Hover), 30, page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
-Flight, 24 (Winged, Cannot Hover), page(89), cat(Exotic, Physical, Racial),
+Flight (Winged, Cannot Hover), 24, page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
 
 Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(89), cat(Exotic, Physical), x(#buildit)
@@ -1150,8 +1150,8 @@ Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Ver
 		#buildit _
 	)
 
-Temperature Tolerance (Cold), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial),
-Temperature Tolerance (Heat), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial),
+Temperature Tolerance (Cold), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial)
+Temperature Tolerance (Heat), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial)
 
 Voice, 10, gives(+2 To GR:Voice), page(30), cat(Mundane, Physical), taboo(DI:Mute, DI:Disturbing Voice, DI:Stuttering),
 	conditional(+2 to ST:Reaction when "your voice can be heard")
@@ -1727,9 +1727,6 @@ Uncontrollable Appetite, -15, mods(Self-Control), page(B159), cat(Supernatural, 
 			),
 	x(#InputToTag("Specify the substance you must consume:", nameext, , "Uncontrollable Appetite"))
 
-Unique, -5, page(B160), cat(Supernatural, Mental), taboo(AD:Temporal Inertia)
-Weirdness Magnet, -15, page(B162), cat(Supernatural, Mental)
-
 <Mundane Physical>
 Skinny, -5, gives(-2 To SK:Disguise), 
 	conditional(-2 to ST:ST when "you resist knockback", -2 to SK:Shadowing when "you are trying to follow someone in a crowd"),
@@ -2268,9 +2265,6 @@ Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Munda
 	x(#InputToTag("Please describe the nature of your Vow:", nameext, , "Vow"))
 Workaholic, -5, page(B162), cat(Mundane, Mental, Non-Racial),
 	conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
-
-Xenophilia, -10, mods(Self-Control), page(B162), cat(Mundane, Mental, Non-Racial),
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 <Mundane Social>
 Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Non-Racial, Social, Other Physical Features),
@@ -3704,8 +3698,8 @@ PE:Heat Resistance
 PE:High-Heeled Heroine
 PE:Honest Face
 PE:Hyper-Specialisation
-PE:Improvised Weapons [specify]
-PE:Limited Camouflage [specify]
+PE:Improvised Weapons
+PE:Limited Camouflage
 PE:Longevity
 PE:Name Hearing
 PE:No Hangover
@@ -3834,8 +3828,6 @@ DI:Impulsiveness
 DI:Increased Consumption
 DI:Increased Life Support (Extreme Heat/Cold)
 DI:Increased Life Support (Massive)
-DI:Increased Life Support (Pressurized)
-DI:Increased Life Support (Radioactive)
 DI:Increased Life Support
 DI:Incurious
 DI:Indecisive
@@ -3965,10 +3957,7 @@ DI:Vulnerability
 DI:Weak Bite
 DI:Weakness
 DI:Wealth
-DI:Weirdness Magnet
 DI:Workaholic
-DI:Wounded
-DI:Xenophilia
 
 <AllQuirks>
 QU:_New Quirk
@@ -3988,9 +3977,9 @@ QU:Code of Honour
 QU:Collects Own Snot and Earwax
 QU:Congenial
 QU:Considers Dwarf Gender a Very Private Matter
-QU:Delusion [specify]
+QU:Delusion
 QU:Delusion (Spelling my name backwards disguises it perfectly)
-QU:Dislikes [specify]
+QU:Dislikes
 QU:Dislikes Cramped Conditions
 QU:Distinctive Feature
 QU:Distractible
@@ -4005,14 +3994,14 @@ QU:Horrible Hangovers
 QU:Humble
 QU:Hunter's Habits
 QU:Imaginative
-QU:Likes [specify]
+QU:Likes
 QU:Minor Handicap
 QU:Nervous Stomach
 QU:Neutered
 QU:No Staff
 QU:Nosy
 QU:Obsession
-QU:Personality Change [specify]
+QU:Personality Change
 QU:Prefers To Be Above Ground Level
 QU:Proud
 QU:Reflexively Grabs and Consumes Small Flying Creatures
@@ -4022,6 +4011,7 @@ QU:Silver Aversion
 QU:Staid
 QU:Sunburns Easily
 QU:Terrifying Singer
+QU:Touchy About Height and Beard
 QU:Uncongenial
 QU:Vow
 QU:Weak Spot
@@ -6722,25 +6712,15 @@ Investigator (Basic Set), displaycost(100),
 			pointswanted(4), 
 			itemswanted(2),
 			list(_
-				SK:Beam Weapons (Pistol) #codes(upto 2pts, downto 2pts),
-				SK:Beam Weapons (Rifle) #codes(upto 2pts, downto 2pts),
 				SK:Brawling #codes(upto 2pts, downto 2pts),
 				SK:Crossbow #codes(upto 2pts, downto 2pts),
 				SK:Forced Entry #codes(upto 2pts, downto 2pts),
-				SK:Garrote #codes(upto 2pts, downto 2pts),
-				SK:Guns (Pistol) #codes(upto 2pts, downto 2pts),
-				SK:Guns (Rifle) #codes(upto 2pts, downto 2pts),
-				SK:Guns (Shotgun) #codes(upto 2pts, downto 2pts),
 				SK:Knife #codes(upto 2pts, downto 2pts),
 				SK:Thrown Weapon (Axe/Mace) #codes(upto 2pts, downto 2pts),
-				SK:Thrown Weapon (Dart) #codes(upto 2pts, downto 2pts),
-				SK:Thrown Weapon (Harpoon) #codes(upto 2pts, downto 2pts),
 				SK:Thrown Weapon (Knife) #codes(upto 2pts, downto 2pts),
-				SK:Thrown Weapon (Shuriken) #codes(upto 2pts, downto 2pts),
 				SK:Thrown Weapon (Spear) #codes(upto 2pts, downto 2pts),
 				SK:Thrown Weapon (Stick) #codes(upto 2pts, downto 2pts),
 				SK:Boxing #codes(upto 2pts, downto 2pts),
-				SK:Cloak #codes(upto 2pts, downto 2pts),
 				SK:Rapier #codes(upto 2pts, downto 2pts),
 				SK:Shortsword #codes(upto 2pts, downto 2pts),
 				SK:Acting #codes(upto 2pts, downto 2pts),
@@ -6757,7 +6737,6 @@ Investigator (Basic Set), displaycost(100),
 			itemswanted(1),
 			list(_
 				SK:Area Knowledge #codes(upto 2pts, downto 2pts),
-				SK:Computer Operation #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Business) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Headline News) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Politics) #codes(upto 2pts, downto 2pts),
@@ -7197,30 +7176,177 @@ _New Racial Template, displaycost(variable), cost(0),
 				)_
 			), noresync(yes)
 
-Dwarf (Basic Set), displaycost(35), cost(15),
-	cat(Racial Templates - Basic Set),
-	description(Dwarves might be only 2/3 as tall as humans, but they are much longer-lived, _
-			with a nose for gold and a flair for all forms of craftsmanship. _
-			Dwarves often live in underground halls, and their eyes are adapted to dim light. _
-			Many dwarves have Greed or Miserliness, but these are *not* racial traits.),
-	page(B261),
+Banshee, displaycost(72), cost(0),
+	cat(Racial Templates),
+	description(),
+	page(101),
+	race(Banshee),
+	noresync(yes),
+	owns(yes),
+adds(_
+       {AD:Acute Taste and Smell}=2,
+       {AD:Claws (Long Talons)},
+       {AD:Combat Reflexes},
+       {AD:Damage Resistance}=2 _
+                   with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)} _
+                   and  {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Discriminatory Smell},
+       {AD:Fearlessness}=2,
+       {AD:Flight (Winged, Cannot Hover)},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=4,
+       {AD:Teeth (Sharp Teeth)},
+       {PE:Penetrating Voice},
+       {DI:Appearance}=3,
+       {DI:Bad Temper (You resist on a roll of 15 or less (almost all the time))},
+       {DI:Bloodlust (You resist on a roll of 12 or less (quite often))},
+       {DI:Callous},
+       {DI:Social Stigma (Minority Group)},
+       {QU:Blunt and Tactless},
+       {QU:Closes Eyes and Screams to Intimidate Victims},
+       {QU:Dislikes Cramped Conditions},
+       {QU:Reflexively Grabs and Consumes Small Flying Creatures},
+       {QU:Uncongenial}_
+    ),
+creates(_
+          {AD:Banshee Basic Speed Bonus, 5/10,page(28),upto(80),gives(+0.25 to ST:Basic Speed),levelnames(+0.25, +0.5, +0.75, +1, +1.25, +1.5, +1.75, +2, +2.25, +2.5, +2.75, +3, +3.25, +3.5, +3.75, +4, +4.25, +4.5, +4.75, +5, +5.25, +5.5, +5.75, +6, +6.25, +6.5, +6.75, +7, +7.25, +7.5, +7.75, +8, +8.25, +8.5, +8.75, +9, +9.25, +9.5, +9.75, +10, +10.25, +10.5, +10.75, +11, +11.25, +11.5, +11.75, +12, +12.25, +12.5, +12.75, +13, +13.25, +13.5, +13.75, +14, +14.25, +14.5, +14.75, +15, +15.25, +15.5, +15.75, +16, +16.25, +16.5, +16.75, +17, +17.25, +17.5, +17.75, +18, +18.25, +18.5, +18.75, +19, +19.25, +19.5, +19.75, +20 ), cat(Attributes)}=1,
+          {AD:Banshee DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
+          {AD:Banshee Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=4,
+          {AD:Banshee HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Banshee Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=4,
+          {AD:Racial Skill Point Bonus (Intimidation), 1/2,page(99),gives(+1pts to SK:Intimidation),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=4,
+          {DI:Banshee ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=1,
+          {DI:Odious Racial Habit (Habitual Killer), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Other Physical Features, Mundane Social)}=3,
+          {DI:Vulnerability (Crushing Attacks), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=3 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       )
+
+Dwarf, displaycost(27), cost(0),
+	cat(Racial Templates),
+	description(),
+	page(100),
 	race(Dwarf),
 	noresync(yes),
 	owns(yes),
-	locks(yes),
-	hides(yes),
-	gives(_
-		+1 to ST:HT,
-		-1 to ST:Size Modifier,
-		+1 to ST:Will_
-		),
-	adds(_
-		AD:Artificer=1,
-		AD:Detect (Gold)=1 _
-			with "Vague, -50%, group(Detect)",
-		AD:Extended Lifespan=1,
-		AD:Night Vision=5_
-		)
+adds(_
+       {AD:Lifting ST}=3,
+       {AD:Metalwork}=1,
+       {PE:Longevity},
+       {QU:Cannot Run Long Distances},
+       {QU:Considers Dwarf Gender a Very Private Matter},
+       {QU:Personality Change (Gains Bad Temper When Drinking)},
+       {QU:Touchy About Height and Beard}_
+    ),
+select1(_
+			text("Select the variety of Greed for this dwarf from the list below."),
+			itemswanted(1),
+			list(_
+				DI:Greed (You resist on a roll of 12 or less (quite often)), 
+				DI:Dwarfish Greed (You resist on a roll of 12 or less (quite often))_
+				)_
+        ),
+creates(_
+          {AD:Dwarf Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=2,
+          {AD:Dwarf HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Dwarf ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=1,
+          {AD:Racial Skill Point Bonus (Axe/Mace), 1/2,page(99),gives(+1pts to SK:Axe/Mace),noresync(yes),
+				cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
+          {DI:Dwarf SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=1_
+       )
+
+Elf-Kin, displaycost(16), cost(0),
+	cat(Racial Templates),
+	description(),
+	page(102),
+	race(Elf-Kin),
+	noresync(yes),
+	owns(yes),
+adds(_
+       {AD:Appearance}=1,
+       {QU:Giggles a Lot},
+       {QU:Sunburns Easily}_
+    ),
+creates(_
+          {AD:Elf-Kin DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
+          {AD:"Reputation (As wondrous magical folk, among naive romantics)", 5/10,mods(Reputation Advantage),page(34),upto(4),conditional(+1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you"),tl(),usernotes(),familiarities(), cat(Mundane, Social, Influence, Mundane Social)}=1 _
+                   with {"Frequency of Recognition: All the time", *1,shortname(All the time),group(Reputation),level(1),valuenum(1)} _
+                   and  {"People Affected: Large class of people", *1/2,shortname(Large class),group(Reputation Advantage),page(34),round(down),level(1),valuenum(1/2)},
+          {DI:"Reputation (As a poseur with nothing to boast about, among humans who know the full truth about elves)", -5/-10,mods(Reputation Disadvantage),page(34),upto(4),conditional(-1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you"),tl(),usernotes(),familiarities(), cat(Mundane, Social, Influence, Mundane Social)}=1 _
+                   with {"Frequency of Recognition: All the time", *1,shortname(All the time),group(Reputation),level(1),valuenum(1)} _
+                   and  {"People Affected: Small class of people", *1/3,shortname(Small class),group(Reputation Disadvantage),page(34),level(1),valuenum(1/3)},
+          {DI:"Reputation (As a sinister psycho case, among dwarfs, trolls, and humans who know a bit about elves)", -5/-10,mods(Reputation Disadvantage),page(34),upto(4),conditional(-1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you"),tl(),usernotes(),familiarities(), cat(Mundane, Social, Influence, Mundane Social)}=3 _
+                   with {"Frequency of Recognition: All the time", *1,shortname(All the time),group(Reputation),level(1),valuenum(1)} _
+                   and  {"People Affected: Large class of people", *1/2,shortname(Large class),group(Reputation Disadvantage),page(34),level(1),valuenum(1/2)}_
+       )
+
+Gargoyle, displaycost(46), cost(0),
+	cat(Racial Templates),
+	description(),
+	page(100),
+	race(Gargoyle),
+	noresync(yes),
+	owns(yes),
+adds(_
+       {AD:Cast-Iron Stomach},
+       {AD:Claws (Blunt Claws)},
+       {AD:Damage Resistance}=5 _
+                   with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=4,
+       {AD:Protected Eyes}=4,
+       {AD:Single-Minded},
+       {AD:Temperature Tolerance (Cold)}=3,
+       {AD:Temperature Tolerance (Heat)}=1,
+       {AD:Unfazeable},
+       {PE:Boredom Immunity},
+       {PE:Limited Camouflage (Stone)},
+       {PE:Longevity},
+       {DI:Appearance}=2,
+       {DI:Disturbing Voice},
+       {DI:Hidebound},
+       {DI:Innumerate},
+       {DI:Troll Brain},
+       {QU:Cannot Float},
+       {QU:Prefers To Be Above Ground Level}_
+    ),
+creates(_
+          {AD:Gargoyle Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=4,
+          {AD:Gargoyle ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=5,
+          {AD:Gargoyle Will Bonus, 5/10,page(27),gives(+1 to ST:Will), cat(Attributes)}=4,
+          {AD:Racial Skill Point Bonus (Climbing), 1/2,page(99),gives(+1pts to SK:Climbing),noresync(yes),
+				cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=12,
+          {DI:Gargoyle Basic Move Penalty, -5/-10,page(28),gives(-1 to ST:Basic Move), cat(Attributes)}=1,
+          {DI:Gargoyle DX Penalty, -20/-40,page(26),gives(-1 to ST:DX), cat(Attributes)}=1,
+          {DI:Gargoyle IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=3_
+       )
+
+Gnome or Pictsie, displaycost(18), cost(0),
+	cat(Racial Templates),
+	description(),
+	page(101),
+	race(Gnome or Pictsie),
+	noresync(yes),
+	owns(yes),
+adds(_
+       {AD:Catfall},
+       {AD:Damage Resistance}=2 _
+                   with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)} _
+                   and  {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Damage Resistance}=15 _
+                   with {"Only vs. Falling Damage", -80%,group(Damage Resistance),page(88),level(1),valuenum(-80)},
+       {AD:Silence}=2,
+       {DI:Short Arms (2 Arms)}_
+    ),
+creates(_
+          {AD:Gnome or Pictsie DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
+          {AD:Gnome or Pictsie HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Gnome or Pictsie Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
+          {AD:Racial Skill Point Bonus (Camouflage), 1/2,page(99),gives(+1pts to SK:Camouflage),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
+          {AD:Racial Skill Point Bonus (Stealth), 1/2,page(99),gives(+1pts to SK:Stealth),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=4,
+          {DI:Gnome or Pictsie Basic Move Penalty, -5/-10,page(28),gives(-1 to ST:Basic Move), cat(Attributes)}=2,
+          {DI:Gnome or Pictsie SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=5,
+          {DI:Gnome or Pictsie ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=6_
+       )
 
 <Meta-Traits>
 _New Meta-Trait, displaycost(variable), cost(0), gives(),
