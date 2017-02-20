@@ -470,7 +470,7 @@ Signature Gear, basevalue(0), display(No), hide(yes), step(0), minscore(0), roun
 
 * Melee Weapon Table listings
 ************************************************************************************************************************
-Punch, display(no), mode(Punch), mods(Combat Table), damage(_
+Punch, display(no), mode(Punch), mods(Combat Table, Punch/Kick), damage(_
 		thr-1 + _
 			@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) + _
 			@max(_
@@ -480,10 +480,10 @@ Punch, display(no), mode(Punch), mods(Combat Table), damage(_
 			) _
 		), damtype(_
 					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
-				), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Boxing, SK:Karate), mods(Punch/Kick),
+				), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Boxing, SK:Karate),
 	damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach), basevalue(ST:One Arm Striking ST)
 
-Kick, display(no), mode(Kick), mods(Combat Table),
+Kick, display(no), mode(Kick), mods(Combat Table, Punch/Kick),
 	damage(_
 		thr+ _
 		@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0))) + _
@@ -494,7 +494,7 @@ Kick, display(no), mode(Kick), mods(Combat Table),
 			) _
 			), damtype(_
 				$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Hands Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1 & @itemhasmod(AD:Claws (Talons), Hands Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 THEN "cut/imp" ELSE "cr")))_
-				), reach(C,1), parry(No), skillused(ST:DX-2, SK:Brawling-2, SK:Karate-2, SK:Kicking (Karate), SK:Kicking (Brawling)), mods(Punch/Kick),
+				), reach(C,1), parry(No), skillused(ST:DX-2, SK:Brawling-2, SK:Karate-2, SK:Kicking (Karate), SK:Kicking (Brawling)),
 	damagebasedon(ST:Kick), reachbasedon(ST:Leg Reach), basevalue(ST:ST)
 
 Bite, display(no), mode(Bite), mods(Combat Table),
@@ -1807,12 +1807,11 @@ Hemophilia, -30, needs(HT <= 10), page(B138), cat(Mundane, Physical)
 Hunchback, -10, gives(-1 to ST:Reaction, -3 To GR:Hunchback), page(63), cat(Mundane, Physical)
 
 Klutz, -5, needs(DX <= 13), page(60), cat(Mundane, Non-Racial, Physical)
-Lame, -10, page(63), cat(Mundane, Physical), taboo(ST:Basic Move > @int(ST:Basic Speed/2)),
-	sets(ST:Basic Move = @int(ST:Basic Speed/2)),
-	taboo(DI:No Legs, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
+Lame, -10, page(63), cat(Mundane, Physical), sets(ST:Basic Move = @int(ST:Basic Speed/2)),
+	taboo(ST:Basic Move > @int(ST:Basic Speed/2), DI:No Legs, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	gives(-3 to "CL:Melee Combat")
-No Legs, -30, page(63), cat(Mundane, Physical), taboo(ST:Basic Move > 0),
-	sets(ST:Basic Move = 0), taboo(DI:Lame, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
+No Legs, -30, page(63), cat(Mundane, Physical), sets(ST:Basic Move = 0),
+	taboo(ST:Basic Move > 0, DI:Lame, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
 	gives(-6 to "CL:Melee Combat")
 Low Pain Threshold, -10, page(61), cat(Mundane, Physical), taboo(AD:High Pain Threshold, AD:Supernatural Durability),
@@ -1863,17 +1862,10 @@ Addiction ([Psychological]), -5/-10/-20, upto(3),
 	mods(Addiction), page(54), cat(Mundane, Mental, Non-Racial),
 	x( #InputReplace("Specify the activity to which you are addicted:", "[Psychological]", , "Addiction (Psychological)") )
 
-Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental), 
+Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
-				when "foul-tempered behaviour observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
-				when "foul-tempered behaviour observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
-				when "foul-tempered behaviour observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "foul-tempered behaviour observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "foul-tempered behaviour observed" _
 			)
 
 Berserk, -10, mods(Self-Control, Berserk), page(64), cat(Mundane, Mental), 
@@ -1882,27 +1874,13 @@ Berserk, -10, mods(Self-Control, Berserk), page(64), cat(Mundane, Mental),
 Bloodlust, -10, mods(Self-Control), page(64), cat(Mundane, Mental),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
-				when "violent behaviour observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
-				when "violent behaviour observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
-				when "violent behaviour observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "violent behaviour observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "violent behaviour observed" _
 			)
 
 Bully, -10, mods(Self-Control), page(B125), cat(Mundane, Mental), gives(-2 to ST:Reaction),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
-				when "bullying observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
-				when "bullying observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
-				when "bullying observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "bullying observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "bullying observed" _
 			)
 
 Callous, -5, gives(-3 To SK:Teaching), page(B125), cat(Mundane, Mental, Non-Racial, Racial),
@@ -1970,31 +1948,16 @@ Confused, -10, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitat
 Cowardice, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), taboo(AD:Fearlessness),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	gives(_
-		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Fright Check,
-		=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Fright Check,
-		=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Fright Check,
-		=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Fright Check_
+		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Fright Check, =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Fright Check, =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Fright Check, =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Fright Check_
 	),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
-				when "from non-cowards, when cowardice matters",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
-				when "from non-cowards, when cowardice matters",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
-				when "from non-cowards, when cowardice matters",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "from non-cowards, when cowardice matters" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters" _
 			)
 
 Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Incurious),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction
-				when "excessive curiosity observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction
-				when "excessive curiosity observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction
-				when "excessive curiosity observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction when "excessive curiosity observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction when "excessive curiosity observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction when "excessive curiosity observed" _
 			)
 
 
@@ -2014,77 +1977,47 @@ Disciplines of Faith (Monasticism), -10, page(59), cat(Mundane, Mental), taboo(A
 Disciplines of Faith (Mysticism), -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction when "not a devout co-religionist")
 Disciplines of Faith (Ritualism), -5, page(59), cat(Mundane, Mental)
 
-Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable, DI:Greed),
+Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Racial), taboo(DI:Charitable, DI:Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
-				when "when rampant greed is observed by non-dwarfs",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
-				when "when rampant greed is observed by non-dwarfs",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
-				when "when rampant greed is observed by non-dwarfs",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "when rampant greed is observed by non-dwarfs" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when rampant greed is observed by non-dwarfs", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when rampant greed is observed by non-dwarfs", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when rampant greed is observed by non-dwarfs", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when rampant greed is observed by non-dwarfs" _
 			)
 
-Easy to Read, -10, page(60), cat(Mundane, Mental), description(Gives others +4 on all Empathy, Body Language, and 
-	Psychology rolls to discern your intentions or the truth of your words, and +4 to their IQ, Detect Lies, and Gambling rolls in any Quick Contest
-	with your Acting, Fast-Talk, or Gambling skill when you try to lie or bluff.)
+Easy to Read, -10, page(60), cat(Mundane, Mental, Non-Racial), description(Gives others +4 on all Empathy, Body Language, and Psychology rolls to discern your intentions or the truth of your words, and +4 to their IQ, Detect Lies, and Gambling rolls in any Quick Contest with your Acting, Fast-Talk, or Gambling skill when you try to lie or bluff.)
 Fanaticism, -15/-15, levelnames( , Extreme), page(62), upto(2), cat(Mundane, Mental, Non-Racial, Obsessive Ideas),
 	x(#InputToTag("Specify the country, organization, philosophy, or religion that you put ahead of everything else:", nameext, , "Fanaticism")),
 	conditional(=+@if(%level = 2 THEN 3) to ST:Will when "resisting Brainwashing, Interrogation, and Mind Control")
-Fearfulness, -2/-4, gives(-1 To Fright Check), page(60), upto(ST:Will - 3), cat(Mundane, Mental),
+Fearfulness, -2/-4, gives(-1 To Fright Check), page(60), upto(ST:Will - 3), cat(Mundane, Mental, Non-Racial),
 	taboo(AD:Fearlessness, AD:Unfazeable)
 
-Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(AD:Doesn't Eat or Drink),
+Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial), taboo(AD:Doesn't Eat or Drink),
 	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction
-				when "when gluttony is observed in action",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction
-				when "when gluttony is observed in action",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction
-				when "when gluttony is observed in action" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction when "when gluttony is observed in action", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction when "when gluttony is observed in action", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction when "when gluttony is observed in action" _
 			)
 
 
 Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable, DI:Dwarfish Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
-				when "when rampant greed is observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
-				when "when rampant greed is observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
-				when "when rampant greed is observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "when rampant greed is observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when rampant greed is observed" _
 			)
 
-Guilt Complex, -5, page(B137), cat(Mundane, Mental)
-
-Gullibility, -10, gives(-3 To SK:Merchant), mods(Self-Control), page(B137), cat(Mundane, Mental),
+Gullibility, -10, gives(-3 To SK:Merchant), mods(Self-Control), page(60), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	taboo(SK:Detect Lies)
 
-Hidebound, -5, page(61), cat(Mundane, Mental, Mental Limitations),
+Hidebound, -5, page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial),
 	conditional(-2 to SK:Artist when "creativity matters", -2 to SK:Engineer when "making a new invention")
 
 Honesty, -10, mods(Self-Control), page(B138), cat(Mundane, Mental),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(+1 to ST:Reaction when "honesty becomes known", +3 to ST:Reaction when "a question of honor or trust is involved")
 
-Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental), 
+Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental, Non-Racial), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction
-				when "from sensible people, when impulsiveness is observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction
-				when "from sensible people, when impulsiveness is observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction
-				when "from sensible people, when impulsiveness is observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "from sensible people, when impulsiveness is observed",
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed",
 			)
 
 Incurious, -5, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), taboo(DI:Curious),
@@ -2111,17 +2044,8 @@ Laziness, -10, page(61), cat(Mundane, Mental)
 Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
-				when "when lechery is observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
-				when "when lechery is observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
-				when "when lechery is observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "when lechery is observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when lechery is observed" _
 			)
-
-
 Literal-Minded, -10, page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial),
 	taboo(DI:Clueless, DI:No Sense of Humour)
 Literal-Minded (Combined with Clueless or No Sense of Humour), -5, page(61),
@@ -2171,9 +2095,7 @@ Pacifism (Self-Defence Only), -15, page(62), cat(Mundane, Mental, Non-Racial),
 
 Paranoia, -10, page(59), cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction)
 
-Phobia, -5/-10, upto(4), mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), levelnames(,,,), 
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
+Phobia, -5/-10, upto(4), mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), levelnames(,,,), initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)), x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
 
 Phobia (%examplelist%), %examplecostlist%, displaycost(variable),
 	mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial, Phobias),
@@ -2195,7 +2117,7 @@ Phobia (%examplelist%), %examplecostlist%, displaycost(variable),
 				"Octophobia: The Number 8"=-5,
 				"Agoraphobia: Open Spaces"=-10,
 				"Xenophobia: Strange and Unknown Things"=-15,
-				"Heliophobia: The Sun"=-15
+				"Heliophobia: The Sun"=-15,
 				"Genuan Fairy-Tale Terror"=-5_
 			)_
 			)_
@@ -2209,14 +2131,7 @@ Pyromania, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial),
 Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
-				when "when habitual cruelty is observed",
-			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction
-				when "when habitual cruelty is observed",
-			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction
-				when "when habitual cruelty is observed",
-			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction
-				when "when habitual cruelty is observed" _
+			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when habitual cruelty is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when habitual cruelty is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when habitual cruelty is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when habitual cruelty is observed" _
 			)
 
 Selfish, -5, mods(Self-Control), page(65),
@@ -3804,7 +3719,6 @@ DI:G-Intolerance
 DI:Gluttony
 DI:Greed
 DI:Gregarious
-DI:Guilt Complex
 DI:Gullibility
 DI:Ham-Fisted
 DI:Hard of Hearing
@@ -4866,7 +4780,7 @@ Androgynous, 0, group(Attractive), page(B21)
 Impressive, 0, group(Attractive), page(B21)
 
 <Bad Sight>
-Mitigator: Glasses, -60%, group(Bad Sight), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)
+Mitigator (Glasses), -60%, group(Bad Sight), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)
 
 <Blindness>
 Mitigator: Artificial Eyes, -60%, group(Blindness), page(B112), shortname(Artificial Eyes), mitigator(yes),
@@ -6314,7 +6228,6 @@ Soldier of Fortune (Basic Set), displaycost(100),
 <Racial Templates>
 _New Racial Template, displaycost(variable), cost(0),
 	race(_New Racial Template),
-	noresync(yes),
 	owns(yes),
 	locks(yes),
 	hides(yes),
@@ -6571,7 +6484,6 @@ creates(_
 
 <Meta-Traits>
 _New Meta-Trait, displaycost(variable), cost(0), gives(),
-	noresync(yes),
 	owns(yes),
 	locks(yes),
 	hides(yes),
@@ -7344,7 +7256,8 @@ Pony, page(356), st(18), dx(10), iq(3), ht(11), will(11), per(12), speed(5.25), 
 Saddle Horse, page(356), st(21), dx(9), iq(3), ht(11), will(10), per(12), speed(5), dodge(8), move(6), sm(+1), size(3 hexes), weight(1200 lbs.), traits(Domestic Animal; Enhanced Move 1 (Ground Speed 12); Hooves; Peripheral Vision; Quadruped; Weak Bite.), skills(), basecost(60), description(ST:21 DX:9 IQ:3 HT:11 Will:10 Per:12 Speed:5 Dodge:8 Move:6 SM:+1 (3 hexes); 1200 lbs. Traits: Domestic Animal; Enhanced Move 1 (Ground Speed 12); Hooves; Peripheral Vision; Quadruped; Weak Bite. Notes: An ordinary riding horse.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals)
 Small Mule, page(356), st(18), dx(10), iq(3), ht(12), will(12), per(12), speed(5.5), dodge(8), move(5), sm(+1), size(2 hexes), weight(800 lbs.), traits(Domestic Animal; Enhanced Move 1/2 (Ground Speed 8); Hooves; Quadruped; Weak Bite; sterile.), skills(), basecost(50), description(ST:18 DX:10 IQ:3 HT:12 Will:12 Per:12 Speed:5.5 Dodge:8 Move:5 SM:+1 (2 hexes); 800 lbs. Traits: Domestic Animal; Enhanced Move 1/2 (Ground Speed 8); Hooves; Quadruped; Weak Bite; sterile. Notes: Sturdy work animal.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals)
 Spirited Horse, page(356), st(21), dx(10), iq(3), ht(12), will(12), per(12), speed(5.50), dodge(8), move(9), sm(+1), size(3 hexes), weight(1200 lbs.), traits(Domestic Animal; Enhanced Move 1 (Ground Speed 18); Hooves; Peripheral Vision; Quadruped; Weak Bite.), skills(Brawling-11; Mount-12), basecost(60), description(ST:21 DX:10 IQ:3 HT:12 Will:12 Per:12 Speed:5.50 Dodge:8 Move:9 SM:+1 (3 hexes); 1200 lbs. Traits: Domestic Animal; Enhanced Move 1 (Ground Speed 18); Hooves; Peripheral Vision; Quadruped; Weak Bite. Notes: Something offloaded on certain careless buyers.), baseweight(0), mods(Equipment, Animal), cat(Discworld RPG, Discworld RPG - Animals)
-Swamp Dragon, page(359), st(4), dx(11), iq(4), ht(9), will(9), per(10), speed(5), dodge(9), move(6), sm(-3), size(2' long), weight(3 lbs.), traits(Acute Taste and Smell 5; Bad Temper (9); Berserk (9); Burning Attack (see notes); Cast-Iron Stomach; Combat Reflexes; Discriminatory Smell; Flight (Winged, Move 9, costs 1 FP per second); Qudruped; Self-Destruct; Sharp Claws; Sharp Teeth; Short Legs.), skills(Innate Attack (Breath)-12), basecost(10), description(ST:4 DX:11 IQ:4 HT:9 Will:9 Per:10 Speed:5 Dodge:9 Move:6 SM:-3; 3 lbs. Traits: Acute Taste and Smell 5; Bad Temper (9); Berserk (9); Burning Attack (see notes); Cast-Iron Stomach; Combat Reflexes; Discriminatory Smell; Flight (Winged, Move 9, costs 1 FP per second. Skills: Innate Attack (Breath)-12. Notes: Hugely variable and with many odd features; just read pp. 359-360, okay?), baseweight(0), mods(Equipment, Animal), cat(Basic Set, Basic Set - Animals)
+
+Swamp Dragon, page(359), st(4), dx(11), iq(4), ht(9), will(9), per(10), speed(5), dodge(9), move(6), sm(-3), size(2' long), weight(3 lbs.), traits(Acute Taste and Smell 5; Bad Temper (9); Berserk (9); Burning Attack (see notes); Cast-Iron Stomach; Combat Reflexes; Discriminatory Smell; Flight (Winged, Move 9, costs 1 FP per second); Quadruped; Self-Destruct; Sharp Claws; Sharp Teeth; Short Legs.), skills(Innate Attack (Breath)-12), basecost(10), description(ST:4 DX:11 IQ:4 HT:9 Will:9 Per:10 Speed:5 Dodge:9 Move:6 SM:-3; 3 lbs. Traits: Acute Taste and Smell 5; Bad Temper (9); Berserk (9); Burning Attack (see notes); Cast-Iron Stomach; Combat Reflexes; Discriminatory Smell; Flight (Winged, Move 9, costs 1 FP per second). Skills: Innate Attack (Breath)-12. Notes: Hugely variable and with many odd features; just read pp. 359-360, okay?), baseweight(0), mods(Equipment, Animal), cat(Animals)
 
 Donkey, page(B459), st(15), dx(10), iq(3), ht(11), will(11), per(12), speed(5.25), dodge(8), move(5), sm(+1), size(2 hexes), weight(500 lbs.), traits(Domestic Animal; Enhanced Move 1/2 (Ground Speed 8); Hooves; Quadruped; Weak Bite.), skills(), basecost(50), description(ST:15 DX:10 IQ:3 HT:11 Will:11 Per:12 Speed:5.25 Dodge:8 Move:5 SM:+1 (2 hexes); 500 lbs. Traits: Domestic Animal; Enhanced Move 1/2 (Ground Speed 8); Hooves; Quadruped; Weak Bite. Notes: Sturdy, but too small for an adult to ride.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 Heavy Warhorse, page(B460), st(24), dx(9), iq(3), ht(12), will(11), per(12), speed(5.25), dodge(9), move(7), sm(+1), size(3 hexes), weight(1900 lbs.), traits(Combat Reflexes; Domestic Animal; Enhanced Move 1 (Ground Speed 16); Hooves; Peripheral Vision; Quadruped; Weak Bite, Bad Temper (12) and Enhanced Move 1 (Ground Speed 14).), skills(Brawling-10; Mount-12.), basecost(125), displaycost(250), description(ST:24 DX:9 IQ:3 HT:12 Will:11 Per:12 Speed:5.25 Dodge:9 Move:7 SM:+1 (3 hexes); 1900 lbs. Traits: Combat Reflexes; Domestic Animal; Enhanced Move 1 (Ground Speed 16); Hooves; Peripheral Vision; Quadruped; Weak Bite, Bad Temper (12) and Enhanced Move 1 (Ground Speed 14). Skills: Brawling-10; Mount-12. Notes: A heavy warhorse.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals),
@@ -8475,10 +8388,10 @@ Equipment: Quality (%skillslist%), *5/*20/*100, upto(3), levelnames(Good: +1 to 
 			)_
 	)
 
-Equipment: Gives Skill Bonus ([Skill]*), +0/+0, shortname(Skill Bonus), page(B345), conditional(+1 to SK:[Skill]), shortname(Gives Skill Bonus),
+Equipment: Gives Skill Bonus ([Skill]*), +0/+0, shortname(Skill Bonus), page(B345), conditional(+1 to SK:[Skill]),
 	x(#InputReplace("Some equipment gives a bonus to certain skills. Please enter the name of the skill that receives a bonus:", "[Skill]", , "Equipment: Skill Bonus"))
 
-Equipment: Gives Skill Bonus (%skillslist%), +0/+0, shortname(Skill Bonus), page(B345), conditional(%skillsaliaslist%), shortname(Gives Skill Bonus),
+Equipment: Gives Skill Bonus (%skillslist%), +0/+0, shortname(Skill Bonus), page(B345), conditional(%skillsaliaslist%),
 	x(#ChoiceList(_
 			name(skills),
 			title(Equipment),
