@@ -1912,7 +1912,7 @@ Callous, -5, gives(-3 To SK:Teaching), page(B125), cat(Mundane, Mental, Non-Raci
 Cannot Learn, -30, page(B125), cat(Mundane, Mental)
 
 Charitable, -15, mods(Self-Control), page(65),
-	cat(Mundane, Mental, Non-Racial, Virtuous Flaws), taboo(DI:Greed),
+	cat(Mundane, Mental, Non-Racial, Virtuous Flaws), taboo(DI:Greed, DI:Dwarfish Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Chummy, -5, page(B126), cat(Mundane, Mental), taboo(DI:Loner, DI:Gregarious), conditional(-1 to ST:IQ when "alone")
@@ -2014,8 +2014,8 @@ Disciplines of Faith (Monasticism), -10, page(59), cat(Mundane, Mental), taboo(A
 Disciplines of Faith (Mysticism), -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction when "not a devout co-religionist")
 Disciplines of Faith (Ritualism), -5, page(59), cat(Mundane, Mental)
 
-Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable, DI:Greed),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
 				when "when rampant greed is observed by non-dwarfs",
@@ -2048,8 +2048,8 @@ Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(AD:Doesn
 			)
 
 
-Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable),
-	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
+Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable, DI:Dwarfish Greed),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction
 				when "when rampant greed is observed",
@@ -2411,6 +2411,7 @@ Obsession, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify what the character's petty Obsession is:", nameext, , "Obsession"))
 Personality Change, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify what Disadvantage the character acquires, and when:", nameext, , "Personality Change"))
+Personality Change (Gains Bad Temper When Drinking), -1, page(67), cat(Mental, Non-Racial, Racial)
 Prefers To Be Above Ground Level, -1, page(101), cat(Gargoyle, Mental, Non-Racial, Racial)
 Proud, -1, page(68), cat(Mental, Non-Racial)
 Responsive, -1, page(68), cat(Mental, Non-Racial)
@@ -3778,6 +3779,7 @@ DI:Divine Curse
 DI:Draining
 DI:Dread
 DI:Duty
+DI:Dwarfish Greed
 DI:Dwarfism
 DI:Dyslexia
 DI:Easy to Kill
@@ -3985,6 +3987,7 @@ QU:No Staff
 QU:Nosy
 QU:Obsession
 QU:Personality Change
+QU:Personality Change (Gains Bad Temper When Drinking)
 QU:Prefers To Be Above Ground Level
 QU:Proud
 QU:Reflexively Grabs and Consumes Small Flying Creatures
@@ -6459,8 +6462,8 @@ select1(_
 			text("Select the variety of Greed for this dwarf from the list below."),
 			itemswanted(1),
 			list(_
-				DI:Greed (You resist on a roll of 12 or less (quite often)), 
-				DI:Dwarfish Greed (You resist on a roll of 12 or less (quite often))_
+				"DI:Greed (You resist on a roll of 12 or less (quite often))", 
+				"DI:Dwarfish Greed (You resist on a roll of 12 or less (quite often))"_
 				)_
         ),
 creates(_
