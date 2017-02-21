@@ -871,6 +871,9 @@ Regrowth, 40, mods(Regrowth), page(90), cat(Exotic, Physical, Racial),
 		DI:No Legs::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Hand::level > @if(@hasmod(Minor) THEN 1 ELSE 0) _
 		)
+Repairable, 50, page(90), cat(Exotic, Physical, Racial, Supernatural), 
+	x(#InputToTag("Specify the skill used to repair you:", nameext, , "Repairable")),
+	taboo(AD:Rapid Healing, AD:Regeneration, AD:Regrowth, DI:Unhealing)
 Sonar, 20, page(91), cat(Exotic, Physical, Racial),
 	skillused(ST:Perception), mode(''See'')
 See Invisible (Magical), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
@@ -919,7 +922,7 @@ Ultravision, 10, mods(Ultravision), page(B94), cat(Exotic, Physical), taboo(AD:H
 	skillused(ST:Perception+2, ST:Vision+2), mode(See)
 					
 
-Unkillable, 50/100, mods(Unkillable), page(B95), upto(3), cat(Exotic, Physical), taboo(DI:Fragile (Unnatural), AD:Hard to Kill, DI:Easy to Kill), conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
+Unkillable, 50/100, mods(Unkillable), page(B95), upto(3), cat(Exotic, Physical), taboo(DI:Unnaturally Fragile), conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
 Vacuum Support, 5, page(B96), cat(Exotic, Physical)
 Vampiric Bite, 30/35, page(B96), cat(Exotic, Physical, Natural Attacks), taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)"),
 	replacetags(in "ST:Bite" with "damtype(cut)"),
@@ -1276,7 +1279,7 @@ _New Talent, %Costaliaslist%, displaycost(varies), page(B89), upto(4), cat(Munda
 	
 
 Trained By A Master, 30, page(B93), cat(Mundane, Mental)
-Unfazeable, 15, page(B95), cat(Mundane, Mental), taboo(AD:Fearlessness, DI:Fearfulness)
+Unfazeable, 15, page(48), cat(Mundane, Mental, Non-Racial, Racial), taboo(AD:Fearlessness, DI:Fearfulness)
 Unusual Background, [cost], displaycost(varies), page(B96), cat(Mundane, Mental), noresync(yes),
 	x(#InputToTagReplace("Please describe the Unusual Background:" , nameext, ,"Unusual Background"),
 	#InputReplace("Please enter the Cost of this advantage:", "[cost]", "10", "Unusual Background")_
@@ -1531,7 +1534,7 @@ Limited Camouflage, 1, page(94), cat(Racial),
 Limited Camouflage (Stone), 1, page(94), cat(Gargoyle, Racial),
 	conditional(+2 to SK:Camouflage when "stationary and unclad against a stone background",_
 	+2 to SK:Stealth when "stationary and unclad against a stone background")
-Longevity, 1, page(52), cat(Non-Racial)
+Longevity, 1, page(52), cat(Non-Racial, Racial)
 Name Hearing, 1, page(94), cat(Racial, Godly)
 No Hangover, 1, page(52), cat(Non-Racial)
 Off-Hand Training, 1, page(52), cat(Non-Racial, Skill Perks),
@@ -1641,14 +1644,6 @@ Dependency, -5/-10/-20/-30, mods(Dependency), levelnames(Very Common, Common, Oc
 			),
 	x(#InputToTag("Specify the substance which you're Dependent on:", nameext, , "Dependency"))
 
-Fragile, -5/-10, page(B136), cat(Exotic, Physical), levelnames(,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,),
-	x( #InputToTag("Specify the type of fragility:", nameext, , "Fragile"))
-Fragile (Brittle), -15, page(B136), cat(Exotic, Physical)
-Fragile (Combustible), -5, page(B136), cat(Exotic, Physical)
-Fragile (Explosive), -15, page(B136), cat(Exotic, Physical)
-Fragile (Flammable), -10, page(B136), cat(Exotic, Physical)
-Fragile (Unnatural), -50, page(B136), cat(Exotic, Physical), taboo(AD:Unkillable, AD:Hard to Kill, DI:Easy to Kill), conditional(-ST:Death Check to ST:Death Check when "you automatically fail all Death Checks")
-
 Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Physical, Racial),
 	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
 	mods(Extra Legs)
@@ -1663,6 +1658,9 @@ Troll Nocturnalism, -20, page(97), mods(Troll Nocturnalism), cat(Exotic, Physica
 
 Unhealing, -20/-30, levelnames(Partial, Total), page(98), upto(2),
 	cat(Exotic, Physical, Racial), taboo(AD:Regeneration, AD:Repairable)
+
+Unnaturally Fragile, -50, page(98), cat(Exotic, Physical, Racial), taboo(AD:Unkillable),
+	conditional(-ST:Death Check to ST:Death Check when "you automatically fail all Death Checks")
 
 Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4), 
 	levelnames(Rare, Occasional, Common, Very Common), mods(Vulnerability), 
@@ -2005,12 +2003,11 @@ Gullibility, -10, gives(-3 To SK:Merchant), mods(Self-Control), page(60), cat(Mu
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	taboo(SK:Detect Lies)
 
-Hidebound, -5, page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial),
+Hidebound, -5, page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial, Racial),
 	conditional(-2 to SK:Artist when "creativity matters", -2 to SK:Engineer when "making a new invention")
 
-Honesty, -10, mods(Self-Control), page(B138), cat(Mundane, Mental),
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	conditional(+1 to ST:Reaction when "honesty becomes known", +3 to ST:Reaction when "a question of honor or trust is involved")
+Honesty, -10, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial, Racial, Virtuous Flaws),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental, Non-Racial), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2135,7 +2132,7 @@ Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Raci
 Selfish, -5, mods(Self-Control), page(65),
 	cat(Mundane, Mental, Non-Racial, Racial, Unsociable Flaws), taboo(DI:Selfless),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Selfless, -5, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial), taboo(DI:Selfish),
+Selfless, -5, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial, Racial, Virtuous Flaws), taboo(DI:Selfish),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Sense of Duty, -2/-5/-10/-15/-20, levelnames(Individual, Small Group, Large Group, Entire Race, Every Living Being),
@@ -2175,10 +2172,10 @@ Workaholic, -5, page(B162), cat(Mundane, Mental, Non-Racial),
 	conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
 
 <Mundane Social>
-Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Non-Racial, Social, Other Physical Features),
+Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Non-Racial, Social),
 	conditional(-1 to ST:Reaction when "people notice your problem"),
 	x(#InputToTag("Specify the Odious Personal Habit:", nameext, , "Odious Personal Habit"))
-Odious Racial Habit, -5/-10, upto(3), page(B22), cat(Mundane, Racial, Social, Other Physical Features),
+Odious Racial Habit, -5/-10, upto(3), page(B22), cat(Mundane, Racial, Social),
 	conditional(-1 to ST:Reaction when "people are aware of the issue"),
 	x(#InputToTag("Specify the Odious Racial Habit:", nameext, , "Odious Racial Habit"))
 Wealth, -10/-15/-25, upto(3), page(B25), levelnames([Average], Struggling, Poor, Dead Broke), cat(Mundane, Social, Wealth),
@@ -2338,7 +2335,7 @@ Vow, -1, page(68), cat(Mental, Non-Racial),
 <Physical>
 Alcohol Intolerance, -1, page(68), cat(Non-Racial)
 Bowlegged, -1, page(68), gives(-1 To SK:Jumping), cat(Non-Racial)
-Cannot Float, -1, page(99), cat(Gargoyle, Racial, Trollish)
+Cannot Float, -1, page(99), cat(Gargoyle, Golem, Racial, Trollish)
 Cannot Run Long Distances, -1, page(99), cat(Dwarfish, Racial)
 Closes Eyes and Screams to Intimidate Victims, -1, page(101), cat(Racial, Banshee)
 Distinctive Features, -1, page(68), gives(-1 To SK:Disguise, -1 to SK:Shadowing), cat(Non-Racial),
@@ -3410,7 +3407,6 @@ AD:Gravity Talent
 AD:Green Thumb
 AD:Growth
 AD:Gunslinger
-AD:Hard to Kill
 AD:Hard to Subdue
 AD:Healer
 AD:Healing Talent
@@ -3691,7 +3687,6 @@ DI:Duty
 DI:Dwarfish Greed
 DI:Dwarfism
 DI:Dyslexia
-DI:Easy to Kill
 DI:Easy to Read
 DI:Electrical
 DI:Enemy (Formidable group)
@@ -3701,11 +3696,6 @@ DI:Epilepsy
 DI:Fanaticism
 DI:Fat
 DI:Fearfulness
-DI:Fragile (Brittle)
-DI:Fragile (Combustible)
-DI:Fragile (Explosive)
-DI:Fragile (Flammable)
-DI:Fragile (Unnatural)
 DI:Fragile
 DI:Frightens Animals
 DI:Gigantism
@@ -3844,6 +3834,7 @@ DI:Unhealing
 DI:Unique
 DI:Unluckiness
 DI:Unnatural Features
+DI:Unnaturally Fragile
 DI:Very Fat
 DI:Vow
 DI:Vulnerability
@@ -6182,8 +6173,10 @@ adds(_
        {AD:Teeth (Sharp Teeth)},
        {PE:Penetrating Voice},
        {DI:Appearance}=3,
-       {DI:Bad Temper (You resist on a roll of 15 or less (almost all the time))},
-       {DI:Bloodlust (You resist on a roll of 12 or less (quite often))},
+       {DI:Bad Temper} _
+			with {"You resist on a roll of 15 or less (almost all the time)", *0.5,shortname(15 or less),group(Self-Control),page(53)},
+       {DI:Bloodlust} _
+			with {You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)},
        {DI:Callous},
        {DI:Social Stigma (Minority Group)},
        {QU:Blunt and Tactless},
@@ -6200,7 +6193,7 @@ creates(_
           {AD:Banshee Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=4,
           {AD:Racial Skill Point Bonus (Intimidation), 1/2,page(99),gives(+1pts to SK:Intimidation),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=4,
           {DI:Banshee ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=1,
-          {DI:Odious Racial Habit (Habitual Killer), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Other Physical Features, Mundane Social)}=3,
+          {DI:Odious Racial Habit (Habitual Killer), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=3,
           {DI:Vulnerability (Crushing Attacks), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=3 _
                    with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
        )
@@ -6219,16 +6212,9 @@ adds(_
        {QU:Cannot Run Long Distances},
        {QU:Considers Dwarf Gender a Very Private Matter},
        {QU:Personality Change (Gains Bad Temper When Drinking)},
-       {QU:Touchy About Height and Beard}_
+       {QU:Touchy About Height and Beard},
+   %greedaliaslist%_
     ),
-select1(_
-			text("Select the variety of Greed for this dwarf from the list below."),
-			itemswanted(1),
-			list(_
-				"DI:Greed (You resist on a roll of 12 or less (quite often))", 
-				"DI:Dwarfish Greed (You resist on a roll of 12 or less (quite often))"_
-				)_
-        ),
 creates(_
           {AD:Dwarf Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=2,
           {AD:Dwarf HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
@@ -6236,7 +6222,24 @@ creates(_
           {AD:Racial Skill Point Bonus (Axe/Mace), 1/2,page(99),gives(+1pts to SK:Axe/Mace),noresync(yes),
 				cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
           {DI:Dwarf SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=1_
-       )
+       ),
+x(_
+		#ChoiceList(_
+				name(Greed),
+				title(Greed),
+				text(Select the variety of Greed for this dwarf from the list below. (Whichever you select will be taken with a self-control roll of 12-.)),
+				picksallowed(1),
+				method(bynumber),
+				list(_
+					"Greed",
+					"Dwarfish Greed" _
+					),
+				aliaslist(_
+						"DI:Greed",
+						"DI:Dwarfish Greed"_
+					)_
+				)_
+			)
 
 Elf-Kin, displaycost(16), cost(0),
 	cat(Racial Templates),
@@ -6331,7 +6334,7 @@ Gnoll, displaycost(-14), cost(0),
                    with {"Degree: +8 to HT rolls to resist", *1/2,round(Down),shortname(+8),group(Resistant),page(46),tier(-1),level(1),valuenum(1/2)},
           {DI:Gnoll Basic Move Penalty, -5/-10,page(28),gives(-1 to ST:Basic Move), cat(Attributes)}=1,
           {DI:Gnoll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=2,
-          {DI:Odious Racial Habit (Surly), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Other Physical Features, Mundane Social)}=1_
+          {DI:Odious Racial Habit (Surly), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1_
        )
 
 Gnome or Pictsie, displaycost(18), cost(0),
@@ -6382,16 +6385,15 @@ creates(_
           {AD:Goblin Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
           {AD:Goblin (Spoken), 1/2,displaycost(0/-1/+),page(31),upto(3),mods(Native Language),levelnames([None], Broken, Accented, Native),taboo(Native Languages > 1), cat(Mundane, Social, Language, Language Spoken, Social Background, Mundane Social, Non-Racial, Racial)}=3 _
                    with {"Native Speaker", -3,gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),group(Native Language),page(31),level(1),valuenum(-3)},
-          {AD:Goblin (Written), 1/2,displaycost(-3/-2/+),page(31),upto(3),mods(Native Language),levelnames([Illiterate], Semi-Literate, Literate, Native),taboo(Native Languages > 1), cat(Mundane, Social, Language, Language Written, Social Background, Mundane Social, Non-Racial, Racial)}=0 _
-                   with {"Native Writer", -3,gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),group(Native Language),page(31),level(1),valuenum(-3)},
           {AD:Racial Skill Point Bonus (Pot-Making), 1/2,page(99),gives(+1pts to SK:Pot-Making),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=24,
           {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
                    with {"Degree: +3 to HT rolls to resist", *1/3,round(Down),shortname(+3),group(Resistant),page(46),tier(-1),level(1),valuenum(1/3)},
+          {DI:Goblin (Written), -3, upto(1), gives(=+0.5 to ST:Native Languages), mods(Native Language), forceformula(yes), group(Language), levelnames(Illiterate), taboo(Native Languages > 1)},
           {DI:Goblin IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1,
           {DI:Goblin SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=2,
           {DI:Goblin ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=3,
           {DI:Goblin Will Penalty, -5/-10,page(27),gives(-1 to ST:Will), cat(Attributes)}=1,
-          {DI:Odious Racial Habit (General Sordidness), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Other Physical Features, Mundane Social)}=1_
+          {DI:Odious Racial Habit (General Sordidness), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1_
        )
 
 <Meta-Traits>
