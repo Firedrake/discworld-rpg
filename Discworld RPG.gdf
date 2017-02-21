@@ -361,15 +361,8 @@ Parry, basevalue(0), maxscore(1000000), minscore(0), display(No)
 Block, basevalue(0), maxscore(1000000), minscore(0), display(No)
 DB, basevalue(0), maxscore(1000000), minscore(0), display(No)
 
-One Arm SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
-	gives(_
-		=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:One Arm Reach _
-		)
-
-Two Arm SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
-	gives(_
- 		=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Two Arm Reach _
-		)
+Arm SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
+	gives(=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Arm Reach)
 
 Leg SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
 	gives(=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Leg Reach)
@@ -377,8 +370,7 @@ Leg SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no)
 Neck SM, basevalue(ST:Size Modifier), maxscore(1000000), minscore(0), display(no),
 	gives(=+@if(me::score < 1 THEN 0 ELSE @if(me::score = 1 THEN 0.5 ELSE @if(me::score = 2 THEN 1 ELSE (@indexedvalue((me::score- (6 * @int(me::score / 6))) + 1, 0.7,1,1.5,2,3,5) * (10 ^ @int(me::score / 6)))))) to ST:Neck Reach)
 
-One Arm Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
-Two Arm Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
+Arm Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 Leg Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 Neck Reach, basevalue(0), maxscore(1000000), minscore(0), display(No)
 
@@ -481,7 +473,7 @@ Punch, display(no), mode(Punch), mods(Combat Table, Punch/Kick), damage(_
 		), damtype(_
 					$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
 				), reach(C), parry(0), skillused(ST:DX, SK:Brawling, SK:Boxing, SK:Karate),
-	damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach), basevalue(ST:One Arm Striking ST)
+	damagebasedon(ST:Punch), reachbasedon(ST:Arm Reach), basevalue(ST:One Arm Striking ST)
 
 Kick, display(no), mode(Kick), mods(Combat Table, Punch/Kick),
 	damage(_
@@ -913,13 +905,6 @@ Terrain Adaptation, 5, mods(Terrain Adaptation), page(B93), cat(Exotic, Physical
 	x(#InputToTag("Specify the type of terrain to which you are adapted (ice, sand, snow, etc.):", nameext, , "Terrain Adaptation"))
 					
 
-Tunneling, 30, displaycost(30/35/+), mods(Tunneling), page(B94), cat(Exotic, Physical),
-	replacetags(in "ST:Tunneling Move" with "hide(), display(yes), mainwin(11), noresync(yes)"),
-	initmods(Tunneling Move, +5/+10, group(Tunneling), page(B94)),
-	x(#buildit)
-*, gives(+1 To ST:Tunneling Move)
-					
-
 Ultrahearing, 5, mods(Ultrahearing), page(B89), cat(Exotic, Physical), taboo(AD:Ultrasonic Speech, DI:Deafness),
 	skillused(ST:Perception, ST:Hearing), mode(Hear)
 Ultrasonic Speech, 10, mods(Ultrasonic Speech), page(B89), cat(Exotic, Physical), taboo(AD:Ultrahearing, DI:Deafness),
@@ -1141,10 +1126,10 @@ Very Rapid Healing, 15, needs(ST:HT = 12), page(46),
 	taboo(AD:Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
 
 Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Very Common),
-	page(B80), upto(4), cat(Mundane, Physical),
+	page(46), upto(4), cat(Mundane, Non-Racial, Physical, Racial),
 	initmods( Degree: Immunity, *1, shortname(Immunity), group(Resistant) ),
 	x(_
-		#InputToTagReplace("Please specify the noxious item or substance you are Resistant or Immune to:" , nameext, , "Resistant"),
+		#InputToTagReplace("Please specify the thing you are Resistant or Immune to:" , nameext, , "Resistant"),
 		#buildit _
 	)
 
@@ -1210,25 +1195,20 @@ Enhanced Parry (%Melee Weapon SkillList%), 5, page(42), cat(Enhanced Defences, M
 			)_
 			)_
 	), noresync(yes)
-Enhanced Parry (all parries), 10, gives(+1 To Parry), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial)
+Enhanced Parry (all parries), 10, gives(+1 To Parry), page(42), cat(Attributes, Enhanced Defences, Mundane, Mental, Non-Racial)
 
 Fearlessness, 2/4, gives(+1 To ST:Fright Check), page(43), cat(Mundane, Mental, Non-Racial, Racial),
 	taboo(DI:Fearfulness, DI:Cowardice, AD:Unfazeable)
 Gadgeteer, 25, page(43), cat(Mundane, Mental, Non-Racial)
 Indomitable, 15, page(43), cat(Mundane, Mental, Non-Racial, Racial)
-
 Language Talent, 10, gives(+1 To CA:Language), page(32), cat(Mundane, Mental, Non-Racial)
 Lightning Calculator, 2, page(45), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Innumerate)
 Luck, 15/30/60, levelnames( , Extraordinary, Ridiculous), page(44), upto(3),
 	cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
-
 Mad Medicine, 15, needs(AD:Gadgeteer, ((ST:Tech Level = 5) | (PE:Cutting-Edge Training (Physician and Surgery)))),
 	page(44), cat(Mundane, Mental, Non-Racial)
-
 Serendipity, 15/30, page(44), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
-Single-Minded, 5, page(46), cat(Mundane, Mental), taboo(DI:Short Attention Span)
-
-Social Chameleon, 5, page(B86), cat(Mundane, Mental), conditional(+1 to ST:Reaction when "from those who demand respect (priests, kings, etc.)")
+Single-Minded, 5, page(46), cat(Mundane, Mental, Non-Racial), taboo(DI:Short Attention Span)
 
 * Talents
 Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(B90), upto(4), cat(Mundane, Mental, Talents),
@@ -1485,12 +1465,12 @@ Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72)
 			\parA national government or giant multinational organization (net worth incalculable), or a true god who appears personally to intervene on your behalf: 30 POINTS _
 			)
 
-Social Regard, 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social),
+Social Regard, 5/10, gives(+1 to ST:Reaction), page(35), upto(4), cat(Mundane, Non-Racial, Social),
 	x(#InputToTag("Please describe the nature of the Social Regard:", nameext, , "Social Regard"))
-Social Regard (Feared), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social)
-Social Regard (Respected), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social)
-Social Regard (Venerated), 5/10, mods(Social Regard), gives(+1 to ST:Reaction), page(B86), upto(4), cat(Mundane, Social)
-Tenure, 5, page(B93), cat(Mundane, Social),
+Social Regard (Feared), 5/10, gives(+1 to ST:Reaction), page(35), upto(4), cat(Mundane, Non-Racial, Social)
+Social Regard (Respected), 5/10, gives(+1 to ST:Reaction), page(35), upto(4), cat(Mundane, Non-Racial, Social)
+Social Regard (Venerated), 5/10, gives(+1 to ST:Reaction), page(35), upto(4), cat(Mundane, Non-Racial, Social)
+Tenure, 5, page(48), cat(Mundane, Non-Racial, Social),
 	x(#InputToTag("Please describe the nature of the Tenure:", nameext, , "Tenure"))
 					
 ************************************************************************************************************************
@@ -1563,6 +1543,7 @@ Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial),
 	conditional(+1 to SK:Intimidation when "surprising someone by yelling or roaring")
 Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
+Sea Legs (+3 Resistance to motion sickness), 1, page(46), cat(Non-Racial)
 Secret Name, 1, page(52), needs(AD:Magery 0 | Magery 0 (Non-Improvisational)), cat(Magical, Non-Racial)
 Self-Styling Hair, 1, page(52), cat(Magical, Non-Racial)
 Sordid Claws, 1, page(94), needs(AD:Claws), cat(Racial)
@@ -1674,10 +1655,11 @@ Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Physical, Racia
 Semi-Upright, -5, page(96), cat(Exotic, Physical, Racial), taboo(DI:Quadruped)
 Short Arms (1 Arm), -5, page(96), cat(Exotic, Physical, Racial), needs(DI:One Arm), taboo(DI:Short Arms (2 Arms))
 Short Arms (2 Arms), -10, page(96), cat(Exotic, Physical, Racial), taboo(DI:Short Arms (1 Arm), DI:One Arm)
+Short Legs, -2, page(96), cat(Exotic, Physical, Racial), needs(DI:Quadruped)
 
 Total Vampire Nocturnalism, -20, page(112), cat(Exotic, Physical, Racial, Vampire)
 Troll Brain, -10, page(97), cat(Exotic, Gargoyle, Physical, Racial, Troll)
-Troll Nocturnalism, -20, page(97), cat(Exotic, Physical, Racial, Troll)
+Troll Nocturnalism, -20, page(97), mods(Troll Nocturnalism), cat(Exotic, Physical, Racial, Troll)
 
 Unhealing, -20/-30, levelnames(Partial, Total), page(98), upto(2),
 	cat(Exotic, Physical, Racial), taboo(AD:Regeneration, AD:Repairable)
@@ -1699,7 +1681,7 @@ Weakness, -5/-10/-20, upto(3), levelnames(1d per 30 minutes, 1d per 5 minutes, 1
 			)
 
 <Exotic Mental>
-Bestial, -10/-15, page(95), levelnames(, Really Unpleasant), cat(Exotic, Mental)
+Bestial, -10/-15, page(95), levelnames(, Really Unpleasant), cat(Exotic, Mental, Racial)
 
 Reprogrammable, -10, page(B150), cat(Exotic, Mental)
 
@@ -1709,7 +1691,21 @@ Draining, -5/-10/-15, mods(Draining), levelnames(Common, Occasional, Rare), upto
 Infectious Attack, -5, page(B140), cat(Supernatural, Physical)
 Revulsion, -5/-10/-15, levelnames(Occasional, Common, Very Common), upto(3), page(B151), cat(Supernatural, Physical)
 
-Supernatural Feature, 0, displaycost(variable), mods(Supernatural Feature), page(B157), cat(Supernatural, Physical), x(#buildit), taboo(DI:Appearance::level >= 4)
+Supernatural Feature (Mostly Concealed: [Feature]), -5, page(97), cat(Supernatural, Physical, Racial),
+	conditional(-1 to ST:Reaction when "noticed"),
+	x(#InputReplace("Describe the Feature:", "[Feature]", , "Supernatural Feature"))
+Supernatural Feature (Blatantly Unnatural: [Feature]), -10, page(97), cat(Supernatural, Physical, Racial),
+	conditional(-2 to ST:Reaction when "noticed"),
+	x(#InputReplace("Describe the Feature:", "[Feature]", , "Supernatural Feature"))
+Supernatural Feature (Mostly Concealed: No Body Heat), -5, page(97), cat(Supernatural, Physical, Racial),
+	conditional(-1 to ST:Reaction when "noticed")
+Supernatural Feature (Blatantly Unnatural: No Reflection), -10, page(97), cat(Supernatural, Physical, Racial),
+	conditional(-2 to ST:Reaction when "noticed")
+Supernatural Feature (Blatantly Unnatural: No Shadow), -10, page(97), cat(Supernatural, Physical, Racial),
+	conditional(-2 to ST:Reaction when "noticed")
+Supernatural Feature (Blatantly Unnatural: Deathly Pallor), -10, page(97), cat(Supernatural, Physical, Racial),
+	conditional(-2 to ST:Reaction when "noticed")
+
 
 <Supernatural Mental>
 Cursed, -75, page(B129), cat(Supernatural, Mental)
@@ -1769,8 +1765,8 @@ Addiction ([Physiological]), -5/-10/-20, upto(3),
 	mods(Addiction), page(54), cat(Mundane, Non-Racial, Physical),
 	x( #InputReplace("Specify the drug to which you are addicted:", "[Physiological]", , "Addiction (Physiological)"))
 
-Alcoholism, -15, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism (Withdrawn), QU:Former Alcoholic)
-Alcoholism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism, QU:Former Alcoholic)
+Alcoholism, -15, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism (Withdrawn), DI:Troll Brain, QU:Former Alcoholic)
+Alcoholism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism, DI:Troll Brain, QU:Former Alcoholic)
 Bad Back, -15/-25, levelnames(Mild, Severe), page(55), upto(2), cat(Mundane, Non-Racial, Physical)
 Bad Grip, -5/-10, upto(3), page(63), cat(Mundane, Non-Racial, Physical, Racial), taboo(DI:Quadruped),
 	gives(-2 To CL:Melee Weapon, -2 to SK:Climbing, -2 to SK:Fast-Draw)
@@ -1787,7 +1783,7 @@ Bad Sight (Farsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindn
 			-3 to ST:DX when "performing close manual tasks",
 			-3 to "CL:Melee Combat" when "in Close Combat" _
 			)
-Bad Smell, -10, page(B124), cat(Mundane, Physical), gives(-2 to ST:Reaction)
+Bad Smell, -10, page(55), cat(Mundane, Non-Racial, Physical, Racial), gives(-2 to ST:Reaction)
 Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness), taboo(AD:Acute Vision, AD:Infravision, AD:Telescopic Vision, AD:Ultravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
 	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
 Cannot Speak, -15, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, DI:Mute, AD:Speak Underwater)
@@ -1833,8 +1829,8 @@ One Eye, -15, page(B147), cat(Mundane, Physical), taboo(DI:No Depth Perception, 
 	conditional(-3 to CL:Ranged Combat when "not aiming"), gives(-1 to CL:Melee Combat)
 One Hand, -15, page(64), cat(Mundane, Physical),
 	taboo(DI:One Arm, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
-Restricted Diet, -10/-20/-30/-40, mods(Restricted Diet),
-	levelnames(Very Common, Common, Occasional, Rare), page(96), upto(4), cat(Mundane, Physical, Racial),
+Restricted Diet, -10/-20/-30/-40, levelnames(Very Common, Common, Occasional, Rare),
+	page(96), upto(4), cat(Mundane, Physical, Racial),
 	taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink),
 	x(#InputToTag("Specify the unusual sustenance required:", nameext, , "Restricted Diet"))
 Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2),
@@ -1842,8 +1838,10 @@ Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upt
 Stuttering, -10, gives(-2 To GR:Stuttering), page(B157), cat(Mundane, Physical),
 	taboo(DI:Mute), conditional(-2 to ST:Reaction)
 
-Sulphurholism, -15, page(54), cat(Mundane, Physical), taboo(DI:Sulphurholism (Withdrawn), QU:Former Sulphurholic)
-Sulphurholism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Sulphurholism, QU:Former Sulphurholic)
+Sulphurholism, -15, page(54), cat(Mundane, Physical),
+	needs(DI:Troll Brain), taboo(DI:Sulphurholism (Withdrawn), QU:Former Sulphurholic)
+Sulphurholism (Withdrawn), -10, page(54), cat(Mundane, Physical),
+	needs(DI:Troll Brain), taboo(DI:Sulphurholism, QU:Former Sulphurholic)
 Susceptible to [Very Common], -4/-8, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
 	x( #InputReplace("Specify the environmentally Very Common class of noxious items or substances to which the character is susceptible:", "[Very Common]", , "Susceptible to [Very Common]") )
 Susceptible to [Common], -2/-4, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
@@ -2309,8 +2307,8 @@ Distractible, -1, page(67), cat(Mental, Non-Racial)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
 Dreamer, -1, page(67), cat(Mental, Non-Racial)
 Dull, -1, page(67), cat(Mental, Non-Racial)
-Former Alcoholic, -1, page(67), taboo(DI:Alcoholism), cat(Mental, Non-Racial)
-Former Sulphurholic, -1, page(55), taboo(DI:Sulphurholism), cat(Mental, Non-Racial)
+Former Alcoholic, -1, page(67), taboo(DI:Alcoholism, DI:Troll Brain), cat(Mental, Non-Racial)
+Former Sulphurholic, -1, page(55), needs(DI:Troll Brain), taboo(DI:Sulphurholism), cat(Mental, Non-Racial)
 Giggles a Lot, -1, page(67), cat(Elvish, Non-Racial)
 Habit, -1, page(67), cat(Mental, Non-Racial),
 	x(#InputToTag("Specify what the character's habit is:", nameext, , "Habit"))
@@ -2762,7 +2760,7 @@ Boxing, DX/A, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat, U
 					), damtype(_
 						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
 					), reach(C), parry(0), skillused(SK:Boxing),
-				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach)_
+				damagebasedon(ST:Punch), reachbasedon(ST:Arm Reach)_
 		),
 	description(Notes: Calculated damage takes into account bonuses from Claws and skill level. You may add the modifier "Has Gauntlets/Brass Knuckles" to apply the +1 damage to Punch.),
 	gives(=$if(me::level >= ST:DX THEN nobase) to ST:Punch::reach$)
@@ -2776,7 +2774,7 @@ Brawling, DX/E, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat,
 					), damtype(_
 						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
 					), reach(C), parry(0), skillused(SK:Brawling),
-				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach)_
+				damagebasedon(ST:Punch), reachbasedon(ST:Arm Reach)_
 		),
 	newmode(Bite, damage(_
 				thr-1 + _
@@ -2807,7 +2805,7 @@ Karate, DX/H, page(83), parryat(@int(%level/2)+3), cat(_General, Melee Combat, U
 					), damtype(_
 						$if("AD:Claws (Sharp Claws)::level" = 1 & @itemhasmod(AD:Claws (Sharp Claws), Feet Only) = 0 THEN "cut" ELSE $if("AD:Claws (Talons)::level" = 1  & @itemhasmod(AD:Claws (Talons), Feet Only) = 0 THEN "cut/imp" ELSE $if("AD:Claws (Long Talons)::level" = 1  & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 THEN "cut/imp" ELSE "cr")))_
 					), reach(C), parry(0), skillused(SK:Karate),
-				damagebasedon(ST:Punch), reachbasedon(ST:One Arm Reach) _
+				damagebasedon(ST:Punch), reachbasedon(ST:Arm Reach) _
 		),
 	newmode(Kick, damage(_
 				thr+ _ 
@@ -3508,7 +3506,6 @@ AD:Slippery
 AD:Small Piercing Attack
 AD:Smooth Operator
 AD:Snatcher
-AD:Social Chameleon
 AD:Social Regard (Feared)
 AD:Social Regard (Respected)
 AD:Social Regard (Venerated)
@@ -3542,11 +3539,7 @@ AD:Time Mastery Talent
 AD:Toxic Attack
 AD:Trading Character Points for Money
 AD:Trained By A Master
-AD:T-Ray Vision
-AD:True Faith (Chosen)
 AD:True Faith
-AD:Tunneling (Slow)
-AD:Tunneling
 AD:Ultrahearing
 AD:Ultrasonic Speech
 AD:Ultravision
@@ -3614,6 +3607,7 @@ PE:Penetrating Voice
 PE:Recognised Divinity
 PE:Sanitized Metabolism
 PE:Scales
+PE:Sea Legs
 PE:Secret Name
 PE:Shtick
 PE:Self-Styling Hair
@@ -3805,6 +3799,7 @@ DI:Sense of Duty
 DI:Short Arms (1 Arm)
 DI:Short Arms (2 Arms)
 DI:Short Attention Span
+DI:Short Legs
 DI:Shyness
 DI:Skinny
 DI:Slave Mentality
@@ -4783,67 +4778,13 @@ Impressive, 0, group(Attractive), page(B21)
 Mitigator (Glasses), -60%, group(Bad Sight), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)
 
 <Blindness>
-Mitigator: Artificial Eyes, -60%, group(Blindness), page(B112), shortname(Artificial Eyes), mitigator(yes),
+Mitigator (Artificial Eyes), -60%, group(Blindness), page(B112), shortname(Artificial Eyes), mitigator(yes),
 	x(#Message("This modifier is for use only with Blindness. Applying it to any other trait will cause problems."))
 
 //	gives(+4 to ST:Dodge, +6 to CL:Melee Combat, +6 to CL:Ranged Combat, +6 to CL:Athletic - Combat Art/Sport, +ST:Vision::basescore to ST:Vision),
 
 <Berserk>
 Battle Rage, +50%, group(Berserk), page(B124)
-
-<Binding>
-Engulfing, +60%, group(Binding), page(B40)
-Only Damaged By Burning, +30%, group(Binding), page(B40)
-Only Damaged By Corrosion, +30%, group(Binding), page(B40)
-Only Damaged By Crushing, +30%, group(Binding), page(B40)
-Only Damaged By Cutting, +30%, group(Binding), page(B40)
-Only Damaged By Burning or Corrosion, +20%, group(Binding), page(B40)
-Only Damaged By Burning or Crushing, +20%, group(Binding), page(B40)
-Only Damaged By Burning or Cutting, +20%, group(Binding), page(B40)
-Only Damaged By Corrosion or Crushing, +20%, group(Binding), page(B40)
-Only Damaged By Corrosion or Cutting, +20%, group(Binding), page(B40)
-Only Damaged By Crushing or Cutting, +20%, group(Binding), page(B40)
-Only Damaged By Burning or Corrosion or Crushing, +10%, group(Binding), page(B40)
-Only Damaged By Burning or Corrosion or Cutting, +10%, group(Binding), page(B40)
-Only Damaged By Burning or Crushing or Cutting, +10%, group(Binding), page(B40)
-Only Damaged By Corrosion or Crushing or Cutting, +10%, group(Binding), page(B40)
-Sticky, +20%, group(Binding), page(B40)
-Unbreakable, +40%, group(Binding), page(B40)
-Environmental, -20%/-30%, upto(3), group(Binding), page(B40)
-One-Shot, -10%, group(Binding), page(B40)
-
-<Chameleon>
-Extended, +20%/+40%, group(Chameleon), page(B41)
-Always On, -10%, group(Chameleon), page(B41)
-
-<Chip Slots>
-_Per point of abilities, 5+3/point, formula(5+(me::level*3)), forceformula(yes), group(Chip Slots), page(B71), mods(Modular Abilities),
-	x(_
-		#InputToTagReplace("Specify the name of this Modular slot",name,"Slot 2",Chip Slots),
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Chip Slots) _
-	), level([level])
-
-<Modular Abilities>
-Multiple slots, *1/*2, level(2)
-
-<Chronic Pain>
-Interval: 1 hour, *0.5, shortname(1 hour), group(Chronic Pain), page(B126)
-Interval: 2 hours, *1, shortname(2 hours), group(Chronic Pain), page(B126)
-Interval: 4 hours, *1.5, shortname(4 hours), group(Chronic Pain), page(B126)
-Interval: 8 hours, *2, shortname(8 hours), group(Chronic Pain), page(B126)
-Frequency: Attack occurs on a roll of  6 or less, *0.5, shortname(6 or less), group(Chronic Pain), page(B126)
-Frequency: Attack occurs on a roll of  9 or less, *1, shortname(9 or less), group(Chronic Pain), page(B126)
-Frequency: Attack occurs on a roll of 12 or less, *2, shortname(12 or less), group(Chronic Pain), page(B126)
-Frequency: Attack occurs on a roll of 15 or less, *3, shortname(15 or less), group(Chronic Pain), page(B126)
-
-<Clairsentience>
-Clairaudience, -30%, group(Clairsentience), page(B42)
-Clairosmia, -60%, group(Clairsentience), page(B42)
-Clairvoyance, -10%, group(Clairsentience), page(B42)
-Visible, -10%, group(Clairsentience), page(B42)
-
-<Clinging>
-Specific, -40%/-60%, levelnames(Common material, Uncommon material, Absurd material), upto(3), group(Clinging), page(B43)
 
 <Combat Table>
 Remove Combat Table Entry, +0, addmode({Punch, damage(), damtype(), minst(), reach()} | {Kick, damage(), damtype(), minst(), reach()} | {Bite, damage(), damtype(), minst(), reach()})
@@ -4922,16 +4863,8 @@ Importance: Friend, *1, shortname(Friend), group(Dependent), page(B131)
 Importance: Loved one, *2, shortname(Loved one), group(Dependent), page(B131)
 Group of Dependents, *2, group(Dependent), page(B131)
 
-<Detect>
-Precise, +100%, group(Detect), page(B48)
-Signal Detection, +0%, group(Detect), page(B48)
-Vague, -50%, group(Detect), page(B48)
-
 <Discriminatory Smell>
 Emotion Sense, +8, group(Discriminatory Smell), page(88)
-
-<Draining>
-Illegal, -5, group(Draining), page(B132)
 
 <Dread>
 Larger Radius, -1/-2, upto(10), levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards), group(Dread), page(B133)
@@ -4940,12 +4873,6 @@ Rarity: Occasional, *1, shortname(Occasional), group(Dread), page(B133)
 Rarity: Common, *2, shortname(Common), group(Dread), page(B133)
 Rarity: Very Common, *3, shortname(Very Common), group(Dread), page(B133)
 Cannot Be Trapped, -50%, group(Dread), page(B133)
-
-<Duplication>
-Duplicated Gear, +100%, group(Duplication), page(B51)
-No Sympathetic Injury, +20%, group(Duplication), page(B51)
-Digital, -60%, group(Duplication), page(B51)
-Shared Resources, -40%, group(Duplication), page(B51)
 
 <Duty>
 Extremely Hazardous, -5, group(Duty), page(B134)
@@ -4963,12 +4890,6 @@ Unknown, -5, group(Enemy), page(B135)
 Intent: Watcher, *1/4, shortname(Watcher), group(Enemy), page(B135)
 Intent: Rival, *1/2, shortname(Rival), group(Enemy), page(B135)
 Intent: Hunter, *1, shortname(Hunter), group(Enemy), page(B135)
-
-<Enhanced Move>
-Handling Bonus, +5%/+10%, upto(5), group(Enhanced Move), page(B52)
-Handling Penalty, -5%/-10%, upto(5), group(Enhanced Move), page(B52), levelnames(-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,-43,-44,-45,-46,-47,-48,-49,-50,-51,-52,-53,-54,-55,-56,-57,-58,-59,-60,-61,-62,-63,-64,-65,-66,-67,-68,-69,-70,-71,-72,-73,-74,-75,-76,-77,-78,-79,-80,-81,-82,-83,-84,-85,-86,-87,-88,-89,-90,-91,-92,-93,-94,-95,-96,-97,-98,-99,-100)
-Newtonian, -50%, group(Enhanced Move), page(B52)
-Road-Bound, -50%, group(Enhanced Move), page(B52)
 
 <Extra ST>
 Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
@@ -5024,10 +4945,6 @@ Gives conditional Air Move bonus, +0%, shortname(Conditional Air Move), conditio
 Foot Manipulators, -30%, group(Extra Arms), page(B53)
 Short, -50%, group(Extra Arms), page(B53)
 
-<Extra Legs>
-Long, +100%/+200%, group(Extra Legs), page(B55), gives(+1 to ST:Leg SM)
-Cannot Kick, -50%, group(Extra Legs), page(B55)
-
 <Favor>
 Favor, *1/5, group(Favor), page(B55)
 
@@ -5060,10 +4977,6 @@ Disease Only, -40%, group(Healing), page(B59)
 Injuries Only, -20%, group(Healing), page(B59)
 Own Race Only, -20%, group(Healing), page(B59)
 
-<Hyperspectral Vision>
-Extended Low-Band, +30%, group(Hyperspectral Vision), page(B60)
-Extended High-Band, +30%, group(Hyperspectral Vision), page(B60)
-
 <Infravision>
 Unswitchable, *0, group(Infravision), page(B60)
 Switchable, +0, group(Infravision), page(B60)
@@ -5094,21 +5007,6 @@ Substantial Only, -10%, group(Invisibility), page(B63)
 Visible Reflection, -10%, group(Invisibility), page(B63)
 Visible Shadow, -10%, group(Invisibility), page(B63)
 
-<Jumper>
-Can Carry Objects, +10%/+20%/+30%/+50%, levelnames([No Encumbrance], Light Encumbrance, Medium Encumbrance, Heavy Encumbrance, Extra-Heavy Encumbrance), upto(4), group(Jumper), page(B64)
-New Worlds, +50%, group(Jumper), page(B64)
-Omni-Jump, +10%, group(Jumper), page(B64)
-Tracking, +20%, group(Jumper), page(B64)
-Tunnel, +40%, group(Jumper), page(B64)
-Warp Jump, +10%, group(Jumper), page(B64)
-Cannot Escort, -10%, group(Jumper), page(B64)
-Cannot Follow, -20%, group(Jumper), page(B64)
-Drift, -15%, group(Jumper), page(B64)
-Limited Jump, -10%, group(Jumper), page(B64)
-Maximum Range, -10%, group(Jumper), page(B65)
-Naked, -30%, group(Jumper), page(B65)
-Stunning, -10%, group(Jumper), page(B65)
-
 <Native Language>
 Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)
 Native Speaker, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23)
@@ -5119,25 +5017,6 @@ Diplomatic pouch privileges, +5, group(Legal Immunity), page(B65)
 
 <Lifting ST>
 Doesn't affect Basic Lift, 0, gives(-owner::level to ST:Lifting ST)
-
-<Maintenance>
-Maintenance Interval: Monthly, *1/5, shortname(Monthly), group(Maintenance), page(B143)
-Maintenance Interval: Bi-weekly, *1/3, shortname(Bi-weekly), group(Maintenance), page(B143)
-Maintenance Interval: Weekly, *1/2, shortname(Weekly), group(Maintenance), page(B143)
-Maintenance Interval: Every other day, *3/4, shortname(Every other day), group(Maintenance), page(B143)
-Maintenance Interval: Daily, *1, shortname(Daily), group(Maintenance), page(B143)
-Maintenance Interval: Twice Daily, *2, shortname(Twice daily), group(Maintenance), page(B143)
-Maintenance Interval: Three to five times daily, *3, shortname(3-5 times daily), group(Maintenance), page(B143)
-Maintenance Interval: Constant, *5, shortname(Constant), group(Maintenance), page(B143)
-
-<Mana Damper/Enhancer>
-Area Effect, +50%/+100%, group(Mana Damper/Enhancer), page(B67), upto(25),
-	levelnames("1 yd","2 yd","4 yd","8 yd","16 yd","32 yd","64 yd","128 yd","256 yd","512 yd","0.58 mi","1.2 mi","2.3 mi","4.7 mi","9.3 mi","19.0 mi","37.0 mi","74.0 mi","150.0 mi","300.0 mi","600.0 mi","1,200 mi","2,400 mi","4,800 mi","9,500 mi","19,000 mi","38,000 mi","76,000 mi","150,000 mi","310,000 mi","610,000 mi","1,200,000 mi","2,400,000 mi","4,900,000 mi","9,800,000 mi","20,000,000 mi","39,000,000 mi"),
-	gives(_
-		=+(0.5 * (2^me::level)) to owner::radius _
-		)
-
-Switchable, +100%, group(Mana Damper/Enhancer), page(B67)
 
 <Metabolism Control>
 Hibernation, -60%, group(Metabolism Control), page(B68)
@@ -5216,10 +5095,6 @@ Unwilling, -50%, group(Patron), page(B74)
 
 <Peripheral Vision>
 Easy to Hit, -20%, group(Peripheral Vision), page(B75)
-
-<Permeation>
-Can Carry Objects, +10%/+20%/+50%/+100%, levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance), upto(4), group(Permeation), page(B75)
-Tunnel, +40%, group(Permeation), page(B75)
 
 <Possession>
 Assimilation, +10%, group(Possession), page(B76)
@@ -5517,12 +5392,9 @@ Frequency of Recognition: Sometimes (roll of 10 or less), *1/2, shortname(10 or 
 Frequency of Recognition: Occasionally (roll of 7 or less), *1/3, shortname(7 or less), group(Reputation Disadvantage), page(B28)
 
 <Resistant>
-Degree: Immunity, *1, shortname(Immunity), group(Resistant), page(B81), tier(-1)
-Degree: +8 to HT rolls to resist, *1/2, round(Down), shortname(+8), group(Resistant), page(B81), tier(-1)
-Degree: +3 to HT rolls to resist, *1/3, round(Down), shortname(+3), group(Resistant), page(B81), tier(-1)
-
-<Restricted Diet>
-Substitution, -50%, group(Restricted Diet), page(B151)
+Degree: Immunity, *1, shortname(Immunity), group(Resistant), page(46), tier(-1)
+Degree: +8 to HT rolls to resist, *1/2, round(Down), shortname(+8), group(Resistant), page(46), tier(-1)
+Degree: +3 to HT rolls to resist, *1/3, round(Down), shortname(+3), group(Resistant), page(46), tier(-1)
 
 <Self-Control>
 You resist on a roll of  6 or less (quite rarely), *2, shortname(6 or less), group(Self-Control), page(53)
@@ -5547,21 +5419,6 @@ Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:Hit Points::level > 0 THEN ST
 <Size ST>
 Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:ST::level > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(B15)
 
-<Snatcher>
-Permanent, +300%, group(Snatcher), page(B86)
-Less Weight, -5%/-10%/-15%/-25%/-30%, levelnames(3 lbs., 2 lbs., 1 lb., 4 oz., 1 oz.), upto(5), group(Snatcher), page(B86)
-Specialized, -5%/-10%, group(Snatcher), page(B86)
-Stunning, -10%, group(Snatcher), page(B86)
-Unpredictable, -25%, group(Snatcher), page(B86)
-
-<Social Regard>
-Feared, +0, group(Social Regard), page(B87)
-Respected, +0, group(Social Regard), page(B87)
-Venerated, +0, group(Social Regard), page(B87)
-
-<Speak Underwater>
-Interface Crossing, +50%, group(Speak Underwater), page(B87)
-
 <Speak With Animals>
 Specialized: All land animals, -40%, shortname(All land animals), group(Speak With Animals), page(B87)
 Specialized: All aquatic animals, -40%, shortname(All aquatic animals), group(Speak With Animals), page(B87)
@@ -5574,14 +5431,6 @@ Specialized: one species, -80%, group(Speak With Animals), page(B87),
 
 <Status>
 Heir, +3/+5, page(B33), formula(@int(me::level * 2.5 + 0.9)), forceformula(yes), gives(=+@int(me::level/2) to ST:Status), upto(8 - owner::level)
-
-<Supernatural Feature>
-No Body Heat, -5, group(Supernatural Feature), page(B157)
-No Body Heat: Can gain warmth temporarily, -1, group(Supernatural Feature), page(B157)
-No Reflection, -10, group(Supernatural Feature), page(B157)
-No Shadow, -10, group(Supernatural Feature), page(B157)
-Pallor, -10, group(Supernatural Feature), page(B157)
-Pallor: can gain the flush of life temporarily, -5, group(Supernatural Feature), page(B157)
 
 <Super-Memorization>
 _Per point of abilities, 5+3/point, formula(5+(me::level*3)), forceformula(yes), group(Super-Memorization), page(B71), mods(Modular Abilities),
@@ -5658,8 +5507,9 @@ Cannot function normally on solid ground, -5, group(Terrain Adaptation), page(B9
 <Terror>
 Always On, -20%, group(Terror), page(B93)
 
-<Tunneling>
-Tunneling Move, +5/+10, group(Tunneling), page(B94)
+<Troll Nocturnalism>
+Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
+	page(98), mitigator(yes), shortname(Sunscreen), mitigator(yes)
 
 <Ultrahearing>
 Can only hear high-frequency sounds, *0, shortname(No normal sounds), group(Ultrahearing), page(B94)
@@ -6454,6 +6304,36 @@ creates(_
           {DI:Gargoyle IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=3_
        )
 
+Gnoll, displaycost(-14), cost(0),
+	description(A surly scavenger with a body seemingly made of soil.),
+	page(103), race(Gnoll),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Cast-Iron Stomach},
+       {AD:Damage Resistance}=2 _
+                   with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)} _
+                   and  {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Fearlessness}=3,
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Temperature Tolerance (Heat)}=1,
+       {DI:Appearance}=3,
+       {DI:Bad Smell},
+       {DI:Callous},
+       {DI:Disturbing Voice},
+       {DI:Social Stigma (Uneducated)}_
+    ),
+	creates(_
+          {AD:Gnoll Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=2,
+          {AD:Gnoll HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=3,
+          {AD:Gnoll Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
+          {AD:Gnoll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=2,
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: +8 to HT rolls to resist", *1/2,round(Down),shortname(+8),group(Resistant),page(46),tier(-1),level(1),valuenum(1/2)},
+          {DI:Gnoll Basic Move Penalty, -5/-10,page(28),gives(-1 to ST:Basic Move), cat(Attributes)}=1,
+          {DI:Gnoll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=2,
+          {DI:Odious Racial Habit (Surly), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Other Physical Features, Mundane Social)}=1_
+       )
+
 Gnome or Pictsie, displaycost(18), cost(0),
 	cat(Racial Templates),
 	description(),
@@ -6480,6 +6360,38 @@ creates(_
           {DI:Gnome or Pictsie Basic Move Penalty, -5/-10,page(28),gives(-1 to ST:Basic Move), cat(Attributes)}=2,
           {DI:Gnome or Pictsie SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=5,
           {DI:Gnome or Pictsie ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=6_
+       )
+
+Goblin, displaycost(-7), cost(0),
+description(A sad and self-oppressing race, recently freed from the worst parts of their previous condition.),
+page(102), race(Goblin), noresync(yes), owns(yes),
+adds(_
+       {AD:Claws (Sharp Claws)},
+       {AD:Night Vision}=6,
+       {AD:Temperature Tolerance (Cold)}=1,
+       {PE:Sordid Claws},
+       {DI:Appearance}=2,
+       {DI:Bad Smell},
+       {DI:Berserk} _
+                   with {"You resist on a roll of 15 or less (almost all the time)", *0.5,shortname(15 or less),group(Self-Control),page(53),level(1),valuenum(0.5)},
+       {QU:Collects Own Snot and Earwax}_
+    ),
+creates(_
+          {AD:Goblin DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
+          {AD:Goblin HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Goblin Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
+          {AD:Goblin (Spoken), 1/2,displaycost(0/-1/+),page(31),upto(3),mods(Native Language),levelnames([None], Broken, Accented, Native),taboo(Native Languages > 1), cat(Mundane, Social, Language, Language Spoken, Social Background, Mundane Social, Non-Racial, Racial)}=3 _
+                   with {"Native Speaker", -3,gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),group(Native Language),page(31),level(1),valuenum(-3)},
+          {AD:Goblin (Written), 1/2,displaycost(-3/-2/+),page(31),upto(3),mods(Native Language),levelnames([Illiterate], Semi-Literate, Literate, Native),taboo(Native Languages > 1), cat(Mundane, Social, Language, Language Written, Social Background, Mundane Social, Non-Racial, Racial)}=0 _
+                   with {"Native Writer", -3,gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),group(Native Language),page(31),level(1),valuenum(-3)},
+          {AD:Racial Skill Point Bonus (Pot-Making), 1/2,page(99),gives(+1pts to SK:Pot-Making),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=24,
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: +3 to HT rolls to resist", *1/3,round(Down),shortname(+3),group(Resistant),page(46),tier(-1),level(1),valuenum(1/3)},
+          {DI:Goblin IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1,
+          {DI:Goblin SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=2,
+          {DI:Goblin ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=3,
+          {DI:Goblin Will Penalty, -5/-10,page(27),gives(-1 to ST:Will), cat(Attributes)}=1,
+          {DI:Odious Racial Habit (General Sordidness), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Other Physical Features, Mundane Social)}=1_
        )
 
 <Meta-Traits>
@@ -6560,56 +6472,6 @@ _New Meta-Trait, displaycost(variable), cost(0), gives(),
 					"AD:Racial Spell Point Bonus ([spell])"_
 				)_
 			), noresync(yes)
-
-<Meta-Traits - Machine>
-Machine, displaycost(25), cost(0),
-	replacetags(in "ST:Fatigue Points" with "basevalue(0), step(0), maxscore(0), up(0), down(0), noresync(yes)"),
-	description(Your body is mostly or completely mechanical, composed of non-living materials _
-			such as metal, plastic, and composites--although you might have a few organic _
-			parts, such as an outer layer of skin or a brain. Examples include robots, _
-			vehicles, and full cyborgs.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	sets(_
-		ST:Fatigue Points = 0 _
-		),
-	adds(_
-		AD:Injury Tolerance _
-			with "No Blood, +5, group(Injury Tolerance)" _
-			and  "Unliving, +20, group(Injury Tolerance)",
-		DI:Unhealing=2_
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
-		),
-	features(_
-		Eight-hour energy reserve,
-		No Fatigue Points,
-		Wears out instead of aging_
-		),
-	taboo(ST:Fatigue Points > 0)
-
-<Meta-Traits - Mentality>
-AI, displaycost(32), cost(0),
-	description(A computer mind.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Absolute Timing,
-		AD:Digital Mind,
-		AD:Doesn't Sleep,
-		AD:Intuitive Mathematician,
-		AD:Photographic Memory,
-		DI:Reprogrammable_
-		)
 Automaton, displaycost(-85), cost(0),
 	description(A mind lacking self-awareness and creativity. This is typical of many hive-creatures, _
 		magical constructs, undead, and simple AIs. You can combine this with the AI meta-trait.),
