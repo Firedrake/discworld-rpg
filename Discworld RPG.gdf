@@ -864,7 +864,7 @@ Regeneration, 10/25/50/100,
 	levelnames(Slow: 1HP/12Hr, Regular: 1HP/Hr, Fast: 1HP/Min, Very Fast: 1HP/Sec),
 	page(90), upto(4), cat(Exotic, Physical, Racial),
 	taboo(AD:Rapid Healing, AD:Repairable, DI:Unhealing)
-Regrowth, 40, mods(Regrowth), page(90), cat(Exotic, Physical, Racial),
+Regrowth, 40, page(90), cat(Exotic, Physical, Racial),
 	taboo(DI:One Eye::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Arm::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:No Legs::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
@@ -2533,6 +2533,7 @@ Professional Skill (Florist), IQ/A, default(IQ - 5), page(), cat(_General, Craft
 Professional Skill (Glassblower), DX/A, default(DX - 5), page(), cat(_General, Craft, Professional)
 Professional Skill (Leatherworking), IQ/A, default(IQ - 5), page(), cat(_General, Craft, Professional)
 Professional Skill (Masonry), IQ/A, default(IQ - 5), page(), cat(_General, Craft, Professional)
+Professional Skill (Potter), DX/A, default(DX - 5), page(), cat(_General, Craft, Professional)
 Professional Skill (Tailor), DX/A, default(DX - 5), page(), cat(_General, Craft, Professional)
 Professional Skill (Tanner), IQ/A, default(IQ - 5), page(), cat(_General, Craft, Professional)
 Professional Skill (Vinter), IQ/A, default(IQ - 5), page(), cat(_General, Craft, Professional)
@@ -3463,6 +3464,7 @@ AD:Reduced Consumption
 AD:Regeneration
 AD:Regrowth
 AD:Religious Rank
+AD:Repairable
 AD:Reputation
 AD:Resistant
 AD:See Invisible (Magical)
@@ -3833,8 +3835,9 @@ QU:Congenial
 QU:Considers Dwarf Gender a Very Private Matter
 QU:Delusion
 QU:Delusion (Spelling my name backwards disguises it perfectly)
-QU:Dislikes
+QU:Dislikes [specify]
 QU:Dislikes Cramped Conditions
+QU:Dislikes Water
 QU:Distinctive Feature
 QU:Distractible
 QU:Doggy Responses
@@ -4118,6 +4121,7 @@ SK:Poetry
 SK:Poisons
 SK:Polearm
 SK:Politics
+SK:Pot-Making
 SK:Professional Skill
 SK:Professional Skill (Barber)
 SK:Professional Skill (Brewer)
@@ -4128,6 +4132,9 @@ SK:Professional Skill (Dyer)
 SK:Professional Skill (Florist)
 SK:Professional Skill (Game Designer)
 SK:Professional Skill (Glassblower)
+SK:Professional Skill (Leatherworking)
+SK:Professional Skill (Masonry)
+SK:Professional Skill (Potter)
 SK:Professional Skill (Prostitute)
 SK:Professional Skill (Tailor)
 SK:Professional Skill (Tanner)
@@ -5317,9 +5324,6 @@ Gives conditional Water Move penalty, +0%, shortname(Conditional Water Move), co
 Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional Air Move penalty, +0%, shortname(Conditional Air Move), conditional(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
 
-<Regrowth>
-Minor, -50%, group(Regrowth), page(B80)
-
 <Reputation Advantage>
 People Affected: Almost everyone in your game world, *1, shortname(Almost everyone), group(Reputation Advantage), page(B27), round(down)
 People Affected: Almost everyone in your game world except one large class, *2/3, shortname(Almost everyone, except large class), group(Reputation Advantage), page(B27), round(down)
@@ -6342,6 +6346,128 @@ creates(_
           {DI:Goblin Will Penalty, -5/-10,page(27),gives(-1 to ST:Will), cat(Attributes)}=1,
           {DI:Odious Racial Habit (General Sordidness), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1_
        )
+
+Golem, displaycost(438), cost(0),
+	description(An ancient automaton, created theologically.),
+	page(104), race(Golem), noresync(yes), owns(yes),
+	adds(_
+       {AD:Damage Resistance}=5,
+       {AD:Doesn't Breathe},
+       {AD:Doesn't Eat or Drink},
+       {AD:Doesn't Sleep},
+       {AD:High Pain Threshold},
+       {AD:Indomitable},
+       {AD:Lifting ST}=10 _
+          with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-10)},
+       {AD:Night Vision}=4,
+       {AD:Photographic Memory},
+       {AD:Pressure-Proof},
+       {AD:Protected Eyes}=4,
+       {AD:Repairable (Professional Skill (Potter))},
+       {AD:Single-Minded},
+       {AD:Temperature Tolerance (Cold)}=3,
+       {AD:Temperature Tolerance (Heat)}=3,
+       {AD:Unfazeable},
+       {PE:Boredom Immunity},
+       {PE:Longevity},
+       {PE:Striking Surface},
+       {DI:Hidebound},
+       {DI:Honesty} _
+          with {"You resist on a roll of  6 or less (quite rarely)", *2,shortname(6 or less),group(Self-Control),page(53),level(1),valuenum(2)},
+       {DI:Selfless} _
+          with {"You resist on a roll of  6 or less (quite rarely)", *2,shortname(6 or less),group(Self-Control),page(53),level(1),valuenum(2)},
+       {DI:Unnaturally Fragile},
+       {QU:Broad-Minded},
+       {QU:Cannot Float}_
+    ),
+	creates(_
+          {AD:Extra DR 15 (Only vs. Heat and Fire), 45, displaycost(varies), noresync(yes), cat(General)},
+          {AD:Golem DX Bonus, 20/40,page(B15),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
+          {AD:Golem Perception Bonus, 5/10,page(B16),gives(+1 to ST:Perception), cat(Attributes)}=1,
+          {AD:Golem SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(B19),tl(),usernotes(),familiarities(), cat(Attributes)}=1,
+          {AD:Golem ST Bonus, 10/20,page(B14),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=15 _
+                   with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-10)},
+          {AD:Golem Will Bonus, 5/10,page(B16),gives(+1 to ST:Will), cat(Attributes)}=4,
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"Unliving", +20,group(Injury Tolerance),page(89),level(1),valuenum(20)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)}_
+       )
+
+Domestic Cat, displaycost(-82), cost(0),
+	description(Tiddles.), page(107), race(Cat),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Catfall},
+       {AD:Claws (Sharp Claws)},
+       {AD:Combat Reflexes},
+       {AD:Enhanced Move (Ground)}=1,
+       {AD:Night Vision}=5,
+       {AD:See Invisible (Spirit)},
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {DI:Bestial}=1,
+       {DI:Callous},
+       {DI:Cannot Speak},
+       {DI:Quadruped},
+       {DI:Short Legs},
+       {DI:Social Stigma (Valuable Property)},
+       {DI:Wealth}=3,
+       {QU:Dislikes Water},
+       {QU:Distractible},
+       {QU:Short Lifespan}_
+    ),
+	creates(_
+          {AD:Cat Basic Move Bonus, 5/10,page(28),gives(+1 to ST:Basic Move), cat(Attributes)}=1,
+          {AD:Cat DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX),tl(),usernotes(),familiarities(), cat(Attributes)}=4 _
+                   with {"Quadruped", -40%,group(Quadruped),page(96),level(1),valuenum(-40)},
+          {AD:Cat Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=8,
+          {AD:Cat Will Bonus, 5/10,page(27),gives(+1 to ST:Will), cat(Attributes)}=7,
+          {AD:Racial Skill Point Bonus (Brawling), 1/2,page(99),gives(+1pts to SK:Brawling),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=4,
+          {AD:Racial Skill Point Bonus (Jumping), 1/2,page(99),gives(+1pts to SK:Jumping),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=1,
+          {AD:Racial Skill Point Bonus (Stealth), 1/2,page(99),gives(+1pts to SK:Stealth),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
+          {DI:Cat IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=6,
+          {DI:Cat SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=3,
+          {DI:Cat ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=6_
+       )
+
+Small Smart Dog, displaycost(-122), cost(0),
+	description(Fido with a brain.), page(107), race(Dog),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Discriminatory Smell},
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {DI:Quadruped},
+       {DI:Short Legs},
+       {DI:Social Stigma (Valuable Property)},
+       {DI:Wealth}=3,
+       {QU:Cannot Run Long Distances},
+       {QU:Short Lifespan}_
+    ),
+	creates(_
+          {AD:Dog HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Dog Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=6,
+          {AD:Dog Will Bonus, 5/10,page(27),gives(+1 to ST:Will), cat(Attributes)}=4,
+          {AD:Canine (Spoken), 1/2,displaycost(0/-1/+),page(31),upto(3),mods(Native Language),levelnames([None], Broken, Accented, Native),taboo(Native Languages > 1), cat(Mundane, Social, Language, Language Spoken, Social Background, Mundane Social, Non-Racial, Racial)}=3 _
+                   with {"Native Speaker", -3,gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),group(Native Language),page(31),level(1),valuenum(-3)},
+          {AD:Racial Skill Point Bonus (Brawling), 1/2,page(99),gives(+1pts to SK:Brawling),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=1,
+          {AD:Racial Skill Point Bonus (Tracking), 1/2,page(99),gives(+1pts to SK:Tracking),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=1,
+          {DI:Canine (Written), -3, upto(1), gives(=+0.5 to ST:Native Languages), mods(Native Language), forceformula(yes), group(Language), levelnames(Illiterate), taboo(Native Languages > 1)},
+          {DI:Dog IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=4,
+          {DI:Dog SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=3,
+          {DI:Dog ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=5_
+       )
+
+
 
 <Meta-Traits>
 _New Meta-Trait, displaycost(variable), cost(0), gives(),
