@@ -458,7 +458,6 @@ Cost of Living, basevalue(_
 Starting Wealth, basevalue(ST:Wealth Modifier * @indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000)), step(1), minscore(0), display(No), round(1)
 Remaining Funds, basevalue(ST:Starting Wealth - char::equipmentcost), step(0), minscore(0), display(No), round(1)
 Wealth Modifier, basevalue(10), step(1), minscore(0), display(No), round(-1)
-Signature Gear, basevalue(0), display(No), hide(yes), step(0), minscore(0), round(1)
 
 * Melee Weapon Table listings
 ************************************************************************************************************************
@@ -893,13 +892,13 @@ Silence, 5/10, page(46), cat(Exotic, Non-Racial, Physical, Racial),
 
 Super Climbing, 6, page(91), cat(Exotic, Physical, Racial)
 
-Teeth (Blunt Teeth), 0, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+Teeth (Blunt Teeth), 0, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)")
-Teeth (Sharp Teeth), 1, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+Teeth (Sharp Teeth), 1, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
-Teeth (Sharp Beak), 1, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+Teeth (Sharp Beak), 1, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
-Teeth (Fangs), 2, page(B91), cat(Exotic, Physical, Natural Attacks, Racial),
+Teeth (Fangs), 2, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)")
 					
 
@@ -908,19 +907,8 @@ Terrain Adaptation, 5, mods(Terrain Adaptation), page(B93), cat(Exotic, Physical
 	x(#InputToTag("Specify the type of terrain to which you are adapted (ice, sand, snow, etc.):", nameext, , "Terrain Adaptation"))
 					
 
-Ultrahearing, 5, mods(Ultrahearing), page(B89), cat(Exotic, Physical), taboo(AD:Ultrasonic Speech, DI:Deafness),
+Ultrahearing, 5, page(92), cat(Exotic, Physical, Racial), taboo(DI:Deafness),
 	skillused(ST:Perception, ST:Hearing), mode(Hear)
-Ultrasonic Speech, 10, mods(Ultrasonic Speech), page(B89), cat(Exotic, Physical), taboo(AD:Ultrahearing, DI:Deafness),
-	skillused(ST:Perception, ST:Hearing), mode(Hear)
-					
-
-Ultravision, 10, mods(Ultravision), page(B94), cat(Exotic, Physical), taboo(AD:Hyperspectral Vision, DI:Blindness),
-	conditional(_
-			+2 to ST:Vision when "UV is present, to spot clues or hidden objects",
-			+3 to GR:Hyperspectral Vision when "UV is present, to spot clues or hidden objects" _
-			),
-	skillused(ST:Perception+2, ST:Vision+2), mode(See)
-					
 
 Unkillable, 50/100, mods(Unkillable), page(B95), upto(3), cat(Exotic, Physical), taboo(DI:Unnaturally Fragile), conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
 Vacuum Support, 5, page(B96), cat(Exotic, Physical)
@@ -1139,7 +1127,7 @@ Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Ver
 Temperature Tolerance (Cold), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial)
 Temperature Tolerance (Heat), 1/3/6, upto(3), page(92), cat(Mundane, Physical, Racial)
 
-Voice, 10, gives(+2 To GR:Voice), page(30), cat(Mundane, Physical), taboo(DI:Mute, DI:Disturbing Voice, DI:Stuttering),
+Voice, 10, gives(+2 To GR:VocalFeatures), page(30), cat(Mundane, Physical), taboo(DI:Cannot Speak, DI:Mute, DI:Disturbing Voice),
 	conditional(+2 to ST:Reaction when "your voice can be heard")
 
 <Mundane Mental>
@@ -1542,7 +1530,7 @@ Off-Hand Training, 1, page(52), cat(Non-Racial, Skill Perks),
 Oggham Reader, 1, page(52), needs(1 CA:Language Written = 2), cat(Non-Racial)
 One Spell Doesn't Need Preparation, 1, page(45), needs(AD:Magery 0 (Non-Improvisational)), cat(Magical, Non-Racial),
 	x(#InputToTagReplace("Please name the One Spell:", nameext, , "Shtick"))
-Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial),
+Penetrating Voice, 1, page(52), taboo(DI:Mute), cat(Non-Racial, Racial),
 	conditional(+1 to SK:Intimidation when "surprising someone by yelling or roaring")
 Recognised Divinity, 1, page(94), cat(Racial, Godly)
 Scales, 1, page(93), cat(Racial)
@@ -1782,18 +1770,18 @@ Bad Sight (Farsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindn
 			-3 to "CL:Melee Combat" when "in Close Combat" _
 			)
 Bad Smell, -10, page(55), cat(Mundane, Non-Racial, Physical, Racial), gives(-2 to ST:Reaction)
-Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness), taboo(AD:Acute Vision, AD:Infravision, AD:Telescopic Vision, AD:Ultravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
+Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness),
+	taboo(AD:Acute Vision, AD:Infravision, AD:Telescopic Vision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
 	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
-Cannot Speak, -15, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, DI:Mute, AD:Speak Underwater)
-Mute, -25, page(B125), cat(Mundane, Physical), taboo(DI:Stuttering, AD:Voice, PE:Penetrating Voice, DI:Cannot Speak, AD:Speak Underwater)
+Cannot Speak, -15, page(56), cat(Mundane, Non-Racial, Physical, Racial), taboo(DI:Disturbing Voice, DI:Mute)
 
 Colorblindness, -10, page(B127), cat(Mundane, Physical), taboo(DI:Blindness),
 	conditional(-1 to SK:Artist, -1 to SK:Chemistry, -1 to SK:Driving, -1 to SK:Merchant, -1 to SK:Piloting, -1 to SK:Tracking)
 Combat Paralysis, -15, gives(-2 to ST:Fright Check), page(57), cat(Mundane, Physical), taboo(AD:Combat Reflexes)
 Deafness, -20, page(B129), cat(Mundane, Physical), mods(Deafness),
 	taboo(AD:Acute Hearing, AD:Ultrahearing), gives(-ST:Perception to ST:Hearing)
-Disturbing Voice, -10, page(B132), cat(Mundane, Physical), taboo(AD:Voice, DI:Mute),
-	gives(-2 to GR:Stuttering), conditional(-2 to ST:Reaction)
+Disturbing Voice, -10, page(30), cat(Mundane, Non-Racial, Physical, Racial), taboo(AD:Voice, DI:Mute),
+	gives(-2 to GR:VocalFeatures), conditional(-2 to ST:Reaction when "talking to people")
 Ham-Fisted, -5, page(60), cat(Mundane, Physical), taboo(AD:High Manual Dexterity, DI:Quadruped),
 	gives(-3 to SK:Fast-Draw, -3 to GR:High Manual Dexterity), conditional(-1 to ST:Reaction when "being tidy or well-groomed matters")
 Hard of Hearing, -10, gives(-4 To ST:Hearing), page(B138), cat(Mundane, Physical), mods(Hard of Hearing), taboo(DI:Deafness)
@@ -1812,6 +1800,9 @@ Low Pain Threshold, -10, page(61), cat(Mundane, Physical), taboo(AD:High Pain Th
 	conditional(-1 to ST:Reaction when "from ''macho'' individuals")
 
 Motion Sickness, -10, page(63), cat(Mundane, Physical)
+Mute, -25, page(56), cat(Mundane, Non-Racial, Physical, Racial),
+	taboo(AD:Voice, PE:Penetrating Voice, DI:Cannot Speak, DI:Disturbing Voice)
+
 Neurological Disorder, -15/-35/-55, levelnames(Mild, Severe, Crippling), page(B144), upto(3), cat(Mundane, Physical),
 	gives(-2 to GR:High Manual Dexterity),
 	conditional(-2 to CL:Social when "your condition becomes known", -2 to SK:Performance when "your condition becomes known")
@@ -1833,8 +1824,6 @@ Restricted Diet, -10/-20/-30/-40, levelnames(Very Common, Common, Occasional, Ra
 	x(#InputToTag("Specify the unusual sustenance required:", nameext, , "Restricted Diet"))
 Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2),
 	page(B151), cat(Mundane, Physical), taboo(DI:Blindness)
-Stuttering, -10, gives(-2 To GR:Stuttering), page(B157), cat(Mundane, Physical),
-	taboo(DI:Mute), conditional(-2 to ST:Reaction)
 
 Sulphurholism, -15, page(54), cat(Mundane, Physical),
 	needs(DI:Troll Brain), taboo(DI:Sulphurholism (Withdrawn), QU:Former Sulphurholic)
@@ -1879,9 +1868,8 @@ Bully, -10, mods(Self-Control), page(B125), cat(Mundane, Mental), gives(-2 to ST
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "bullying observed" _
 			)
 
-Callous, -5, gives(-3 To SK:Teaching), page(B125), cat(Mundane, Mental, Non-Racial, Racial),
-	conditional(-1 to ST:Reaction when "past victim, or has Empathy", -3 to SK:Psychology when "attempting to help people",
-	+1 to SK:Interrogation when "you use threats or torture", +1 to SK:Intimidation when "you use threats or torture")
+Callous, -5, gives(-3 To SK:Teaching), page(56), cat(Mundane, Mental, Non-Racial, Racial),
+	conditional(-1 to ST:Reaction when "past victim, or has Empathy", -3 to SK:Psychology when "attempting to help people", +1 to SK:Interrogation when "you use threats or torture", +1 to SK:Intimidation when "you use threats or torture")
    
 Cannot Learn, -30, page(B125), cat(Mundane, Mental)
 
@@ -2172,16 +2160,15 @@ Workaholic, -5, page(B162), cat(Mundane, Mental, Non-Racial),
 	conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
 
 <Mundane Social>
-Odious Personal Habit, -5/-10, upto(3), page(B22), cat(Mundane, Non-Racial, Social),
+Odious Personal Habit, -5/-10, upto(3), page(29), cat(Mundane, Non-Racial, Social),
 	conditional(-1 to ST:Reaction when "people notice your problem"),
 	x(#InputToTag("Specify the Odious Personal Habit:", nameext, , "Odious Personal Habit"))
-Odious Racial Habit, -5/-10, upto(3), page(B22), cat(Mundane, Racial, Social),
+Odious Racial Habit, -5/-10, upto(3), page(96), cat(Mundane, Racial, Social),
 	conditional(-1 to ST:Reaction when "people are aware of the issue"),
 	x(#InputToTag("Specify the Odious Racial Habit:", nameext, , "Odious Racial Habit"))
-Wealth, -10/-15/-25, upto(3), page(B25), levelnames([Average], Struggling, Poor, Dead Broke), cat(Mundane, Social, Wealth),
+Wealth, -10/-15/-25, upto(3), page(33), levelnames([Average], Struggling, Poor, Dead Broke), cat(Mundane, Social, Wealth),
 	gives(=@indexedvalue(%level, -5, -8, -10) To ST:Wealth Modifier),
 	taboo(AD:Wealth, DI:Wealth > me::level, DI:Wealth < me::level)
-Debt, -1/-2, page(B26), upto(20), cat(Mundane, Social, Wealth)
 
 Reputation, -5/-10, mods(Reputation Disadvantage), page(B27), upto(4), cat(Mundane, Social, Influence),
 	x(#InputToTag("Please describe the nature of the Reputation:", nameext, , "Reputation")),
@@ -2239,34 +2226,22 @@ Secret Identity (Normal Status), -15/-20/-30/-40, page(65), cat(Mundane, Social)
 Secret Identity (High Status), -15/-20/-30/-40, page(65), cat(Mundane, Social), needs(ST:Status = 3),
 	levelnames("Serious Embarrassment", "Utter Rejection", "Imprisonment or Exile", "Possible Death")
 
-Social Stigma, -5/-10, upto(4), page(B155), cat(Mundane, Social),
-	conditional(-1 to ST:Reaction),
-	x( #InputToTag("Please describe the nature of your social stigma:", nameext, , "Social Stigma") )
-
-Social Stigma (Criminal Record), -5, page(B155), cat(Mundane, Social),
-	conditional(-1 to ST:Reaction)
-Social Stigma (Disowned), -5, page(B155), cat(Mundane, Social),
-	conditional(-1 to ST:Reaction)
-Social Stigma (Publically disowned), -10, page(B155), cat(Mundane, Social),
+Social Stigma, -5/-10, upto(4), page(36), cat(Mundane, Non-Racial, Racial, Social),
+	x( #InputToTag("Please describe the nature of your Stigma:", nameext, , "Social Stigma") )
+Social Stigma (Logical Impossibility), -10, page(36), cat(Mundane, Non-Racial, Racial, Social)
+Social Stigma (Minor), -5, page(36), cat(Mundane, Social),
+	conditional(-2 to ST:Reaction when "dealing with others as an adult")
+Social Stigma (Minority Group), -10, page(36), cat(Mundane, Non-Racial, Racial, Social),
 	conditional(-2 to ST:Reaction)
-Social Stigma (Excommunicated), -5, page(B155), cat(Mundane, Social),
+Social Stigma (Monster), -15, page(36), cat(Mundane, Social),
+	conditional(-3 to ST:Reaction, +3 to SK:Intimidation when "you have the upper hand")
+Social Stigma (Overdressed Foreigner), -10, page(36), cat(Mundane, Non-Racial, Social),
+	conditional(-1 to ST:Reaction when "dealing with non-cosmopolitan people who don't want your money", -3 to ST:Reaction when "thought to be a wizard and dealing with UU graduates and barbarian heroes")
+Social Stigma (Second-Class Citizen), -5, page(36), cat(Mundane, Non-Racial, Racial, Social),
 	conditional(-1 to ST:Reaction)
-Social Stigma (Ignorant), -5, page(B155), cat(Mundane, Social),
+Social Stigma (Uneducated), -5, page(36), cat(Mundane, Non-Racial, Racial, Social),
 	conditional(-1 to ST:Reaction)
-Social Stigma (Minor), -5, page(B155), cat(Mundane, Social),
-	conditional(-2 to ST:Reaction when "dealing with others as an Adult")
-Social Stigma (Minority Group), -10, page(B155), cat(Mundane, Social),
-	conditional(-2 to ST:Reaction)
-Social Stigma (Monster), -15, page(B155), cat(Mundane, Social),
-	conditional(-3 to ST:Reaction)
-Social Stigma (Second-Class Citizen), -5, page(B155), cat(Mundane, Social),
-	conditional(-1 to ST:Reaction)
-Social Stigma (Subjugated), -20, page(B155), cat(Mundane, Social),
-	conditional(-4 to ST:Reaction)
-Social Stigma (Uneducated), -5, page(B155), cat(Mundane, Social),
-	conditional(-1 to ST:Reaction)
-Social Stigma (Valuable Property), -10, page(B155), cat(Mundane, Social),
-	conditional(-2 to ST:Reaction)
+Social Stigma (Valuable Property), -10, page(B155), cat(Mundane, Social)
 
 ************************************************************************************************************************
 [QUIRKS]
@@ -2300,6 +2275,7 @@ Delusion (Spelling my name backwards disguises it perfectly), -1, page(99), cat(
 Dislikes [specify], -1, page(67), cat(Mental, Non-Racial),
 	x(#InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes"))
 Dislikes Cramped Conditions, -1, page(101), cat(Banshee, Racial)
+Dislikes Water, -1, page(107), cat(Feline, Non-Racial, Racial)
 Distractible, -1, page(67), cat(Mental, Non-Racial)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
 Dreamer, -1, page(67), cat(Mental, Non-Racial)
@@ -2336,7 +2312,7 @@ Vow, -1, page(68), cat(Mental, Non-Racial),
 Alcohol Intolerance, -1, page(68), cat(Non-Racial)
 Bowlegged, -1, page(68), gives(-1 To SK:Jumping), cat(Non-Racial)
 Cannot Float, -1, page(99), cat(Gargoyle, Golem, Racial, Trollish)
-Cannot Run Long Distances, -1, page(99), cat(Dwarfish, Racial)
+Cannot Run Long Distances, -1, page(99), cat(Canine, Dwarfish, Racial)
 Closes Eyes and Screams to Intimidate Victims, -1, page(101), cat(Racial, Banshee)
 Distinctive Features, -1, page(68), gives(-1 To SK:Disguise, -1 to SK:Shadowing), cat(Non-Racial),
 	x( #InputToTag("Specify the character's Distinctive Feature:", nameext, , "Distinctive Feature") )
@@ -3380,7 +3356,6 @@ AD:Enhanced Block
 AD:Enhanced Dodge
 AD:Enhanced Move (Air)
 AD:Enhanced Move (Ground)
-AD:Enhanced Move (Space)
 AD:Enhanced Move (Water)
 AD:Enhanced Parry (%One-Handed Melee Weapon ArtList%)
 AD:Enhanced Parry (%One-Handed Melee WeaponList%)
@@ -3490,12 +3465,12 @@ AD:Regrowth
 AD:Religious Rank
 AD:Reputation
 AD:Resistant
-AD:See Invisible
+AD:See Invisible (Magical)
+AD:See Invisible (Spirit)
 AD:Sensitive Touch
 AD:Sensitive
 AD:Serendipity
 AD:Shrinking
-AD:Signature Gear
 AD:Silence
 AD:Single-Minded
 AD:Slippery
@@ -3537,8 +3512,6 @@ AD:Trading Character Points for Money
 AD:Trained By A Master
 AD:True Faith
 AD:Ultrahearing
-AD:Ultrasonic Speech
-AD:Ultravision
 AD:Unaging
 AD:Unfazeable
 AD:Universal Digestion
@@ -3668,7 +3641,6 @@ DI:Cowardice
 DI:Curious
 DI:Cursed
 DI:Deafness
-DI:Debt
 DI:Decreased Time Rate
 DI:Delusion
 DI:Dependency
@@ -3767,7 +3739,6 @@ DI:Pacifism (Cannot Harm Innocents)
 DI:Pacifism (Reluctant Killer)
 DI:Pacifism (Self-Defence Only)
 DI:Paranoia
-DI:Phantom Voices
 DI:Phobia (%examplelist%)
 DI:Phobia
 DI:Post-Combat Shakes
@@ -3815,7 +3786,6 @@ DI:Split Personality
 DI:Squeamish
 DI:Status
 DI:Stubbornness
-DI:Stuttering
 DI:Sulphurholism
 DI:Sulphurholism (Withdrawn)
 DI:Supernatural Feature
@@ -4465,15 +4435,7 @@ SK:Savoir-Faire
 SK:Sex Appeal
 SK:Streetwise
 
-<Stuttering>
-SK:Diplomacy
-SK:Fast-Talk
-SK:Performance
-SK:Public Speaking
-SK:Sex Appeal
-SK:Singing
-
-<Voice>
+<VocalFeatures>
 SK:Diplomacy
 SK:Fast-Talk
 SK:Mimicry
@@ -5165,10 +5127,7 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"Sonar",
 					"Spirit Empathy",
 					"Ultrahearing",
-					"Ultrasonic Speech",
-					"Ultravision",
-					"Visualization",
-					"Warp"_
+					"Visualization"_
 				),
 			aliaslist(_
 					"+owner::level to AD:Active IR::skillscore",
@@ -5220,10 +5179,7 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"+owner::level to AD:Sonar::skillscore",
 					"+owner::level to AD:Spirit Empathy::skillscore",
 					"+owner::level to AD:Ultrahearing::skillscore",
-					"+owner::level to AD:Ultrasonic Speech::skillscore",
-					"+owner::level to AD:Ultravision::skillscore",
-					"+owner::level to AD:Visualization::skillscore",
-					"+owner::level to AD:Warp::skillscore"_
+					"+owner::level to AD:Visualization::skillscore"_
 					)_
 			)_
 	)
@@ -5501,15 +5457,6 @@ Always On, -20%, group(Terror), page(B93)
 <Troll Nocturnalism>
 Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
 	page(98), mitigator(yes), shortname(Sunscreen), mitigator(yes)
-
-<Ultrahearing>
-Can only hear high-frequency sounds, *0, shortname(No normal sounds), group(Ultrahearing), page(B94)
-
-<Ultrasonic Speech>
-Can only communicate via Ultrasonic Speech, *0, shortname(No normal speech), group(Ultrasonic Speech), page(B94)
-
-<Ultravision>
-Can only see ultraviolet and are blind without it, *0, shortname(Blind without UV), group(Ultravision), page(B95)
 
 <Unaging>
 Age Control, +20%, group(Unaging), page(B95)
@@ -7495,7 +7442,6 @@ Cost: Decreased Cost, -1/-2, tier(1), group(Equipment), level([level]), shortnam
 		#InputReplace("Please enter the level (cost) of this modifier:", "[level]", "1", "Decreased Cost") _
 	)
 
-_Advantage: Signature Gear, +0, page(B85), group(Equipment), shortname(Signature Gear), gives(+owner::cost to ST:Money, +owner::cost to ST:Remaining Funds, -owner::cost to ST:Signature Gear)
 Equipment: Higher TL Equipment, *2/*4/*8, upto(12 - ST:Tech Level::basevalue), page(B27), forceformula(yes), formula(2 ^ me::level), shortname(Higher TL Equipment)
 
 <Star Freighter>
