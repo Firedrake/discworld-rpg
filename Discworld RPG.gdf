@@ -463,7 +463,7 @@ Wealth Modifier, basevalue(10), step(1), minscore(0), display(No), round(-1)
 ************************************************************************************************************************
 Punch, display(no), mode(Punch), mods(Combat Table, Punch/Kick), damage(_
 		thr-1 + _
-			@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else 0)) + _
+			@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Feet Only) = 0 then @basethdice(ST:Punch) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Feet Only) = 0 then @basethdice(ST:Punch) else @if("PE:Striking Surface::level" = 1 then 1 else 0))) + _
 			@max(_
 				@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Punch) else 0),
 				@if("SK:Boxing::level" = ST:DX+1 then @basethdice(ST:Punch) else @if("SK:Boxing::level" > ST:DX+1 then 2 * @basethdice(ST:Punch) else 0)),
@@ -477,7 +477,7 @@ Punch, display(no), mode(Punch), mods(Combat Table, Punch/Kick), damage(_
 Kick, display(no), mode(Kick), mods(Combat Table, Punch/Kick),
 	damage(_
 		thr+ _
-		@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else 0))) + _
+		@if("AD:Claws (Blunt Claws)::level" = 1 & @itemhasmod(AD:Claws (Blunt Claws), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Long Talons)::level" = 1 & @itemhasmod(AD:Claws (Long Talons), Hands Only) = 0 then @basethdice(ST:Kick) else @if("AD:Claws (Hooves)::level" = 1 then @basethdice(ST:Kick) else @if("PE:Striking Surface::level" = 1 then 1 else 0)))) + _
 		@if(ST:Quadruped > 0 then @if("AD:Claws (Blunt Claws)::level" = 1 then 0 else @if("AD:Claws (Sharp Claws)::level" = 1 then 0 else @if("AD:Claws (Talons)::level" = 1 then 0 else @if("AD:Claws (Long Talons)::level" = 1 then 0 else -@basethdice(ST:Kick))))) else 0) + _
 		@max(_
 			@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Kick) else 0),
@@ -3381,9 +3381,6 @@ AD:Gizmo
 AD:Good Talent
 AD:Gravity Talent
 AD:Green Thumb
-AD:Growth
-AD:Gunslinger
-AD:Hard to Subdue
 AD:Healer
 AD:Healing Talent
 AD:Healing
@@ -4854,7 +4851,6 @@ Intent: Hunter, *1, shortname(Hunter), group(Enemy), page(B135)
 <Extra ST>
 Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional ST bonus, +0%, shortname(Conditional ST), conditional(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally recieves the bonus.)
-Growth Size, -10%, formula(@min(0,-((@if(ST:Size Modifier < 0 THEN ST:Size Modifier::score ELSE 0) + AD:Growth::level) * 10))), forceformula(yes), group(Extra ST), page(B58)
 
 <Extra DX>
 Affects displayed DX score, +0%, shortname(Affects DX), gives(+Owner::Level to ST:DX), group(Extra DX), description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
@@ -6033,43 +6029,41 @@ _New Racial Template, displaycost(variable), cost(0),
 			),
 		select2(tagwith(hide(yes)), text("Please select the Racial Attribute Modifiers:"), pointswanted(atleast -1000, upto 10000), itemswanted(upto 10000),
 			list(_
-				#newitem(AD:_New Racial Template ST Bonus, 10/20, page(B14), mods(Size, Quadruped), gives(+1 to ST:ST), cat(Attributes)),
-				#newitem(AD:_New Racial Template DX Bonus, 20/40, page(B15), mods(Quadruped), gives(+1 to ST:DX), cat(Attributes)),
-				#newitem(AD:_New Racial Template IQ Bonus, 20/40, page(B15), gives(+1 to ST:IQ), cat(Attributes)),
-				#newitem(AD:_New Racial Template HT Bonus, 10/20, page(B15), gives(+1 to ST:HT), cat(Attributes)),
-				#newitem(AD:_New Racial Template Will Bonus, 5/10, page(B16), gives(+1 to ST:Will), cat(Attributes)),
-				#newitem(AD:_New Racial Template Perception Bonus, 5/10, page(B16), gives(+1 to ST:Perception), cat(Attributes)),
-				#newitem(AD:_New Racial Template Hit Points Bonus, 2/4, page(B16), mods(Size, Quadruped), gives(+1 to ST:Hit Points), cat(Attributes)),
-				#newitem(AD:_New Racial Template Fatigue Points Bonus, 3/6, page(B16), gives(+1 to ST:Fatigue Points), cat(Attributes)),
-				#newitem(AD:_New Racial Template Basic Move Bonus, 5/10, page(B17), gives(+1 to ST:Basic Move), cat(Attributes)),
-				#newitem(AD:_New Racial Template Basic Speed Bonus, 5/10, page(B17), upto(80), gives(+0.25 to ST:Basic Speed), cat(Attributes),
+				#newitem(AD:_New Racial Template ST Bonus, 10/20, page(26), mods(Size, Quadruped), gives(+1 to ST:ST), cat(Attributes)),
+				#newitem(AD:_New Racial Template DX Bonus, 20/40, page(26), mods(Quadruped), gives(+1 to ST:DX), cat(Attributes)),
+				#newitem(AD:_New Racial Template IQ Bonus, 20/40, page(27), gives(+1 to ST:IQ), cat(Attributes)),
+				#newitem(AD:_New Racial Template HT Bonus, 10/20, page(27), gives(+1 to ST:HT), cat(Attributes)),
+				#newitem(AD:_New Racial Template Will Bonus, 5/10, page(27), gives(+1 to ST:Will), cat(Attributes)),
+				#newitem(AD:_New Racial Template Perception Bonus, 5/10, page(27), gives(+1 to ST:Perception), cat(Attributes)),
+				#newitem(AD:_New Racial Template Hit Points Bonus, 2/4, page(27), mods(Size, Quadruped), gives(+1 to ST:Hit Points), cat(Attributes)),
+				#newitem(AD:_New Racial Template Fatigue Points Bonus, 3/6, page(27), gives(+1 to ST:Fatigue Points), cat(Attributes)),
+				#newitem(AD:_New Racial Template Basic Move Bonus, 5/10, page(28), gives(+1 to ST:Basic Move), cat(Attributes)),
+				#newitem(AD:_New Racial Template Basic Speed Bonus, 5/10, page(28), upto(80), gives(+0.25 to ST:Basic Speed), cat(Attributes),
 					levelnames(_
 							+0.25, +0.5, +0.75, +1, +1.25, +1.5, +1.75, +2, +2.25, +2.5, +2.75, +3, +3.25, +3.5, +3.75, +4, +4.25, +4.5, +4.75, +5, +5.25, +5.5, +5.75, +6, +6.25, +6.5, +6.75, +7, +7.25, +7.5, +7.75, +8, +8.25, +8.5, +8.75, +9, +9.25, +9.5, +9.75, +10,
 							+10.25, +10.5, +10.75, +11, +11.25, +11.5, +11.75, +12, +12.25, +12.5, +12.75, +13, +13.25, +13.5, +13.75, +14, +14.25, +14.5, +14.75, +15, +15.25, +15.5, +15.75, +16, +16.25, +16.5, +16.75, +17, +17.25, +17.5, +17.75, +18, +18.25, +18.5, +18.75, +19, +19.25, +19.5, +19.75, +20 _
 							)),
-				#newitem(AD:_New Racial Template Water Move Bonus, 5/10, page(B18), gives(+1 to ST:Water Move), cat(Attributes)),
-				#newitem(AD:_New Racial Template Air Move Bonus, 2/4, page(B18), gives(+1 to ST:Air Move), cat(Attributes)),
-				#newitem(AD:_New Racial Template TL Bonus, 5/10, page(B23), gives(+1 to ST:Tech Level), cat(Mundane, Social, Mundane Social), upto(12 - ST:Tech Level::basevalue)),
-				#newitem(AD:_New Racial Template SM Bonus, 0/0, gives(+1 to ST:Size Modifier), page(B19), cat(Attributes)),
-				#newitem(DI:_New Racial Template ST Penalty, -10/-20, page(B14), gives(-1 to ST:ST), cat(Attributes)),
-				#newitem(DI:_New Racial Template DX Penalty, -20/-40, page(B15), gives(-1 to ST:DX), cat(Attributes)),
-				#newitem(DI:_New Racial Template IQ Penalty, -20/-40, page(B15), gives(-1 to ST:IQ), cat(Attributes)),
-				#newitem(DI:_New Racial Template HT Penalty, -10/-20, page(B15), gives(-1 to ST:HT), cat(Attributes)),
-				#newitem(DI:_New Racial Template Will Penalty, -5/-10, page(B16), gives(-1 to ST:Will), cat(Attributes)),
-				#newitem(DI:_New Racial Template Perception Penalty, -5/-10, page(B16), gives(-1 to ST:Perception), cat(Attributes)),
-				#newitem(DI:_New Racial Template Hit Points Penalty, -2/-4, page(B16), gives(-1 to ST:Hit Points), cat(Attributes)),
-				#newitem(DI:_New Racial Template Fatigue Points Penalty, -3/-6, page(B16), gives(-1 to ST:Fatigue Points), cat(Attributes)),
-				#newitem(DI:_New Racial Template Basic Move Penalty, -5/-10, page(B17), gives(-1 to ST:Basic Move), cat(Attributes)),
-				#newitem(DI:_New Racial Template Basic Speed Penalty, -5/-10, page(B17), upto(80), gives(-0.25 to ST:Basic Speed), cat(Attributes),
+				#newitem(AD:_New Racial Template Air Move Bonus, 2/4, page(89), gives(+1 to ST:Air Move), cat(Attributes)),
+				#newitem(AD:_New Racial Template TL Bonus, 5/10, page(31), gives(+1 to ST:Tech Level), cat(Mundane, Social, Mundane Social), upto(12 - ST:Tech Level::basevalue)),
+				#newitem(AD:_New Racial Template SM Bonus, 0/0, gives(+1 to ST:Size Modifier), page(27), cat(Attributes)),
+				#newitem(DI:_New Racial Template ST Penalty, -10/-20, page(26), gives(-1 to ST:ST), cat(Attributes)),
+				#newitem(DI:_New Racial Template DX Penalty, -20/-40, page(26), gives(-1 to ST:DX), cat(Attributes)),
+				#newitem(DI:_New Racial Template IQ Penalty, -20/-40, page(27), gives(-1 to ST:IQ), cat(Attributes)),
+				#newitem(DI:_New Racial Template HT Penalty, -10/-20, page(27), gives(-1 to ST:HT), cat(Attributes)),
+				#newitem(DI:_New Racial Template Will Penalty, -5/-10, page(27), gives(-1 to ST:Will), cat(Attributes)),
+				#newitem(DI:_New Racial Template Perception Penalty, -5/-10, page(27), gives(-1 to ST:Perception), cat(Attributes)),
+				#newitem(DI:_New Racial Template Hit Points Penalty, -2/-4, page(27), gives(-1 to ST:Hit Points), cat(Attributes)),
+				#newitem(DI:_New Racial Template Fatigue Points Penalty, -3/-6, page(27), gives(-1 to ST:Fatigue Points), cat(Attributes)),
+				#newitem(DI:_New Racial Template Basic Move Penalty, -5/-10, page(28), gives(-1 to ST:Basic Move), cat(Attributes)),
+				#newitem(DI:_New Racial Template Basic Speed Penalty, -5/-10, page(28), upto(80), gives(-0.25 to ST:Basic Speed), cat(Attributes),
 					levelnames(_
 							-0.25, -0.5, -0.75, -1, -1.25, -1.5, -1.75, -2, -2.25, -2.5, -2.75, -3, -3.25, -3.5, -3.75, -4, -4.25, -4.5, -4.75, -5, -5.25, -5.5, -5.75, -6, -6.25, -6.5, -6.75, -7, -7.25, -7.5, -7.75, -8, -8.25, -8.5, -8.75, -9, -9.25, -9.5, -9.75, -10,
 							-10.25, -10.5, -10.75, -11, -11.25, -11.5, -11.75, -12, -12.25, -12.5, -12.75, -13, -13.25, -13.5, -13.75, -14, -14.25, -14.5, -14.75, -15, -15.25, -15.5, -15.75, -16, -16.25, -16.5, -16.75, -17, -17.25, -17.5, -17.75, -18, -18.25, -18.5, -18.75, -19, -19.25, -19.5, -19.75, -20 _
 							)),
-				#newitem(DI:_New Racial Template Water Move Penalty, -5/-10, page(B18), gives(-1 to ST:Water Move), cat(Attributes)),
-				#newitem(DI:_New Racial Template Air Move Penalty, -2/-4, page(B18), gives(-1 to ST:Air move), cat(Attributes)),
-				#newitem(DI:_New Racial Template TL Penalty, -5/-10, page(B22), gives(-1 to ST:Tech Level), cat(Mundane, Social, Mundane Social)),
-				#newitem(DI:_New Racial Template SM Penalty, 0/0, gives(-1 to ST:Size Modifier), page(B19), cat(Attributes)),
-				#newitem(DI:_New Racial Template Ground Move Penalty, 0/0, page(B18), gives(-1 to ST:Ground Move), replacetags(in "ST:Ground Move" with "hide(), display(yes), mainwin(11), noresync(yes)"))_
+				#newitem(DI:_New Racial Template Air Move Penalty, -2/-4, page(89), gives(-1 to ST:Air move), cat(Attributes)),
+				#newitem(DI:_New Racial Template TL Penalty, -5/-10, page(31), gives(-1 to ST:Tech Level), cat(Mundane, Social, Mundane Social)),
+				#newitem(DI:_New Racial Template SM Penalty, 0/0, gives(-1 to ST:Size Modifier), page(27), cat(Attributes)),
+				#newitem(DI:_New Racial Template Ground Move Penalty, 0/0, page(28), gives(-1 to ST:Ground Move), replacetags(in "ST:Ground Move" with "hide(), display(yes), mainwin(11), noresync(yes)"))_
 				)_
 			),
 		select3(tagwith(hide(yes)), text("Please select any Racial Perks:"), pointswanted(atleast 0, upto 10000), itemswanted(upto 10000),
@@ -6467,6 +6461,105 @@ Small Smart Dog, displaycost(-122), cost(0),
           {DI:Dog ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=5_
        )
 
+Moderate-Sized Troll, displaycost(83), cost(0),
+	description(A typical member of the silicon-based race.), page(108),
+	race(Troll), noresync(yes), owns(yes),
+	adds(_
+       {AD:Damage Resistance}=5,
+       {AD:Fearlessness}=4,
+       {AD:High Pain Threshold},
+       {AD:Lifting ST}=4 _
+          with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-10)},
+       {AD:Night Vision}=3,
+       {AD:Protected Eyes}=3,
+       {AD:Temperature Tolerance (Cold)}=2,
+       {PE:Longevity},
+       {PE:Striking Surface},
+       {DI:Appearance}=2,
+       {DI:Troll Brain},
+       {QU:Brawling Society},
+       {QU:Cannot Float},
+       {QU:Weak Spot (Neck)}_
+    ),
+	creates(_
+          {AD:Racial Skill Point Bonus (Brawling), 1/2,page(99),gives(+1pts to SK:Brawling),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+             with {"Degree: +3 to HT rolls to resist", *1/3,round(Down),shortname(+3),group(Resistant),page(46),tier(-1),level(1),valuenum(1/3)},
+          {AD:Troll HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=2,
+          {AD:Troll Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
+          {AD:Troll SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=1,
+          {AD:Troll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=6 _
+             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-10)},
+          {DI:Odious Racial Habit (Hitting People), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1,
+          {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=2_
+       )
+
+Big Troll, displaycost(115), cost(0),
+	description(A notably well-grown troll.), page(108),
+	race(Troll), noresync(yes), owns(yes),
+	adds(_
+       {AD:Damage Resistance}=6,
+       {AD:Fearlessness}=4,
+       {AD:High Pain Threshold},
+       {AD:Lifting ST}=5 _
+          with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-20)},
+       {AD:Night Vision}=3,
+       {AD:Protected Eyes}=3,
+       {AD:Temperature Tolerance (Cold)}=2,
+       {PE:Longevity},
+       {PE:Striking Surface},
+       {DI:Appearance}=2,
+       {DI:Troll Brain},
+       {QU:Brawling Society},
+       {QU:Cannot Float},
+       {QU:Weak Spot (Neck)}_
+    ),
+creates(_
+          {AD:Racial Skill Point Bonus (Brawling), 1/2,page(99),gives(+1pts to SK:Brawling),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+             with {"Degree: +3 to HT rolls to resist", *1/3,round(Down),shortname(+3),group(Resistant),page(46),tier(-1),level(1),valuenum(1/3)},
+          {AD:Troll HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=2,
+          {AD:Troll Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
+          {AD:Troll SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=2,
+          {AD:Troll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=10 _
+             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-20)},
+          {DI:Odious Racial Habit (Hitting People), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1,
+          {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=2_
+       )
+
+Huge Troll, displaycost(190), cost(0),
+	description(A really big silicon sentient.), page(108),
+	race(Troll), noresync(yes), owns(yes),
+	adds(_
+       {AD:Damage Resistance}=7 _
+          with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Fearlessness}=6,
+       {AD:High Pain Threshold},
+       {AD:Lifting ST}=7 _
+          with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-30)},
+       {AD:Night Vision}=3,
+       {AD:Protected Eyes}=4,
+       {AD:Temperature Tolerance (Cold)}=2,
+       {PE:Longevity},
+       {PE:Striking Surface},
+       {DI:Appearance}=2,
+       {DI:Troll Brain},
+       {QU:Brawling Society},
+       {QU:Cannot Float},
+       {QU:Weak Spot (Neck)}_
+    ),
+	creates(_
+          {AD:Racial Skill Point Bonus (Brawling), 1/2,page(99),gives(+1pts to SK:Brawling),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+             with {"Degree: +3 to HT rolls to resist", *1/3,round(Down),shortname(+3),group(Resistant),page(46),tier(-1),level(1),valuenum(1/3)},
+          {AD:Troll HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=2,
+          {AD:Troll SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=3,
+          {AD:Troll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=23 _
+             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-30)},
+          {DI:Odious Racial Habit (Hitting People), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1,
+          {DI:Troll DX Penalty, -20/-40,page(26),gives(-1 to ST:DX), cat(Attributes)}=1,
+          {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1_
+       )
 
 
 <Meta-Traits>
