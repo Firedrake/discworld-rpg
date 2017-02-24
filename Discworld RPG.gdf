@@ -729,10 +729,8 @@ Claws (Talons), 8, page(88), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Claws (Blunt Claws)", "AD:Claws (Hooves)", "AD:Claws(Sharp Claws)", "AD:Claws (Long Talons)")
 Claws (Long Talons), 11, page(88), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Claws (Blunt Claws)", "AD:Claws (Hooves)", "AD:Claws(Sharp Claws)", "AD:Claws (Talons)")
-
 Damage Resistance, 5/10, gives(+1 To ST:DR), mods(Damage Resistance),
 	page(88), cat(Exotic, Physical, Racial)
-
 Dimension Shift, 80, page(88), cat(Exotic, Physical, Racial),
 	x(#InputToTagReplace("Specify the dimension to which you shift:", nameext, , "Dimension Shift")),
 	skillused(ST:IQ), mode(shift dimensions)
@@ -764,6 +762,7 @@ Flight (Winged, Can Hover), 30, page(89), cat(Exotic, Physical, Racial),
 Flight (Winged, Cannot Hover), 24, page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
 
+Foot Manipulators, 4, page(89), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Legs)
 Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(89), cat(Exotic, Physical), x(#buildit)
 					
 
@@ -860,17 +859,17 @@ Lifting ST, 3/6, gives(+1 to ST:Lifting ST), conditional(+1 to ST:ST),
 Pressure-Proof, 15, page(90), cat(Exotic, Physical, Racial)
 Protected Eyes, 1/2, page(90), cat(Exotic, Physical, Racial)
 
-Regeneration, 10/25/50/100,
+Regeneration, 10/25/50/100, mods(Regeneration),
 	levelnames(Slow: 1HP/12Hr, Regular: 1HP/Hr, Fast: 1HP/Min, Very Fast: 1HP/Sec),
-	page(90), upto(4), cat(Exotic, Physical, Racial),
+	page(90), upto(4), cat(Exotic, Physical, Racial, Supernatural),
 	taboo(AD:Rapid Healing, AD:Repairable, DI:Unhealing)
-Regrowth, 40, page(90), cat(Exotic, Physical, Racial),
+Regrowth, 40, page(90), cat(Exotic, Physical, Racial, Supernatural),
 	taboo(DI:One Eye::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Arm::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:No Legs::level > @if(@hasmod(Minor) THEN 1 ELSE 0),
 		DI:One Hand::level > @if(@hasmod(Minor) THEN 1 ELSE 0) _
 		)
-Repairable, 50, page(90), cat(Exotic, Physical, Racial, Supernatural), 
+Repairable, 50, page(90), cat(Exotic, Physical, Racial, Supernatural),
 	x(#InputToTag("Specify the skill used to repair you:", nameext, , "Repairable")),
 	taboo(AD:Rapid Healing, AD:Regeneration, AD:Regrowth, DI:Unhealing)
 Sonar, 20, page(91), cat(Exotic, Physical, Racial),
@@ -878,20 +877,15 @@ Sonar, 20, page(91), cat(Exotic, Physical, Racial),
 See Invisible (Magical), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
 See Invisible (Spirit), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
 
-Alternate Form, 15/30, mods(Alternate Form), page(B83), cat(Exotic, Physical), levelnames(,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100),
+Alternate Form, 15/30, mods(Alternate Form), page(85), cat(Exotic, Physical, Racial), levelnames(,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100),
 	x(_
 		#InputToTagReplace("Please specify the form or forms you can change into:", nameext, , "Alternate Form"),
 		#buildit_
 	)
-Alternate Form (Cosmetic), 15/30, displaycost(8/15/+), page(B83), cat(Exotic, Physical),
-	x(#InputToTagReplace("Please specify the form or forms you can change into:", nameext, , "Alternate Form (Cosmetic)")), levelnames(,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100),
-	initmods(Cosmetic, -50%, group(Alternate Form))
 
 Silence, 5/10, page(46), cat(Exotic, Non-Racial, Physical, Racial),
 	conditional(+1 to SK:Stealth when "moving, vs. hearing only", +2 to SK:Stealth when "standing still, vs. hearing only")
-
 Super Climbing, 6, page(91), cat(Exotic, Physical, Racial)
-
 Teeth (Blunt Teeth), 0, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)")
 Teeth (Sharp Teeth), 1, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
@@ -936,11 +930,12 @@ Detect, 5/10/20/30, mods(Detect), levelnames(Rare, Occasional, Common, Very Comm
 					
 
 Duplication, 35/70, mods(Duplication), page(B50), cat(Exotic Physical, Exotic, Mental, Physical)
+
 Extra Life, 25/50, page(43), cat(Exotic, Mental, Non-Racial, Pawn of the Lady)
-Insubstantiality, 80, mods(Insubstantiality), page(B62), cat(Exotic Physical, Exotic, Mental, Physical)
-Invisibility, 40, mods(Invisibility), page(B63), cat(Exotic, Mental),
-	conditional(+9 to SK:Stealth when "being seen would matter"),
-	x(#InputToTag("Specify the vision type you're invisible to (e.g. electromagnetic vision, sonar, magnetic fields, etc.):", nameext, "electromagnetic", "Invisibility"))
+Insubstantiality, 80, mods(Insubstantiality), page(89), cat(Exotic Physical, Exotic, Mental, Physical, Racial)
+
+Invisibility, 40, mods(Invisibility), page(90), cat(Exotic, Mental, Racial),
+	conditional(+9 to SK:Stealth when "being seen would matter")
 					
 Mind Control, 50, mods(Mind Control), page(B68), cat(Exotic, Mental),
 	skillused(ST:IQ), mode(Controk; R-Will)
@@ -994,8 +989,10 @@ Speak With Animals, 25, mods(Speak With Animals), page(B87), cat(Exotic, Mental)
 Temperature Control, 5/10, mods(Temperature Control), page(B92), cat(Exotic Physical, Exotic, Mental, Physical)
 					
 <Supernatural Physical>
-Supernatural Durability, 150, page(B89), cat(Supernatural, Physical), taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
-	skillused(ST:Will+3), mode(ignore pain)
+Supernatural Durability (Vulnerable to [vulnerability]), 150, page(91), cat(Supernatural, Physical, Racial),
+	taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
+	skillused(ST:Will+3), mode(ignore pain),
+	x(#InputReplace("Specify the one thing that can kill you:", "[vulnerability]", , "Supernatural Durability"))
 Voice of Command, 90, mods(Voice of Command), page(49), cat(Supernatural, Non-Racial, Physical),
 	taboo(DI:Cannot Speak, DI:Mute), skillused(ST:VoCBonus)
 Voice of Command IQ Bonus (+2 per level), 5/10, page(49), cat(Supernatural, Non-Racial, Physical),
@@ -3276,7 +3273,6 @@ AD:Acute Taste and Smell
 AD:Acute Touch
 AD:Acute Vision
 AD:Administrative Rank
-AD:Alternate Form (Cosmetic)
 AD:Alternate Form
 AD:Alternate Identity
 AD:Ambidexterity
@@ -4704,11 +4700,26 @@ Legality: Legal, +5, shortname(Legal), group(Addiction), page(54)
 Secondary, *1/5, group(Secondary), page(B36)
 
 <Alternate Form>
-Difference in point costs, +1/+2, formula(@int(me::level * 0.9 + 0.9)), forceformula(yes), tier(1), group(Alternate Form), page(B84),
+Difference in point costs, +1/+2, formula(@int(me::level * 0.9 + 0.9)), forceformula(yes), tier(1), group(Alternate Form), page(85),
 	level([level]),
 	x(_
 		#InputReplace("Please enter the differnce in point costs between the characters native template and his most expensive alternate form:", "[level]", "0", "Difference in point costs")_
 	)
+Absorptive Change, +5%/+10%, upto(5),
+	levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance, Extra-Heavy Encumbrance),
+	group(Alternate Form), page(86)
+Emergencies Only, -30%, page(86)
+"Once On, Stays On", +50%, group(Alternate Form), page(86)
+"Difference in point costs (Once On, Stays On)", +1/+2, tier(1), group(Alternate Form), page(86)
+Reduced Change Time, +20%/+40%, upto(4), group(Alternate Form), page(87),
+	levelnames(5 seconds, 3 seconds, 2 seconds, 1 second)
+Trigger, -10%/-15%/-20%/-25%/-30%/-35%/-40%, upto(7),
+	levelnames(Available Almost Anywhere, Available Most Places, A Bit of an Issue, Noticeably Limiting, Significantly Limiting, A Substantial Problem, Very Seriously Expensive or Inconvenient),
+	group(Alternate Form), page(87)
+Unconscious Only, -20%, group(Alternate Form), page(87)
+Uncontrollable, -10%/-15%/-20%/-25%/-30%, upto(5),
+	levelnames(Somewhat Inconvenient OR When Under Ordinary Stress, Rather Inconvenient OR When Under Ordinary or Specific Stress, Significantly Inconvenient, Really Inconvenient, Seriously Inconvenient),
+	group(Alternate Form), page(87)
 
 // Note that the following is definitely kept for Discworld purposes!
 <Appearance>
@@ -4946,22 +4957,24 @@ Unliving, +20, group(Injury Tolerance), page(89)
 Alternative Attack, *1/5, group(Alternative Attack), page(B61), tier(2)
 
 <Insubstantiality>
-Affect Substantial, +100%, group(Insubstantiality), page(B63)
-Can Carry Objects, +10%/+20%/+50%/+100%, levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance), upto(4), group(Insubstantiality), page(B63)
-Partial Change, +20%/+100%, levelnames( , Can turn carried item substantial), upto(2), group(Insubstantiality), page(B63)
-Always On, -50%, group(Insubstantiality), page(B63)
-Usually On, -40%, group(Insubstantiality), page(B63)
+Affect Substantial, +80, group(Insubstantiality), page(89)
+Always On, -40, group(Insubstantiality), page(90)
+Can Carry Objects, +8/+16/+40/+80, upto(4),
+	levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance),
+	group(Insubstantiality), page(90)
+Usually On, -32, group(Insubstantiality), page(90)
 
 <Invisibility>
-Affects Machines, +50%, group(Invisibility), page(B63)
-Can Carry Objects, +10%/+20%/+50%/+100%, levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance), upto(4), group(Invisibility), page(B63)
-Extended, +20%/+40%, group(Invisibility), page(B63)
-Switchable, +10%, group(Invisibility), page(B63)
-Usually On, +5%, group(Invisibility), page(B63)
-Machines Only, -50%, group(Invisibility), page(B63)
-Substantial Only, -10%, group(Invisibility), page(B63)
-Visible Reflection, -10%, group(Invisibility), page(B63)
-Visible Shadow, -10%, group(Invisibility), page(B63)
+Affects Devices, +20, group(Invisibility), page(90)
+Can Carry Objects, +4/+8/+20/+40, upto(4),
+	levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance),
+	group(Invisibility), page(90)
+Only While Insubstantial, -4, group(Invisibility), page(90)
+Substantial Only, -4, group(Invisibility), page(90)
+Switchable, +4, group(Invisibility), page(90)
+Usually On, +2, group(Invisibility), page(90)
+Visible Reflection, -4, group(Invisibility), page(90)
+Visible Shadow, -4, group(Invisibility), page(90)
 
 <Native Language>
 Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)
@@ -5032,10 +5045,6 @@ Quadruped, -40%, group(Quadruped), page(96)
 Quadruped, -0%, formula(-@if(ST:Quadruped > 0 & owner::level > 0 then 40 else 0)),
 	forceformula(yes), group(Quadruped Stat), page(96)
 
-<No Legs>
-Mobility depends on fins/mast/paddles/sails, -5, group(No Legs), page(B145)
-Cannot dive, -5, group(No Legs), page(B145)
-
 <Patron>
 Equipment: no more than starting wealth, +50%, group(Patron), page(B73)
 Equipment: more than starting wealth, +100%, group(Patron), page(B73)
@@ -5064,6 +5073,11 @@ No Memory Access, -10%, group(Possession), page(B76)
 Parasitic, -60%, group(Possession), page(B76)
 Puppet Only, -30%, group(Possession), page(B76)
 Spiritual, -20%, group(Possession), page(B76)
+
+<Regeneration>
+Requires Special Condition, -40%, group(Regeneration), page(90)
+Doesn't Heal Damage of a Specific Type, -20%, group(Regeneration), page(90)
+Doesn't Work in Specific Circumstances, -20%, group(Regeneration), page(90)
 
 <_Power Talents>
 Gives Skill Bonus to Innate Attack (Beam), +0, gives(+owner::level to SK:Innate Attack (Beam)), shortname(Innate Attack (Beam))
