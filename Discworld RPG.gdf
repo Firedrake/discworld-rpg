@@ -930,7 +930,7 @@ Magery 0, 5, page(44), cat(Supernatural, Mental, Non-Racial),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery, Talents), needs(AD:Magery 0), page(44), cat(Supernatural, Mental, Non-Racial),
+Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery), needs(AD:Magery 0), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
@@ -939,16 +939,16 @@ Magery 0 (No Spellcasting), 1, mods(Magery 0), page(44), cat(Supernatural, Menta
 	taboo(AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery (No Spellcasting), 2/4, mods(Magery, Talents),
-	needs(AD:Magery 0 (No Spellcasting)), page(44), cat(Supernatural, Mental, Non-Racial)
+Magery (No Spellcasting), 2/4, mods(Magery),
+	needs(AD:Magery 0 (No Spellcasting)), page(44), cat(Supernatural, Mental, Non-Racial, Talents)
 
 Magery 0 (Engineering Only), 4, mods(Magery 0), page(44), cat(Supernatural, Mental, Non-Racial),
 	gives(+AD:Magery (Engineering Only)::level to me::skillscore),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with touch-only Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery (Engineering Only), 6/12, mods(Magery, Talents),
-	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental, Non-Racial),
+Magery (Engineering Only), 6/12, mods(Magery),
+	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
 	conditional(+1 to SK:Magic when "for engineering purposes",
 			+1 to SK:Magical Form when "for engineering purposes",
 			+1 to Spells when "for engineering purposes")
@@ -959,8 +959,8 @@ Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, M
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
 Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form,
-	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)),
-	page(45), cat(Supernatural, Mental, Non-Racial)
+	+1 to Spells), mods(Magery), needs(AD:Magery 0 (Non-Improvisational)),
+	page(45), cat(Supernatural, Mental, Non-Racial, Talents)
 
 Medium, 10, page(45), cat(Supernatural, Mental, Non-Racial)
 Spirit Empathy (Full), 10, page(42), cat(Empathic Abilities, Supernatural, Mental, Non-Racial),
@@ -1138,7 +1138,7 @@ Healer, 10/20, gives(+1 To GR:Healer), page(47), upto(4), cat(Mundane, Mental, N
 	description(Diagnosis, First Aid, Herbalism, Midwifery, Physician, Psychology, Surgery, Veterinary)
 Mathematical Ability, 10/20, gives(+1 To GR:Mathematical Ability), page(47), upto(4),
 	cat(Mundane, Mental, Non-Racial, Talents), taboo(DI:Innumerate),
-	conditional(+1 to ST:Reaction when "dealing with mathematically-inclined wizards and philosophers, and creative accountants"),
+	conditional(+1 to ST:Reaction when "dealing with mathematically-inclined wizards and philosophers, and creative accountants", +1 to SK:Philosophy when "performing mathematical-philosophical analysis", +1 to SK:Thaumatology when "conducting highly mathematical research"),
 	description(Accounting, Astronomy, Cryptography, Engineer, Finance, Mathematics)
 Metalwork, 10/20, gives(+1 To GR:Metalwork), page(47), upto(4),
 	cat(Mundane, Mental, Non-Racial, Racial, Talents),
@@ -1153,7 +1153,7 @@ Outdoorsman, 10/20, gives(+1 To GR:Outdoorsman), page(47), upto(4), cat(Mundane,
 Sense of the City ([whichcity]), 10/20, page(47), upto(4), cat(Mundane, Mental, Talents),
 	gives(+1 To SK:Area Knowledge ([whichcity]), +1 To SK:Current Affairs(Regional: [whichcity]), +1 To SK:Hidden Lore(Secrets of the City: [whichcity]), +1 To SK:History([whichcity])), 
 	conditional(+1 to ST:Reaction when "observed by watchmen, tour guides, and amateur historians in [whichcity]"),
-	description(Area Knowledge ([whichcity]), Current Affairs(Regional: [whichcity]), Hidden Lore(Secrets of the City: [whichcity]), History([whichcity]))
+	description(Area Knowledge ([whichcity]), Current Affairs(Regional: [whichcity]), Hidden Lore(Secrets of the City: [whichcity]), History([whichcity])),
 	x(#InputReplace("Specify the city:", "[whichcity]", , "Sense of the City")),
 Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(47), upto(4), cat(Mundane, Mental, Talents),
 	conditional(+1 to ST:Reaction when "dealing NON-MANIPULATIVELY with other social operators"),
@@ -1197,7 +1197,7 @@ _New Talent, %Costaliaslist%, displaycost(varies), page(47), upto(4), cat(Mundan
 	#edit)
 	
 Versatile, 5, page(49), cat(Mundane, Mental, Non-Racial), taboo(AD:Versatile (Inspiration Magnet))
-Versatile (Inspiration Magnet), 5, page(49), cat(Mundane, Mental, Non-Racial), taboo(AD:Versatile)
+Versatile (Inspiration Magnet), 5, page(49), cat(Mundane, Mental, Non-Racial)
 
 <Mundane Social>
 Pitiable, 5, page(29), cat(Mundane, Non-Racial, Other Physical Features, Social),
