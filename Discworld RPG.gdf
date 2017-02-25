@@ -1152,7 +1152,7 @@ Outdoorsman, 10/20, gives(+1 To GR:Outdoorsman), page(47), upto(4), cat(Mundane,
 	description(Camouflage, Fishing, Mimicry, Naturalist, Navigation, Survival, Tracking)
 Sense of the City ([whichcity]), 10/20, page(47), upto(4), cat(Mundane, Mental, Talents),
 	gives(+1 To SK:Area Knowledge ([whichcity]), +1 To SK:Current Affairs(Regional: [whichcity]), +1 To SK:Hidden Lore(Secrets of the City: [whichcity]), +1 To SK:History([whichcity])), 
-	conditional(+1 to ST:Reaction when "observed by watchmen, tour guides, and amateur historians in [whichcity]"),
+	conditional(+1 to ST:Reaction when "observed by watchmen, tour guides, and amateur historians in [whichcity]", +1 to SK:Urban Survival when "in [whichcity]"),
 	description(Area Knowledge ([whichcity]), Current Affairs(Regional: [whichcity]), Hidden Lore(Secrets of the City: [whichcity]), History([whichcity])),
 	x(#InputReplace("Specify the city:", "[whichcity]", , "Sense of the City")),
 Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(47), upto(4), cat(Mundane, Mental, Talents),
