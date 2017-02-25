@@ -894,100 +894,24 @@ Teeth (Sharp Beak), 1, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
 Teeth (Fangs), 2, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)")
-					
-
-Telescopic Vision, 5/10, mods(Telescopic Vision), page(B92), cat(Exotic, Physical), taboo(DI:Blindness)
-Terrain Adaptation, 5, mods(Terrain Adaptation), page(B93), cat(Exotic, Physical),
-	x(#InputToTag("Specify the type of terrain to which you are adapted (ice, sand, snow, etc.):", nameext, , "Terrain Adaptation"))
-					
-
 Ultrahearing, 5, page(92), cat(Exotic, Physical, Racial), taboo(DI:Deafness),
 	skillused(ST:Perception, ST:Hearing), mode(Hear)
 
-Unkillable, 50/100, mods(Unkillable), page(B95), upto(3), cat(Exotic, Physical), taboo(DI:Unnaturally Fragile), conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
-Vacuum Support, 5, page(B96), cat(Exotic, Physical)
-Vampiric Bite, 30/35, page(B96), cat(Exotic, Physical, Natural Attacks), taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)"),
-	replacetags(in "ST:Bite" with "damtype(cut)"),
-	reach(C), reachbasedon(ST:Neck Reach), damage($solver(me::level)), damtype(HP/sec),
-	levelnames(1HP/sec, 2HP/sec, 3HP/sec, 4HP/sec, 5HP/sec, 6HP/sec, 7HP/sec, 8HP/sec, 9HP/sec, 10HP/sec, 11HP/sec, 12HP/sec, 13HP/sec, 14HP/sec, 15HP/sec, 16HP/sec, 17HP/sec, 18HP/sec, 19HP/sec, 20HP/sec, 21HP/sec, 22HP/sec, 23HP/sec, 24HP/sec, 25HP/sec, 26HP/sec, 27HP/sec, 28HP/sec, 29HP/sec, 30HP/sec, 31HP/sec, 32HP/sec, 33HP/sec, 34HP/sec, 35HP/sec, 36HP/sec, 37HP/sec, 38HP/sec, 39HP/sec, 40HP/sec, 41HP/sec, 42HP/sec, 43HP/sec, 44HP/sec, 45HP/sec, 46HP/sec, 47HP/sec, 48HP/sec, 49HP/sec, 50HP/sec, 51HP/sec, 52HP/sec, 53HP/sec, 54HP/sec, 55HP/sec, 56HP/sec, 57HP/sec, 58HP/sec, 59HP/sec, 60HP/sec, 61HP/sec, 62HP/sec, 63HP/sec, 64HP/sec, 65HP/sec, 66HP/sec, 67HP/sec, 68HP/sec, 69HP/sec, 70HP/sec, 71HP/sec, 72HP/sec, 73HP/sec, 74HP/sec, 75HP/sec, 76HP/sec, 77HP/sec, 78HP/sec, 79HP/sec, 80HP/sec, 81HP/sec, 82HP/sec, 83HP/sec, 84HP/sec, 85HP/sec, 86HP/sec, 87HP/sec, 88HP/sec, 89HP/sec, 90HP/sec, 91HP/sec, 92HP/sec, 93HP/sec, 94HP/sec, 95HP/sec, 96HP/sec, 97HP/sec, 98HP/sec, 99HP/sec, 100HP/sec)
-					
-
-Vibration Sense, 10, mods(Vibration Sense), page(B96), cat(Exotic, Physical),
-	skillused(ST:Perception), mode(''See'')
-Walk on Air, 20, page(B97), cat(Exotic, Physical)
-Walk on Liquid, 15, page(B97), cat(Exotic, Physical)
-					
+Unkillable, 50/100, mods(Unkillable), page(92), upto(2),
+	cat(Exotic, Physical, Racial), taboo(DI:Unnaturally Fragile),
+	conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
 
 <Exotic Mental>
-Altered Time Rate, 100/200, page(B38), cat(Exotic, Mental), taboo(DI:Decreased Time Rate)
-Compartmentalized Mind, 50/100, mods(Compartmentalized Mind), page(B43), cat(Exotic, Mental)
-					
-
-Detect, 5/10/20/30, mods(Detect), levelnames(Rare, Occasional, Common, Very Common),
-	upto(4), page(B48), cat(Exotic Physical, Exotic, Mental, Physical),
-	x(#InputToTag("Specify the specific substance or condition which you can detect:", nameext, , "Detect")),
-	mode(Perceive|Analyze), skillused(ST:Perception|ST:IQ)
-					
-
-Duplication, 35/70, mods(Duplication), page(B50), cat(Exotic Physical, Exotic, Mental, Physical)
-
 Extra Life, 25/50, page(43), cat(Exotic, Mental, Non-Racial, Pawn of the Lady)
 Insubstantiality, 80, mods(Insubstantiality), page(89), cat(Exotic Physical, Exotic, Mental, Physical, Racial)
-
 Invisibility, 40, mods(Invisibility), page(90), cat(Exotic, Mental, Racial),
 	conditional(+9 to SK:Stealth when "being seen would matter")
-					
-Mind Control, 50, mods(Mind Control), page(B68), cat(Exotic, Mental),
-	skillused(ST:IQ), mode(Controk; R-Will)
-Mind Probe, 20, mods(Mind Probe/Reading), page(B69), cat(Exotic, Mental),
-	skillused(ST:IQ, SK:Interrogation), mode(Probe; R-Will)
-Mind Reading, 30, mods(Mind Probe/Reading), page(B69), cat(Exotic, Mental),
-	skillused(ST:IQ), mode(Mind Read; R-Will)
-Mind Shield, 4/8, mods(Mind Shield), page(B70), cat(Exotic, Mental)
-					
+Mind Shield, 4/8, page(45), cat(Exotic, Mental)
+Speak With Animals, 5/10/13/15/25, page(46), upto(5), cat(Exotic, Mental, Non-Racial),
+	levelnames("One Species", "One Family", "One Class", "All Land OR All Aquatic", "All Animals")
+Tracker Golem, 15, page(106), cat(Exotic, Mental, Racial),
+	skillused(ST:IQ)
 
-Modular Abilities (Computer Brain), 0, displaycost(6+4/point), mods(Computer Brain, Modular Ability), page(B71), cat(Exotic Physical, Exotic, Mental, Physical),
-	x(_
-		#InputReplace("Specify the name of this Modular slot","_Per point of abilities","Slot 1",Computer Brain),
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Computer Brain),
-		#buildit _
-	),
-	initmods( _Per point of abilities, 6+4/point, formula(6+(me::level*4)), forceformula(yes), group(Computer Brain), page(B71), mods(Modular Abilities), level([level]) )
-Modular Abilities (Chip Slots), 0, displaycost(5+3/point), mods(Chip Slots, Modular Ability), page(B71), cat(Exotic Physical, Exotic, Mental, Physical),
-	x(_
-		#InputReplace("Specify the name of this Modular slot","_Per point of abilities","Slot 1",Chip Slots),
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Chip Slots),
-		#buildit _
-	),
-	initmods( _Per point of abilities, 5+3/point, formula(5+(me::level*3)), forceformula(yes), group(Chip Slots), page(B71), mods(Modular Abilities), level([level]) )
-Modular Abilities (Super-Memorization), 0, displaycost(5+3/point), mods(Super-Memorization, Modular Ability), page(B71), cat(Exotic Physical, Exotic, Mental, Physical),
-	x(_
-		#InputReplace("Specify the name of this Modular slot","_Per point of abilities","Slot 1",Super-Memorization),
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Super-Memorization),
-		#buildit _
-	),
-	initmods( _Per point of abilities, 5+3/point, formula(5+(me::level*3)), forceformula(yes), group(Super-Memorization), page(B71), mods(Modular Abilities), level([level]) )
-Modular Abilities (Cosmic Power), 0, displaycost(10/point), mods(Cosmic Power, Modular Ability), page(B71), cat(Exotic Physical, Exotic, Mental, Physical),
-	x(_
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Cosmic Power),
-		#buildit _
-		),
-	initmods( Per point of abilities, 10/20, group(Cosmic Power), page(B71), level([level]) )
-					
-
-Neutralize, 50, mods(Neutralize), page(B71), cat(Exotic, Mental)
-Possession, 100, mods(Possession), page(B75), cat(Exotic, Mental),
-	skillused(ST:IQ), mode(Possess; R-Will)
-Racial Memory, 15/40, levelnames(Passive, Active), page(B78), upto(2), cat(Exotic, Mental),
-	skillused(ST:IQ), mode(Remember)
-Snatcher, 80, mods(Snatcher), page(B86), cat(Exotic, Mental),
-	skillused(ST:IQ), mode(Snatch)
-					
-
-Speak With Animals, 25, mods(Speak With Animals), page(B87), cat(Exotic, Mental)
-					
-Temperature Control, 5/10, mods(Temperature Control), page(B92), cat(Exotic Physical, Exotic, Mental, Physical)
-					
 <Supernatural Physical>
 Supernatural Durability (Vulnerable to [vulnerability]), 150, page(91), cat(Supernatural, Physical, Racial),
 	taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
@@ -1001,18 +925,12 @@ Voice of Command IQ Bonus (+2 per level), 5/10, page(49), cat(Supernatural, Non-
 <Supernatural Mental>
 Channelling, 10, page(42), cat(Supernatural, Mental, Non-Racial)
 
-Clairsentience, 50, mods(Clairsentience), page(B42), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Sense)
-Dominance, 20, page(B50), cat(Supernatural, Mental)
-Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Heal)
-					
 Magery 0, 5, page(44), cat(Supernatural, Mental, Non-Racial),
 	gives(+AD:Magery::level to me::skillscore),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery, Talents), needs(AD:Magery 0), page(44), cat(Supernatural, Mental, Non-Racial),
+Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery), needs(AD:Magery 0), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
@@ -1021,16 +939,16 @@ Magery 0 (No Spellcasting), 1, mods(Magery 0), page(44), cat(Supernatural, Menta
 	taboo(AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery (No Spellcasting), 2/4, mods(Magery, Talents),
-	needs(AD:Magery 0 (No Spellcasting)), page(44), cat(Supernatural, Mental, Non-Racial)
+Magery (No Spellcasting), 2/4, mods(Magery),
+	needs(AD:Magery 0 (No Spellcasting)), page(44), cat(Supernatural, Mental, Non-Racial, Talents)
 
 Magery 0 (Engineering Only), 4, mods(Magery 0), page(44), cat(Supernatural, Mental, Non-Racial),
 	gives(+AD:Magery (Engineering Only)::level to me::skillscore),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with touch-only Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery (Engineering Only), 6/12, mods(Magery, Talents),
-	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental, Non-Racial),
+Magery (Engineering Only), 6/12, mods(Magery),
+	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
 	conditional(+1 to SK:Magic when "for engineering purposes",
 			+1 to SK:Magical Form when "for engineering purposes",
 			+1 to Spells when "for engineering purposes")
@@ -1041,8 +959,8 @@ Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, M
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
 Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form,
-	+1 to Spells), mods(Magery, Talents), needs(AD:Magery 0 (Non-Improvisational)),
-	page(45), cat(Supernatural, Mental, Non-Racial)
+	+1 to Spells), mods(Magery), needs(AD:Magery 0 (Non-Improvisational)),
+	page(45), cat(Supernatural, Mental, Non-Racial, Talents)
 
 Medium, 10, page(45), cat(Supernatural, Mental, Non-Racial)
 Spirit Empathy (Full), 10, page(42), cat(Empathic Abilities, Supernatural, Mental, Non-Racial),
@@ -1128,9 +1046,10 @@ Voice, 10, gives(+2 To GR:VocalFeatures), page(30), cat(Mundane, Physical), tabo
 	conditional(+2 to ST:Reaction when "your voice can be heard")
 
 <Mundane Mental>
-Animal Empathy, 5, page(B40), cat(Empathic Abilities, Mundane, Mental), taboo(DI:Frightens Animals),
+Animal Empathy, 5, page(42), cat(Empathic Abilities, Mundane, Mental, Non-Racial), taboo(DI:Frightens Animals),
 	skillused(ST:IQ), mode(empathize)
-Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(B41), cat(Mundane, Mental)
+Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), cat(Mundane, Mental, Non-Racial),
+	conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(29)
 Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
 	page(42), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Combat Paralysis)
 Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental, Non-Racial),
@@ -1189,7 +1108,7 @@ Fearlessness, 2/4, gives(+1 To ST:Fright Check), page(43), cat(Mundane, Mental, 
 	taboo(DI:Fearfulness, DI:Cowardice, AD:Unfazeable)
 Gadgeteer, 25, page(43), cat(Mundane, Mental, Non-Racial)
 Indomitable, 15, page(43), cat(Mundane, Mental, Non-Racial, Racial)
-Language Talent, 10, gives(+1 To CA:Language), page(32), cat(Mundane, Mental, Non-Racial)
+Language Talent, 10, gives(+1 To CA:Language), page(32), cat(Mundane, Mental, Non-Racial, Talents)
 Lightning Calculator, 2, page(45), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Innumerate)
 Luck, 15/30/60, levelnames( , Extraordinary, Ridiculous), page(44), upto(3),
 	cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
@@ -1199,33 +1118,48 @@ Serendipity, 15/30, page(44), cat(Mundane, Mental, Non-Racial, Luck Advantages, 
 Single-Minded, 5, page(46), cat(Mundane, Mental, Non-Racial), taboo(DI:Short Attention Span)
 
 * Talents
-Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Animal Handling, Falconry, Packing, Riding, Teamster, Veterinary)
-Artificer, 10/20, gives(+1 To GR:Artificer), page(B90), upto(4), cat(Mundane Mental, Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Armoury, Carpentry, Electrician, Engineer, Masonry, Mechanic, Smith)
-Business Acumen, 10/20, gives(+1 To GR:Business Acumen), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Accounting, Administration, Economics, Finance, Gambling, Market Analysis, Merchant, Propaganda)
-Gifted Artist, 5/10, gives(+1 To GR:Gifted Artist), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Artist, Jeweler, Leatherworking, Photography, Sewing)
-Green Thumb, 5/10, gives(+1 To GR:Green Thumb), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Biology, Farming, Gardening, Herb Lore, Naturalist)
-Healer, 10/20, gives(+1 To GR:Healer), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Diagnosis, Esoteric Medicine, First Aid, Pharmacy, Physician, Physiology, Psychology, Surgery, Veterinary)
-Mathematical Ability, 10/20, gives(+1 To GR:Mathematical Ability), page(B90), upto(4),
-	cat(Mundane, Mental, Talents), taboo(DI:Innumerate), conditional(+1 to ST:Reaction),
-	description(Accounting, Astronomy, Cryptography, Engineer, Finance, Market Analysis, Mathematics, Physics)
+Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with animals"),
+	description(Animal Handling, Falconry, Packing, Riding, Teamster, Veterinary)
+Artificer, 10/20, gives(+1 To GR:Artificer), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with customers"),
+	description(Armoury, Carpentry, Engineer, Masonry, Mechanic, Smith)
+Born to Hang, 10/20, gives(+1 To GR:Born to Hang), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with other crooks who acknowledge skill"),
+	description(Larcenous Skills, Disguise, Fast-Talk, Fortune-Telling, Sleight of Hand)
+Born War-Leader, 5/10, gives(+1 To GR:Born War-Leader), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with other veteran soldiers and warriors"),
+	description(Officer Skills, Leadership, Savoir-Faire (Military))
+Gifted Artist, 5/10, gives(+1 To GR:Gifted Artist), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with critics and connoisseurs"),
+	description(Artist, Jeweller, Leatherworking, Photography, Sewing)
+Healer, 10/20, gives(+1 To GR:Healer), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with patients (NOT doctors)"),
+	description(Diagnosis, First Aid, Herbalism, Midwifery, Physician, Psychology, Surgery, Veterinary)
+Mathematical Ability, 10/20, gives(+1 To GR:Mathematical Ability), page(47), upto(4),
+	cat(Mundane, Mental, Non-Racial, Talents), taboo(DI:Innumerate),
+	conditional(+1 to ST:Reaction when "dealing with mathematically-inclined wizards and philosophers, and creative accountants", +1 to SK:Philosophy when "performing mathematical-philosophical analysis", +1 to SK:Thaumatology when "conducting highly mathematical research"),
+	description(Accounting, Astronomy, Cryptography, Engineer, Finance, Mathematics)
 Metalwork, 10/20, gives(+1 To GR:Metalwork), page(47), upto(4),
-	cat(Mundane, Mental, Non-Racial, Racial, Talents), conditional(+1 to ST:Reaction),
+	cat(Mundane, Mental, Non-Racial, Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with other skilled metalworkers"),
 	description(Armoury, Most Versions of Engineer, Jeweller, Mechanic, Metallurgy, Prospecting, Smith)
-Musical Ability, 5/10, gives(+1 To GR:Musical Ability), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Conducting, Musical Composition, Musical Instrument, Singing)
-Outdoorsman, 10/20, gives(+1 To GR:Outdoorsman), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Camouflage, Fishing, Mimicry, Naturalist, Navigation, Survival, Tracking)
-Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(B90), upto(4), cat(Mundane, Mental, Talents),
-	conditional(+1 to ST:Reaction), description(Acting, Carousing, Detect Lies, Diplomacy, Fast-Talk, Intimidation, Leadership, Panhandling, Politics, Public Speaking, Savoir-Faire, Sex Appeal, Streetwise)
-					
+Musical Ability, 5/10, gives(+1 To GR:Musical Ability), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "heard by people who like music"),
+	description(Conducting, Musical Composition, Musical Instrument, Singing)
+Outdoorsman, 10/20, gives(+1 To GR:Outdoorsman), page(47), upto(4), cat(Mundane, Mental, Talents),
+	conditional(+1 to ST:Reaction when "working with other outdoors types"),
+	description(Camouflage, Fishing, Mimicry, Naturalist, Navigation, Survival, Tracking)
+Sense of the City ([whichcity]), 10/20, page(47), upto(4), cat(Mundane, Mental, Talents),
+	gives(+1 To SK:Area Knowledge ([whichcity]), +1 To SK:Current Affairs(Regional: [whichcity]), +1 To SK:Hidden Lore(Secrets of the City: [whichcity]), +1 To SK:History([whichcity])), 
+	conditional(+1 to ST:Reaction when "observed by watchmen, tour guides, and amateur historians in [whichcity]", +1 to SK:Urban Survival when "in [whichcity]"),
+	description(Area Knowledge ([whichcity]), Current Affairs(Regional: [whichcity]), Hidden Lore(Secrets of the City: [whichcity]), History([whichcity])),
+	x(#InputReplace("Specify the city:", "[whichcity]", , "Sense of the City")),
+Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(47), upto(4), cat(Mundane, Mental, Talents),
+	conditional(+1 to ST:Reaction when "dealing NON-MANIPULATIVELY with other social operators"),
+	description(Acting, Carousing, Detect Lies, Diplomacy, Fast-Talk, Intimidation, Leadership, Panhandling, Politics, Public Speaking, Savoir-Faire, Sex Appeal, Streetwise)
 
-_New Talent, %Costaliaslist%, displaycost(varies), page(B89), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
+_New Talent, %Costaliaslist%, displaycost(varies), page(47), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
 	gives(%skillsaliaslist%), conditional(+1 to ST:Reaction when "[bonus]"), noresync(yes),
 	x(#InputToTagReplace("Please enter the name of this Talent here:" , name, , "New Talent"),
 	#InputReplace("Please describe when the reaction bonus for this talent applies. e.g. if you type in ''recognized by an Engineer'' the bonus will be listed as ''+1 from Engineering Talent when recognized by an Engineer'':", "[bonus]", "talent matters", "New Talent"),
@@ -1262,89 +1196,59 @@ _New Talent, %Costaliaslist%, displaycost(varies), page(B89), upto(4), cat(Munda
 			),
 	#edit)
 	
-
-Trained By A Master, 30, page(B93), cat(Mundane, Mental)
-Unfazeable, 15, page(48), cat(Mundane, Mental, Non-Racial, Racial), taboo(AD:Fearlessness, DI:Fearfulness)
-Unusual Background, [cost], displaycost(varies), page(B96), cat(Mundane, Mental), noresync(yes),
-	x(#InputToTagReplace("Please describe the Unusual Background:" , nameext, ,"Unusual Background"),
-	#InputReplace("Please enter the Cost of this advantage:", "[cost]", "10", "Unusual Background")_
-		)
-					
-
-Versatile, 5, page(B96), cat(Mundane, Mental)
-Weapon Master, 20/25/30/35/40/45, levelnames(one specific weapon, two weapons normally used together, a small class of weapons, a medium class of weapons, a large class of weapons, all muscle powered weapons), page(B99), upto(6), cat(Mundane, Physical),
-	x(_
-		#InputToTagReplace("Please specify the weapon, weapons, or class of weapons you have Mastery of:", nameext, , "Weapon Master"),
-		#Message(In order for the Damage Bonus to be applied to the characters weapons you will need to add the Weapon Modifier "_Advantage: Weapon Master Damage Bonus" to each weapon.)_
-		)
-					
-
-<Wealth>
-Trading Character Points for Money, 1/2, gives(+@indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000) to ST:Money, +@indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000) to ST:Remaining Funds), page(B26), cat(Wealth)
-					
-					
+Versatile, 5, page(49), cat(Mundane, Mental, Non-Racial), taboo(AD:Versatile (Inspiration Magnet))
+Versatile (Inspiration Magnet), 5, page(49), cat(Mundane, Mental, Non-Racial)
 
 <Mundane Social>
-Fashion Sense, 5, page(B21), conditional(+1 to ST:Reaction when "in social situations, when you have a chance to plan your attire in advance"), cat(Mundane, Social, Other Physical Features)
-Pitiable, 5, page(B22), cat(Mundane, Social, Other Physical Features),
-	gives(+1 to SK:Panhandling),
-	conditional(+3 to ST:Reaction when "you appear to be in a position of helplessness, weakness, or need")
-					
+Pitiable, 5, page(29), cat(Mundane, Non-Racial, Other Physical Features, Social),
+	conditional(+3 to ST:Reaction when "you appear to be in a position of helplessness, weakness, or need")				
 
-Cultural Familiarity, 1, page(B23), mods(Cultural Familiarity), cat(Mundane, Social, Cultural Familiarity, Social Background), taboo(Native Cultural Familiarities > 1),
+Cultural Familiarity, 1, page(32), mods(Cultural Familiarity),
+	cat(Mundane, Non-Racial, Social, Cultural Familiarity, Social Background),
+	taboo(Native Cultural Familiarities > 1),
 	x(#InputToTagReplace("Specify the culture you're familiar with here:", name, , "Cultural Familiarity"))
-Cultural Familiarity (Alien Culture), 2, page(B23), cat(Mundane, Social, Cultural Familiarity, Social Background), taboo(Native Cultural Familiarities > 1),
-	x(#InputToTagReplace("Specify the culture you're familiar with here:", name, , "Cultural Familiarity (Alien Culture)"))
-Cultural Familiarity (Native), 0, page(B23), cat(Mundane, Social, Cultural Familiarity, Social Background), gives(+1 to ST:Native Cultural Familiarities), taboo(Native Cultural Familiarities > 1),
-	x(#InputToTagReplace("Specify the culture you're familiar with here:", name, "Sto Plains/Uberwald", "Cultural Familiarity (Native)"))
-					
+Cultural Familiarity (Native), 0, page(32), cat(Mundane, Non-Racial, Social, Cultural Familiarity, Social Background),
+	gives(+1 to ST:Native Cultural Familiarities), taboo(Native Cultural Familiarities > 1),
+	x(#InputToTagReplace("Specify your native culture:", name, "Sto Plains/Uberwald", "Cultural Familiarity (Native)"))
 
-Language, 2/4, page(B24), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Language Written, Social Background), taboo(Native Languages > 1),
-	x(#InputToTagReplace("Specify the language here:", name, , "Language"))
-Language (Spoken), 1/2, page(B24), upto(3 LimitingTotal),
-	levelnames([None], Broken, Accented, Native),
-	cat(Mundane, Social, Language, Language Spoken, Social Background), taboo(Native Languages > 1),
+Language, 2/4, page(31), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native),
+	cat(Mundane, Non-Racial, Social, Language, Language Spoken, Language Written, Racial, Social Background),
+	taboo(Native Languages > 1), x(#InputToTagReplace("Specify the language here:", name, , "Language"))
+Language (Spoken), 1/2, page(31), upto(3 LimitingTotal),
+	levelnames([None], Broken, Accented, Native), taboo(Native Languages > 1),
+	cat(Mundane, Non-Racial, Social, Language, Language Spoken, Racial, Social Background),
 	x(#InputToTagReplace("Specify the language here:", name, , "Language (Spoken)"))
-Language (Written), 1/2, page(B24), upto(3 LimitingTotal),
-	levelnames([Illiterate], Semi-Literate, Literate, Native), cat(Mundane, Social, Language, Language Written, Social Background),
-	taboo(Native Languages > 1), ndl(@if(ST:Tech Level::basescore <=4 THEN 1 ELSE 0)),
-	description(At TL 3 and below Illiteracy doesn't count against Disadvantage Limits. This can be changed by checking (or unchecking) the 'Do Not Count Against Disadvantage Limit' box in the Edit window.),
+Language (Written), 1/2, page(31), upto(3 LimitingTotal),
+	levelnames([Illiterate], Semi-Literate, Literate, Native), taboo(Native Languages > 1),
+	cat(Mundane, Non-Racial, Social, Language, Language Written, Racial, Social Background),
 	x(#InputToTagReplace("Specify the language here:", name, , "Language (Written)"))
-					
 
-Language - Native, 2/4, displaycost(0/-2/+), init(3), page(B24), upto(3),
-	mods(Native Language), levelnames([None], Broken, Accented, Native),
-	cat(Mundane, Social, Language, Language Spoken, Language Written, Social Background), taboo(Native Languages > 1),
+Language - Native, 2/4, displaycost(0/-2/+), init(3), page(31), upto(3),
+	mods(Native Language), levelnames([None], Broken, Accented, Native), taboo(Native Languages > 1),
+	cat(Mundane, Non-Racial, Social, Language, Language Spoken, Language Written, Racial, Social Background),
 	x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native")),
 	initmods(Native Language, -6, gives(=+1 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),
-	group(Native Language), page(B23))
-Language - Native (Spoken), 1/2, displaycost(0/-1/+), init(3), page(B24), upto(3), mods(Native Language),
-	levelnames([None], Broken, Accented, Native), cat(Mundane, Social, Language, Language Spoken, Social Background),
-	taboo(Native Languages > 1),
+	group(Native Language), page(31))
+Language - Native (Spoken), 1/2, displaycost(0/-1/+), init(3), page(31), upto(3), mods(Native Language),
+	levelnames([None], Broken, Accented, Native), taboo(Native Languages > 1),
+	cat(Mundane, Non-Racial, Social, Language, Language Spoken, Racial, Social Background),
 	x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native (Spoken)")),
 	initmods(Native Speaker, -3, gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level),
-	group(Native Language), page(B23))
-Language - Native (Written), 1/2, displaycost(-3/-2/+), init(0), page(B24), upto(3), mods(Native Language),
-	levelnames([Illiterate], Semi-Literate, Literate, Native), cat(Mundane, Social, Language, Language Written, Social Background),
-	taboo(Native Languages > 1), ndl(@if(ST:Tech Level::basescore <=4 THEN 1 ELSE 0)),
-	description(At TL 3 and below Illiteracy doesn't count against the Disadvantage Limit. This can be changed by checking (or unchecking) the 'Do Not Count Against Disadvantage Limit' box in the Edit window.),
+	group(Native Language), page(31))
+Language - Native (Written), 1/2, displaycost(-3/-2/+), init(0), page(31), upto(3), mods(Native Language),
+	levelnames([Illiterate], Semi-Literate, Literate, Native), taboo(Native Languages > 1),
+	cat(Mundane, Non-Racial, Social, Language, Language Written, Racial, Social Background),
 	x(#InputToTagReplace("Specify the language here:", name, "Morporkian", "Language - Native (Written)")),
-	initmods(Native Writer, -3, gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level), group(Native Language), page(B23))
+	initmods(Native Writer, -3, gives(=+0.5 to ST:Native Languages, =-"AD:Language Talent::level" to owner::level), group(Native Language), page(31))
 
-Wealth, 10/20/30/50/75, upto(15), page(B25), mods(Wealth),
-	levelnames([Average], Comfortable, Wealthy, Very Wealthy, Filthy Rich, Multimillionaire 1, Multimillionaire 2, Multimillionaire 3, Multimillionaire 4, Multimillionaire 5, Multimillionaire 6, Multimillionaire 7, Multimillionaire 8, Multimillionaire 9, Multimillionaire 10, Multimillionaire 11, Multimillionaire 12),
-	taboo(DI:Wealth, AD:Wealth > me::level, AD:Wealth < me::level, AD:Wealth > @if(@itemhasmod(AD:Wealth, Heir) = 0 THEN 100 ELSE @itemhasmod(AD:Wealth, Heir)-1) ), cat(Mundane, Social, Wealth),
+Wealth, 10/20/30/50/75, upto(10), page(33), mods(Wealth),
+	levelnames([Average], Comfortable, Wealthy, Very Wealthy, Filthy Rich, Multimillionaire 1, Multimillionaire 2, Multimillionaire 3, Multimillionaire 4, Multimillionaire 5, Multimillionaire 6),
+	taboo(DI:Wealth, AD:Wealth > me::level, AD:Wealth < me::level), cat(Mundane, Non-Racial, Social, Wealth),
 	gives(_
 			=@indexedvalue(%level, 10, 40, 190, @power(10, (me::level-1))-10) To ST:Wealth Modifier,
 			=@if(AD:Status::level = 0 THEN @if(DI:Status::baselevel = 0 THEN @indexedvalue(%level, 0, 1, 1, 1, 2, 3) ELSE 0) ELSE 0) To ST:Status,
 			=@if(AD:Status::level > 0 THEN @indexedvalue(%level, 0, 1, 1, 1, 2, 3) ELSE 0) To AD:Status,
 			=@if(AD:Status::level = 0 THEN -@indexedvalue(%level, 0, 1, 1, 1, 2, 3) ELSE 0) To DI:Status_
-		)
-					
-Independent Income, 1/2, page(B26), upto(20), cat(Mundane, Social, Wealth),
-	gives(_
-			=+(ST:Starting Wealth * @indexedvalue(%level, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2)) _
-				to ST:Monthly Pay _
 		)
 
 Reputation, 5/10, mods(Reputation Advantage), page(B27), upto(4), cat(Mundane, Social, Influence),
@@ -1476,8 +1380,8 @@ Blade-Proof Bare-Chestedness, 1, page(50),
 Boredom Immunity, 1, page(93), cat(Racial)
 Check the Exits, 1, page(50), cat(Non-Racial)
 Climatic Emphasis, 1, page(50), cat(Non-Racial)
-Cobblestone Sense, 1, page(50), needs(SK:Area Knowledge), cat(Non-Racial),
-	x(#InputToTagReplace("Specify the city which you know by touch:", nameext, , "Cobblestone Sense"))
+Cobblestone Sense ([whichcity]), 1, page(50), needs(SK:Area Knowledge([whichcity])), cat(Non-Racial),
+	x(#InputReplace("Specify the city which you know by touch:", "[whichcity]", , "Cobblestone Sense"))
 Cold Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Cold))
 Controllable Disadvantage, 1, page(51), cat(Non-Racial),
 	x(#InputToTagReplace("Specify which Disadvantage you can induce in yourself:", nameext, , "Controllable Disadvantage"))
@@ -1768,7 +1672,7 @@ Bad Sight (Farsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindn
 			)
 Bad Smell, -10, page(55), cat(Mundane, Non-Racial, Physical, Racial), gives(-2 to ST:Reaction)
 Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness),
-	taboo(AD:Acute Vision, AD:Infravision, AD:Telescopic Vision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
+	taboo(AD:Acute Vision, AD:Infravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
 	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
 Cannot Speak, -15, page(56), cat(Mundane, Non-Racial, Physical, Racial), taboo(DI:Disturbing Voice, DI:Mute)
 
@@ -2409,7 +2313,7 @@ _New Skill, %typelist%, cat(_General, _New Skills),
 Astronomy, IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
 Astrozoology, IQ/H, default(IQ - 6), page(70), cat(_General, Scholarly)
 History, IQ/H, default(IQ - 6), page(70), cat(_General, Scholarly),
-	x(#InputToTag("You must specialise in a period and theme, period and region, small nation, etc.:", nameext, , "History"))
+	x(#InputToTag("You must specialise in a period and theme, period and region, small nation, city, etc.:", nameext, , "History"))
 Literature, IQ/H, default(IQ - 6), page(70), cat(_General, Scholarly)
 Mathematics (Applied), IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
 Mathematics (Pure), IQ/H, tl(0-5), default(IQ - 6), page(70), cat(_General, Scholarly)
@@ -3282,15 +3186,11 @@ AD:Animal Empathy
 AD:Animal Friend
 AD:Appearance
 AD:Artificer
-AD:Astral Projection Talent
-AD:Binding
+AD:Born to Hang
+AD:Born War-Leader
 AD:Brachiator
-AD:Breath-Holding
-AD:Burning Attack
-AD:Business Acumen
 AD:Cast-Iron Stomach
 AD:Catfall
-AD:Chameleon
 AD:Channelling
 AD:Chaos Talent
 AD:Charisma
@@ -3320,8 +3220,6 @@ AD:Corrosion Attack
 AD:Cosmic Talent
 AD:Courtesy Rank
 AD:Crushing Attack
-AD:Cultural Adaptability
-AD:Cultural Familiarity (Alien Culture)
 AD:Cultural Familiarity (Native)
 AD:Cultural Familiarity
 AD:Cutting Attack
@@ -3369,9 +3267,7 @@ AD:Fearlessness
 AD:Filter Lungs
 AD:Flexibility
 AD:Flight
-AD:Force Constructs Talent
 AD:Gadgeteer
-AD:G-Experience
 AD:Gifted Artist
 AD:Gizmo
 AD:Good Talent
@@ -3420,27 +3316,15 @@ AD:Merchant Rank
 AD:Metabolism Control
 AD:Metalwork
 AD:Military Rank
-AD:Mind Control
-AD:Mind Probe
-AD:Mind Reading
 AD:Mind Shield
-AD:Mindlink
 AD:Modified ST-Based Damage
-AD:Modular Abilities (Cosmic Power)
-AD:Modular Abilities (Divine Inspiration)
-AD:Modular Abilities (Super-Memorization)
 AD:Musical Ability
-AD:Neutralize
 AD:Night Vision
-AD:Oracle
-AD:Order Talent
 AD:Outdoorsman
 AD:Patrons
 AD:Perfect Balance
 AD:Peripheral Vision
-AD:Permeation
 AD:Photographic Memory
-AD:Piercing Attack
 AD:Pitiable
 AD:Police Rank
 AD:Possession
@@ -3465,11 +3349,8 @@ AD:See Invisible (Spirit)
 AD:Sensitive Touch
 AD:Sensitive
 AD:Serendipity
-AD:Shrinking
 AD:Silence
 AD:Single-Minded
-AD:Slippery
-AD:Small Piercing Attack
 AD:Smooth Operator
 AD:Snatcher
 AD:Social Regard (Feared)
@@ -3477,14 +3358,8 @@ AD:Social Regard (Respected)
 AD:Social Regard (Venerated)
 AD:Social Regard
 AD:Sonar
-AD:Sound/Vibration Talent
-AD:Speak Underwater
 AD:Speak With Animals
-AD:Speak With Plants
-AD:Special Rapport
-AD:Spirit Control Talent
 AD:Spirit Empathy
-AD:Static
 AD:Status
 AD:Super Climbing
 AD:Supernatural Durability
@@ -3492,40 +3367,23 @@ AD:Teeth (Blunt Teeth)
 AD:Teeth (Fangs)
 AD:Teeth (Sharp Beak)
 AD:Teeth (Sharp Teeth)
-AD:Telescopic Vision
-AD:Temperature Control
 AD:Temperature Tolerance (Cold)
 AD:Temperature Tolerance (Heat)
 AD:Tenure
-AD:Terrain Adaptation
 AD:Terror (Awe)
 AD:Terror (Confusion)
 AD:Terror
-AD:Time Mastery Talent
-AD:Toxic Attack
-AD:Trading Character Points for Money
-AD:Trained By A Master
 AD:True Faith
 AD:Ultrahearing
 AD:Unaging
 AD:Unfazeable
 AD:Universal Digestion
 AD:Unkillable
-AD:Unusual Background
-AD:Vacuum Support
-AD:Vampiric Bite
-AD:Vampirism Talent
 AD:Versatile
+AD:Versatile (Inspiration Magnet)
 AD:Very Rapid Healing
-AD:Vibration Sense
-AD:Visualization
 AD:Voice
-AD:Walk on Air
-AD:Walk on Liquid
 AD:Wealth
-AD:Weapon Master
-AD:Weather Control Talent
-AD:Wild Talent
 
 <AllPerks>
 PE:_New Perk
@@ -4072,7 +3930,6 @@ SK:Lip Reading
 SK:Literature
 SK:Lockpicking
 SK:Makeup
-SK:Market Analysis
 SK:Masonry
 SK:Mathematics
 SK:Mathematics (Applied)
@@ -4251,15 +4108,26 @@ SK:Masonry
 SK:Mechanic
 SK:Smith
 
-<Business Acumen>
-SK:Accounting
-SK:Administration
-SK:Economics
-SK:Finance
-SK:Gambling
-SK:Market Analysis
-SK:Merchant
-SK:Propaganda
+<Born to Hang>
+SK:Counterfeiting
+SK:Disguise
+SK:Fast-Talk
+SK:Filch
+SK:Forced Entry
+SK:Forgery
+SK:Fortune-Telling
+SK:Holdout
+SK:Lockpicking
+SK:Pickpocket
+SK:Sleight of Hand
+SK:Smuggling
+
+<Born War-Leader>
+SK:Intelligence Analysis
+SK:Leadership
+SK:Savoir-Faire (Military)
+SK:Strategy
+SK:Tactics
 
 <Charisma>
 SK:Fortune-Telling
@@ -4279,27 +4147,17 @@ SK:Fortune-Telling
 
 <Gifted Artist>
 SK:Artist
-SK:Jeweler
+SK:Jeweller
 SK:Leatherworking
 SK:Photography
 SK:Sewing
 
-<GripSkills>
-SK:
-
-<Green Thumb>
-SK:Biology
-SK:Farming
-SK:Gardening
-SK:Herb Lore
-SK:Naturalist
-
 <Healer>
 SK:Diagnosis
 SK:First Aid
-SK:Pharmacy
+SK:Herbalism
+SK:Midwifery
 SK:Physician
-SK:Physiology
 SK:Psychology
 SK:Surgery
 SK:Veterinary
@@ -4664,7 +4522,7 @@ Per Second, *2, group(Costs Fatigue), page(B111)
 Per Activation, *1, group(Costs Fatigue), page(B111)
 
 <Cultural Familiarity>
-Native, *0, group(Cultural Familiarity), page(B23), gives(+1 to ST:Native Cultural Familiarities)
+Native, *0, group(Cultural Familiarity), page(32), gives(+1 to ST:Native Cultural Familiarities)
 
 <Trigger>
 Illegal, *1.5, group(Trigger), page(B115)
@@ -4987,24 +4845,9 @@ Diplomatic pouch privileges, +5, group(Legal Immunity), page(B65)
 <Lifting ST>
 Doesn't affect Basic Lift, 0, gives(-owner::level to ST:Lifting ST)
 
-<Metabolism Control>
-Hibernation, -60%, group(Metabolism Control), page(B68)
-
-<Mind Control>
-Conditioning, +50%, group(Mind Control), page(B69)
-No Memory, +10%, group(Mind Control), page(B69)
-Conditioning Only, -50%, group(Mind Control), page(B69)
-Puppet, -40%, group(Mind Control), page(B69)
-
 <Missing Legs>
 Mitigator: Prosthetic Leg, -60%, group(Missing Legs), page(B112), shortname(Prosthetic Leg), mitigator(yes)
 //, gives(+6 to "CL:Melee Combat")
-
-<Modular Ability>
-Physical Only, +50%, group(Modular Ability), page(B71)
-Physical and Mental, +100%, group(Modular Ability), page(B71)
-Spells Only, -20%, group(Modular Ability), page(B71)
-Virtual, -50%, group(Modular Ability), page(B71)
 
 <Money>
 5% of Starting Wealth, +0
@@ -5033,10 +4876,6 @@ Money Spent in Play, +0/+0, level([Level]), formula(0), forceformula(yes), gives
 		#InputToTagReplace("Please describe how this money was spent", nameext, "note","Money Spent in Play"),
 		#InputReplace("Please enter the level (dollars) of this modifier:", "[level]", "1", "Money Spent in Play") _
 	)
-
-<Neutralize>
-Power Theft, +200%, group(Neutralize), page(B71)
-One Power, -50%, group(Neutralize), page(B71)
 
 <Quadruped>
 Quadruped, -40%, group(Quadruped), page(96)
@@ -5121,46 +4960,21 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"Fatigue Attack",
 					"Healing",
 					"High Pain Threshold",
-					"Huge Piercing Attack",
-					"Illuminated",
 					"Illusion",
-					"Impaling Attack",
-					"Intuition",
-					"Mind Control",
-					"Mind Probe",
-					"Mind Reading",
-					"Oracle",
-					"Oracle (Digital)",
 					"Photographic Memory",
-					"Piercing Attack",
 					"Possession",
 					"Precognition",
-					"Psychometry",
-					"Racial Memory",
-					"Rapier Wit",
 					"Sensitive",
-					"Small Piercing Attack",
-					"Snatcher",
 					"Sonar",
 					"Spirit Empathy",
-					"Ultrahearing",
-					"Visualization"_
+					"Ultrahearing"_
 				),
 			aliaslist(_
-					"+owner::level to AD:Active IR::skillscore",
-					"+owner::level to AD:Affliction::skillscore",
 					"+owner::level to AD:Animal Empathy::skillscore",
 					"+owner::level to AD:Burning Attack::skillscore",
 					"+owner::level to AD:Catfall::skillscore",
-					"+owner::level to AD:Clairsentience::skillscore",
 					"+owner::level to AD:Clinging::skillscore",
-					"+owner::level to AD:Common Sense::skillscore",
-					"+owner::level to AD:Constriction Attack::skillscore",
-					"+owner::level to AD:Corrosion Attack::skillscore",
-					"+owner::level to AD:Crushing Attack::skillscore",
-					"+owner::level to AD:Cutting Attack::skillscore",
 					"+owner::level to AD:Danger Sense::skillscore",
-					"+owner::level to AD:Detect::skillscore",
 					"+owner::level to AD:Discriminatory Hearing::skillscore",
 					"+owner::level to AD:Discriminatory Smell::skillscore",
 					"+owner::level to AD:Discriminatory Taste::skillscore",
@@ -5169,20 +4983,6 @@ Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortna
 					"+owner::level to AD:Fatigue Attack::skillscore",
 					"+owner::level to AD:Healing::skillscore",
 					"+owner::level to AD:High Pain Threshold::skillscore",
-					"+owner::level to AD:Huge Piercing Attack::skillscore",
-					"+owner::level to AD:Illuminated::skillscore",
-					"+owner::level to AD:Illusion::skillscore",
-					"+owner::level to AD:Impaling Attack::skillscore",
-					"+owner::level to AD:Intuition::skillscore",
-					"+owner::level to AD:Jumper (Spirit)::skillscore",
-					"+owner::level to AD:Jumper (Time)::skillscore",
-					"+owner::level to AD:Jumper (World)::skillscore",
-					"+owner::level to AD:Large Piercing Attack::skillscore",
-					"+owner::level to AD:Mind Control::skillscore",
-					"+owner::level to AD:Mind Probe::skillscore",
-					"+owner::level to AD:Mind Reading::skillscore",
-					"+owner::level to AD:Oracle::skillscore",
-					"+owner::level to AD:Oracle (Digital)::skillscore",
 					"+owner::level to AD:Photographic Memory::skillscore",
 					"+owner::level to AD:Piercing Attack::skillscore",
 					"+owner::level to AD:Possession::skillscore",
@@ -5380,16 +5180,6 @@ Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:Hit Points::level > 0 THEN ST
 <Size ST>
 Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:ST::level > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(B15)
 
-<Speak With Animals>
-Specialized: All land animals, -40%, shortname(All land animals), group(Speak With Animals), page(B87)
-Specialized: All aquatic animals, -40%, shortname(All aquatic animals), group(Speak With Animals), page(B87)
-Specialized: one class, -50%, group(Speak With Animals), page(B87),
-	description(A class of animals would include Mammals, Birds, Reptiles, etc.)
-Specialized: one family, -60%, group(Speak With Animals), page(B87),
-	description(A family of animals would include Felines, Parrots, Snakes, etc.)
-Specialized: one species, -80%, group(Speak With Animals), page(B87),
-	description(A species of animal would include House Cats, Macaws, Boa Constrictors, etc.)
-
 <Status>
 Heir, +3/+5, page(B33), formula(@int(me::level * 2.5 + 0.9)), forceformula(yes), gives(=+@int(me::level/2) to ST:Status), upto(8 - owner::level)
 
@@ -5455,16 +5245,6 @@ Gives Conditional Bonus to [skill category], +0, conditional(+owner::level to CL
 	#InputReplace("Please enter the name of the skill which will receive the conditional bonus:", "[skill category]", , "Talent Conditional Bonus")_
 	)
 
-<Telescopic Vision>
-No Targeting, -60%, group(Telescopic Vision), page(B92)
-
-<Temperature Control>
-Cold, -50%, group(Temperature Control), page(B93)
-Heat, -50%, group(Temperature Control), page(B93)
-
-<Terrain Adaptation>
-Cannot function normally on solid ground, -5, group(Terrain Adaptation), page(B93)
-
 <Terror>
 Always On, -20%, group(Terror), page(B93)
 
@@ -5476,10 +5256,9 @@ Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
 Age Control, +20%, group(Unaging), page(B95)
 
 <Unkillable>
-Achilles' Heel, -10%/-30%/-50%, levelnames(Rare, Occasional, Common or Very Common), upto(3), group(Unkillable), page(B95)
-Hindrance, -5%/-15%/-25%, levelnames(Rare, Occasional, Common or Very Common), upto(3), group(Unkillable), page(B95)
-Reincarnation, -20%, group(Unkillable), page(B95)
-Trigger, -5%/-15%/-25%, levelnames(Common or Very Common, Occasional, Rare), upto(3), group(Unkillable), page(B95)
+Achilles' Heel, -10%/-30%/-50%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
+Hindrance, -5%/-15%/-25%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
+Trigger, -5%/-15%/-25%, levelnames(Common, Occasional, Rare), upto(3), group(Unkillable), page(93)
 
 <Vibration Sense>
 Universal, +50%, group(Vibration Sense), page(B96)
@@ -5527,17 +5306,6 @@ Rarity: Common, *2, shortname(Common), group(Weakness), page(B161)
 Rarity: Very Common, *3, shortname(Very Common), group(Weakness), page(B161)
 Fatigue Only, -50%, group(Weakness), page(B161)
 Variable, -40%, group(Weakness), page(B161)
-
-<Wealth>
-Heir, +5/+10, page(B33), formula(@max(0, @int((@indexedvalue(me::level,10,20,30,(me::level-2)*25) - @indexedvalue(owner::level,10,20,30,(owner::level-2)*25))/2 + 0.9))), forceformula(yes),
-	upto(16), levelnames(Comfortable, Wealthy, Very Wealthy, Filthy Rich, Multimillionaire 1, Multimillionaire 2, Multimillionaire 3, Multimillionaire 4, Multimillionaire 5, Multimillionaire 6, Multimillionaire 7, Multimillionaire 8, Multimillionaire 9, Multimillionaire 10, Multimillionaire 11, Multimillionaire 12),
-	gives(=+((@indexedvalue(me::level, 10, 40, 190, (10^(me::level-1))-10) - @indexedvalue(owner::level, 10, 40, 190, (10^(me::level-1))-10))/2) To ST:Wealth Modifier)
-
-<Wild Talent>
-Retention, +25%, group(Wild Talent), page(B99)
-Emergencies Only, -30%, group(Wild Talent), page(B100)
-Focused, -20%, group(Wild Talent), page(B100),
-	x(#InputToTag("Please describe the nature of the Focus; e.g. Mental, Physical, Magical, or Chi:", nameext, , "Focused"))
 
 **************************************************************************
 [TEMPLATES]
