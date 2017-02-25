@@ -897,7 +897,7 @@ Teeth (Fangs), 2, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 Ultrahearing, 5, page(92), cat(Exotic, Physical, Racial), taboo(DI:Deafness),
 	skillused(ST:Perception, ST:Hearing), mode(Hear)
 
-Unkillable, 50/100, mods(Unkillable), page(B95), upto(2),
+Unkillable, 50/100, mods(Unkillable), page(92), upto(2),
 	cat(Exotic, Physical, Racial), taboo(DI:Unnaturally Fragile),
 	conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
 
@@ -925,12 +925,6 @@ Voice of Command IQ Bonus (+2 per level), 5/10, page(49), cat(Supernatural, Non-
 <Supernatural Mental>
 Channelling, 10, page(42), cat(Supernatural, Mental, Non-Racial)
 
-Clairsentience, 50, mods(Clairsentience), page(B42), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Sense)
-Dominance, 20, page(B50), cat(Supernatural, Mental)
-Healing, 30, mods(Healing), page(B59), cat(Supernatural, Mental),
-	skillused(ST:IQ), mode(Heal)
-					
 Magery 0, 5, page(44), cat(Supernatural, Mental, Non-Racial),
 	gives(+AD:Magery::level to me::skillscore),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
@@ -1052,9 +1046,10 @@ Voice, 10, gives(+2 To GR:VocalFeatures), page(30), cat(Mundane, Physical), tabo
 	conditional(+2 to ST:Reaction when "your voice can be heard")
 
 <Mundane Mental>
-Animal Empathy, 5, page(B40), cat(Empathic Abilities, Mundane, Mental), taboo(DI:Frightens Animals),
+Animal Empathy, 5, page(42), cat(Empathic Abilities, Mundane, Mental, Non-Racial), taboo(DI:Frightens Animals),
 	skillused(ST:IQ), mode(empathize)
-Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(B41), cat(Mundane, Mental)
+Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), cat(Mundane, Mental, Non-Racial),
+	conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(29)
 Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
 	page(42), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Combat Paralysis)
 Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental, Non-Racial),
@@ -1124,15 +1119,25 @@ Single-Minded, 5, page(46), cat(Mundane, Mental, Non-Racial), taboo(DI:Short Att
 
 * Talents
 Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
-	conditional(+1 to ST:Reaction), description(Animal Handling, Falconry, Packing, Riding, Teamster, Veterinary)
+	conditional(+1 to ST:Reaction when "dealing with animals"),
+	description(Animal Handling, Falconry, Packing, Riding, Teamster, Veterinary)
 Artificer, 10/20, gives(+1 To GR:Artificer), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
-	conditional(+1 to ST:Reaction), description(Armoury, Carpentry, Engineer, Masonry, Mechanic, Smith)
-Born to Hang
-Born War-Leader
+	conditional(+1 to ST:Reaction when "dealing with customers"),
+	description(Armoury, Carpentry, Engineer, Masonry, Mechanic, Smith)
+Born to Hang, 10/20, gives(+1 To GR:Born to Hang), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with other crooks who acknowledge skill"),
+	description(Larcenous Skills, Disguise, Fast-Talk, Fortune-Telling, Sleight of Hand)
+Born War-Leader, 5/10, gives(+1 To GR:Born War-Leader), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
+	conditional(+1 to ST:Reaction when "dealing with other veteran soldiers and warriors"),
+	description(Officer Skills, Leadership, Savoir-Faire (Military))
 Gifted Artist, 5/10, gives(+1 To GR:Gifted Artist), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
-	conditional(+1 to ST:Reaction), description(Artist, Jeweller, Leatherworking, Photography, Sewing)
+	conditional(+1 to ST:Reaction when "dealing with critics and connoisseurs"),
+	description(Artist, Jeweller, Leatherworking, Photography, Sewing)
 Healer, 10/20, gives(+1 To GR:Healer), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
-	conditional(+1 to ST:Reaction), description(Diagnosis, First Aid, Herbalism, Midwifery, Physician, Psychology, Surgery, Veterinary)
+	conditional(+1 to ST:Reaction when "dealing with patients (NOT doctors)"),
+	description(Diagnosis, First Aid, Herbalism, Midwifery, Physician, Psychology, Surgery, Veterinary)
+
+
 
 Mathematical Ability, 10/20, gives(+1 To GR:Mathematical Ability), page(B90), upto(4),
 	cat(Mundane, Mental, Talents), taboo(DI:Innumerate), conditional(+1 to ST:Reaction),
@@ -1148,7 +1153,7 @@ Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(B90), upto(4), cat
 	conditional(+1 to ST:Reaction), description(Acting, Carousing, Detect Lies, Diplomacy, Fast-Talk, Intimidation, Leadership, Panhandling, Politics, Public Speaking, Savoir-Faire, Sex Appeal, Streetwise)
 					
 
-_New Talent, %Costaliaslist%, displaycost(varies), page(B89), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
+_New Talent, %Costaliaslist%, displaycost(varies), page(47), upto(4), cat(Mundane, Mental, Talents), mods(_Talents),
 	gives(%skillsaliaslist%), conditional(+1 to ST:Reaction when "[bonus]"), noresync(yes),
 	x(#InputToTagReplace("Please enter the name of this Talent here:" , name, , "New Talent"),
 	#InputReplace("Please describe when the reaction bonus for this talent applies. e.g. if you type in ''recognized by an Engineer'' the bonus will be listed as ''+1 from Engineering Talent when recognized by an Engineer'':", "[bonus]", "talent matters", "New Talent"),
@@ -1185,22 +1190,8 @@ _New Talent, %Costaliaslist%, displaycost(varies), page(B89), upto(4), cat(Munda
 			),
 	#edit)
 	
-
-Trained By A Master, 30, page(B93), cat(Mundane, Mental)
-Unfazeable, 15, page(48), cat(Mundane, Mental, Non-Racial, Racial), taboo(AD:Fearlessness, DI:Fearfulness)
-Unusual Background, [cost], displaycost(varies), page(B96), cat(Mundane, Mental), noresync(yes),
-	x(#InputToTagReplace("Please describe the Unusual Background:" , nameext, ,"Unusual Background"),
-	#InputReplace("Please enter the Cost of this advantage:", "[cost]", "10", "Unusual Background")_
-		)
-					
-
-Versatile, 5, page(B96), cat(Mundane, Mental)
-Weapon Master, 20/25/30/35/40/45, levelnames(one specific weapon, two weapons normally used together, a small class of weapons, a medium class of weapons, a large class of weapons, all muscle powered weapons), page(B99), upto(6), cat(Mundane, Physical),
-	x(_
-		#InputToTagReplace("Please specify the weapon, weapons, or class of weapons you have Mastery of:", nameext, , "Weapon Master"),
-		#Message(In order for the Damage Bonus to be applied to the characters weapons you will need to add the Weapon Modifier "_Advantage: Weapon Master Damage Bonus" to each weapon.)_
-		)
-					
+Versatile, 5, page(49), cat(Mundane, Mental, Non-Racial)
+Versatile (Inspiration Magnet), 5, page(49), cat(Mundane, Mental, Non-Racial)
 
 <Wealth>
 Trading Character Points for Money, 1/2, gives(+@indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000) to ST:Money, +@indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000) to ST:Remaining Funds), page(B26), cat(Wealth)
@@ -3205,13 +3196,11 @@ AD:Animal Empathy
 AD:Animal Friend
 AD:Appearance
 AD:Artificer
-AD:Astral Projection Talent
-AD:Binding
+AD:Born to Hang
+AD:Born War-Leader
 AD:Brachiator
-AD:Breath-Holding
 AD:Cast-Iron Stomach
 AD:Catfall
-AD:Chameleon
 AD:Channelling
 AD:Chaos Talent
 AD:Charisma
@@ -3403,31 +3392,17 @@ AD:Tenure
 AD:Terror (Awe)
 AD:Terror (Confusion)
 AD:Terror
-AD:Time Mastery Talent
-AD:Toxic Attack
-AD:Trading Character Points for Money
-AD:Trained By A Master
 AD:True Faith
 AD:Ultrahearing
 AD:Unaging
 AD:Unfazeable
 AD:Universal Digestion
 AD:Unkillable
-AD:Unusual Background
-AD:Vacuum Support
-AD:Vampiric Bite
-AD:Vampirism Talent
 AD:Versatile
+AD:Versatile (Inspiration Magnet)
 AD:Very Rapid Healing
-AD:Vibration Sense
-AD:Visualization
 AD:Voice
-AD:Walk on Air
-AD:Walk on Liquid
 AD:Wealth
-AD:Weapon Master
-AD:Weather Control Talent
-AD:Wild Talent
 
 <AllPerks>
 PE:_New Perk
@@ -4152,6 +4127,27 @@ SK:Engineer
 SK:Masonry
 SK:Mechanic
 SK:Smith
+
+<Born to Hang>
+SK:Counterfeiting
+SK:Disguise
+SK:Fast-Talk
+SK:Filch
+SK:Forced Entry
+SK:Forgery
+SK:Fortune-Telling
+SK:Holdout
+SK:Lockpicking
+SK:Pickpocket
+SK:Sleight of Hand
+SK:Smuggling
+
+<Born War-Leader>
+SK:Intelligence Analysis
+SK:Leadership
+SK:Savoir-Faire (Military)
+SK:Strategy
+SK:Tactics
 
 <Charisma>
 SK:Fortune-Telling
@@ -5280,10 +5276,9 @@ Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
 Age Control, +20%, group(Unaging), page(B95)
 
 <Unkillable>
-Achilles' Heel, -10%/-30%/-50%, levelnames(Rare, Occasional, Common or Very Common), upto(3), group(Unkillable), page(B95)
-Hindrance, -5%/-15%/-25%, levelnames(Rare, Occasional, Common or Very Common), upto(3), group(Unkillable), page(B95)
-Reincarnation, -20%, group(Unkillable), page(B95)
-Trigger, -5%/-15%/-25%, levelnames(Common or Very Common, Occasional, Rare), upto(3), group(Unkillable), page(B95)
+Achilles' Heel, -10%/-30%/-50%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
+Hindrance, -5%/-15%/-25%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
+Trigger, -5%/-15%/-25%, levelnames(Common, Occasional, Rare), upto(3), group(Unkillable), page(93)
 
 <Vibration Sense>
 Universal, +50%, group(Vibration Sense), page(B96)
