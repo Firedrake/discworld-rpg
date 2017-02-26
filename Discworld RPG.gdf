@@ -2188,7 +2188,7 @@ Dislikes Cramped Conditions, -1, page(101), cat(Banshee, Racial)
 Dislikes Garlic, -1, page(110), cat(Non-Racial, Racial, Vampiric)
 Dislikes Water, -1, page(107), cat(Feline, Non-Racial, Racial)
 Distractible, -1, page(67), cat(Mental, Non-Racial)
-Doesn't Go Where Not Asked, -1, page(111), cat(Mental, Racial, Vampire)
+Doesn't Go Where Not Asked, -1, page(111), cat(Mental, Racial, Vampiric)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
 Dreamer, -1, page(67), cat(Mental, Non-Racial)
 Dull, -1, page(67), cat(Mental, Non-Racial)
@@ -2666,7 +2666,7 @@ Brawling, DX/E, page(82), parryat(@int(%level/2)+3), cat(_General, Melee Combat,
 				thr-1 + _
 				@if(me::level > ST:DX+1 then @basethdice(ST:Bite) else 0) + _
 				-@if("DI:Weak Bite::level" = 1 then 2 * @basethdice(ST:Bite) else 0)_
-				), damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE $if("AD:Vampiric Bite::level" = 1 THEN "cut" ELSE "cr"))))), reach(C), parry(No), skillused(SK:Brawling),
+				), damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE "cr")))), reach(C), parry(No), skillused(SK:Brawling),
 				damagebasedon(ST:Bite), reachbasedon(ST:Neck Reach)_
 		),
 	newmode(Kick, damage(_
@@ -3279,6 +3279,9 @@ AD:Fearlessness
 AD:Filter Lungs
 AD:Flexibility
 AD:Flight
+AD:Flight (Levitation)
+AD:Flight (Winged, Can Hover)
+AD:Flight (Winged, Cannot Hover)
 AD:Gadgeteer
 AD:Gifted Artist
 AD:Gizmo
@@ -6436,6 +6439,53 @@ creates(_
                    with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)},
           {DI:Vulnerability (Wooden Impaling Weapons), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=2 _
                    with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       )
+
+Bat - Vampire Alternate Form, displaycost(-53), cost(0),
+	description(Bat form), page(113), race(Bat Shape),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Flight (Winged, Cannot Hover)},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=5,
+       {AD:Sonar},
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {PE:Longevity},
+       {DI:Aerial},
+       {DI:Bad Grip}=3,
+       {DI:Bad Sight (Nearsighted)},
+       {DI:Cannot Speak},
+       {DI:Supernatural Feature (Blatantly Unnatural: No Reflection)},
+       {DI:Supernatural Feature (Mostly Concealed: No Body Heat)},
+       {DI:Weakness (Direct Sunlight)}=1 _
+                   with {"Rarity: Common", *2,shortname(Common),group(Weakness),page(98),level(1),valuenum(2)},
+       {DI:Weakness (Holy Water)}=1 _
+                   with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
+       {QU:Dislikes Garlic}_
+    ),
+	creates(_
+          {AD:Bat Alternate Form DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
+          {AD:Bat Alternate Form HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Bat Alternate Form Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {DI:Bat Alternate Form SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=4,
+          {DI:Bat Alternate Form ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=5,
+          {DI:Dread (Holy Symbols), -10,mods(Dread),page(95),tl(),usernotes(),familiarities(), cat(Supernatural, Mental, Racial, Vampire, Supernatural Mental)} _
+                   with {"Larger Radius", -1/-2,upto(10),group(Dread),page(95),levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards),level(2),valuenum(-2)} _
+                   and  {"Rarity: Common", *2,shortname(Common),group(Dread),page(95),level(1),valuenum(2)},
+          {DI:Dread (Running Water), -10,mods(Dread),page(95), cat(Supernatural, Mental, Racial, Vampire, Supernatural Mental)} _
+                   with {"Rarity: Occasional", *1,shortname(Occasional),group(Dread),level(1),valuenum(1)},
+          {DI:Restricted Diet (Blood), -10/-20/-30/-40,levelnames(Very Common, Common, Occasional, Rare),page(96),upto(4),taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink), cat(Mundane, Physical, Racial, Vampire, Mundane Physical)}=1,
+          {QU:Hates Any Strong Light, -1,noresync(yes),tl(),usernotes(),familiarities(), cat(General)}_
        )
 
 <Meta-Traits>
