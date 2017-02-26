@@ -494,7 +494,7 @@ Bite, display(no), mode(Bite), mods(Combat Table),
 		@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Bite) else 0) + _
 		-@if("DI:Weak Bite::level" = 1 then 2 * @basethdice(ST:Bite) else 0)_
 		),
-	damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE $if("AD:Vampiric Bite::level" = 1 THEN "cut" ELSE "cr"))))), reach(C), parry(No), skillused(ST:DX, SK:Brawling),
+	damtype($if("AD:Teeth (Sharp Teeth)::level" = 1 THEN "cut" ELSE $if("AD:Teeth (Sharp Beak)::level" = 1 THEN "pi+" ELSE $if("AD:Teeth (Fangs)::level" = 1 THEN "imp" ELSE "cr")))), reach(C), parry(No), skillused(ST:DX, SK:Brawling),
 	damagebasedon(ST:Bite), reachbasedon(ST:Neck Reach), basevalue(ST:ST)
 
 * Helper stats
@@ -654,6 +654,7 @@ _New Leveled Advantage, %Costaliaslist%, displaycost(varies), noresync(yes),
 				" 25/level",
 				" 30/level",
 				" 35/level",
+
 				" 40/level",
 				" 45/level",
 				" 50/level",
@@ -735,7 +736,7 @@ Dimension Shift, 80, page(88), cat(Exotic, Physical, Racial),
 	x(#InputToTagReplace("Specify the dimension to which you shift:", nameext, , "Dimension Shift")),
 	skillused(ST:IQ), mode(shift dimensions)
 Discriminatory Smell, 15, conditional(+4 to SK:Tracking when "scent is a factor", +4 to ST:Taste/Smell when "it involves Smell"),
-	mods(Discriminatory Smell), page(88), cat(Exotic, Physical, Racial), taboo("DI:No Sense of Smell/Taste"),
+	mods(Discriminatory Smell), page(88), cat(Exotic, Lycanthropic, Physical, Racial, Vampire), taboo("DI:No Sense of Smell/Taste"),
 	skillused(ST:IQ|ST:Taste/Smell+4), mode(memorize a scent|Smell)
 Doesn't Breathe, 20, mods(Doesn't Breathe), page(88), cat(Exotic, Physical, Racial)
 Doesn't Eat or Drink, 10, page(88), cat(Exotic, Physical, Racial),
@@ -755,9 +756,9 @@ Enhanced Move (Water), 10/20, gives(+0.5 To ST:Enhanced Water Move),
 	mods(Enhanced Move), page(89), cat(Exotic, Physical, Racial),
 	levelnames("1/2",1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20,20.5,21,21.5,22,22.5,23,23.5,24,24.5,25,25.5,26,26.5,27,27.5,28,28.5,29,29.5,30,30.5,31,31.5,32,32.5,33,33.5,34,34.5,35,35.5,36,36.5,37,37.5,38,38.5,39,39.5,40,40.5,41,41.5,42,42.5,43,43.5,44,44.5,45,45.5,46,46.5,47,47.5,48,48.5,49,49.5,50), upto(100)
 
-Flight (Levitation), 40, page(89), cat(Exotic, Physical, Racial),
+Flight (Levitation), 40, page(89), cat(Exotic, Physical, Racial, Vampire),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
-Flight (Winged, Can Hover), 30, page(89), cat(Exotic, Physical, Racial),
+Flight (Winged, Can Hover), 30, page(89), cat(Exotic, Physical, Racial, Vampire),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
 Flight (Winged, Cannot Hover), 24, page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
@@ -877,7 +878,8 @@ Sonar, 20, page(91), cat(Exotic, Physical, Racial),
 See Invisible (Magical), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
 See Invisible (Spirit), 15, page(46), cat(Exotic, Non-Racial, Physical, Supernatural)
 
-Alternate Form, 15/30, mods(Alternate Form), page(85), cat(Exotic, Physical, Racial), levelnames(,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100),
+Alternate Form, 15/30, mods(Alternate Form), page(85), cat(Exotic, Lycanthropic, Physical, Racial, Vampire),
+	levelnames(,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100),
 	x(_
 		#InputToTagReplace("Please specify the form or forms you can change into:", nameext, , "Alternate Form"),
 		#buildit_
@@ -889,31 +891,33 @@ Super Climbing, 6, page(91), cat(Exotic, Physical, Racial)
 Teeth (Blunt Teeth), 0, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)")
 Teeth (Sharp Teeth), 1, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
-	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
+	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Beak)", "AD:Teeth (Fangs)")
 Teeth (Sharp Beak), 1, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
-	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Fangs)", "AD:Vampiric Bite")
+	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Fangs)")
 Teeth (Fangs), 2, page(92), cat(Exotic, Physical, Natural Attacks, Racial),
 	taboo("AD:Teeth (Blunt Teeth)", "AD:Teeth (Sharp Teeth)", "AD:Teeth (Sharp Beak)")
-Ultrahearing, 5, page(92), cat(Exotic, Physical, Racial), taboo(DI:Deafness),
-	skillused(ST:Perception, ST:Hearing), mode(Hear)
+Ultrahearing, 5, page(92), cat(Canine, Exotic, Feline, Lycanthropic, Physical, Racial, Vampire),
+	taboo(DI:Deafness), skillused(ST:Perception, ST:Hearing), mode(Hear)
 
 Unkillable, 50/100, mods(Unkillable), page(92), upto(2),
-	cat(Exotic, Physical, Racial), taboo(DI:Unnaturally Fragile),
+	cat(Exotic, Physical, Racial, Vampire), taboo(DI:Unnaturally Fragile),
 	conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
 
 <Exotic Mental>
-Extra Life, 25/50, page(43), cat(Exotic, Mental, Non-Racial, Pawn of the Lady)
-Insubstantiality, 80, mods(Insubstantiality), page(89), cat(Exotic Physical, Exotic, Mental, Physical, Racial)
+Extra Life, 25/50, page(43), cat(Exotic, Mental, Non-Racial, Pawn of the Lady, Vampire)
+Insubstantiality, 80, mods(Insubstantiality), page(89),
+	cat(Exotic Physical, Exotic, Mental, Physical, Racial, Vampire)
 Invisibility, 40, mods(Invisibility), page(90), cat(Exotic, Mental, Racial),
 	conditional(+9 to SK:Stealth when "being seen would matter")
 Mind Shield, 4/8, page(45), cat(Exotic, Mental)
-Speak With Animals, 5/10/13/15/25, page(46), upto(5), cat(Exotic, Mental, Non-Racial),
+Speak With Animals, 5/10/13/15/25, page(46), upto(5), cat(Exotic, Mental, Non-Racial, Racial, Vampire),
 	levelnames("One Species", "One Family", "One Class", "All Land OR All Aquatic", "All Animals")
 Tracker Golem, 15, page(106), cat(Exotic, Mental, Racial),
 	skillused(ST:IQ)
 
 <Supernatural Physical>
-Supernatural Durability (Vulnerable to [vulnerability]), 150, page(91), cat(Supernatural, Physical, Racial),
+Supernatural Durability (Vulnerable to [vulnerability]), 150, page(91),
+	cat(Supernatural, Physical, Racial, Vampire),
 	taboo(DI:Low Pain Threshold, AD:High Pain Threshold),
 	skillused(ST:Will+3), mode(ignore pain),
 	x(#InputReplace("Specify the one thing that can kill you:", "[vulnerability]", , "Supernatural Durability"))
@@ -990,16 +994,16 @@ Absolute Direction, 5, displaycost(5), gives(=+3 To GR:Absolute Direction), page
 	cat(Mundane Mental, Mundane, Physical, Mental, Non-Racial, Racial)
 
 Acute Hearing, 2/4, gives(+1 To ST:Hearing), skillused(ST:Hearing), mode(hear), page(41),
-	cat(Mundane, Physical, Non-Racial, Racial), taboo(DI:Deafness)
+	cat(Mundane, Physical, Non-Racial, Racial, Vampire), taboo(DI:Deafness)
 Acute Taste and Smell, 2/4, gives(+1 To ST:Taste/Smell), skillused(ST:Taste/Smell), mode(taste/smell), page(41),
-	cat(Mundane, Physical, Non-Racial, Racial)
+	cat(Mundane, Physical, Non-Racial, Racial, Vampire)
 Acute Touch, 2/4, gives(+1 To ST:Touch), skillused(ST:Touch), mode(feel), page(41),
 	cat(Mundane, Physical, Non-Racial, Racial)
 Acute Vision, 2/4, gives(+1 To ST:Vision), skillused(ST:Vision), mode(see), page(41),
 	cat(Mundane, Physical, Non-Racial, Racial), taboo(DI:Blindness)
 
 Ambidexterity, 5, page(41), cat(Mundane, Physical, Non-Racial), taboo(DI:One Arm, DI:One Hand)
-Extra Attack, 25/50, page(42), cat(Mundane, Physical, Non-Racial)
+Extra Attack, 25/50, page(42), cat(Mundane, Physical, Non-Racial, Racial, Vampire)
 
 Flexibility, 5/15, displaycost(5), upto(2), levelnames(,Double-Jointed),
 	conditional(=@indexedvalue(me::level, 3, 5) To ST:DX when "ignoring penalties for working in close quarters",
@@ -1286,7 +1290,7 @@ Claim to Hospitality, 1/2/5/10, page(B41), upto(4), cat(Mundane, Non-Racial, Soc
 Clerical Investment, 5, page(B43), cat(Mundane, Non-Racial, Social), conditional(+1 to ST:Reaction)
 
 Congregation, 10/12/15, upto(3), levelnames(Up to 20, Up to 50, Up to 100),
-	cat(Mundane, Non-Racial, Social), page(38)
+	cat(Mundane, Non-Racial, Racial, Social, Vampire), page(38)
 
 Contact, 1/2/3/4, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
 	x(#InputToTag("Please describe the nature of the Contact:", nameext, , "Contact")),
@@ -1379,7 +1383,7 @@ Blade-Proof Bare-Chestedness, 1, page(50),
 	needs(DI:Compulsive Barbarian Heroism | DI:Odious Personal Habit (Barbarian Heroism)), cat(Non-Racial)
 Boredom Immunity, 1, page(93), cat(Racial)
 Check the Exits, 1, page(50), cat(Non-Racial)
-Climatic Emphasis, 1, page(50), cat(Non-Racial)
+Climatic Emphasis, 1, page(50), cat(Non-Racial, Racial, Vampiric)
 Cobblestone Sense ([whichcity]), 1, page(50), needs(SK:Area Knowledge([whichcity])), cat(Non-Racial),
 	x(#InputReplace("Specify the city which you know by touch:", "[whichcity]", , "Cobblestone Sense"))
 Cold Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Cold))
@@ -1401,7 +1405,7 @@ Fully-Dressed Resurrection, 1, page(93), needs(AD:Unkillable = 2),
 Fur, 1, page(93), cat(Racial)
 Good with (Animal), 1, page(51),
 	x(#InputToTagReplace("Specify the Animal you're good with:", nameext, , "Good with (Animal)")),
-	cat(Non-Racial)
+	cat(Non-Racial, Racial, Vampiric)
 Good with (Social Group), 1, page(51),
 	x(#InputToTagReplace("Specify the Social Group you're good with:", nameext, , "Good with (Social Group)")),
 	cat(Non-Racial)
@@ -1561,7 +1565,7 @@ Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4),
 
 Weak Bite, -2, page(98), cat(Exotic, Physical, Racial)
 
-Weakness, -20/-40, upto(12), mods(Weakness), page(98), cat(Exotic, Physical, Racial),
+Weakness, -20/-40, upto(12), mods(Weakness), page(98), cat(Exotic, Physical, Racial, Vampire),
 	levelnames("1d/minute damage", "2d/minute damage", "3d/minute damage", "4d/minute damage", "5d/minute damage", "6d/minute damage", "7d/minute damage", "8d/minute damage", "9d/minute damage", "10d/minute damage", "11d/minute damage", "12d/minute damage"),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Weakness) _
@@ -1571,7 +1575,8 @@ Weakness, -20/-40, upto(12), mods(Weakness), page(98), cat(Exotic, Physical, Rac
 Bestial, -10/-15, page(95), levelnames(, Really Unpleasant), cat(Exotic, Mental, Racial)
 
 <Supernatural Physical>
-Supernatural Feature (Mostly Concealed: [Feature]), -5, page(97), cat(Supernatural, Physical, Racial),
+Native Soil Bed, -30, page(112), cat(Supernatural, Physical, Racial, Vampire)
+Supernatural Feature (Mostly Concealed: [Feature]), -5, page(97), cat(Supernatural, Physical, Racial, Vampire),
 	conditional(-1 to ST:Reaction when "noticed"),
 	x(#InputReplace("Describe the Feature:", "[Feature]", , "Supernatural Feature"))
 Supernatural Feature (Blatantly Unnatural: [Feature]), -10, page(97), cat(Supernatural, Physical, Racial),
@@ -1587,21 +1592,21 @@ Supernatural Feature (Blatantly Unnatural: Deathly Pallor), -10, page(97), cat(S
 	conditional(-2 to ST:Reaction when "noticed")
 
 <Supernatural Mental>
-Dread, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial),
+Dread, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial, Vampire),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
 			),
 	x(#InputToTag("Specify the what it is you Dread:", nameext, , "Dread"))
-Fixation, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial),
+Fixation, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial, Vampire),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
 			),
 	x(#InputToTag("Specify what you Fixate on:", nameext, , "Fixation"))
-Frightens Animals, -10, page(96), cat(Supernatural, Mental, Racial), taboo(AD:Animal Empathy),
+Frightens Animals, -10, page(96), cat(Supernatural, Mental, Racial, Vampire), taboo(AD:Animal Empathy),
 	conditional(-4 to ST:Reaction when "animal is reacting", -1 to ST:Reaction when "someone sees how animals react to you, or has Animal Empathy")
 
 Uncontrollable Appetite, -15, mods(Self-Control, Uncontrollable Appetite),
-	page(98), cat(Supernatural, Mental, Racial),
+	page(98), cat(Supernatural, Mental, Racial, Vampire),
 	initmods(_
 			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53) _
 			),
@@ -1711,7 +1716,7 @@ One Eye, -15, page(B147), cat(Mundane, Physical), taboo(DI:No Depth Perception, 
 One Hand, -15, page(64), cat(Mundane, Physical),
 	taboo(DI:One Arm, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 Restricted Diet, -10/-20/-30/-40, levelnames(Very Common, Common, Occasional, Rare),
-	page(96), upto(4), cat(Mundane, Physical, Racial),
+	page(96), upto(4), cat(Mundane, Physical, Racial, Vampire),
 	taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink),
 	x(#InputToTag("Specify the unusual sustenance required:", nameext, , "Restricted Diet"))
 Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2),
@@ -1789,33 +1794,46 @@ Code of Honour (Klatchian), -10, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Pirate's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Professional), -5, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Soldier's), -10, page(57), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Vampire Who Plays Fair), -5, page(111), cat(Mundane, Mental, Racial, Vampire)
 Code of Honour (Watchman's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Wise-Woman's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 
-Compulsive Behavior, -5/-10, mods(Self-Control), page(B128), upto(3), cat(Mundane, Mental), levelnames(,,), 
+Compulsive Behavior, -5/-10, mods(Self-Control), page(58), upto(3), levelnames(,,),
+	cat(Mundane, Mental, Non-Racial, Racial, Vampire),
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x( #InputToTag("Specify the type of compulsive behavior:", nameext, , "Compulsive Behavior") )
-Compulsive Carousing, -5, mods(Self-Control), page(B128), cat(Mundane, Mental),
-	conditional(+1 to ST:Reaction when "from like-minded extroverts", -1 to ST:Reaction when "from sober-minded citizens (upto -4)"),
+Compulsive Barbarian Heroism, -10, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Compulsive Gambling, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), 
-	conditional(=$solver(@int(me::points/5)) to ST:Reaction),
+Compulsive Carousing, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Compulsive Generosity, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), taboo(DI:Miserliness), 
-	conditional(+1 to ST:Reaction when "from pios folks"),
+Compulsive Carousing (Puritannical Setting), -10, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Compulsive Lying, -15, mods(Self-Control), page(B128), cat(Mundane, Mental), taboo(DI:Truthfulness), 
+Compulsive Gambling, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Compulsive Spending, -5, mods(Self-Control), page(B128), cat(Mundane, Mental),
+Compulsive Lying, -15, mods(Self-Control), page(B128), cat(Mundane, Mental, Non-Racial), taboo(DI:Truthfulness), 
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Compulsive Neatness, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial, Racial, Vampire), 
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Compulsive Risk-Taking, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Compulsive Spending, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	conditional(_
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to SK:Merchant when "you bargain or haggle",
 			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to SK:Merchant when "you bargain or haggle",
 			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to SK:Merchant when "you bargain or haggle",
 			=@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to SK:Merchant when "you bargain or haggle" _
 			)
-
-Compulsive Vowing, -5, mods(Self-Control), page(B128), cat(Mundane, Mental), 
+Compulsive Vowing, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Confused, -10, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), 
@@ -1911,7 +1929,8 @@ Intolerance, -5/-10, upto(2), page(B140), cat(Mundane, Mental),
 
 Jealousy, -10, page(B140), cat(Mundane, Mental)
 
-Kleptomania, -15, mods(Self-Control), page(B141), cat(Mundane, Mental), 
+Kleptomania, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Laziness, -10, page(61), cat(Mundane, Mental)
@@ -1949,7 +1968,7 @@ Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
 	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Mental Limitations)
 
 Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal),
-	upto(2), page(62), cat(Mundane, Mental, Non-Racial, Obsessive Ideas),
+	upto(2), page(62), cat(Mundane, Mental, Non-Racial, Obsessive Ideas, Racial, Vampire),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTagReplace("Describe your Obsession:", nameext, , "Obsession"))
 
@@ -1973,7 +1992,7 @@ Paranoia, -10, page(59), cat(Delusions, Mundane, Mental), conditional(-2 to ST:R
 Phobia, -5/-10, upto(4), mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), levelnames(,,,), initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)), x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
 
 Phobia (%examplelist%), %examplecostlist%, displaycost(variable),
-	mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial, Phobias),
+	mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial, Phobias, Racial, Vampire),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#ChoiceList(_
 			name(example),
@@ -2033,12 +2052,11 @@ Squeamish, -10, mods(Self-Control), page(63), cat(Mundane, Mental, Non-Racial, P
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Stubbornness, -5, page(65), cat(Mundane, Mental, Non-Racial, Unsociable Flaws),
 	conditional(-1 to ST:Reaction when "attitude noticed")
-
 Totally Oblivious, -5, gives(-1 To GR:Oblivious), page(61),
 	taboo(DI:Oblivious, SK:Acting, SK:Fast-Talk, SK:Fortune-Telling, SK:Intimidation, SK:Interrogation, SK:Politics),
 	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"), cat(Mundane, Mental, Mental Limitations, Non-Racial)
-
-Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental),
+Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
+	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:Compulsive Lying), 
 	gives(-5 to SK:Fast-Talk),
@@ -2170,6 +2188,7 @@ Dislikes Cramped Conditions, -1, page(101), cat(Banshee, Racial)
 Dislikes Garlic, -1, page(110), cat(Non-Racial, Racial, Vampiric)
 Dislikes Water, -1, page(107), cat(Feline, Non-Racial, Racial)
 Distractible, -1, page(67), cat(Mental, Non-Racial)
+Doesn't Go Where Not Asked, -1, page(111), cat(Mental, Racial, Vampire)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
 Dreamer, -1, page(67), cat(Mental, Non-Racial)
 Dull, -1, page(67), cat(Mental, Non-Racial)
@@ -2944,6 +2963,7 @@ Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (
 Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
+
 Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	needs(SK:Magical Form (Elementalism)), page(203)
@@ -3686,9 +3706,11 @@ QU:Delusion
 QU:Delusion (Spelling my name backwards disguises it perfectly)
 QU:Dislikes [specify]
 QU:Dislikes Cramped Conditions
+QU:Dislikes Garlic
 QU:Dislikes Water
 QU:Distinctive Feature
 QU:Distractible
+QU:Doesn't Go Where Not Asked
 QU:Doggy Responses
 QU:Dreamer
 QU:Dull
@@ -6317,6 +6339,104 @@ Huge Troll, displaycost(190), cost(0),
           {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1_
        )
 
+Vampire (Female), displaycost(107), cost(0),
+	description(A baseline bloodsucker), page(109), race(Vampire),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Charisma}=1,
+       {AD:Doesn't Breathe},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=7,
+       {AD:Pressure-Proof},
+       {AD:Regeneration}=4 _
+                   with {"Requires Special Condition (Contact With Blood)", -40%,group(Regeneration),page(90),level(1),valuenum(-40),basedon(Requires Special Condition),basedgroup(Regeneration)},
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=2,
+       {AD:Unkillable}=2 _
+                   with {"Hindrance (Wooden Weapons)", -5%/-15%/-25%,levelnames(Rare, Occasional, Common),upto(3),group(Unkillable),page(93),level(3),valuenum(-25),basedon(Hindrance),basedgroup(Unkillable)} _
+                   and  {"Trigger (Contact With Blood)", -5%/-15%/-25%,levelnames(Common, Occasional, Rare),upto(3),group(Unkillable),page(93),level(1),valuenum(-5),basedon(Trigger),basedgroup(Unkillable)},
+       {PE:Longevity},
+       {DI:Supernatural Feature (Blatantly Unnatural: No Reflection)},
+       {DI:Supernatural Feature (Mostly Concealed: No Body Heat)},
+       {DI:Weakness (Direct Sunlight)}=3 _
+                   with {"Rarity: Common", *2,shortname(Common),group(Weakness),page(98),level(1),valuenum(2)},
+       {DI:Weakness (Holy Water)}=3 _
+                   with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
+       {QU:Dislikes Garlic}_
+    ),
+creates(_
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Vampire DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=3,
+          {AD:Vampire HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Vampire Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
+          {AD:Vampire ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=5,
+          {DI:Dread (Holy Symbols), -10,mods(Dread),page(95),tl(),usernotes(),familiarities(), cat(Supernatural, Mental, Racial, Supernatural Mental)} _
+                   with {"Larger Radius", -1/-2,upto(10),group(Dread),page(95),levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards),level(2),valuenum(-2)} _
+                   and  {"Rarity: Common", *2,shortname(Common),group(Dread),page(95),level(1),valuenum(2)},
+          {DI:Dread (Running Water), -10,mods(Dread),page(95), cat(Supernatural, Mental, Racial, Supernatural Mental)} _
+                   with {"Rarity: Occasional", *1,shortname(Occasional),group(Dread),level(1),valuenum(1)},
+          {DI:Restricted Diet (Blood), -10/-20/-30/-40,levelnames(Very Common, Common, Occasional, Rare),page(96),upto(4),taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink), cat(Mundane, Physical, Racial, Mundane Physical)}=1,
+          {DI:Vulnerability (Cutting Attacks to the Neck), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=2 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)},
+          {DI:Vulnerability (Wooden Impaling Weapons), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=2 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       )
+
+Vampire (Male), displaycost(108), cost(0),
+	description(A baseline bloodsucker), page(109), race(Vampire),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Charisma}=1,
+       {AD:Doesn't Breathe},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=7,
+       {AD:Pressure-Proof},
+       {AD:Regeneration}=4 _
+                   with {"Requires Special Condition (Contact With Blood)", -40%,group(Regeneration),page(90),level(1),valuenum(-40),basedon(Requires Special Condition),basedgroup(Regeneration)},
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=2,
+       {AD:Unkillable}=2 _
+                   with {"Hindrance (Wooden Weapons)", -5%/-15%/-25%,levelnames(Rare, Occasional, Common),upto(3),group(Unkillable),page(93),level(3),valuenum(-25),basedon(Hindrance),basedgroup(Unkillable)} _
+                   and  {"Trigger (Contact With Blood)", -5%/-15%/-25%,levelnames(Common, Occasional, Rare),upto(3),group(Unkillable),page(93),level(1),valuenum(-5),basedon(Trigger),basedgroup(Unkillable)},
+       {PE:Fully-Dressed Resurrection},
+       {PE:Longevity},
+       {DI:Supernatural Feature (Blatantly Unnatural: No Reflection)},
+       {DI:Supernatural Feature (Mostly Concealed: No Body Heat)},
+       {DI:Weakness (Direct Sunlight)}=3 _
+                   with {"Rarity: Common", *2,shortname(Common),group(Weakness),page(98),level(1),valuenum(2)},
+       {DI:Weakness (Holy Water)}=3 _
+                   with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
+       {QU:Dislikes Garlic}_
+    ),
+creates(_
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Vampire DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=3,
+          {AD:Vampire HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Vampire Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
+          {AD:Vampire ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=5,
+          {DI:Dread (Holy Symbols), -10,mods(Dread),page(95),tl(),usernotes(),familiarities(), cat(Supernatural, Mental, Racial, Supernatural Mental)} _
+                   with {"Larger Radius", -1/-2,upto(10),group(Dread),page(95),levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards),level(2),valuenum(-2)} _
+                   and  {"Rarity: Common", *2,shortname(Common),group(Dread),page(95),level(1),valuenum(2)},
+          {DI:Dread (Running Water), -10,mods(Dread),page(95), cat(Supernatural, Mental, Racial, Supernatural Mental)} _
+                   with {"Rarity: Occasional", *1,shortname(Occasional),group(Dread),level(1),valuenum(1)},
+          {DI:Restricted Diet (Blood), -10/-20/-30/-40,levelnames(Very Common, Common, Occasional, Rare),page(96),upto(4),taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink), cat(Mundane, Physical, Racial, Mundane Physical)}=1,
+          {DI:Vulnerability (Cutting Attacks to the Neck), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=2 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)},
+          {DI:Vulnerability (Wooden Impaling Weapons), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=2 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       )
 
 <Meta-Traits>
 _New Meta-Trait, displaycost(variable), cost(0), gives(),
@@ -7735,6 +7855,7 @@ Weapon Quality: Fine, *4, gives(*1.2 to owner::rangehalfdam listas "Increased Ra
 _New Ranged Attack Mode, 0, group(Bow Quality), noresync(yes),
 	addmode(_New Ranged Attack Mode, 
 		damage([damage]),
+
 		damtype([damagetype]),
 		armourdivisor([armourdivisor]),
 		acc([accuracy]),
@@ -8197,6 +8318,8 @@ Variant: Receives Skill Bonus, +0/+0, group(Equipment), gives(+1 to owner::skill
 	x(#Message("This item receives a skill bonus when used. Adding this modifier will give a bonus to the Skill Level listing (e.g. the Level Column on the Weapons Tables), but will not affect the level under Skills. For that take the 'Equipment: Gives Skill Bonus' modifier."))
 Variant: Receives Skill Penalty, +0/+0, group(Equipment), gives(-1 to owner::skillscore), shortname(Receives Skill Bonus),
 	x(#Message("This item receives a skill penalty when used. Adding this modifier will give a bonus to the Skill Level listing (e.g. the Level Column on the Weapons Tables), but will not affect the level under Skills. For that take the 'Equipment: Gives Skill Bonus' modifier."))
+
+
 
 
 
