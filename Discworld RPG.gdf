@@ -1559,10 +1559,10 @@ Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4),
 		#buildit _
 		)
 
-Weak Bite, -2, page(B161), cat(Exotic, Physical)
+Weak Bite, -2, page(98), cat(Exotic, Physical, Racial)
 
-Weakness, -5/-10/-20, upto(3), levelnames(1d per 30 minutes, 1d per 5 minutes, 1d per minute),
-	mods(Weakness), page(B161), cat(Exotic, Physical),
+Weakness, -20/-40, upto(12), mods(Weakness), page(98), cat(Exotic, Physical, Racial),
+	levelnames("1d/minute damage", "2d/minute damage", "3d/minute damage", "4d/minute damage", "5d/minute damage", "6d/minute damage", "7d/minute damage", "8d/minute damage", "9d/minute damage", "10d/minute damage", "11d/minute damage", "12d/minute damage"),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Weakness) _
 			)
@@ -1570,14 +1570,7 @@ Weakness, -5/-10/-20, upto(3), levelnames(1d per 30 minutes, 1d per 5 minutes, 1
 <Exotic Mental>
 Bestial, -10/-15, page(95), levelnames(, Really Unpleasant), cat(Exotic, Mental, Racial)
 
-Reprogrammable, -10, page(B150), cat(Exotic, Mental)
-
 <Supernatural Physical>
-Draining, -5/-10/-15, mods(Draining), levelnames(Common, Occasional, Rare), upto(3), page(B132), cat(Supernatural, Physical)
-
-Infectious Attack, -5, page(B140), cat(Supernatural, Physical)
-Revulsion, -5/-10/-15, levelnames(Occasional, Common, Very Common), upto(3), page(B151), cat(Supernatural, Physical)
-
 Supernatural Feature (Mostly Concealed: [Feature]), -5, page(97), cat(Supernatural, Physical, Racial),
 	conditional(-1 to ST:Reaction when "noticed"),
 	x(#InputReplace("Describe the Feature:", "[Feature]", , "Supernatural Feature"))
@@ -1593,24 +1586,22 @@ Supernatural Feature (Blatantly Unnatural: No Shadow), -10, page(97), cat(Supern
 Supernatural Feature (Blatantly Unnatural: Deathly Pallor), -10, page(97), cat(Supernatural, Physical, Racial),
 	conditional(-2 to ST:Reaction when "noticed")
 
-
 <Supernatural Mental>
-Cursed, -75, page(B129), cat(Supernatural, Mental)
-
-Destiny, -5/-10/-15, levelnames(Minor, Major, Great), upto(3), page(B131), cat(Supernatural, Mental)
-
-Dread, -10, mods(Dread), page(B133), cat(Supernatural, Mental),
+Dread, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
-			)
-Frightens Animals, -10, page(B137), cat(Supernatural, Mental), taboo(AD:Animal Empathy),
+			),
+	x(#InputToTag("Specify the what it is you Dread:", nameext, , "Dread"))
+Fixation, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial),
+	initmods(_
+			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
+			),
+	x(#InputToTag("Specify what you Fixate on:", nameext, , "Fixation"))
+Frightens Animals, -10, page(96), cat(Supernatural, Mental, Racial), taboo(AD:Animal Empathy),
 	conditional(-4 to ST:Reaction when "animal is reacting", -1 to ST:Reaction when "someone sees how animals react to you, or has Animal Empathy")
-Lifebane, -10, page(B142), cat(Supernatural, Mental),
-	conditional(-2 to ST:Reaction)
-Magic Susceptibility, -3/-6, page(B143), cat(Supernatural, Mental), taboo(AD:Magic Resistance)
-Supersensitive, -15, page(B158), cat(Supernatural, Mental)
 
-Uncontrollable Appetite, -15, mods(Self-Control), page(B159), cat(Supernatural, Mental),
+Uncontrollable Appetite, -15, mods(Self-Control, Uncontrollable Appetite),
+	page(98), cat(Supernatural, Mental, Racial),
 	initmods(_
 			You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53) _
 			),
@@ -2176,6 +2167,7 @@ Delusion (Spelling my name backwards disguises it perfectly), -1, page(99), cat(
 Dislikes [specify], -1, page(67), cat(Mental, Non-Racial),
 	x(#InputReplace("Specify what the character dislikes:", "[specify]", , "Dislikes"))
 Dislikes Cramped Conditions, -1, page(101), cat(Banshee, Racial)
+Dislikes Garlic, -1, page(110), cat(Non-Racial, Racial, Vampiric)
 Dislikes Water, -1, page(107), cat(Feline, Non-Racial, Racial)
 Distractible, -1, page(67), cat(Mental, Non-Racial)
 Doggy Responses, -1, page(99), cat(Canine, Lycanthropic, Racial)
@@ -3642,6 +3634,12 @@ DI:Stubbornness
 DI:Sulphurholism
 DI:Sulphurholism (Withdrawn)
 DI:Supernatural Feature
+DI:Supernatural Feature (Mostly Concealed: [Feature])
+DI:Supernatural Feature (Blatantly Unnatural: [Feature])
+DI:Supernatural Feature (Mostly Concealed: No Body Heat)
+DI:Supernatural Feature (Blatantly Unnatural: No Reflection)
+DI:Supernatural Feature (Blatantly Unnatural: No Shadow)
+DI:Supernatural Feature (Blatantly Unnatural: Deathly Pallor)
 DI:Supersensitive
 DI:Susceptible to [Common]
 DI:Susceptible to [Occasional]
@@ -4533,6 +4531,7 @@ Dangerous, *1.5, group(Trigger), page(B115)
 ESP, -10%, group(_Psionic Power Modifier), page(B255)
 Telepathic, -10%, group(_Psionic Power Modifier), page(B257)
 Psionic Teleportation, -10%, group(_Psionic Power Modifier), page(B257)
+
 Psychic Healing, -10%, group(_Psionic Power Modifier), page(B256)
 Psychokinetic, -10%, group(_Psionic Power Modifier), page(B256)
 
@@ -4693,12 +4692,12 @@ Group of Dependents, *2, group(Dependent), page(B131)
 Emotion Sense, +8, group(Discriminatory Smell), page(88)
 
 <Dread>
-Larger Radius, -1/-2, upto(10), levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards), group(Dread), page(B133)
-Rarity: Rare, *1/2, shortname(Rare), group(Dread), page(B133)
-Rarity: Occasional, *1, shortname(Occasional), group(Dread), page(B133)
-Rarity: Common, *2, shortname(Common), group(Dread), page(B133)
-Rarity: Very Common, *3, shortname(Very Common), group(Dread), page(B133)
-Cannot Be Trapped, -50%, group(Dread), page(B133)
+Larger Radius, -1/-2, upto(10), group(Dread), page(95),
+	levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards)
+Rarity: Rare, *1/2, shortname(Rare), group(Dread), page(95)
+Rarity: Occasional, *1, shortname(Occasional), group(Dread), page(95)
+Rarity: Common, *2, shortname(Common), group(Dread), page(95)
+Rarity: Very Common, *3, shortname(Very Common), group(Dread), page(95)
 
 <Duty>
 Extremely Hazardous, -5, group(Duty), page(B134)
@@ -4784,23 +4783,10 @@ Frequency: no roll required (Constantly), *4, shortname(Constantly), group(Frequ
 Maximum Size Only, +0%, group(Growth), page(B58)
 
 <Hard of Hearing>
-Mitigator: Hearing Aid, -60%, group(Hard of Hearing), page(B112), shortname(Hearing Aid), mitigator(yes)
-//, gives(+4 to ST:Hearing)
+Mitigator (Ear Trumpet), -60%, group(Hard of Hearing), page(B112), shortname(Ear Trumpet), mitigator(yes)
 
 <Deafness>
-Mitigator: Hearing Aid, -60%, group(Deafness), page(B112), shortname(Hearing Aid), mitigator(yes)
-//, gives(+ST:Perception to ST:Hearing)
-
-<No Sense of Smell/Taste>
-Mitigator: Artificial Tongue, -60%, group(No Sense of Smell/Taste), shortname(Artificial Tongue), mitigator(yes)
-//, gives(+"ST:Taste/Smell::basescore" to "ST:Taste/Smell")
-
-<Healing>
-Faith Healing, +20%, group(Healing), page(B59)
-Xenohealing, +20%/+40%, levelnames(All Mammals, All Earthly Life, All Carbon-Based Life, Anything Alive, Anything Animate), upto(5), group(Healing), page(B59)
-Disease Only, -40%, group(Healing), page(B59)
-Injuries Only, -20%, group(Healing), page(B59)
-Own Race Only, -20%, group(Healing), page(B59)
+Mitigator (Ear Trumpet), -60%, group(Deafness), page(B112), shortname(Ear Trumpet), mitigator(yes)
 
 <Infravision>
 Unswitchable, *0, group(Infravision), page(B60)
@@ -4846,8 +4832,7 @@ Diplomatic pouch privileges, +5, group(Legal Immunity), page(B65)
 Doesn't affect Basic Lift, 0, gives(-owner::level to ST:Lifting ST)
 
 <Missing Legs>
-Mitigator: Prosthetic Leg, -60%, group(Missing Legs), page(B112), shortname(Prosthetic Leg), mitigator(yes)
-//, gives(+6 to "CL:Melee Combat")
+Mitigator (Prosthetic Leg), -60%, group(Missing Legs), page(B112), shortname(Prosthetic Leg), mitigator(yes)
 
 <Money>
 5% of Starting Wealth, +0
@@ -5183,13 +5168,6 @@ Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:ST::level > 0 THEN ST:Size Mo
 <Status>
 Heir, +3/+5, page(B33), formula(@int(me::level * 2.5 + 0.9)), forceformula(yes), gives(=+@int(me::level/2) to ST:Status), upto(8 - owner::level)
 
-<Super-Memorization>
-_Per point of abilities, 5+3/point, formula(5+(me::level*3)), forceformula(yes), group(Super-Memorization), page(B71), mods(Modular Abilities),
-	x(_
-		#InputToTagReplace("Specify the name of this Modular slot",name,"Slot 2",Super-Memorization),
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Super-Memorization) _
-	), level([level]) 
-
 <_Talents>
 Gives Skill Bonus to %skillslist%, +0, gives(%skillsaliaslist%), shortname(%skillslist%),
 	x(_
@@ -5252,16 +5230,14 @@ Always On, -20%, group(Terror), page(B93)
 Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
 	page(98), mitigator(yes), shortname(Sunscreen), mitigator(yes)
 
-<Unaging>
-Age Control, +20%, group(Unaging), page(B95)
+<Uncontrollable Appetite>
+Mitigator (Displacement Focus), -60%, group(Uncontrollable Appetite),
+	page(114), mitigator(yes), shortname(Mitigating Focus), mitigator(yes)
 
 <Unkillable>
 Achilles' Heel, -10%/-30%/-50%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
 Hindrance, -5%/-15%/-25%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
 Trigger, -5%/-15%/-25%, levelnames(Common, Occasional, Rare), upto(3), group(Unkillable), page(93)
-
-<Vibration Sense>
-Universal, +50%, group(Vibration Sense), page(B96)
 
 <Voice of Command>
 Only affects [verylargegroup], -5, shortname([verylargegroup] Only), page(49),
@@ -5300,12 +5276,10 @@ Naked, -30%, group(Warp), page(B99)
 Range Limit, -5%/-10%, levelnames("100,000 miles", "10,000 miles", "1,000 miles", 100 miles, 10 miles, 2 miles, 500 yards, 100 yards, 20 yards, 10 yards), upto(10), group(Warp), page(B99)
 
 <Weakness>
-Rarity: Rare, *1/2, shortname(Rare), group(Weakness), page(B161)
-Rarity: Occasional, *1, shortname(Occasional), group(Weakness), page(B161)
-Rarity: Common, *2, shortname(Common), group(Weakness), page(B161)
-Rarity: Very Common, *3, shortname(Very Common), group(Weakness), page(B161)
-Fatigue Only, -50%, group(Weakness), page(B161)
-Variable, -40%, group(Weakness), page(B161)
+Rarity: Rare, *1/2, shortname(Rare), group(Weakness), page(98)
+Rarity: Occasional, *1, shortname(Occasional), group(Weakness), page(98)
+Rarity: Common, *2, shortname(Common), group(Weakness), page(98)
+Rarity: Very Common, *3, shortname(Very Common), group(Weakness), page(98)
 
 **************************************************************************
 [TEMPLATES]
@@ -6661,7 +6635,7 @@ _New Firearm, noresync(yes),
 					),
 				aliaslist(_
 						"",
-						"â€  ",
+						"â€  ",
 						"â€¡"_
 					)_
 				),
@@ -6726,7 +6700,7 @@ _New Melee Weapon, noresync(yes),
 					),
 				aliaslist(_
 						"",
-						"â€  ",
+						"â€  ",
 						"â€¡"_
 					)_
 				),
@@ -6780,7 +6754,7 @@ _New Muscle-Powered Ranged Weapon, noresync(yes),
 					),
 				aliaslist(_
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -7078,7 +7052,7 @@ Large Mule, page(B460), st(22), dx(10), iq(3), ht(12), will(12), per(12), speed(
 Racehorse, page(B460), st(20), dx(9), iq(3), ht(11), will(11), per(11), speed(5), dodge(8), move(9), sm(+1), size(3 hexes), weight(1100 lbs.), traits(Domestic Animal; Enhanced Move 1 (Ground Speed 18); Hooves; Peripheral Vision; Quadruped; Weak Bite.), skills(), basecost(200), description(ST:20 DX:9 IQ:3 HT:11 Will:11 Per:11 Speed:5 Dodge:8 Move:9 SM:+1 (3 hexes); 1100 lbs. Traits: Domestic Animal; Enhanced Move 1 (Ground Speed 18); Hooves; Peripheral Vision; Quadruped; Weak Bite. Notes: Racing horse.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 Oxen, page(B460), st(27), dx(8), iq(3), ht(12), will(12), per(10), speed(5), dodge(8), move(4), sm(+2), size(3 hexes), weight(2500 lbs.), traits(Domestic Animal; DR 2 (Skull only); Enhanced Move 1 (Ground Speed 8); Impaling Striker (Horns); Neutered; Quadruped; Weak Bite.), skills(), basecost(75), description(ST:27 DX:8 IQ:3 HT:12 Will:12 Per:10 Speed:5 Dodge:8 Move:4 SM:+2 (3 hexes); 2500 lbs. Traits: Domestic Animal; DR 2 (Skull only); Enhanced Move 1 (Ground Speed 8); Impaling Striker (Horns); Neutered; Quadruped; Weak Bite. Notes: Oxen are steers trained to work in the fields. They are hardier and easier to keep than horses.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 Large Guard Dog, page(B457), st(9), dx(10), iq(4), ht(12), will(10), per(12), speed(5.75), dodge(8), move(10), sm(0), size(), weight(90 lbs.), traits(Chummy; Discriminatory Smell; Domestic Animal; Quadruped; Sharp Teeth.), skills(Brawling-13; Tracking-13 (bloodhounds have Tracking-15 or better!).), basecost(10), description(ST:9 DX:10 IQ:4 HT:12 Will:10 Per:12 Speed:5.75 Dodge:8 Move:10 SM:0; 90 lbs. Traits: Chummy; Discriminatory Smell; Domestic Animal; Quadruped; Sharp Teeth. Skills: Brawling-13; Tracking-13 (bloodhounds have Tracking-15 or better!). Notes: There are many breeds of dog; statistics can vary greatly. Cost ranges from neg. to $500+. A healthy, trained dog - even a mongrel - is always worth at least $10.), baseweight(0), mods(Equipment, Animal), cat(Basic Set, Basic Set - Animals)
-Large Falcon, page(B457), st(3), dx(14), iq(3), ht(10), will(10), per(12), speed(6), dodge(9), move(2), sm(-4), size(), weight(5 lbs.), traits(Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); Sharp Beak; Sharp Claws.), skills(Brawling-16.), basecost(0), description(ST:3 DX:14 IQ:3 HT:10 Will:10 Per:12 Speed:6 Dodge:9 Move:2 SM:-4; 5 lbs. Traits: Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); Sharp Beak; Sharp Claws. Skills: Brawling-16. Notes: These birds of prey are commonly used for sport hunting. A trained falcon â€“ or one disturbed by a stranger â€“ might attack a human. A diving falcon can reach Move 70!), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
+Large Falcon, page(B457), st(3), dx(14), iq(3), ht(10), will(10), per(12), speed(6), dodge(9), move(2), sm(-4), size(), weight(5 lbs.), traits(Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); Sharp Beak; Sharp Claws.), skills(Brawling-16.), basecost(0), description(ST:3 DX:14 IQ:3 HT:10 Will:10 Per:12 Speed:6 Dodge:9 Move:2 SM:-4; 5 lbs. Traits: Acute Vision 3; Domestic (or Wild) Animal; Enhanced Move 1 (Air Speed 24); Flight (Winged; Air Move 12); Sharp Beak; Sharp Claws. Skills: Brawling-16. Notes: These birds of prey are commonly used for sport hunting. A trained falcon â€" or one disturbed by a stranger â€" might attack a human. A diving falcon can reach Move 70!), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 House Cat, page(B456), st(4), dx(14), iq(4), ht(10), will(11), per(12), speed(6), dodge(10), move(10), sm(-3), size(), weight(10 lbs.), traits(Catfall; Combat Reflexes; Domestic Animal; Night Vision 5; Quadruped; Sharp Claws; Sharp Teeth.), skills(Brawling-16; Jumping-14; Stealth-14.), basecost(0), description(ST:4 DX:14 IQ:4 HT:10 Will:11 Per:12 Speed:6 Dodge:10 Move:10 SM:-3; 10 lbs. Traits: Catfall; Combat Reflexes; Domestic Animal; Night Vision 5; Quadruped; Sharp Claws; Sharp Teeth. Skills: Brawling-16; Jumping-14; Stealth-14. Notes: A domestic feline, kept as a pet, familiar, or mouser.), baseweight(0), mods(Equipment, Animal), cat(GURPS Basic Set, GURPS Basic Set - Animals)
 
 <Discworld RPG, Discworld RPG - Animals - Equestrian Gear>
@@ -7124,9 +7098,9 @@ Coach, basecost(5500), techlvl(4), description(TL:4 Skill:Teamster ST/HP:53! Hnd
 Locomotive, basecost(2250), techlvl(5), description(TL:5 Skill:Driving/TL (Locomotive) ST/HP:152 Hnd/SR:-2/5 HT:11 Move:1/35â€¡ Lwt:28 Load:0.2 SM:+5 Occ:1+1 DR:8 Range:700 Locations: 8W), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Ground, GURPS Basic Set - Vehicles)
 
 <GURPS Basic Set, GURPS Basic Set - Vehicles, GURPS Basic Set - Vehicles - Watercraft>
-Canoe, basecost(10), techlvl(0), description(TL:0 Skill:Boating/TL (Unpowered) ST/HP:23â€  Hnd/SR:+1/1 HT:12c Move:2/2 Lwt:0.3 Load:0.2 SM:+1 Occ:2 DR:2 Range:F Locations: O Draft:3), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
-Penteconter, basecost(700), techlvl(2), description(TL:2 Skill:Shiphandling/TL (Ship) ST/HP:85â€  Hnd/SR:-4/3 HT:11c Move:1/5 Lwt:12.5 Load:7.5 SM:+8 Occ:55 DR:3 Range:F Locations: MO Draft:6 Notes: A "penteconter" is a war galley with a sail and a single bank of oars, favored by raiders and pirates. Using oars, with 50 rowers. Under sail, range is "--" and Move is 1/4 in a fair wind. Has a bronze ram, which adds +1 per die of collision damage.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
-Cog, basecost(1150), techlvl(3), description(TL:3 Skill:Shiphandling/TL (Ship) ST/HP:147â€  Hnd/SR:-3/4 HT:12c Move:0.1/4 Lwt:85 Load:60 SM:+7 Occ:18 DR:5 Range:-- Locations: M Draft:13 Notes: A "cog" (or "roundship") is a single-masted sailing ship. Weight includes ballast.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
+Canoe, basecost(10), techlvl(0), description(TL:0 Skill:Boating/TL (Unpowered) ST/HP:23â€  Hnd/SR:+1/1 HT:12c Move:2/2 Lwt:0.3 Load:0.2 SM:+1 Occ:2 DR:2 Range:F Locations: O Draft:3), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
+Penteconter, basecost(700), techlvl(2), description(TL:2 Skill:Shiphandling/TL (Ship) ST/HP:85â€  Hnd/SR:-4/3 HT:11c Move:1/5 Lwt:12.5 Load:7.5 SM:+8 Occ:55 DR:3 Range:F Locations: MO Draft:6 Notes: A "penteconter" is a war galley with a sail and a single bank of oars, favored by raiders and pirates. Using oars, with 50 rowers. Under sail, range is "--" and Move is 1/4 in a fair wind. Has a bronze ram, which adds +1 per die of collision damage.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
+Cog, basecost(1150), techlvl(3), description(TL:3 Skill:Shiphandling/TL (Ship) ST/HP:147â€  Hnd/SR:-3/4 HT:12c Move:0.1/4 Lwt:85 Load:60 SM:+7 Occ:18 DR:5 Range:-- Locations: M Draft:13 Notes: A "cog" (or "roundship") is a single-masted sailing ship. Weight includes ballast.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
 
 <Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, _Melee Weapons - Discworld RPG>
 Axe, techlvl(0), break(0), basecost(3), baseweight(4), page(151, 153), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Dwarf Weapons), mods(Equipment, Melee Quality, Cutting Class Quality), calcrange(yes),
@@ -7189,13 +7163,13 @@ Small Wooden Stake, techlvl(0), break(0), basecost(2), baseweight(1), page(150),
 Halberd, techlvl(3), break(0), basecost(7.50), baseweight(12), page(151), mods(Equipment, Melee Quality, Cutting Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
 	newmode(Swing/cut, damage(sw+5), damtype(cut), reach(2,3*), parry(0U), minst(13â€¡), skillused(SK:Polearm, ST:DX-5)),
 	newmode(Swing/imp, damage(sw+4), damtype(imp), reach(2,3*), parry(0U), minst(13â€¡), notes([2]), skillused(SK:Polearm, ST:DX-5)),
-	newmode(Thrust, damage(thr+3), damtype(imp), reach(1-3*), parry(0U), minst(12â€ ), skillused(SK:Polearm, ST:DX-5)),
+	newmode(Thrust, damage(thr+3), damtype(imp), reach(1-3*), parry(0U), minst(12â€ ), skillused(SK:Polearm, ST:DX-5)),
 	itemnotes({}|{May get stuck; see p. 152.}|{}),
-	description(TL:3, [Mode:swing/cut Dam:sw+5 cut Reach:2,3* Parry:0U ST:13â€¡ Skill:Polearm Notes: Requires two hands; becomes unready after attack.], [Mode:swing/imp Dam:sw+4 imp Reach:2,3* Parry:0U ST:13â€¡ Skill:Polearm Notes: [2] Requires two hands; becomes unready after attack. May get stuck; see p. 152.], [Mode:thrust Dam:thr+3 imp Reach:1-3* Parry:0U ST:12â€  Skill:Polearm Notes: Requires two hands.])
+	description(TL:3, [Mode:swing/cut Dam:sw+5 cut Reach:2,3* Parry:0U ST:13â€¡ Skill:Polearm Notes: Requires two hands; becomes unready after attack.], [Mode:swing/imp Dam:sw+4 imp Reach:2,3* Parry:0U ST:13â€¡ Skill:Polearm Notes: [2] Requires two hands; becomes unready after attack. May get stuck; see p. 152.], [Mode:thrust Dam:thr+3 imp Reach:1-3* Parry:0U ST:12â€  Skill:Polearm Notes: Requires two hands.])
 Short Glaive, techlvl(3), break(0), basecost(4), baseweight(6), page(151), mods(Equipment, Melee Quality, Cutting Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
 	newmode(Swing, damage(sw+2), damtype(cut), reach(1,2*), parry(0U), minst(9â€¡), skillused(SK:Polearm, ST:DX-5)),
-	newmode(Thrust, damage(thr+3), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Polearm, ST:DX-5)),
-	description(TL:3, [Mode:swing Dam:sw+2 cut Reach:1,2* Parry:0U ST:9â€¡ Skill:Polearm Notes: Requires two hands; becomes unready after attack.], [Mode:thrust Dam:thr+3 imp Reach:1,2* Parry:0 ST:9â€  Skill:Polearm Notes: Requires two hands.])
+	newmode(Thrust, damage(thr+3), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Polearm, ST:DX-5)),
+	description(TL:3, [Mode:swing Dam:sw+2 cut Reach:1,2* Parry:0U ST:9â€¡ Skill:Polearm Notes: Requires two hands; becomes unready after attack.], [Mode:thrust Dam:thr+3 imp Reach:1,2* Parry:0 ST:9â€  Skill:Polearm Notes: Requires two hands.])
 Rapier, techlvl(4), break(0), basecost(25), baseweight(2.75), page(151), mods(Equipment, Melee Quality, Sword Class Quality), damage(thr+1), damtype(imp), reach(1,2), parry(0F), minst(9), skillused(SK:Rapier, ST:DX-5), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
 	description(TL:4, Dam:thr+1 imp Reach:1,2 Parry:0F ST:9 Skill:Rapier)
 Small Truncheon, techlvl(0), break(0), basecost(1), baseweight(1), page(151), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
@@ -7214,25 +7188,25 @@ Smallsword, techlvl(4), break(0), basecost(20), baseweight(1.5), page(152), mods
 	description(TL:4, Dam:thr+1 imp Reach:1 Parry:0F ST:5 Skill:Smallsword)
 Spear, techlvl(0), break(0), basecost(2), baseweight(4), page(152, 153), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
 	newmode(1H Thrust, damage(thr+2), damtype(imp), reach(1*), parry(0), minst(9), notes([1]), skillused(SK:Spear, ST:DX-5)),
-	newmode(2H Thrust, damage(thr+3), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Spear, ST:DX-5)),
+	newmode(2H Thrust, damage(thr+3), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Spear, ST:DX-5)),
 	newmode(Thrown, damage(thr+3), damtype(imp), acc(2), rangehalfdam(ST*1), rangemax(ST*1.5), rof(1), minst(9), bulk(-3), shots(T(1)), skillused(SK:Thrown Weapon (Spear), ST:DX-4)),
-	description(TL:0, [Mode: thrown Dam:thr+3 imp Acc:2 Range:ST*1/ST*1.5 RoF:1 Shots:T(1) ST:9 Bulk:-3], [Mode:one-handed thrust Dam:thr+2 imp Reach:1* Parry:0 ST:9 Skill:Spear Notes: [1] Can be thrown; see Muscle Powered Ranged Weapon Table (p. 153)], [Mode:two-handed thrust Dam:thr+3 imp Reach:1,2* Parry:0 ST:9â€  Skill:Spear Notes: Requires two hands.])
+	description(TL:0, [Mode: thrown Dam:thr+3 imp Acc:2 Range:ST*1/ST*1.5 RoF:1 Shots:T(1) ST:9 Bulk:-3], [Mode:one-handed thrust Dam:thr+2 imp Reach:1* Parry:0 ST:9 Skill:Spear Notes: [1] Can be thrown; see Muscle Powered Ranged Weapon Table (p. 153)], [Mode:two-handed thrust Dam:thr+3 imp Reach:1,2* Parry:0 ST:9â€  Skill:Spear Notes: Requires two hands.])
 Javelin, techlvl(1), break(0), basecost(1.50), baseweight(2), page(152, 153), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
 	newmode(Thrust, damage(thr+1), damtype(imp), reach(1), parry(0), minst(6), notes([1]), skillused(SK:Spear, ST:DX-5)),
 	newmode(Thrown, damage(thr+1), damtype(imp), acc(3), rangehalfdam(ST*1.5), rangemax(ST*2.5), rof(1), shots(T(1)), minst(6), bulk(-4), skillused(SK:Thrown Weapon (Spear), ST:DX-4)),
 	description(TL:1, [Mode: thrown Dam:thr+1 imp Acc:3 Range:ST*1.5/ST*2.5 RoF:1 Shots:T(1) ST:6 Bulk:-4], [Mode:thrust Dam:thr+1 imp Reach:1 Parry:0 ST:6 Skill:Spear Notes: [1] Can be thrown; see Muscle Powered Ranged Weapon Table (p. 153)])
 Large Wooden Stake, techlvl(0), break(0), basecost(2), baseweight(4), page(150), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Improvised Weapons), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
 	newmode(1H Thrust, damage(thr), armourdivisor(0.5), damtype(imp), reach(1*), parry(0), minst(9), notes([1]), skillused(SK:Spear, ST:DX-5)),
-	newmode(2H Thrust, damage(thr+1), armourdivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Spear, ST:DX-5)),
+	newmode(2H Thrust, damage(thr+1), armourdivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Spear, ST:DX-5)),
 	newmode(Thrown, damage(thr+1), damtype(imp), acc(2), rangehalfdam(ST*1), rangemax(ST*1.5), rof(1), minst(9), bulk(-3), shots(T(1)), skillused(SK:Thrown Weapon (Spear), ST:DX-4)),
-	description(TL:0, [Mode: thrown Dam:thr+1(0.5) imp Acc:2 Range:ST*1/ST*1.5 RoF:1 Shots:T(1) ST:9 Bulk:-3], [Mode:one-handed thrust Dam:thr(0.5) imp Reach:1* Parry:0 ST:9 Skill:Spear Notes: [1] Can be thrown.], [Mode:two-handed thrust Dam:thr+3(0.5) imp Reach:1,2* Parry:0 ST:9â€  Skill:Spear Notes: Requires two hands.])
+	description(TL:0, [Mode: thrown Dam:thr+1(0.5) imp Acc:2 Range:ST*1/ST*1.5 RoF:1 Shots:T(1) ST:9 Bulk:-3], [Mode:one-handed thrust Dam:thr(0.5) imp Reach:1* Parry:0 ST:9 Skill:Spear Notes: [1] Can be thrown.], [Mode:two-handed thrust Dam:thr+3(0.5) imp Reach:1,2* Parry:0 ST:9â€  Skill:Spear Notes: Requires two hands.])
 Pitchfork, techlvl(0), break(0), basecost(2), baseweight(4), page(150), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Improvised Weapons), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), calcrange(yes),
-	newmode(2H Thrust, damage(thr+3), armourdivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Spear-2, ST:DX-7)),
-	description(TL:0, [Mode:two-handed thrust Dam:thr+3(0.5) imp Reach:1,2* Parry:0 ST:9â€  Skill:Spear Notes: -1 to target's Dodge, +1 to target's Block or Parry.])
+	newmode(2H Thrust, damage(thr+3), armourdivisor(0.5), damtype(imp), reach(1,2*), parry(0), minst(9â€ ), skillused(SK:Spear-2, ST:DX-7)),
+	description(TL:0, [Mode:two-handed thrust Dam:thr+3(0.5) imp Reach:1,2* Parry:0 ST:9â€  Skill:Spear Notes: -1 to target's Dodge, +1 to target's Block or Parry.])
 Quarterstaff, techlvl(0), break(0), basecost(0.50), baseweight(4), page(152), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
-	newmode(Staff swing, damage(sw+2), damtype(cr), reach(1,2), parry(+2), minst(7â€ ), skillused(SK:Staff, ST:DX-5)),
-	newmode(Staff thrust, damage(thr+2), damtype(cr), reach(1,2), parry(+2), minst(7â€ ), skillused(SK:Staff, ST:DX-5)),
-	description(TL:0 [Mode:staff swing Dam:sw+2 cr Reach:1,2 Parry:+2 ST:7â€  Skill:Staff Notes: Requires two hands.], [Mode:staff thrust Dam:thr+2 cr Reach:1,2 Parry:+2 ST:7â€  Skill:Staff Notes: Requires two hands.])
+	newmode(Staff swing, damage(sw+2), damtype(cr), reach(1,2), parry(+2), minst(7â€ ), skillused(SK:Staff, ST:DX-5)),
+	newmode(Staff thrust, damage(thr+2), damtype(cr), reach(1,2), parry(+2), minst(7â€ ), skillused(SK:Staff, ST:DX-5)),
+	description(TL:0 [Mode:staff swing Dam:sw+2 cr Reach:1,2 Parry:+2 ST:7â€  Skill:Staff Notes: Requires two hands.], [Mode:staff thrust Dam:thr+2 cr Reach:1,2 Parry:+2 ST:7â€  Skill:Staff Notes: Requires two hands.])
 Big Club, techlvl(0), break(0), basecost(4), baseweight(12), page(152), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), damage(sw+4), damtype(cr), reach(1,2*), parry(0U), minst(13â€¡), skillused(SK:Two-Handed Axe/Mace, ST:DX-5), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Troll Weapons),
 	description(TL:0, Dam:sw+4 cr Reach:1,2* Parry:0U ST:13â€¡ Skill:Two-Handed Axe/Mace Notes: Requires two hands; becomes unready after attack.)
 Very Big Club, techlvl(0), break(0), basecost(5), baseweight(15), page(152), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), damage(sw+5), damtype(cr), reach(1,2*), parry(0U), minst(16â€¡), skillused(SK:Two-Handed Axe/Mace, ST:DX-5), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, Troll Weapons),
@@ -7249,9 +7223,9 @@ Scythe, techlvl(1), break(0), basecost(0.75), baseweight(5), page(152), mods(Equ
 	itemnotes({}|{May get stuck; see p. 152.}),
 	description(TL:1, [Mode:swing1 Dam:sw+2 cut Reach:1 Parry:0U ST:11â€¡ Skill:Two-Handed Axe/Mace Notes: Requires two hands; becomes unready after attack.], [Mode:swing2 Dam:sw imp Reach:1 Parry:0U ST:11â€¡ Skill:Two-Handed Axe/Mace Notes: [2] May get stuck; see p. 152. Requires two hands; becomes unready after attack.])
 Greatsword, techlvl(3), break(0), basecost(45), baseweight(7), page(152), mods(Equipment, Melee Quality, Sword Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons),
-	newmode(Swing, damage(sw+3), damtype(cut), reach(1,2), parry(0), minst(12â€ ), skillused(SK:Two-Handed Sword, ST:DX-5)),
-	newmode(Thrust, damage(thr+3), damtype(imp), reach(2), parry(0), minst(12â€ ), skillused(SK:Two-Handed Sword, ST:DX-5)),
-	description(TL:3 [Mode:swing Dam:sw+3 cut Reach:1,2 Parry:0 ST:12â€  Skill:Two-Handed Sword Notes: Requires two hands.], [Mode:thrust Dam:thr+2 cr Reach:2 Parry:0 ST:12â€  Skill:Two-Handed Sword Notes: Requires two hands.])
+	newmode(Swing, damage(sw+3), damtype(cut), reach(1,2), parry(0), minst(12â€ ), skillused(SK:Two-Handed Sword, ST:DX-5)),
+	newmode(Thrust, damage(thr+3), damtype(imp), reach(2), parry(0), minst(12â€ ), skillused(SK:Two-Handed Sword, ST:DX-5)),
+	description(TL:3 [Mode:swing Dam:sw+3 cut Reach:1,2 Parry:0 ST:12â€  Skill:Two-Handed Sword Notes: Requires two hands.], [Mode:thrust Dam:thr+2 cr Reach:2 Parry:0 ST:12â€  Skill:Two-Handed Sword Notes: Requires two hands.])
 
 Brass Knuckles, techlvl(1), break(0), basecost(0.50), baseweight(0.25), page(178), mods(Equipment, Melee Quality, Crushing/Imp Class Quality), cat(Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, _Melee Weapons - Discworld RPG, Brawling Weapons),
 	damage(thr + _
@@ -7281,37 +7255,37 @@ Throwing Star, basecost(0.15), baseweight(0.1), mode(thrown), damage(thr-1), dam
 Blowpipe, basecost(1.50), baseweight(1), damage(1d-3), damtype(pi-), techlvl(0), acc(1), calcrange(yes), rangehalfdam(), rangemax(ST*4), rof(1), shots(1(2)), minst(2), bulk(-6), skillused(SK:Blowpipe, ST:DX-6), page(154), notes([1]), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({Follow-up drug or poison attack if damage penetrates DR. Effects depend on the poison used.},{Requires two hands to ready, but only one hand to attack.},{A dart for a blowpipe costs $0.05.}),
 	description(TL:0, Dam:1d-3 pi- Acc:1 Range:ST*4 RoF:1 Shots:1(2) ST:2 Bulk:-6 Skill:Blowpipe Notes: [1] A dart for a blowpipe costs $0.05. Follow-up drug or poison attack if damage penetrates DR. Effects depend on the poison used. Requires two hands to ready, but only one hand to attack.), mods(Equipment, Bow Quality)
-Longbow (ST%choiceList%), weaponst(%choice%), basecost(10), baseweight(3), damage(@thr(me::weaponst)+2), damtype(imp), techlvl(0), acc(3), calcrange(yes), rangehalfdam(me::weaponst*15), rangemax(me::weaponst*20), rof(1), shots(1(2)), minst(11â€ ), bulk(-8), skillused(SK:Bow, ST:DX-5), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
+Longbow (ST%choiceList%), weaponst(%choice%), basecost(10), baseweight(3), damage(@thr(me::weaponst)+2), damtype(imp), techlvl(0), acc(3), calcrange(yes), rangehalfdam(me::weaponst*15), rangemax(me::weaponst*20), rof(1), shots(1(2)), minst(11â€ ), bulk(-8), skillused(SK:Bow, ST:DX-5), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.}),
-	description(TL:0, Dam:thr+2 imp Acc:3 Range:ST*15/ST*20 RoF:1 Shots:1(2) ST:11â€  Bulk:-8 Skill:Bow), mods(Equipment, Bow Quality),
+	description(TL:0, Dam:thr+2 imp Acc:3 Range:ST*15/ST*20 RoF:1 Shots:1(2) ST:11â€  Bulk:-8 Skill:Bow), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Bow ST), text(A Bow must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list(" 11"," 12"," 13"," 14"," 15"," 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100")))
-Short Bow (ST%choiceList%), weaponst(%choice%), basecost(2.50), baseweight(2), damage(@thr(me::weaponst)), damtype(imp), techlvl(0), acc(1), calcrange(yes), rangehalfdam(me::weaponst*10), rangemax(me::weaponst*15), rof(1), shots(1(2)), minst(7â€ ), bulk(-6), skillused(SK:Bow, ST:DX-5), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
+Short Bow (ST%choiceList%), weaponst(%choice%), basecost(2.50), baseweight(2), damage(@thr(me::weaponst)), damtype(imp), techlvl(0), acc(1), calcrange(yes), rangehalfdam(me::weaponst*10), rangemax(me::weaponst*15), rof(1), shots(1(2)), minst(7â€ ), bulk(-6), skillused(SK:Bow, ST:DX-5), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.}),
-	description(TL:0 Dam:thr imp Acc:1 Range:ST*10/ST*15 RoF:1 Shots:1(2) ST:7â€  Bulk:-6 Skill:Bow), mods(Equipment, Bow Quality),
+	description(TL:0 Dam:thr imp Acc:1 Range:ST*10/ST*15 RoF:1 Shots:1(2) ST:7â€  Bulk:-6 Skill:Bow), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Bow ST), text(A Bow must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list("  7","  8","  9"," 10"," 11"," 12"," 13"," 14"," 15"," 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100")))
-Composite Bow (ST%choiceList%), weaponst(%choice%), basecost(45), baseweight(4), damage(@thr(me::weaponst)+3), damtype(imp), techlvl(1), acc(3), calcrange(yes), rangehalfdam(me::weaponst*20), rangemax(me::weaponst*25), rof(1), shots(1(2)), minst(10â€ ), bulk(-7), skillused(SK:Bow, ST:DX-5), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
+Composite Bow (ST%choiceList%), weaponst(%choice%), basecost(45), baseweight(4), damage(@thr(me::weaponst)+3), damtype(imp), techlvl(1), acc(3), calcrange(yes), rangehalfdam(me::weaponst*20), rangemax(me::weaponst*25), rof(1), shots(1(2)), minst(10â€ ), bulk(-7), skillused(SK:Bow, ST:DX-5), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.}),
-	description(TL:1, Dam:thr+3 imp Acc:3 Range:ST*20/ST*25 RoF:1 Shots:1(2) ST:10â€  Bulk:-7 Skill:Bow), mods(Equipment, Bow Quality),
+	description(TL:1, Dam:thr+3 imp Acc:3 Range:ST*20/ST*25 RoF:1 Shots:1(2) ST:10â€  Bulk:-7 Skill:Bow), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Bow ST), text(A Bow must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list(" 10"," 11"," 12"," 13"," 14"," 15"," 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100")))
-Crossbow (ST%choiceList%), weaponst(%choice%), basecost(7.50), baseweight(6), damage(@thr(me::weaponst)+4), damtype(imp), techlvl(2), acc(4), calcrange(yes), rangehalfdam(me::weaponst*20), rangemax(me::weaponst*25), rof(1), shots(1(4)), minst(7â€ ), bulk(-6), skillused(SK:Crossbow, ST:DX-4), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
+Crossbow (ST%choiceList%), weaponst(%choice%), basecost(7.50), baseweight(6), damage(@thr(me::weaponst)+4), damtype(imp), techlvl(2), acc(4), calcrange(yes), rangehalfdam(me::weaponst*20), rangemax(me::weaponst*25), rof(1), shots(1(4)), minst(7â€ ), bulk(-6), skillused(SK:Crossbow, ST:DX-4), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.}),
-	description(TL:2, Dam:thr+4 imp Acc:4 Range:ST*20/ST*25 RoF:1 Shots:1(4) ST:7â€  Bulk:-6 Skill:Crossbow), mods(Equipment, Bow Quality),
+	description(TL:2, Dam:thr+4 imp Acc:4 Range:ST*20/ST*25 RoF:1 Shots:1(4) ST:7â€  Bulk:-6 Skill:Crossbow), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Crossbow ST), text(A Crossbow must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list("  7","  8","  9"," 10"," 11"," 12"," 13"," 14"," 15"," 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100")))
-Troll Crossbow, weaponst(%choice%), basecost(10), baseweight(12), damage(@thr(me::weaponst)+5), damtype(imp), techlvl(2), acc(4), calcrange(yes), rangehalfdam(me::weaponst*22), rangemax(me::weaponst*28), rof(1), shots(1(4)), minst(16â€ ), bulk(-9), skillused(SK:Crossbow, ST:DX-4), page(154), notes([2]), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Troll Weapons),
+Troll Crossbow, weaponst(%choice%), basecost(10), baseweight(12), damage(@thr(me::weaponst)+5), damtype(imp), techlvl(2), acc(4), calcrange(yes), rangehalfdam(me::weaponst*22), rangemax(me::weaponst*28), rof(1), shots(1(4)), minst(16â€ ), bulk(-9), skillused(SK:Crossbow, ST:DX-4), page(154), notes([2]), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Troll Weapons),
 	itemnotes({Adapted from small siege engine designs by the Ankh-Morpork City Watch - not normally within troll technological capacity},{An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.}),
-	description(TL:2, Dam:thr+5 imp Acc:4 Range:ST*22/ST*28 RoF:1 Shots:1(4) ST:16â€  Bulk:-9 Skill:Crossbow Notes: [2]), mods(Equipment, Bow Quality),
+	description(TL:2, Dam:thr+5 imp Acc:4 Range:ST*22/ST*28 RoF:1 Shots:1(4) ST:16â€  Bulk:-9 Skill:Crossbow Notes: [2]), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Crossbow ST), text(A Crossbow must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list(" 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120")))
 Pistol Crossbow (ST%choiceList%), weaponst(%choice%), basecost(7.50), baseweight(4), damage(@thr(me::weaponst)+2), damtype(imp), techlvl(3), acc(1), calcrange(yes), rangehalfdam(me::weaponst*15), rangemax(me::weaponst*20), rof(1), shots(1(4)), minst(7), bulk(-4), skillused(SK:Crossbow, ST:DX-4), page(154), notes([1]), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({Requires two hands to ready, but only one hand to attack.},{An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.}),
 	description(TL:3, Dam:thr+2 imp Acc:1 Range:ST*15/ST*20 RoF:1 Shots:1(4) ST:7 Bulk:-4 Skill:Crossbow Notes: [1] Requires two hands to ready, but only one hand to attack.), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Crossbow ST), text(A Crossbow must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list("  7","  8","  9"," 10"," 11"," 12"," 13"," 14"," 15"," 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100")))
-Spring Gun (ST%choiceList%), weaponst(%choice%), basecost(20), baseweight(5), damage(@thr(me::weaponst)+4), damtype(imp), techlvl(4), acc(3), calcrange(yes), rangehalfdam(me::weaponst*20), rangemax(me::weaponst*25), rof(1), shots(1(4)), minst(10â€ ), bulk(-4), skillused(SK:Crossbow, ST:DX-4), page(154), notes([1,3]), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
+Spring Gun (ST%choiceList%), weaponst(%choice%), basecost(20), baseweight(5), damage(@thr(me::weaponst)+4), damtype(imp), techlvl(4), acc(3), calcrange(yes), rangehalfdam(me::weaponst*20), rangemax(me::weaponst*25), rof(1), shots(1(4)), minst(10â€ ), bulk(-4), skillused(SK:Crossbow, ST:DX-4), page(154), notes([1,3]), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({An arrow or bolt for a bow or crossbow is $0.10. Darts for blowpipes and lead pellets for slings are $0.05 for a bag of 10. Sling stones are free.},{A metal tube with an integral spring and cocking mechanism - very illegal in Ankh-Morpork.}),
-	description(TL:2, Dam:thr+4 imp Acc:3 Range:ST*20/ST*25 RoF:1 Shots:1(4) ST:10â€  Bulk:-4 Skill:Crossbow Notes: [1,3]), mods(Equipment, Bow Quality),
+	description(TL:2, Dam:thr+4 imp Acc:3 Range:ST*20/ST*25 RoF:1 Shots:1(4) ST:10â€  Bulk:-4 Skill:Crossbow Notes: [1,3]), mods(Equipment, Bow Quality),
 	x(#ChoiceList(name(choice), title(Spring Gun ST), text(A crossbow-style weapon must be assigned a ST score. This is the ST of the bow itself; a character normally uses a bow with ST equal to his own ST.), picksallowed(1), method(bynumber), list(" 10"," 11"," 12"," 13"," 14"," 15"," 16"," 17"," 18"," 19"," 20"," 21"," 22"," 23"," 24"," 25"," 26"," 27"," 28"," 29"," 30"," 31"," 32"," 33"," 34"," 35"," 36"," 37"," 38"," 39"," 40"," 41"," 42"," 43"," 44"," 45"," 46"," 47"," 48"," 49"," 50"," 51"," 52"," 53"," 54"," 55"," 56"," 57"," 58"," 59"," 60"," 61"," 62"," 63"," 64"," 65"," 66"," 67"," 68"," 69"," 70"," 71"," 72"," 73"," 74"," 75"," 76"," 77"," 78"," 79"," 80"," 81"," 82"," 83"," 84"," 85"," 86"," 87"," 88"," 89"," 90"," 91"," 92"," 93"," 94"," 95"," 96"," 97"," 98"," 99","100")))
-Goat's Foot, basecost(2.50), baseweight(2), damage(), damtype(), techlvl(3), acc(), rangehalfdam(), rangemax(), rof(), shots((20)), minst(7â€ ), bulk(), skillused(SK:Crossbow, ST:DX-4), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
+Goat's Foot, basecost(2.50), baseweight(2), damage(), damtype(), techlvl(3), acc(), rangehalfdam(), rangemax(), rof(), shots((20)), minst(7â€ ), bulk(), skillused(SK:Crossbow, ST:DX-4), page(154), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	itemnotes({Cocking lever to reload a high-ST crossbow or prodd. You can reload a weapon up to 4 ST over your own with 20 one-second Ready maneuvers.}),
-	description(TL:3, Dam: Acc: Range: RoF: Shots:(20) ST:7â€  Bulk: Skill:Crossbow Cocking lever to reload a high-ST crossbow. You can reload a weapon up to 4 ST over your own with 20 one-second Ready maneuvers.), mods(Equipment)
+	description(TL:3, Dam: Acc: Range: RoF: Shots:(20) ST:7â€  Bulk: Skill:Crossbow Cocking lever to reload a high-ST crossbow. You can reload a weapon up to 4 ST over your own with 20 one-second Ready maneuvers.), mods(Equipment)
 Sling, basecost(1), baseweight(0.5), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG),
 	newmode(Stone, damage(sw), damtype(pi), techlvl(0), acc(0), calcrange(yes), rangehalfdam(ST*6), rangemax(ST*10), rof(1), shots(1(2)), minst(6), bulk(-4), skillused(SK:Sling, ST:DX-6), notes([1,4])),
 	newmode(Lead bullet, damage(sw+1), damtype(pi), techlvl(0), acc(0), calcrange(yes), rangehalfdam(ST*12), rangemax(ST*20), rof(1), shots(1(2)), minst(6), bulk(-4), skillused(SK:Sling, ST:DX-6), notes([1,4])),
@@ -7324,8 +7298,8 @@ Sling Stone, techlvl(0), baseweight(0.05), basecost(0), page(155), mods(Equipmen
 Sling Lead Pellet, techlvl(2), baseweight(0.05), basecost(0.005), page(155), mods(Equipment), uses(count*1), cat(Discworld RPG, Discworld RPG - Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons, _Muscle-Powered Ranged Weapons - Discworld RPG, Ammunition)
 	
 <Artillery, Discworld RPG Bonus Items>
-Agatean Barking Dog, basecost(1000), baseweight(3200), damage(15d), damtype(pi++), techlvl(4), acc(1), calcrange(yes), rangehalfdam(220), rangemax(1900), rof(1), shots(1(60)), minst(45Mâ€ ), bulk(-13), skillused(SK:Gunner (Cannon), ST:DX-4), page(), mods(Equipment)
-Scorpion, basecost(250), baseweight(110), damage(5d), damtype(imp), techlvl(2), acc(3), calcrange(yes), rangehalfdam(415), rangemax(520), rof(1), shots(1(30)), minst(45Mâ€ ), bulk(-10), skillused(SK:Gunner (Catapult), ST:DX-4), page(), mods(Equipment)
+Agatean Barking Dog, basecost(1000), baseweight(3200), damage(15d), damtype(pi++), techlvl(4), acc(1), calcrange(yes), rangehalfdam(220), rangemax(1900), rof(1), shots(1(60)), minst(45Mâ€ ), bulk(-13), skillused(SK:Gunner (Cannon), ST:DX-4), page(), mods(Equipment)
+Scorpion, basecost(250), baseweight(110), damage(5d), damtype(imp), techlvl(2), acc(3), calcrange(yes), rangehalfdam(415), rangemax(520), rof(1), shots(1(30)), minst(45Mâ€ ), bulk(-10), skillused(SK:Gunner (Catapult), ST:DX-4), page(), mods(Equipment)
 Cannonball and Powder, techlvl(4), baseweight(10), basecost(50), page(), mods(Equipment), uses(count*1), cat(Ammunition)
 Scorpion Bolt, techlvl(2), baseweight(2), basecost(3.50), page(), mods(Equipment, Crushing/Imp Class Quality, Arrow), uses(count*1), cat(Ammunition)
 
@@ -7454,6 +7428,7 @@ Turret Laser Cannon, +500000/+1000000, upto(2), tier(1), page(B465), group(Star 
 			rangehalfdam(100000),
 			rangemax(300000),
 			rof(4),
+
 			skillused(SK:Gunner (Beams)),
 			rcl(1)_
 			)
@@ -7526,7 +7501,7 @@ _New Ranged Attack Mode, 0, group(Beams), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -7585,7 +7560,7 @@ _New Melee Attack Mode, 0, group(Beams), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -7670,7 +7645,7 @@ _New Melee Attack Mode, 0, group(Guns), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -7798,7 +7773,7 @@ _New Ranged Attack Mode, 0, group(Bow Quality), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -7857,7 +7832,7 @@ _New Melee Attack Mode, 0, group(Bow Quality), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -7974,7 +7949,7 @@ _New Ranged Attack Mode, 0, group(Melee Quality), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -8033,7 +8008,7 @@ _New Melee Attack Mode, 0, group(Melee Quality), noresync(yes),
 				aliaslist(_
 						"",
 						"",
-						"â€ ",
+						"â€ ",
 						"â€¡"_
 					)_
 				),
@@ -8222,4 +8197,6 @@ Variant: Receives Skill Bonus, +0/+0, group(Equipment), gives(+1 to owner::skill
 	x(#Message("This item receives a skill bonus when used. Adding this modifier will give a bonus to the Skill Level listing (e.g. the Level Column on the Weapons Tables), but will not affect the level under Skills. For that take the 'Equipment: Gives Skill Bonus' modifier."))
 Variant: Receives Skill Penalty, +0/+0, group(Equipment), gives(-1 to owner::skillscore), shortname(Receives Skill Bonus),
 	x(#Message("This item receives a skill penalty when used. Adding this modifier will give a bonus to the Skill Level listing (e.g. the Level Column on the Weapons Tables), but will not affect the level under Skills. For that take the 'Equipment: Gives Skill Bonus' modifier."))
+
+
 
