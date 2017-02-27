@@ -1255,33 +1255,33 @@ Wealth, 10/20/30/50/75, upto(10), page(33), mods(Wealth),
 			=@if(AD:Status::level = 0 THEN -@indexedvalue(%level, 0, 1, 1, 1, 2, 3) ELSE 0) To DI:Status_
 		)
 
-Reputation, 5/10, mods(Reputation Advantage), page(B27), upto(4), cat(Mundane, Social, Influence),
+Reputation, 5/10, mods(Reputation Advantage), page(34), upto(4), cat(Influence, Mundane, Non-Racial, Social),
 	initmods(_
-			People Affected: Almost everyone in your game world, *1, shortname(Almost everyone), group(Reputation) _
+			People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation) _
 			| Frequency of Recognition: All the time, *1, shortname(All the time), group(Reputation) _
 			),
 	conditional(+1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you"),
 	x(#InputToTag("Please describe the reason for your reputation:", nameext, , "Reputation"))
 
-Status, 5/10, page(B28), upto(8 limitingtotal), gives(+1 to ST:Status), cat(Mundane, Social, Influence), mods(Status), taboo(DI:Status),
+Status, 5/10, page(36), upto(8 limitingtotal), gives(+1 to ST:Status),
+	cat(Mundane, Non-Racial, Social, Influence), mods(Status), taboo(DI:Status),
 	levelnames(+1, +2, +3, +4, +5, +6, +7, +8)
-Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status),
-	x(#InputToTagReplace("Please describe the nature of the Rank:", name, " Rank", "Rank"))
-					
 
-Administrative Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
-Merchant Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
-Military Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
-Police Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
-Religious Rank, 5/10, mods(Rank), page(B29), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int(0.34+(%level/3))) ELSE 0) to AD:Status)
-Courtesy Rank, 1/2, page(B29), upto(8), cat(Influence, Mundane, Non-Racial, Social),
-	x(#InputToTag("Please describe the nature of the Courtesy Rank:", nameext, , "Courtesy Rank"))
+Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
+	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status),
+	x(#InputToTagReplace("Please describe the nature of the Rank:", name, " Rank", "Rank"))
+
+Administrative Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
+	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+
+Military Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
+	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+
+Religious Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
+	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+
+Watch Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
+	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
 
 Alternate Identity, 5/15, levelnames(Legal, Illegal), page(B39), upto(2), cat(Mundane, Non-Racial, Social)
 Claim to Hospitality, 1/2/5/10, page(B41), upto(4), cat(Mundane, Non-Racial, Social),
@@ -2080,15 +2080,15 @@ Wealth, -10/-15/-25, upto(3), page(33), levelnames([Average], Struggling, Poor, 
 	gives(=@indexedvalue(%level, -5, -8, -10) To ST:Wealth Modifier),
 	taboo(AD:Wealth, DI:Wealth > me::level, DI:Wealth < me::level)
 
-Reputation, -5/-10, mods(Reputation Disadvantage), page(B27), upto(4), cat(Mundane, Social, Influence),
+Reputation, -5/-10, mods(Reputation Disadvantage), page(34), upto(4), cat(Mundane, Social, Influence),
 	x(#InputToTag("Please describe the nature of the Reputation:", nameext, , "Reputation")),
 	initmods(_
-			People Affected: Almost everyone in your game world, *1, shortname(Almost everyone), group(Reputation) _
+			People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation) _
 			| Frequency of Recognition: All the time, *1, shortname(All the time), group(Reputation) _
 			),
 	conditional(-1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you")
 
-Status, -5/-10, page(B28), gives(-1 to ST:Status), cat(Mundane, Social, Influence), taboo(AD:Status),
+Status, -5/-10, page(37), gives(-1 to ST:Status), cat(Mundane, Non-Racial, Social, Influence), taboo(AD:Status),
 	upto(2 + @indexedvalue(AD:Wealth::level, 0, 1, 1, 1, 2, 3))
 
 Dependent, -1/-2/-5/-10/-15, upto(5),
@@ -3230,7 +3230,6 @@ AD:Control [Rare]
 AD:Control [Very Common]
 AD:Corrosion Attack
 AD:Cosmic Talent
-AD:Courtesy Rank
 AD:Crushing Attack
 AD:Cultural Familiarity (Native)
 AD:Cultural Familiarity
@@ -3327,8 +3326,6 @@ AD:Magery
 AD:Magic Resistance
 AD:Mathematical Ability
 AD:Medium
-AD:Merchant Rank
-AD:Metabolism Control
 AD:Metalwork
 AD:Military Rank
 AD:Mind Shield
@@ -3341,7 +3338,6 @@ AD:Perfect Balance
 AD:Peripheral Vision
 AD:Photographic Memory
 AD:Pitiable
-AD:Police Rank
 AD:Possession
 AD:Power Investiture
 AD:Precognition
@@ -3398,6 +3394,7 @@ AD:Versatile
 AD:Versatile (Inspiration Magnet)
 AD:Very Rapid Healing
 AD:Voice
+AD:Watch Rank
 AD:Wealth
 
 <AllPerks>
@@ -5092,7 +5089,7 @@ Switchable, +100%, group(Psi Static), page(B78)
 Resistible, -50%, group(Psi Static), page(B78)
 
 <Rank>
-Rank replaces Status, *2, group(Rank), page(B29)
+Rank replaces Status, *2, group(Rank), page(38)
 
 <Reduced ST>
 Affects displayed ST score, +0%, shortname(Affects ST), gives(-Owner::Level to ST:ST), group(Reduced ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
@@ -5145,22 +5142,22 @@ Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(-Owner
 Gives conditional Air Move penalty, +0%, shortname(Conditional Air Move), conditional(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
 
 <Reputation Advantage>
-People Affected: Almost everyone in your game world, *1, shortname(Almost everyone), group(Reputation Advantage), page(B27), round(down)
-People Affected: Almost everyone in your game world except one large class, *2/3, shortname(Almost everyone, except large class), group(Reputation Advantage), page(B27), round(down)
-People Affected: Large class of people, *1/2, shortname(Large class), group(Reputation Advantage), page(B27), round(down)
-People Affected: Small class of people, *1/3, shortname(Small class), group(Reputation Advantage), page(B27), round(down)
-Frequency of Recognition: All the time, *1, shortname(All the time), group(Reputation Advantage), page(B28), round(down)
-Frequency of Recognition: Sometimes (roll of 10 or less), *1/2, shortname(10 or less), group(Reputation Advantage), page(B28), round(down)
-Frequency of Recognition: Occasionally (roll of 7 or less), *1/3, shortname(7 or less), group(Reputation Advantage), page(B28), round(down)
+People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation Advantage), page(34), round(down)
+People Affected: Almost everyone on the Disc except one large class, *2/3, shortname(Almost everyone, except large class), group(Reputation Advantage), page(34), round(down)
+People Affected: Large class of people, *1/2, shortname(Large class), group(Reputation Advantage), page(34), round(down)
+People Affected: Small class of people, *1/3, shortname(Small class), group(Reputation Advantage), page(34), round(down)
+Frequency of Recognition: All the time, *1, shortname(All the time), group(Reputation Advantage), page(34), round(down)
+Frequency of Recognition: Sometimes (roll of 10 or less), *1/2, shortname(10 or less), group(Reputation Advantage), page(34), round(down)
+Frequency of Recognition: Occasionally (roll of 7 or less), *1/3, shortname(7 or less), group(Reputation Advantage), page(34), round(down)
 
 <Reputation Disadvantage>
-People Affected: Almost everyone in your game world, *1, shortname(Almost everyone), group(Reputation Disadvantage), page(B27)
-People Affected: Almost everyone in your game world except one large class, *2/3, shortname(Almost everyone, except large class), group(Reputation Disadvantage), page(B27)
-People Affected: Large class of people, *1/2, shortname(Large class), group(Reputation Disadvantage), page(B27)
-People Affected: Small class of people, *1/3, shortname(Small class), group(Reputation Disadvantage), page(B27)
-Frequency of Recognition: All the time, *1, shortname(All the time), group(Reputation Disadvantage), page(B28)
-Frequency of Recognition: Sometimes (roll of 10 or less), *1/2, shortname(10 or less), group(Reputation Disadvantage), page(B28)
-Frequency of Recognition: Occasionally (roll of 7 or less), *1/3, shortname(7 or less), group(Reputation Disadvantage), page(B28)
+People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation Disadvantage), page(34)
+People Affected: Almost everyone on the Disc except one large class, *2/3, shortname(Almost everyone, except large class), group(Reputation Disadvantage), page(34)
+People Affected: Large class of people, *1/2, shortname(Large class), group(Reputation Disadvantage), page(34)
+People Affected: Small class of people, *1/3, shortname(Small class), group(Reputation Disadvantage), page(34)
+Frequency of Recognition: All the time, *1, shortname(All the time), group(Reputation Disadvantage), page(34)
+Frequency of Recognition: Sometimes (roll of 10 or less), *1/2, shortname(10 or less), group(Reputation Disadvantage), page(34)
+Frequency of Recognition: Occasionally (roll of 7 or less), *1/3, shortname(7 or less), group(Reputation Disadvantage), page(34)
 
 <Resistant>
 Degree: Immunity, *1, shortname(Immunity), group(Resistant), page(46), tier(-1)
@@ -5625,10 +5622,9 @@ Soldier of Fortune (Basic Set), displaycost(100),
 				AD:Magic Resistance #codes(UPTO 10),
 				AD:Outdoorsman,
 				AD:Administrative Rank #codes(UPTO 4),
-				AD:Merchant Rank #codes(UPTO 4),
 				AD:Military Rank #codes(UPTO 4),
-				AD:Police Rank #codes(UPTO 4),
 				AD:Religious Rank #codes(UPTO 4),
+				AD:Watch  Rank #codes(UPTO 4),
 				AD:Rapid Healing,
 				AD:Reputation,
 				AD:Status #codes(UPTO 4),
