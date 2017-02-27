@@ -529,18 +529,18 @@ Enhanced Water Move, basevalue(0), hide(yes), display(no),
 		)
 
 Basic Ground Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
-	basevalue(@if("DI:Aerial" THEN 0 ELSE ST:Basic Move))
+	basevalue(@if("DI:No Legs (Aerial)" THEN 0 ELSE @if("AD:Swarm Body" THEN 0 ELSE ST:Basic Move)))
 Basic Water Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(ST:Basic Move / 5)
 Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
-				@if(AD:Flight THEN 2 * ST:Basic Speed ELSE 0)_
+				@if(AD:Flight THEN 2 * ST:Basic Speed ELSE @if("AD:Swarm Body" THEN 2 * ST:Basic Speed ELSE 0))
 				)
 Basic Brachiation Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
 				@if(AD:Brachiator THEN ST:Basic Move / 2 ELSE 0)_
 				)
-	
+
 Native Languages, basevalue(0), display(no), hide(yes)
 Native Cultural Familiarities, basevalue(0), display(no), hide(yes)
 Quadruped, basevalue(0), display(no), hide(yes)
@@ -765,7 +765,12 @@ Flight (Winged, Cannot Hover), 24, page(89), cat(Exotic, Physical, Racial),
 
 Foot Manipulators, 4, page(89), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Legs)
 Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(89), cat(Exotic, Physical), x(#buildit)
-					
+Swarm Body, 135, page(91), cat(Exotic, Physical, Racial, Vampire),
+	taboo(AD:Flight, AD:Foot Manipulators, AD:High Manual Dexterity, DI:Aerial,
+		"DI:Ham-Fisted", DI:Lame, DI:No Legs, DI:One Arm, DI:One Eye, "DI:Semi-Upright"),
+	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)"),
+	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
+	gives(=nobase to ST:Kick::reach$)
 
 ************************************************************************************************************************
 * INNATE ATTACKS
@@ -1274,13 +1279,13 @@ Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Infl
 Administrative Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
 	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
-Military Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
+Military Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
 	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
-Religious Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
+Religious Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
 	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
-Watch Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
+Watch Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
 	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
 Clerical Investment, 5, page(34), cat(Mundane, Non-Racial, Social),
@@ -1290,7 +1295,7 @@ Congregation, 10/12/15, upto(3), levelnames(Up to 20, Up to 50, Up to 100),
 
 Contact, 1/2/3/4, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
 	x(#InputToTag("Please describe the nature of the Contact:", nameext, , "Contact")),
-	upto(4), cat(Mundane, Social), mods(Contact, Frequency of Appearance, Reliability, Favor), page(B44),
+	upto(4), cat(Mundane, Non-Racial, Social), mods(Contact, Frequency of Appearance, Reliability), page(39),
 	initmods(_
 			Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability) _
 			| Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
@@ -1306,8 +1311,8 @@ Legal Immunity, 5/10, page(35), upto(3),
 Igor Immunity, 5, page(35), upto(3),
 	cat(Mundane, Non-Racial, Social)
 
-Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72), cat(Mundane, Social), upto(5),
-	levelnames(,,,,), init(%PatronAliasList%),
+Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(41), cat(Mundane, Non-Racial, Social), upto(5),
+	levelnames(Powerful, Extremely Powerful, Ultra-Powerful, City-State Level, Major Nation Level), init(%PatronAliasList%),
 	x(_
 		#InputToTag("Please describe the nature of the Patron:", nameext, , "Patrons"),
 		#ChoiceList(_
@@ -1323,9 +1328,8 @@ Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72)
 					"[15] A powerful organization (assets of at least 10,000 times starting wealth)",
 					"[20] An ultra-powerful individual (based on as many points as the GM wants!)",
 					"[20] A very powerful organization (assets of at least 100,000 times starting wealth)",
-					"[25] An extremely powerful organization (assets of at least 1 million times starting wealth)",
-					"[30] A national government or giant multinational organization (net worth incalculable)",
-					"[30] A true god who appears personally to intervene on your behalf"_
+					"[25] A city-state or other small nation",
+					"[30] A large nation or empire"_
 				),
 			aliaslist(_
 					"1",
@@ -1346,9 +1350,9 @@ Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72)
 	description(_
 			A powerful individual (usually built on at least 150% of the PC's starting points) or a fairly powerful organization (assets of at least 1,000 times starting wealth for the world): 10 POINTS _
 			\par An extremely powerful individual (built on at least twice the PC's starting points) or a powerful organization (assets of at least 10,000 times starting wealth): 15 POINTS _
-			\parAn ultra-powerful individual (based on as many points as the GM wants!) or a very powerful organization (assets of at least 100,000 times starting wealth): 20 POINTS _
-			\parAn extremely powerful organization (assets of at least 1 million times starting wealth): 25 POINTS _
-			\parA national government or giant multinational organization (net worth incalculable), or a true god who appears personally to intervene on your behalf: 30 POINTS _
+			\par An ultra-powerful individual (based on as many points as the GM wants!) or a very powerful organization (assets of at least 100,000 times starting wealth): 20 POINTS _
+			\par A city-state or other small nation: 25 POINTS _
+			\par A large nation or empire: 30 POINTS _
 			)
 
 Social Regard, 5/10, gives(+1 to ST:Reaction), page(35), upto(4), cat(Mundane, Non-Racial, Social),
@@ -1518,7 +1522,7 @@ _New Parent Item, 0, isparent(yes),
 <Exotic Physical>
 Aerial, 0, page(94), needs(AD:Flight), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
-	gives(=nobase to ST:Kick::reach$)
+	taboo(AD:Swarm Body), gives(=nobase to ST:Kick::reach$)
 
 Dependency, -5/-10/-20/-30, mods(Dependency), levelnames(Very Common, Common, Occasional, Rare), 
 	page(B130), upto(4), cat(Exotic, Physical),
@@ -1709,9 +1713,6 @@ Restricted Diet, -10/-20/-30/-40, levelnames(Very Common, Common, Occasional, Ra
 	page(96), upto(4), cat(Mundane, Physical, Racial, Vampire),
 	taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink),
 	x(#InputToTag("Specify the unusual sustenance required:", nameext, , "Restricted Diet"))
-Restricted Vision, -15/-30, levelnames(No Peripheral Vision, Tunnel Vision), upto(2),
-	page(B151), cat(Mundane, Physical), taboo(DI:Blindness)
-
 Sulphurholism, -15, page(54), cat(Mundane, Physical),
 	needs(DI:Troll Brain), taboo(DI:Sulphurholism (Withdrawn), QU:Former Sulphurholic)
 Sulphurholism (Withdrawn), -10, page(54), cat(Mundane, Physical),
@@ -1722,8 +1723,6 @@ Susceptible to [Common], -2/-4, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundan
 	x( #InputReplace("SUSCEPTIBLE: Specify the environmentally Common class of noxious items or substances to which the character is susceptible:", "[Common]", , "Susceptible to [Common]") )
 Susceptible to [Occasional], -1/-2, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
 	x( #InputReplace("SUSCEPTIBLE: Specify the environmentally Occasional class of noxious items or substances to which the character is susceptible:", "[Occasional]", , "Susceptible to [Occassional]") )
-
-Wounded, -5, page(B162), cat(Mundane, Physical)
 
 <Mundane Mental>
 Absent-Mindedness, -15, page(54), cat(Mundane, Mental, Non-Racial),
@@ -3151,20 +3150,9 @@ Teleportation (Magical Forms (Magianism & Summonation)),
 * [LISTS] ^^^^ Need to conver to List, need a #DeleteFromList() command
 ************************************************************************************************************************
 <AllMetaTraits>
-TE:AI
-TE:Astral Entity
-TE:Automaton
-TE:Body of Air
-TE:Body of Earth
-TE:Body of Fire
-TE:Body of Ice
-TE:Body of Metal
-TE:Body of Stone
-TE:Body of Water
+TE:Domestic Animal
 TE:Spirit
-TE:Vermiform
 TE:Wild Animal
-
 
 <AllAdvantages>
 AD:_New Advantage
@@ -3211,7 +3199,6 @@ AD:Combat Reflexes
 AD:Common Sense
 AD:Compartmentalized Mind
 AD:Constriction Attack
-AD:Contact Group
 AD:Contact
 AD:Control [Common]
 AD:Control [Godlike]
@@ -3298,19 +3285,14 @@ AD:Language (Spoken)
 AD:Language (Written)
 AD:Language Talent
 AD:Language
-AD:Large Piercing Attack
-AD:Leech
 AD:Legal Enforcement Powers
 AD:Legal Immunity
 AD:Less Sleep
 AD:Lifting ST
-AD:Light Talent
 AD:Lightning Calculator
 AD:Luck
-AD:Machine Telepathy Talent
 AD:Magery 0
 AD:Magery
-AD:Magic Resistance
 AD:Mathematical Ability
 AD:Medium
 AD:Metalwork
@@ -3326,16 +3308,11 @@ AD:Peripheral Vision
 AD:Photographic Memory
 AD:Pitiable
 AD:Possession
-AD:Power Investiture
-AD:Precognition
 AD:Pressure-Proof
 AD:Protected Eyes
 AD:Rank
 AD:Rapid Healing
 AD:Rapier Wit
-AD:Reawakened
-AD:Recovery
-AD:Reduced Consumption
 AD:Regeneration
 AD:Regrowth
 AD:Religious Rank
@@ -3350,7 +3327,6 @@ AD:Serendipity
 AD:Silence
 AD:Single-Minded
 AD:Smooth Operator
-AD:Snatcher
 AD:Social Regard (Feared)
 AD:Social Regard (Respected)
 AD:Social Regard (Venerated)
@@ -3361,6 +3337,7 @@ AD:Spirit Empathy
 AD:Status
 AD:Super Climbing
 AD:Supernatural Durability
+AD:Swarm Body
 AD:Teeth (Blunt Teeth)
 AD:Teeth (Fangs)
 AD:Teeth (Sharp Beak)
@@ -3869,7 +3846,6 @@ SK:First Aid
 SK:Fishing
 SK:Flail
 SK:Flamethrower
-SK:Flight
 SK:Forced Entry
 SK:Forensics
 SK:Forgery
@@ -4623,28 +4599,8 @@ Battle Rage, +50%, group(Berserk), page(B124)
 <Combat Table>
 Remove Combat Table Entry, +0, addmode({Punch, damage(), damtype(), minst(), reach()} | {Kick, damage(), damtype(), minst(), reach()} | {Bite, damage(), damtype(), minst(), reach()})
 
-<Compartmentalized Mind>
-Controls, *1/2, group(Compartmentalized Mind), page(B43)
-Dedicated Controls, *1/5, group(Compartmentalized Mind), page(B43)
-
-<Computer Brain>
-_Per point of abilities, 6+4/point, formula(6+(me::level*4)), forceformula(yes), group(Computer Brain), page(B71), mods(Modular Abilities),
-	x(_
-		#InputToTagReplace("Specify the name of this Modular slot",name,"Slot 2",Computer Brain),
-		#InputReplace("How many points does this Modular slot have:","[level]","1",Computer Brain) _
-	), level([level]) 
-
-<Reliability>
-Reliability: Completely Reliable, *3, shortname(Completely Reliable), group(Reliability), page(B44)
-Reliability: Usually Reliable, *2, shortname(Usually Reliable), group(Reliability), page(B44)
-Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability), page(B44)
-Reliability: Unreliable, *1/2, shortname(Unreliable), group(Reliability), page(B44)
-
 <Contact>
-Can Obtain Information Using Supernatural Talents, +1, shortname(Supernatural), group(Contact), page(B44)
-
-<Contact Group>
-Can Obtain Information Using Supernatural Talents, +5, shortname(Supernatural), group(Contact Group), page(B44)
+Can Obtain Information Using Supernatural Talents, +1, shortname(Supernatural), group(Contact), page(38)
 
 <Cosmic Power>
 Per point of abilities, 10/20, group(Cosmic Power), page(B71)
@@ -4676,9 +4632,6 @@ Tough Skin, -40%, group(Damage Resistance), page(B47)
 <Partial>
 Covers only one hit location of that type, *2, group(Partial), page(B47)
 Covers all hit location of that type, *1, group(Partial), page(B47)
-
-<Dark Vision>
-Color Vision, +20%, group(Dark Vision), page(B47)
 
 <Dependency>
 Illegal, -5, group(Dependency), page(B130)
@@ -4774,22 +4727,12 @@ Gives conditional Water Move bonus, +0%, shortname(Conditional Water Move), cond
 Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(+Owner::Level to ST:Basic Air Move), group(Extra Air Move), description(This modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional Air Move bonus, +0%, shortname(Conditional Air Move), conditional(+Owner::Level to ST:Basic Air Move), group(Extra Air Move), description(This modifier causes the Extra Air Move advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
 
-<Extra Arms>
-Foot Manipulators, -30%, group(Extra Arms), page(B53)
-Short, -50%, group(Extra Arms), page(B53)
-
-<Favor>
-Favor, *1/5, group(Favor), page(B55)
-
 <Frequency of Appearance>
 Frequency: roll of  6 or less (Quite rarely), *1/2, shortname(6 or less), group(Frequency of Appearance), page(B36)
 Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance), page(B36)
 Frequency: roll of 12 or less (Quite often), *2, shortname(12 or less), group(Frequency of Appearance), page(B36)
 Frequency: roll of 15 or less (Almost all the time), *3, shortname(15 or less), group(Frequency of Appearance), page(B36)
 Frequency: no roll required (Constantly), *4, shortname(Constantly), group(Frequency of Appearance), page(B36)
-
-<Growth>
-Maximum Size Only, +0%, group(Growth), page(B58)
 
 <Hard of Hearing>
 Mitigator (Ear Trumpet), -60%, group(Hard of Hearing), page(B112), shortname(Ear Trumpet), mitigator(yes)
@@ -4909,89 +4852,6 @@ Requires Special Condition, -40%, group(Regeneration), page(90)
 Doesn't Heal Damage of a Specific Type, -20%, group(Regeneration), page(90)
 Doesn't Work in Specific Circumstances, -20%, group(Regeneration), page(90)
 
-<_Power Talents>
-Gives Skill Bonus to Innate Attack (Beam), +0, gives(+owner::level to SK:Innate Attack (Beam)), shortname(Innate Attack (Beam))
-Gives Skill Bonus to Innate Attack (Breath), +0, gives(+owner::level to SK:Innate Attack (Breath)), shortname(Innate Attack (Breath))
-Gives Skill Bonus to Innate Attack (Gaze), +0, gives(+owner::level to SK:Innate Attack (Gaze)), shortname(Innate Attack (Gaze))
-Gives Skill Bonus to Innate Attack (Projectile), +0, gives(+owner::level to SK:Innate Attack (Projectile)), shortname(Innate Attack (Projectile))
-
-Gives Skill Bonus to [advanta], +0, gives(+owner::level to AD:[advantage]::skillscore), shortname([advantage]),
-	x(_
-	#InputReplace("Please enter the name of the advantage which will receive the skill bonus; include the name extension if applicable:", "[advantage]", "name (extension)" , "Talent Skill Bonus")_
-	)
-
-Gives Skill Bonus to %advantageslist%, +0, gives(%advantagesaliaslist%), shortname(%advantageslist%),
-	x(_
-	#ChoiceList(_
-			name(advantages),
-			title(Talent Bonus: Choose Advantages),
-			text(Choose which advantages will receive a bonus from this Talent.),
-			picksallowed(atleast 1),
-			method(bynumber),
-			list(_
-					"Active IR",
-					"Affliction",
-					"Animal Empathy",
-					"Burning Attack",
-					"Catfall",
-					"Clairsentience",
-					"Clinging",
-					"Common Sense",
-					"Constriction Attack",
-					"Corrosion Attack",
-					"Crushing Attack",
-					"Cutting Attack",
-					"Danger Sense",
-					"Detect",
-					"Discriminatory Hearing",
-					"Discriminatory Smell",
-					"Discriminatory Taste",
-					"Eidetic Memory",
-					"Empathy",
-					"Fatigue Attack",
-					"Healing",
-					"High Pain Threshold",
-					"Illusion",
-					"Photographic Memory",
-					"Possession",
-					"Precognition",
-					"Sensitive",
-					"Sonar",
-					"Spirit Empathy",
-					"Ultrahearing"_
-				),
-			aliaslist(_
-					"+owner::level to AD:Animal Empathy::skillscore",
-					"+owner::level to AD:Burning Attack::skillscore",
-					"+owner::level to AD:Catfall::skillscore",
-					"+owner::level to AD:Clinging::skillscore",
-					"+owner::level to AD:Danger Sense::skillscore",
-					"+owner::level to AD:Discriminatory Hearing::skillscore",
-					"+owner::level to AD:Discriminatory Smell::skillscore",
-					"+owner::level to AD:Discriminatory Taste::skillscore",
-					"+owner::level to AD:Eidetic Memory::skillscore",
-					"+owner::level to AD:Empathy::skillscore",
-					"+owner::level to AD:Fatigue Attack::skillscore",
-					"+owner::level to AD:Healing::skillscore",
-					"+owner::level to AD:High Pain Threshold::skillscore",
-					"+owner::level to AD:Photographic Memory::skillscore",
-					"+owner::level to AD:Piercing Attack::skillscore",
-					"+owner::level to AD:Possession::skillscore",
-					"+owner::level to AD:Precognition::skillscore",
-					"+owner::level to AD:Psychometry::skillscore",
-					"+owner::level to AD:Racial Memory::skillscore",
-					"+owner::level to AD:Rapier Wit::skillscore",
-					"+owner::level to AD:Sensitive::skillscore",
-					"+owner::level to AD:Small Piercing Attack::skillscore",
-					"+owner::level to AD:Snatcher::skillscore",
-					"+owner::level to AD:Sonar::skillscore",
-					"+owner::level to AD:Spirit Empathy::skillscore",
-					"+owner::level to AD:Ultrahearing::skillscore",
-					"+owner::level to AD:Visualization::skillscore"_
-					)_
-			)_
-	)
-
 <Punch/Kick>
 Include +1 damage from Boots in base damage, +0, shortname(Has Boots), gives(=+@textindexedvalue( $modetag(mode), ("Kick", 1) ) to owner::damage$ listAs "+1 damage from Boots"), group(Punch/Kick)
 Include +1 damage from Gauntlets in base damage, +0, shortname(Has Gauntlets), gives(=+@textindexedvalue( $modetag(mode), ("Punch", 1) ) to owner::damage$ listAs "+1 damage from Gauntlets"), group(Punch/Kick)
@@ -5063,15 +4923,6 @@ Melee Table Kick Listing, +0, page(B271), shortname(Kick),
 Can't See Own Death, -60%, group(Precognition), page(B77)
 One Event, -40%, group(Precognition), page(B77)
 
-<Psi Static>
-Area Effect, +50%/+100%, group(Psi Static), page(B78), upto(25),
-	levelnames("1 yd","2 yd","4 yd","8 yd","16 yd","32 yd","64 yd","128 yd","256 yd","512 yd","0.58 mi","1.2 mi","2.3 mi","4.7 mi","9.3 mi","19.0 mi","37.0 mi","74.0 mi","150.0 mi","300.0 mi","600.0 mi","1,200 mi","2,400 mi","4,800 mi","9,500 mi","19,000 mi","38,000 mi","76,000 mi","150,000 mi","310,000 mi","610,000 mi","1,200,000 mi","2,400,000 mi","4,900,000 mi","9,800,000 mi","20,000,000 mi","39,000,000 mi"),
-	gives(_
-		=+(0.5 * (2^me::level)) to owner::radius _
-		)
-Switchable, +100%, group(Psi Static), page(B78)
-Resistible, -50%, group(Psi Static), page(B78)
-
 <Rank>
 Rank replaces Status, *2, group(Rank), page(38)
 
@@ -5124,6 +4975,12 @@ Gives conditional Water Move penalty, +0%, shortname(Conditional Water Move), co
 <Reduced Air Move>
 Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra Air Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional Air Move penalty, +0%, shortname(Conditional Air Move), conditional(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
+
+<Reliability>
+Reliability: Completely Reliable, *3, shortname(Completely Reliable), group(Reliability), page(B44)
+Reliability: Usually Reliable, *2, shortname(Usually Reliable), group(Reliability), page(B44)
+Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability), page(B44)
+Reliability: Unreliable, *1/2, shortname(Unreliable), group(Reliability), page(B44)
 
 <Reputation Advantage>
 People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation Advantage), page(34), round(down)
@@ -5446,7 +5303,6 @@ Investigator (Basic Set), displaycost(100),
 				SK:Piloting (Aerospace) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Autogyro) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Contragravity) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Flight Pack) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Glider) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Heavy Airplane) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Helicopter) #codes(upto 2pts, downto 2pts),
@@ -5710,7 +5566,6 @@ Soldier of Fortune (Basic Set), displaycost(100),
 				SK:Piloting (Aerospace) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Autogyro) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Contragravity) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Flight Pack) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Glider) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Heavy Airplane) #codes(upto 2pts, downto 2pts),
 				SK:Piloting (Helicopter) #codes(upto 2pts, downto 2pts),
@@ -5783,7 +5638,7 @@ _New Racial Template, displaycost(variable), cost(0),
 	x(_
 		#InputReplace("Please set the name of the Racial Template:", "_New Racial Template", , "New Racial Template")_
 	),
-		select1(tagwith(hide(yes)), text("Please select any Meta-Traits the Racial Template possesses:"), pointswanted(atleast 0, upto 10000), itemswanted(upto 10000),
+		select1(tagwith(hide(yes)), text("Please select any "Meta-Traits" (collections of associated features) the Racial Template possesses:"), pointswanted(atleast 0, upto 10000), itemswanted(upto 10000),
 			list(_
 				#grouplist(GR:AllMetaTraits)_
 				)_
@@ -5970,6 +5825,99 @@ creates(_
           {DI:"Reputation (As a sinister psycho case, among dwarfs, trolls, and humans who know a bit about elves)", -5/-10,mods(Reputation Disadvantage),page(34),upto(4),conditional(-1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you"),tl(),usernotes(),familiarities(), cat(Mundane, Social, Influence, Mundane Social)}=3 _
                    with {"Frequency of Recognition: All the time", *1,shortname(All the time),group(Reputation),level(1),valuenum(1)} _
                    and  {"People Affected: Large class of people", *1/2,shortname(Large class),group(Reputation Disadvantage),page(34),level(1),valuenum(1/2)}_
+       )
+
+Flock of Bats - Vampire Alternate Form, displaycost(23), cost(0),
+	description(That bit where the vampire changes...), page(113), race(Vampire as Flock of Bats),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Night Vision}=5,
+       {AD:Sonar},
+       {AD:Swarm Body},
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {PE:Longevity},
+       {DI:Absent-Mindedness},
+       {DI:Bad Grip}=3,
+       {DI:Bad Sight (Nearsighted)},
+       {DI:Cannot Speak},
+       {DI:Supernatural Feature (Blatantly Unnatural: No Reflection)},
+       {DI:Supernatural Feature (Mostly Concealed: No Body Heat)},
+       {DI:Weakness (Direct Sunlight)}=1 _
+                   with {"Rarity: Common", *2,shortname(Common),group(Weakness),page(98),level(1),valuenum(2)},
+       {DI:Weakness (Holy Water)}=1 _
+                   with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
+       {QU:Dislikes Garlic}_
+    ),
+	creates(_
+          {AD:Flock of Bats DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
+          {AD:Flock of Bats Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=3,
+          {AD:Flock of Bats HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Flock of Bats Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=3,
+          {AD:Flock of Bats SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=1,
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+             with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+             with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {DI:Dread (Holy Symbols), -10,mods(Dread),page(95),tl(),usernotes(),familiarities(), cat(Supernatural, Mental, Racial, Vampire, Supernatural Mental)} _
+             with {"Larger Radius", -1/-2,upto(10),group(Dread),page(95),levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards),level(2),valuenum(-2)} _
+               and  {"Rarity: Common", *2,shortname(Common),group(Dread),page(95),level(1),valuenum(2)},
+          {DI:Dread (Running Water), -10,mods(Dread),page(95), cat(Supernatural, Mental, Racial, Vampire, Supernatural Mental)} _
+             with {"Rarity: Occasional", *1,shortname(Occasional),group(Dread),level(1),valuenum(1)},
+          {DI:Flock of Bats IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1,
+          {DI:Flock of Bats ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=5,
+          {DI:Restricted Diet (Blood), -10/-20/-30/-40,levelnames(Very Common, Common, Occasional, Rare),page(96),upto(4),taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink), cat(Mundane, Physical, Racial, Vampire, Mundane Physical)}=1,
+          {QU:Confused (12) in Daylight, -1,noresync(yes),tl(),usernotes(),familiarities(), cat(General)},
+          {QU:Dislikes Any Strong Light, -1,page(67), cat(Mental, Non-Racial)}_
+       )
+
+Flock of Magpies - Vampire Alternate Form, displaycost(35), cost(0),
+	description(That bit where the vampire changes...), page(113), race(Vampire as Flock of Magpies),
+	noresync(yes), owns(yes),
+	adds(_
+       {AD:Night Vision}=1,
+       {AD:Swarm Body},
+       {AD:Teeth (Sharp Beak)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {PE:Feathers},
+       {PE:Longevity},
+       {DI:Bad Grip}=3,
+       {DI:Cannot Speak},
+       {DI:Supernatural Feature (Blatantly Unnatural: No Reflection)},
+       {DI:Supernatural Feature (Mostly Concealed: No Body Heat)},
+       {DI:Weakness (Direct Sunlight)}=1 _
+                   with {"Rarity: Common", *2,shortname(Common),group(Weakness),page(98),level(1),valuenum(2)},
+       {DI:Weakness (Holy Water)}=1 _
+                   with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
+       {QU:Dislikes Garlic}_
+    ),
+	creates(_
+          {AD:Flock of Magpies DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
+          {AD:Flock of Magpies Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=3,
+          {AD:Flock of Magpies HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
+          {AD:Flock of Magpies Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=3,
+          {AD:Flock of Magpies SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=1,
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+             with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+             with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {DI:Dread (Holy Symbols), -10,mods(Dread),page(95),tl(),usernotes(),familiarities(), cat(Supernatural, Mental, Racial, Vampire, Supernatural Mental)} _
+             with {"Larger Radius", -1/-2,upto(10),group(Dread),page(95),levelnames(2 yards, 3 yards, 4 yards, 5 yards, 6 yards, 7 yards, 8 yards, 9 yards, 10 yards, 11 yards),level(2),valuenum(-2)} _
+               and  {"Rarity: Common", *2,shortname(Common),group(Dread),page(95),level(1),valuenum(2)},
+          {DI:Dread (Running Water), -10,mods(Dread),page(95), cat(Supernatural, Mental, Racial, Vampire, Supernatural Mental)} _
+             with {"Rarity: Occasional", *1,shortname(Occasional),group(Dread),level(1),valuenum(1)},
+          {DI:Flock of Magpies IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1,
+          {DI:Flock of Magpies ST Penalty, -10/-20,page(26),gives(-1 to ST:ST), cat(Attributes)}=5,
+          {DI:Restricted Diet (Blood), -10/-20/-30/-40,levelnames(Very Common, Common, Occasional, Rare),page(96),upto(4),taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink), cat(Mundane, Physical, Racial, Vampire, Mundane Physical)}=1,
+          {QU:Dislikes Any Strong Light, -1,page(67), cat(Mental, Non-Racial)}_
        )
 
 Gargoyle, displaycost(46), cost(0),
@@ -6546,23 +6494,7 @@ _New Meta-Trait, displaycost(variable), cost(0), gives(),
 					"AD:Racial Spell Point Bonus ([spell])"_
 				)_
 			), noresync(yes)
-Automaton, displaycost(-85), cost(0),
-	description(A mind lacking self-awareness and creativity. This is typical of many hive-creatures, _
-		magical constructs, undead, and simple AIs. You can combine this with the AI meta-trait.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		DI:Hidebound,
-		DI:Incurious _
-			with "You resist quite rarely (roll of 6 or less), *2, shortname(6-), group(Self Control)",
-		DI:Low Empathy,
-		DI:No Sense of Humour,
-		DI:Slave Mentality_
-		)
+
 Domestic Animal, displaycost(-30), cost(0),
 	description(A farm animal, pet, mount, or a trained wild animal.),
 	page(B263),
@@ -6577,22 +6509,7 @@ Domestic Animal, displaycost(-30), cost(0),
 		DI:Social Stigma (Valuable Property) _
 		),
 	taboo(ST:IQ>0pts)
-Wild Animal, displaycost(-30), cost(0),
-	description(An ordinary animal found in nature.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		DI:Bestial,
-		DI:Cannot Speak,
-		DI:Hidebound _
-		),
-	taboo(ST:IQ>0pts)
 
-<Meta-Traits - Spirit>
 Spirit, displaycost(261), cost(0),
 	description(You are a noncorporeal entity: ghost, being of pure thought, etc. You are invisible _
 			and intangible (except to others with this meta-trait!). You can temporarily become _
@@ -6620,9 +6537,9 @@ Spirit, displaycost(261), cost(0),
 	creates(_
 		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
 		)
-Astral Entity, displaycost(171), cost(0),
-	description(An astral entity is a spirit that cannot materialize, become visible, or use its _
-		supernatural powers in the physical world.),
+
+Wild Animal, displaycost(-30), cost(0),
+	description(An ordinary animal found in nature.),
 	page(B263),
 		cat(Meta-Traits),
 	noresync(yes),
@@ -6630,18 +6547,11 @@ Astral Entity, displaycost(171), cost(0),
 	locks(yes),
 	hides(yes),
 	adds(_
-		AD:Doesn't Breathe,
-		AD:Doesn't Eat or Drink,
-		AD:Doesn't Sleep,
-		AD:Insubstantiality _
-			with "Always On, -50%, group(Insubstantiality)", _
-		AD:Invisibility _
-			with "Substantial Only, -10%, group(Invisibility)",
-		AD:Unaging _
+		DI:Bestial,
+		DI:Cannot Speak,
+		DI:Hidebound _
 		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
-		)
+	taboo(ST:IQ>0pts)
 
 **************************************************************************
 [EQUIPMENT]
