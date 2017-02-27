@@ -1268,27 +1268,23 @@ Status, 5/10, page(36), upto(8 limitingtotal), gives(+1 to ST:Status),
 	levelnames(+1, +2, +3, +4, +5, +6, +7, +8)
 
 Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
-	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status),
+	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status),
 	x(#InputToTagReplace("Please describe the nature of the Rank:", name, " Rank", "Rank"))
 
 Administrative Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
-	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
 Military Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
 Religious Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
 Watch Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Social, Influence),
-	gives(=@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to ST:Status, =@if(@hasmod(Rank replaces Status) THEN %level ELSE @int(%level/3)) to AD:Status)
+	gives(=@if(AD:Status::level = 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to ST:Status, =@if(AD:Status::level > 0 THEN @if(@hasmod(Rank replaces Status) THEN %level ELSE @int((%level/3))) ELSE 0) to AD:Status)
 
-Alternate Identity, 5/15, levelnames(Legal, Illegal), page(B39), upto(2), cat(Mundane, Non-Racial, Social)
-Claim to Hospitality, 1/2/5/10, page(B41), upto(4), cat(Mundane, Non-Racial, Social),
-	conditional(=+3 to ST:Reaction when "members of same group"),
-	x(#InputToTag("Please describe the nature of the Claim to Hospitality:", nameext, , "Claim to Hospitality"))
-Clerical Investment, 5, page(B43), cat(Mundane, Non-Racial, Social), conditional(+1 to ST:Reaction)
-
+Clerical Investment, 5, page(34), cat(Mundane, Non-Racial, Social),
+	conditional(+1 to ST:Reaction when "people respect your religion")
 Congregation, 10/12/15, upto(3), levelnames(Up to 20, Up to 50, Up to 100),
 	cat(Mundane, Non-Racial, Racial, Social, Vampire), page(38)
 
@@ -1299,22 +1295,16 @@ Contact, 1/2/3/4, levelnames(Effective Skill 12, Effective Skill 15, Effective S
 			Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability) _
 			| Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
 			)
-Contact Group, 5/10/15/20, levelnames(Effective Skill 12, Effective Skill 15, Effective Skill 18, Effective Skill 21),
-	x(#InputToTag("Please describe the nature of the Contact Group:", nameext, , "Contact Group")),
-	upto(4), cat(Mundane, Non-Racial, Social), mods(Contact Group, Frequency of Appearance, Reliability, Favor), page(B44),
-	initmods(_
-			Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability) _
-			| Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
-			)
-					
 
-Legal Enforcement Powers, 5/10, page(B65), upto(3), cat(Mundane, Social)
-					
+Legal Enforcement Powers, 5/10, page(35), upto(3),
+	levelnames(Local Powers, National OR Broad Powers, Broad Provileges AND Discretion),
+	cat(Mundane, Non-Racial, Social)
 
-Legal Immunity, 5/10, mods(Legal Immunity), page(B65), upto(3), cat(Mundane, Social)
-Diplomatic Immunity, 20, mods(Legal Immunity), page(B65), upto(3), cat(Mundane, Social)
-Bardic Immunity, 10, mods(Legal Immunity), page(B65), upto(3), cat(Mundane, Social)
-					
+Legal Immunity, 5/10, page(35), upto(3),
+	levelnames(Different but equally strict rules, Less strict rules, Very few rules),
+	cat(Mundane, Non-Racial, Social)
+Igor Immunity, 5, page(35), upto(3),
+	cat(Mundane, Non-Racial, Social)
 
 Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(B72), cat(Mundane, Social), upto(5),
 	levelnames(,,,,), init(%PatronAliasList%),
@@ -3293,10 +3283,7 @@ AD:Healing
 AD:High Manual Dexterity
 AD:High Pain Threshold
 AD:High TL
-AD:Huge Piercing Attack
-AD:Illusion
-AD:Impaling Attack
-AD:Independent Income
+AD:Igor Immunity
 AD:Indomitable
 AD:Infravision
 AD:Injury Tolerance
@@ -4846,9 +4833,6 @@ Visible Shadow, -4, group(Invisibility), page(90)
 Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)
 Native Speaker, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23)
 Native Writer, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23)
-
-<Legal Immunity>
-Diplomatic pouch privileges, +5, group(Legal Immunity), page(B65)
 
 <Lifting ST>
 Doesn't affect Basic Lift, 0, gives(-owner::level to ST:Lifting ST)
@@ -8364,8 +8348,3 @@ Variant: Receives Skill Bonus, +0/+0, group(Equipment), gives(+1 to owner::skill
 	x(#Message("This item receives a skill bonus when used. Adding this modifier will give a bonus to the Skill Level listing (e.g. the Level Column on the Weapons Tables), but will not affect the level under Skills. For that take the 'Equipment: Gives Skill Bonus' modifier."))
 Variant: Receives Skill Penalty, +0/+0, group(Equipment), gives(-1 to owner::skillscore), shortname(Receives Skill Bonus),
 	x(#Message("This item receives a skill penalty when used. Adding this modifier will give a bonus to the Skill Level listing (e.g. the Level Column on the Weapons Tables), but will not affect the level under Skills. For that take the 'Equipment: Gives Skill Bonus' modifier."))
-
-
-
-
-
