@@ -1057,7 +1057,7 @@ Voice, 10, gives(+2 To GR:VocalFeatures), page(30), cat(Mundane, Physical), tabo
 <Mundane Mental>
 Animal Empathy, 5, page(42), cat(Empathic Abilities, Mundane, Mental, Non-Racial), taboo(DI:Frightens Animals),
 	skillused(ST:IQ), mode(empathize)
-Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), cat(Mundane, Mental, Non-Racial),
+Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), cat(Mundane, Mental, Non-Racial, Racial),
 	conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(29)
 Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
 	page(42), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Combat Paralysis)
@@ -1717,16 +1717,16 @@ Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, 
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "foul-tempered behaviour observed" _
 			)
 
-Berserk, -10, mods(Self-Control, Berserk), page(64), cat(Mundane, Mental), 
+Berserk, -10, mods(Self-Control, Berserk), page(64), cat(Mundane, Mental, Non-Racial), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Bloodlust, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control),
+Bloodlust, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "violent behaviour observed" _
 			)
 
-Bully, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), gives(-2 to ST:Reaction),
+Bully, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control), gives(-2 to ST:Reaction),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "bullying observed" _
@@ -1743,7 +1743,7 @@ Chummy, -5, page(56), cat(Mundane, Mental, Non-Racial), taboo(DI:Loner, DI:Grega
 Gregarious, -10, page(56), cat(Mundane, Mental, Non-Racial), taboo(DI:Chummy, DI:Loner),
 	conditional(-1 to ST:IQ when "in a group of four or less", -4 to ST:IQ when "alone")
 
-Clueless, -10, gives(-4 To SK:Savoir-Faire, -2 to ST:Reaction), page(61), cat(Mundane, Mental, Mental Limitations)
+Clueless, -10, gives(-4 To SK:Savoir-Faire, -2 to ST:Reaction), page(61), cat(Mundane, Mental, Non-Racial, Mental Limitations)
 
 Code of Honour, -5/-10, page(56), upto(3), cat(Mundane, Mental, Non-Racial),
 	levelnames(Informal or Safe, Formal or Dangerous, Highly Formal AND Dangerous),
@@ -1783,7 +1783,7 @@ Compulsive Gambling, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-
 Compulsive Lying, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), taboo(DI:Truthfulness), 
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Compulsive Neatness, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial, Racial, Vampire), 
+Compulsive Neatness, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial, Racial, Vampire),
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Risk-Taking, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
@@ -1801,17 +1801,17 @@ Compulsive Vowing, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Ra
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Confused, -10, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), 
+Confused, -10, mods(Self-Control), page(61), cat(Mundane, Mental, Non-Racial, Mental Limitations), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Cowardice, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), taboo(AD:Fearlessness),
+Cowardice, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control), taboo(AD:Fearlessness),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters",
 		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Fright Check when "physical danger involved", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Fright Check when "physical danger involved", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Fright Check when "physical danger involved", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Fright Check when "physical danger involved"_
 			)
 
-Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), taboo(DI:Incurious),
+Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control), taboo(DI:Incurious),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction when "excessive curiosity observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction when "excessive curiosity observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction when "excessive curiosity observed" _
@@ -1826,12 +1826,12 @@ Delusion ("My superior social class automatically makes me a good warrior"), -10
 	page(59), needs(ST:Status = 1),
 	cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction when "noticed by a genuine veteran warrior")
 
-Disciplines of Faith, -5/-10, upto(3), page(59), cat(Mundane, Mental), levelnames(,,),
+Disciplines of Faith, -5/-10, upto(3), page(59), cat(Mundane, Mental, Non-Racial), levelnames(,,),
 	x(#InputToTag("Specify your set of rules here:", nameext, , "Disciplines of Faith"))
-Disciplines of Faith (Asceticism), -15, page(59), cat(Mundane, Mental), taboo(AD:Wealth, AD:Status::baselevel > 0)
-Disciplines of Faith (Monasticism), -10, page(59), cat(Mundane, Mental), taboo(AD:Wealth, AD:Status::baselevel > 0)
-Disciplines of Faith (Mysticism), -10, page(59), cat(Mundane, Mental), conditional(-2 to ST:Reaction when "not a devout co-religionist")
-Disciplines of Faith (Ritualism), -5, page(59), cat(Mundane, Mental)
+Disciplines of Faith (Asceticism), -15, page(59), cat(Mundane, Mental, Non-Racial), taboo(AD:Wealth, AD:Status::baselevel > 0)
+Disciplines of Faith (Monasticism), -10, page(59), cat(Mundane, Mental, Non-Racial), taboo(AD:Wealth, AD:Status::baselevel > 0)
+Disciplines of Faith (Mysticism), -10, page(59), cat(Mundane, Mental, Non-Racial), conditional(-2 to ST:Reaction when "not a devout co-religionist")
+Disciplines of Faith (Ritualism), -5, page(59), cat(Mundane, Mental, Non-Racial)
 
 Dwarfish Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Racial), taboo(DI:Charitable, DI:Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -1852,7 +1852,7 @@ Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poo
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction when "when gluttony is observed in action", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction when "when gluttony is observed in action", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction when "when gluttony is observed in action" _
 			)
 
-Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), taboo(DI:Charitable, DI:Dwarfish Greed),
+Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control, Racial), taboo(DI:Charitable, DI:Dwarfish Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when rampant greed is observed" _
@@ -1874,10 +1874,10 @@ Impulsiveness, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racia
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed",
 			)
 
-Incurious, -5, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), taboo(DI:Curious),
+Incurious, -5, mods(Self-Control), page(61), cat(Mundane, Mental, Non-Racial, Mental Limitations), taboo(DI:Curious),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Innumerate, -5, page(60), cat(Mundane, Mental, Non-Racial), taboo(AD:Lightning Calculator, AD:Mathematical Ability)
+Innumerate, -5, page(60), cat(Mundane, Mental, Non-Racial, Racial), taboo(AD:Lightning Calculator, AD:Mathematical Ability)
 
 Intolerance, -5/-10, upto(2), page(60), cat(Mundane, Mental, Non-Racial),
 	levelnames(One group, Total Intolerance),
@@ -1889,9 +1889,9 @@ Kleptomania, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial)
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Laziness, -10, page(61), cat(Mundane, Mental)
+Laziness, -10, page(61), cat(Mundane, Mental, Non-Racial)
 
-Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), 
+Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when lechery is observed" _
@@ -1909,25 +1909,25 @@ Miserliness, -10, mods(Self-Control), page(62),
 	cat(Mundane, Mental, Non-Racial), taboo(DI:Compulsive Generosity, DI:Compulsive Spending),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental), 
+Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental, Non-Racial), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 No Sense of Humour, -10, page(65), cat(Mundane, Mental, Non-Racial, Racial, Unsociable Flaws),
 	conditional(-2 to ST:Reaction)
-Non-Iconographic, -10, page(B146), cat(Mundane, Mental)
+Non-Iconographic, -10, page(B146), cat(Mundane, Mental, Non-Racial)
 Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
-	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Mental Limitations)
+	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Non-Racial, Mental Limitations)
 
 Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal),
 	upto(2), page(62), cat(Mundane, Mental, Non-Racial, Obsessive Ideas, Racial, Vampire),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTagReplace("Describe your Obsession:", nameext, , "Obsession"))
 
-On the Edge, -15, mods(Self-Control), page(B147), cat(Mundane, Mental),
+On the Edge, -15, mods(Self-Control), page(B147), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(-2 to ST:Reaction when "people witness behavior", +2 to ST:Reaction when "witnessed by people who value bravery over self-preservation")
 
-Overconfidence, -5, mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), taboo(DI:Low Self-Image),
+Overconfidence, -5, mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "experienced NPCs")
 
@@ -1940,7 +1940,9 @@ Pacifism (Self-Defence Only), -15, page(62), cat(Mundane, Mental, Non-Racial),
 
 Paranoia, -10, page(59), cat(Delusions, Mundane, Mental), conditional(-2 to ST:Reaction)
 
-Phobia, -5/-10, upto(4), mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), levelnames(,,,), initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)), x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
+Phobia, -5/-10, upto(4), mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial), levelnames(,,,),
+	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control),
+	page(53)), x(#InputToTag("Specify what you're afraid of here:", nameext, , "Phobia"))
 
 Phobia (%examplelist%), %examplecostlist%, displaycost(variable),
 	mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial, Phobias, Racial, Vampire),
@@ -1990,10 +1992,10 @@ Sense of Duty, -2/-5/-10/-15/-20, levelnames(Individual, Small Group, Large Grou
 	conditional(=+2 to ST:Reaction when "in dangerous situations if Sense of Duty is known"),
 	x(#InputToTag("Specify the person or group you have a Sense of Duty towards:", nameext, , "Sense of Duty"))
 
-Short Attention Span, -10, mods(Self-Control), page(B153), cat(Mundane, Mental), taboo("AD:Single-Minded")
+Short Attention Span, -10, mods(Self-Control), page(B153), cat(Mundane, Mental, Non-Racial, Racial), taboo("AD:Single-Minded")
 Shyness, -5/-10/-20, gives(=@indexedvalue(%level, -1, -2, -4) To GR:Shyness),
 	levelnames(Mild, Severe, Crippling), page(B154), upto(3), cat(Mundane, Mental, Non-Racial)
-Slave Mentality, -40, page(B154), cat(Mundane, Mental)
+Slave Mentality, -40, page(B154), cat(Mundane, Mental, Non-Racial, Racial)
 
 Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2005,11 +2007,12 @@ Stubbornness, -5, page(65), cat(Mundane, Mental, Non-Racial, Unsociable Flaws),
 	conditional(-1 to ST:Reaction when "attitude noticed")
 Totally Oblivious, -5, gives(-1 To GR:Oblivious), page(61),
 	taboo(DI:Oblivious, SK:Acting, SK:Fast-Talk, SK:Fortune-Telling, SK:Intimidation, SK:Interrogation, SK:Politics),
-	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"), cat(Mundane, Mental, Mental Limitations, Non-Racial)
+	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"),
+	cat(Mundane, Mental, Mental Limitations, Non-Racial)
 Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental), taboo(DI:Compulsive Lying), 
+Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial), taboo(DI:Compulsive Lying), 
 	gives(-5 to SK:Fast-Talk),
 	conditional(-5 to SK:Acting when "your purpose is to deceive"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
@@ -5154,7 +5157,7 @@ Investigator (Basic Set), displaycost(100),
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
 					page(B153), 
-					cat(Mundane, Mental)_
+					cat(Mundane, Mental, Non-Racial)_
 					),
 				DI:Stubbornness, 
 				DI:Wealth #codes(UPTO 1), 
@@ -5441,7 +5444,7 @@ Soldier of Fortune (Basic Set), displaycost(100),
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
 					page(B153), 
-					cat(Mundane, Mental)_
+					cat(Mundane, Mental, Non-Racial)_
 					),
 				DI:Trademark #codes(UPTO 1)_
 				)_
