@@ -1524,13 +1524,6 @@ Aerial, 0, page(94), needs(AD:Flight), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	taboo(AD:Swarm Body), gives(=nobase to ST:Kick::reach$)
 
-Dependency, -5/-10/-20/-30, mods(Dependency), levelnames(Very Common, Common, Occasional, Rare), 
-	page(B130), upto(4), cat(Exotic, Physical),
-	initmods(_
-			Frequency Needed: Monthly, *1, shortname(Monthly), group(Dependency) _
-			),
-	x(#InputToTag("Specify the substance which you're Dependent on:", nameext, , "Dependency"))
-
 Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Physical, Racial),
 	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
 	mods(Extra Legs)
@@ -1648,84 +1641,69 @@ Bad Back, -15/-25, levelnames(Mild, Severe), page(55), upto(2), cat(Mundane, Non
 Bad Grip, -5/-10, upto(3), page(63), cat(Mundane, Non-Racial, Physical, Racial), taboo(DI:Quadruped),
 	gives(-2 To CL:Melee Weapon, -2 to SK:Climbing, -2 to SK:Fast-Draw)
 
-Bad Sight (Nearsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Farsighted), AD:Acute Vision), mods(Bad Sight),
-	conditional(_
-			-6 to ST:Vision when "item is more than 1 yard away",
-			-2 to "CL:Melee Combat",
-			*2 to "CL:Ranged Combat" when "calculating range penalties" _
-			)
-Bad Sight (Farsighted), -25, page(B123), cat(Mundane, Physical), taboo(DI:Blindness, DI:Bad Sight (Nearsighted), AD:Acute Vision), mods(Bad Sight),
+Bad Sight (Farsighted), -25, page(63), cat(Mundane, Non-Racial, Physical, Racial),
+	taboo(DI:Blindness, DI:Bad Sight (Nearsighted), AD:Acute Vision), mods(Bad Sight),
 	conditional(_
 			-6 to ST:Vision when "item is within 1 yard",
 			-3 to ST:DX when "performing close manual tasks",
 			-3 to "CL:Melee Combat" when "in Close Combat" _
 			)
+Bad Sight (Nearsighted), -25, page(63), cat(Mundane, Non-Racial, Physical, Racial),
+	taboo(DI:Blindness, DI:Bad Sight (Farsighted), AD:Acute Vision), mods(Bad Sight),
+	conditional(_
+			-6 to ST:Vision when "item is more than 1 yard away",
+			-2 to "CL:Melee Combat",
+			*2 to "CL:Ranged Combat" when "calculating range penalties" _
+			)
 Bad Smell, -10, page(55), cat(Mundane, Non-Racial, Physical, Racial), gives(-2 to ST:Reaction)
-Blindness, -50, page(B124), cat(Mundane, Physical), mods(Blindness),
-	taboo(AD:Acute Vision, AD:Infravision, AD:Night Vision, AD:Peripheral Vision, AD:Dark Vision, DI:Colorblindness, DI:Night Blindness, DI:No Depth Perception, DI:One Eye, DI:Bad Sight, DI:Dyslexia, DI:Restricted Vision),
-	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -6 to CL:Athletic - Combat Art/Sport, -ST:Vision::basescore to ST:Vision)
+Blindness, -50, page(55), cat(Mundane, Non-Racial, Physical), mods(Blindness),
+	taboo(AD:Acute Vision, AD:Night Vision, DI:One Eye, DI:Bad Sight),
+	gives(-4 to ST:Dodge, -6 to CL:Melee Combat, -6 to CL:Ranged Combat, -ST:Vision::basescore to ST:Vision)
 Cannot Speak, -15, page(56), cat(Mundane, Non-Racial, Physical, Racial), taboo(DI:Disturbing Voice, DI:Mute)
 
-Colorblindness, -10, page(B127), cat(Mundane, Physical), taboo(DI:Blindness),
-	conditional(-1 to SK:Artist, -1 to SK:Chemistry, -1 to SK:Driving, -1 to SK:Merchant, -1 to SK:Piloting, -1 to SK:Tracking)
-Combat Paralysis, -15, gives(-2 to ST:Fright Check), page(57), cat(Mundane, Physical), taboo(AD:Combat Reflexes)
-Deafness, -20, page(B129), cat(Mundane, Physical), mods(Deafness),
+Combat Paralysis, -15, gives(-2 to ST:Fright Check), page(57), cat(Mundane, Non-Racial, Physical), taboo(AD:Combat Reflexes)
+Deafness, -20, page(59), cat(Mundane, Non-Racial, Physical), mods(Deafness),
 	taboo(AD:Acute Hearing, AD:Ultrahearing), gives(-ST:Perception to ST:Hearing)
 Disturbing Voice, -10, page(30), cat(Mundane, Non-Racial, Physical, Racial), taboo(AD:Voice, DI:Mute),
 	gives(-2 to GR:VocalFeatures), conditional(-2 to ST:Reaction when "talking to people")
-Ham-Fisted, -5, page(60), cat(Mundane, Physical), taboo(AD:High Manual Dexterity, DI:Quadruped),
+Ham-Fisted, -5, page(60), cat(Mundane, Non-Racial, Physical), taboo(AD:High Manual Dexterity, DI:Quadruped),
 	gives(-3 to SK:Fast-Draw, -3 to GR:High Manual Dexterity), conditional(-1 to ST:Reaction when "being tidy or well-groomed matters")
-Hard of Hearing, -10, gives(-4 To ST:Hearing), page(B138), cat(Mundane, Physical), mods(Hard of Hearing), taboo(DI:Deafness)
-Hemophilia, -30, needs(HT <= 10), page(B138), cat(Mundane, Physical)
-Hunchback, -10, gives(-1 to ST:Reaction, -3 To GR:Hunchback), page(63), cat(Mundane, Physical)
+Hard of Hearing, -10, gives(-4 To ST:Hearing), page(63), cat(Mundane, Non-Racial, Physical), mods(Hard of Hearing), taboo(DI:Deafness)
+Hunchback, -10, gives(-1 to ST:Reaction, -3 To GR:Hunchback), page(63), cat(Mundane, Non-Racial, Physical)
 
 Klutz, -5, needs(DX <= 13), page(60), cat(Mundane, Non-Racial, Physical)
-Lame, -10, page(63), cat(Mundane, Physical), sets(ST:Basic Move = @int(ST:Basic Speed/2)),
+Lame, -10, page(63), cat(Mundane, Non-Racial, Physical), sets(ST:Basic Move = @int(ST:Basic Speed/2)),
 	taboo(ST:Basic Move > @int(ST:Basic Speed/2), DI:No Legs, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	gives(-3 to "CL:Melee Combat")
-No Legs, -30, page(63), cat(Mundane, Physical), sets(ST:Basic Move = 0),
+No Legs, -30, page(63), cat(Mundane, Non-Racial, Physical), sets(ST:Basic Move = 0),
 	taboo(ST:Basic Move > 0, DI:Lame, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-6 to ST:DX when "using any skill which requires your legs"), mods(Missing Legs),
 	gives(-6 to "CL:Melee Combat")
-Low Pain Threshold, -10, page(61), cat(Mundane, Physical), taboo(AD:High Pain Threshold, AD:Supernatural Durability),
+Low Pain Threshold, -10, page(61), cat(Mundane, Non-Racial, Physical), taboo(AD:High Pain Threshold, AD:Supernatural Durability),
 	conditional(-1 to ST:Reaction when "from ''macho'' individuals")
 
-Motion Sickness, -10, page(63), cat(Mundane, Physical)
+Motion Sickness, -10, page(63), cat(Mundane, Non-Racial, Physical)
 Mute, -25, page(56), cat(Mundane, Non-Racial, Physical, Racial),
 	taboo(AD:Voice, PE:Penetrating Voice, DI:Cannot Speak, DI:Disturbing Voice)
 
-Neurological Disorder, -15/-35/-55, levelnames(Mild, Severe, Crippling), page(B144), upto(3), cat(Mundane, Physical),
-	gives(-2 to GR:High Manual Dexterity),
-	conditional(-2 to CL:Social when "your condition becomes known", -2 to SK:Performance when "your condition becomes known")
-Night Blindness, -10, page(B144), cat(Mundane, Physical), taboo(DI:Blindness, AD:Night Vision, AD:Dark Vision),
-	conditional(-3 to ST:Vision when "a darkness penalty applies; or double the darkness penalty, whichever is worse")
-No Depth Perception, -15, page(B145), cat(Mundane, Physical), taboo(DI:One Eye, DI:Blindness)
-Noisy, -2/-4, page(B146), cat(Mundane, Physical), taboo(AD:Silence), conditional(-1 to ST:Reaction)
-
-One Arm, -20, page(64), cat(Mundane, Physical),
+One Arm, -20, page(64), cat(Mundane, Non-Racial, Physical),
 	gives(-ST:Two Arm Lifting ST::basescore to ST:Two Arm Lifting ST, -ST:Two Arm Striking ST::basescore to ST:Two Arm Striking ST),
 	taboo(DI:Quadruped, DI:Short Arms (2 Arms), DI:One Hand, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
-One Eye, -15, page(B147), cat(Mundane, Physical), taboo(DI:No Depth Perception, DI:Blindness, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
+One Eye, -15, page(64), cat(Mundane, Non-Racial, Physical), taboo(DI:Blindness, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level),
 	conditional(-3 to CL:Ranged Combat when "not aiming"), gives(-1 to CL:Melee Combat)
-One Hand, -15, page(64), cat(Mundane, Physical),
+One Hand, -15, page(64), cat(Mundane, Non-Racial, Physical),
 	taboo(DI:One Arm, AD:Ambidexterity, @if(@itemhasmod(AD:Regrowth, Minor) THEN 0 ELSE 1) * AD:Regrowth::level)
 Restricted Diet, -10/-20/-30/-40, levelnames(Very Common, Common, Occasional, Rare),
 	page(96), upto(4), cat(Mundane, Physical, Racial, Vampire),
 	taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink),
 	x(#InputToTag("Specify the unusual sustenance required:", nameext, , "Restricted Diet"))
-Sulphurholism, -15, page(54), cat(Mundane, Physical),
+Sulphurholism, -15, page(54), cat(Mundane, Physical, Racial, Troll),
 	needs(DI:Troll Brain), taboo(DI:Sulphurholism (Withdrawn), QU:Former Sulphurholic)
-Sulphurholism (Withdrawn), -10, page(54), cat(Mundane, Physical),
-	needs(DI:Troll Brain), taboo(DI:Sulphurholism, QU:Former Sulphurholic)
-Susceptible to [Very Common], -4/-8, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
-	x( #InputReplace("Specify the environmentally Very Common class of noxious items or substances to which the character is susceptible:", "[Very Common]", , "Susceptible to [Very Common]") )
-Susceptible to [Common], -2/-4, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
-	x( #InputReplace("SUSCEPTIBLE: Specify the environmentally Common class of noxious items or substances to which the character is susceptible:", "[Common]", , "Susceptible to [Common]") )
-Susceptible to [Occasional], -1/-2, page(B158), upto(@min(5, ST:HT - 3)), cat(Mundane, Physical),
-	x( #InputReplace("SUSCEPTIBLE: Specify the environmentally Occasional class of noxious items or substances to which the character is susceptible:", "[Occasional]", , "Susceptible to [Occassional]") )
+Sulphurholism (Withdrawn), -10, page(54), cat(Mundane, Physical, Racial, Troll),
+	needs(DI:Troll Brain), taboo(QU:Former Sulphurholic)
 
 <Mundane Mental>
-Absent-Mindedness, -15, page(54), cat(Mundane, Mental, Non-Racial),
+Absent-Mindedness, -15, page(54), cat(Mundane, Mental, Non-Racial, Racial),
 	conditional(-5 to ST:IQ when "concentrating on another task")
 
 Addiction ([Psychological]), -5/-10/-20, upto(3), 
@@ -1733,7 +1711,7 @@ Addiction ([Psychological]), -5/-10/-20, upto(3),
 	mods(Addiction), page(54), cat(Mundane, Mental, Non-Racial),
 	x( #InputReplace("Specify the activity to which you are addicted:", "[Psychological]", , "Addiction (Psychological)") )
 
-Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial), 
+Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "foul-tempered behaviour observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "foul-tempered behaviour observed" _
@@ -1742,13 +1720,13 @@ Bad Temper, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial),
 Berserk, -10, mods(Self-Control, Berserk), page(64), cat(Mundane, Mental), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Bloodlust, -10, mods(Self-Control), page(64), cat(Mundane, Mental),
+Bloodlust, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "violent behaviour observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "violent behaviour observed" _
 			)
 
-Bully, -10, mods(Self-Control), page(B125), cat(Mundane, Mental), gives(-2 to ST:Reaction),
+Bully, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), gives(-2 to ST:Reaction),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "bullying observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "bullying observed" _
@@ -1757,14 +1735,12 @@ Bully, -10, mods(Self-Control), page(B125), cat(Mundane, Mental), gives(-2 to ST
 Callous, -5, gives(-3 To SK:Teaching), page(56), cat(Mundane, Mental, Non-Racial, Racial),
 	conditional(-1 to ST:Reaction when "past victim, or has Empathy", -3 to SK:Psychology when "attempting to help people", +1 to SK:Interrogation when "you use threats or torture", +1 to SK:Intimidation when "you use threats or torture")
    
-Cannot Learn, -30, page(B125), cat(Mundane, Mental)
-
 Charitable, -15, mods(Self-Control), page(65),
 	cat(Mundane, Mental, Non-Racial, Virtuous Flaws), taboo(DI:Greed, DI:Dwarfish Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Chummy, -5, page(B126), cat(Mundane, Mental), taboo(DI:Loner, DI:Gregarious), conditional(-1 to ST:IQ when "alone")
-Gregarious, -10, page(B126), cat(Mundane, Mental), taboo(DI:Chummy, DI:Loner),
+Chummy, -5, page(56), cat(Mundane, Mental, Non-Racial), taboo(DI:Loner, DI:Gregarious), conditional(-1 to ST:IQ when "alone")
+Gregarious, -10, page(56), cat(Mundane, Mental, Non-Racial), taboo(DI:Chummy, DI:Loner),
 	conditional(-1 to ST:IQ when "in a group of four or less", -4 to ST:IQ when "alone")
 
 Clueless, -10, gives(-4 To SK:Savoir-Faire, -2 to ST:Reaction), page(61), cat(Mundane, Mental, Mental Limitations)
@@ -1777,7 +1753,7 @@ Code of Honour (Assassin's), -10, page(56), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Chivalry), -15, page(56), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Dark Lord's), -10, page(56), cat(Mundane, Mental, Non-Racial)
 Code of Honour (D'reg's), -5, page(57), cat(Mundane, Mental, Non-Racial)
-Code of Honour (Gentleman's), -10, page(B127), cat(Mundane, Mental, Non-Racial)
+Code of Honour (Gentleman's), -10, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Igor's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Klatchian), -10, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Pirate's), -5, page(57), cat(Mundane, Mental, Non-Racial)
@@ -1804,7 +1780,7 @@ Compulsive Carousing (Puritannical Setting), -10, mods(Self-Control), page(58), 
 Compulsive Gambling, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-Compulsive Lying, -15, mods(Self-Control), page(B128), cat(Mundane, Mental, Non-Racial), taboo(DI:Truthfulness), 
+Compulsive Lying, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), taboo(DI:Truthfulness), 
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Neatness, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial, Racial, Vampire), 
@@ -1828,21 +1804,18 @@ Compulsive Vowing, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Ra
 Confused, -10, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Cowardice, -10, mods(Self-Control), page(B129), cat(Mundane, Mental), taboo(AD:Fearlessness),
+Cowardice, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), taboo(AD:Fearlessness),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	gives(_
-		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Fright Check, =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Fright Check, =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Fright Check, =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Fright Check_
-	),
 	conditional(_
-			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters" _
+		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from non-cowards, when cowardice matters",
+		=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Fright Check when "physical danger involved", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Fright Check when "physical danger involved", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Fright Check when "physical danger involved", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Fright Check when "physical danger involved"_
 			)
 
-Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Incurious),
+Curious, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), taboo(DI:Incurious),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction when "excessive curiosity observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction when "excessive curiosity observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction when "excessive curiosity observed" _
 			)
-
 
 Delusion, -5/-10/-15, upto(3), levelnames(Minor, Major, Severe), page(59), 
 	cat(Delusions, Mundane, Mental), gives(-1 to ST:Reaction),
@@ -1873,14 +1846,13 @@ Fanaticism, -15/-15, levelnames( , Extreme), page(62), upto(2), cat(Mundane, Men
 Fearfulness, -2/-4, gives(-1 To Fright Check), page(60), upto(ST:Will - 3), cat(Mundane, Mental, Non-Racial),
 	taboo(AD:Fearlessness, AD:Unfazeable)
 
-Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial), taboo(AD:Doesn't Eat or Drink),
+Gluttony, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control), taboo(AD:Doesn't Eat or Drink),
 	initmods( You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -2 else 0 ) to ST:Reaction when "when gluttony is observed in action", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -1 else 0 ) to ST:Reaction when "when gluttony is observed in action", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -1 else 0 ) to ST:Reaction when "when gluttony is observed in action" _
 			)
 
-
-Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental), taboo(DI:Charitable, DI:Dwarfish Greed),
+Greed, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), taboo(DI:Charitable, DI:Dwarfish Greed),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when rampant greed is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when rampant greed is observed" _
@@ -1896,7 +1868,7 @@ Hidebound, -5, page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial, Ra
 Honesty, -10, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial, Racial, Virtuous Flaws),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental, Non-Racial), 
+Impulsiveness, -10, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "from sensible people, when impulsiveness is observed",
@@ -1905,18 +1877,13 @@ Impulsiveness, -10, mods(Self-Control), page(B139), cat(Mundane, Mental, Non-Rac
 Incurious, -5, mods(Self-Control), page(61), cat(Mundane, Mental, Mental Limitations), taboo(DI:Curious),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Indecisive, -10, mods(Self-Control), page(B140), cat(Mundane, Mental),
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
+Innumerate, -5, page(60), cat(Mundane, Mental, Non-Racial), taboo(AD:Lightning Calculator, AD:Mathematical Ability)
 
-Innumerate, -5, page(B140), cat(Mundane, Mental), taboo(AD:Lightning Calculator, AD:Intuitive Mathematician, AD:Mathematical Ability),
-	ndl(@if(ST:Tech Level::basescore <=4 THEN 1 ELSE 0)),
-	description(At TL 3 and below Innumerate doesn't count against the Disadvantage Limit. This can be changed by checking (or unchecking) the 'Do Not Count Against Disadvantage Limit' box in the Edit window.)
-
-Intolerance, -5/-10, upto(2), page(B140), cat(Mundane, Mental),
+Intolerance, -5/-10, upto(2), page(60), cat(Mundane, Mental, Non-Racial),
 	levelnames(One group, Total Intolerance),
-	x(#InputToTag("Specify the group or groups you are Intolerance of:", nameext, , "Intolerance"))
+	x(#InputToTag("Specify the group or groups you are Intolerant of:", nameext, , "Intolerance"))
 
-Jealousy, -10, page(B140), cat(Mundane, Mental)
+Jealousy, -10, page(60), cat(Mundane, Mental, Non-Racial)
 
 Kleptomania, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial), 
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
@@ -1924,7 +1891,7 @@ Kleptomania, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial)
 
 Laziness, -10, page(61), cat(Mundane, Mental)
 
-Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental), 
+Lecherousness, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Poor Impulse Control), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when lechery is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when lechery is observed" _
@@ -1933,13 +1900,8 @@ Literal-Minded, -10, page(61), cat(Mundane, Mental, Mental Limitations, Non-Raci
 	taboo(DI:Clueless, DI:No Sense of Humour)
 Literal-Minded (Combined with Clueless or No Sense of Humour), -5, page(61),
 	cat(Mundane, Mental, Mental Limitations, Non-Racial), needs(DI:Clueless | DI:No Sense of Humour)
-
-Loner, -5, mods(Self-Control), page(B142), cat(Mundane, Mental, Non-Racial), taboo(DI:Chummy, DI:Gregarious), 
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-
 Low Empathy, -20, gives(-3 To GR:Low Empathy), page(61), cat(Mundane, Mental, Mental Limitations, Non-Racial),
 	taboo(AD:Empathy, AD:Sensitive)
-Low Self-Image, -10, page(B143), cat(Mundane, Mental, Non-Racial), taboo(DI:Overconfidence)
 Megalomania, -10, page(59), cat(Delusions, Mundane, Mental, Non-Racial),
 	conditional(+2 to ST:Reaction when "young or naive individuals", -2 to ST:Reaction when "non-frothing NPCs")
 
@@ -2011,7 +1973,7 @@ Post-Combat Shakes, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-R
 Pyromania, -5, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Racial),
+Sadism, -15, mods(Self-Control), page(64), cat(Mundane, Mental, Non-Racial, Poor Impulse Control, Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	conditional(_
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -6 else 0 ) to ST:Reaction when "when habitual cruelty is observed", =@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -4 else 0 ) to ST:Reaction when "when habitual cruelty is observed", =@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -3 else 0 ) to ST:Reaction when "when habitual cruelty is observed", =@if(@hasmod(You resist on a roll of 15 or less (almost all the time)) then -1 else 0 ) to ST:Reaction when "when habitual cruelty is observed" _
@@ -3272,7 +3234,6 @@ AD:High Pain Threshold
 AD:High TL
 AD:Igor Immunity
 AD:Indomitable
-AD:Infravision
 AD:Injury Tolerance
 AD:Insubstantiality
 AD:Intuitive Mathematician
@@ -3455,8 +3416,6 @@ DI:Code of Honour (Pirate's)
 DI:Code of Honour (Professional)
 DI:Code of Honour (Soldier's)
 DI:Code of Honour
-DI:Cold-Blooded
-DI:Colorblindness
 DI:Combat Paralysis
 DI:Compulsive Behavior
 DI:Compulsive Carousing
@@ -3544,10 +3503,6 @@ DI:Megalomania
 DI:Miserliness
 DI:Motion Sickness
 DI:Mute
-DI:Neurological Disorder
-DI:Night Blindness
-DI:Nightmares
-DI:No Depth Perception
 DI:Quadruped
 DI:No Sense of Humour
 DI:No Sense of Smell/Taste
@@ -4585,16 +4540,11 @@ Androgynous, 0, group(Attractive), page(B21)
 Impressive, 0, group(Attractive), page(B21)
 
 <Bad Sight>
-Mitigator (Glasses), -60%, group(Bad Sight), page(B112), mitigator(yes), shortname(Glasses), mitigator(yes)
+Mitigator (Glasses), -60%, group(Bad Sight), page(53), mitigator(yes), shortname(Glasses), mitigator(yes)
 
 <Blindness>
-Mitigator (Artificial Eyes), -60%, group(Blindness), page(B112), shortname(Artificial Eyes), mitigator(yes),
+Mitigator (Artificial Eyes), -60%, group(Blindness), page(), shortname(Artificial Eyes), mitigator(yes),
 	x(#Message("This modifier is for use only with Blindness. Applying it to any other trait will cause problems."))
-
-//	gives(+4 to ST:Dodge, +6 to CL:Melee Combat, +6 to CL:Ranged Combat, +6 to CL:Athletic - Combat Art/Sport, +ST:Vision::basescore to ST:Vision),
-
-<Berserk>
-Battle Rage, +50%, group(Berserk), page(B124)
 
 <Combat Table>
 Remove Combat Table Entry, +0, addmode({Punch, damage(), damtype(), minst(), reach()} | {Kick, damage(), damtype(), minst(), reach()} | {Bite, damage(), damtype(), minst(), reach()})
@@ -4734,15 +4684,11 @@ Frequency: roll of 12 or less (Quite often), *2, shortname(12 or less), group(Fr
 Frequency: roll of 15 or less (Almost all the time), *3, shortname(15 or less), group(Frequency of Appearance), page(B36)
 Frequency: no roll required (Constantly), *4, shortname(Constantly), group(Frequency of Appearance), page(B36)
 
-<Hard of Hearing>
-Mitigator (Ear Trumpet), -60%, group(Hard of Hearing), page(B112), shortname(Ear Trumpet), mitigator(yes)
-
 <Deafness>
-Mitigator (Ear Trumpet), -60%, group(Deafness), page(B112), shortname(Ear Trumpet), mitigator(yes)
+Mitigator (Ear Trumpet), -60%, group(Deafness), page(53), shortname(Ear Trumpet), mitigator(yes)
 
-<Infravision>
-Unswitchable, *0, group(Infravision), page(B60)
-Switchable, +0, group(Infravision), page(B60)
+<Hard of Hearing>
+Mitigator (Ear Trumpet), -60%, group(Hard of Hearing), page(53), shortname(Ear Trumpet), mitigator(yes)
 
 <Injury Tolerance>
 No Blood, +5, group(Injury Tolerance), page(89)
@@ -7479,94 +7425,6 @@ Cost: Decreased Cost, -1/-2, tier(1), group(Equipment), level([level]), shortnam
 
 Equipment: Higher TL Equipment, *2/*4/*8, upto(12 - ST:Tech Level::basevalue), page(B27), forceformula(yes), formula(2 ^ me::level), shortname(Higher TL Equipment)
 
-<Star Freighter>
-Turret Laser Cannon, +500000/+1000000, upto(2), tier(1), page(B465), group(Star Freighter),
-	addmode(Turret Laser Cannon,
-			damage(6dx5),
-			damtype(burn),
-			acc(10),
-			rangehalfdam(100000),
-			rangemax(300000),
-			rof(4),
-
-			skillused(SK:Gunner (Beams)),
-			rcl(1)_
-			)
-
-<Beams>
-"Scope, 4x (TL  6)", 150, gives(+1.5 to owner::baseweight, +2 to owner::acc), group(Beams), tier(1),
-	description(TL:6 Notes: +2 to Acc for aimed shots only.), page(B289)
-"Scope, 4x, Thermal Imaging (TL  8)", 1000, gives(+4 to owner::baseweight, +2 to owner::acc), group(Beams), tier(1),
-	description(TL:8 Notes: +2 to Acc for aimed shots only, plus gives the user Infravision.), page(B289)
-
-_Remove Attack Mode ([Mode]), +0, group(Beams), 
-	addmode([Mode], reach(), rangehalfdam(), rangemax(), damage(), damtype()),
-	x(_
-		#InputReplace("Please enter the exact name of the attack mode you wish to remove from this weapon:", "[Mode]", "", "Remove Attack Mode") _
-	)
-
-Variant: Increased Damage, +0/+0, tier(1), group(Beams), gives(+1 to owner::damage, +0 to owner::baseweight), shortname(Increased Damage)
-Variant: Decreased Damage, -0/-0, tier(1), group(Beams), gives(-1 to owner::damage, +0 to owner::baseweight), shortname(Decreased Damage)
-Variant: Increased Damage Dice, +0/+0, tier(1), group(Beams), gives(=+$solver(me::level)d to owner::damage$, +0 to owner::baseweight), shortname(Increased Damage Dice)
-Variant: Decreased Damage Dice, -0/-0, tier(1), group(Beams), gives(=-$solver(me::level)d to owner::damage$, +0 to owner::baseweight), shortname(Decreased Damage Dice)
-Variant: Receives Acc Bonus, +0/+0, group(Beams), gives(+1 to owner::acc), shortname(Receives Skill Bonus)
-Variant: Receives Acc Penalty, +0/+0, group(Beams), gives(-1 to owner::acc), shortname(Receives Skill Bonus)
-Variant: Damage Bonus (per die), +0/+0, group(Beams),
-	gives(_
-		=+@textindexedvalue( $modetag(dmg), ("thr", $solver(me::level)*owner::basethdice), ("sw", $solver(me::level)*owner::baseswdice), ELSE $solver(me::level*owner::dmg) ) to owner::damage$ listAs "+/die from Damage Bonus" _
-		),
-	levelnames(+1/die, +2/die, +3/die, +4/die, +5/die, +6/die, +7/die, +8/die, +9/die, +10/die)
-
-Weapon Quality: Good, *1, page(B280), group(Beams), shortname(Good Quality)
-Weapon Quality: Fine, *2, gives(+1 to owner::Acc listas "+1 Acc from Fine Quality", +1 to owner::malf), page(B280), group(Beams), shortname(Fine Quality)
-Weapon Quality: Very Fine, *5, gives(+2 to owner::Acc listas "+2 Acc from Very Fine Quality", +1 to owner::malf), page(B280), group(Beams), shortname(Very Fine Quality)
-_New Ranged Attack Mode, 0, group(Beams), noresync(yes),
-	addmode(_New Ranged Attack Mode, 
-		damage([damage]),
-		damtype([damagetype]),
-		armourdivisor([armourdivisor]),
-		acc([accuracy]),
-		rangehalfdam([halfdamagerange]),
-		rangemax([maxrange]),
-		rof([rateoffire]),
-		shots([shots]),
-		minst([minimumst]%usealiaslist%),
-		rcl([recoil]),
-		skillused([skillused])),
-	x(_
-		#InputReplace("Please enter the name of this firearm:", "_New Ranged Attack Mode", " ", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the damage of this firearm (e.g. 6dx5). DO NOT include armour divisors or damage type in this field:", "[damage]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the damage type of this firearm (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the accuracy of this firearm:", "[accuracy]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the half damage range of this firearm:", "[halfdamagerange]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the maximum range of this firearm:", "[maxrange]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the rate of fire of this firearm:", "[rateoffire]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the shots for this firearm:", "[shots]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the minimum strength of this firearm:", "[minimumst]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the recoil of this firearm:", "[recoil]", "%copyfirst", "New Ranged Attack Mode"),
-		#InputReplace("Please enter the skill used for this firearm:", "[skillused]", "%copyfirst", "New Ranged Attack Mode"),
-		#ChoiceList(_
-				name(Use),
-				title(New Ranged Attack Mode: Weapon Use),
-				text(How is this weapon used?),
-				picksallowed(1),
-				method(bynumber),
-				list(_
-					"%copyfirst",
-					"One-Handed",
-					"Two-Handed",
-					"Two-Handed, becomes unready after attack" _
-					),
-				aliaslist(_
-						"",
-						"",
-						"†",
-						"‡"_
-					)_
-				),
-		#edit)
-
 _New Melee Attack Mode, 0, group(Beams), noresync(yes),
 	addmode(_New Melee Attack Mode, 
 		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
@@ -7626,96 +7484,6 @@ _New Melee Attack Mode, 0, group(Beams), noresync(yes),
 				),
 		#edit)
 
-<Guns>
-// ^^^^ ERROR Scopes giving improper bonus to acc
-"Scope, 4x (TL  6)", 150, gives(+1.5 to owner::baseweight, +2 to owner::acc), tier(1), group(Guns),
-	description(TL:6 Notes: +2 to Acc for aimed shots only.), page(B289)
-"Scope, 4x, Thermal Imaging (TL  8)", 1000, gives(+4 to owner::baseweight, +2 to owner::acc), tier(1), group(Guns),
-	description(TL:8 Notes: +2 to Acc for aimed shots only, plus gives the user Infravision.), page(B289)
-
-Variant: Increased Damage, +0/+0, tier(1), group(Guns), gives(+1 to owner::damage, +0 to owner::baseweight), shortname(Increased Damage)
-Variant: Decreased Damage, -0/-0, tier(1), group(Guns), gives(-1 to owner::damage, +0 to owner::baseweight), shortname(Decreased Damage)
-Variant: Increased Damage Dice, +0/+0, tier(1), group(Guns), gives(=+$solver(me::level)d to owner::damage$, +0 to owner::baseweight), shortname(Increased Damage Dice)
-Variant: Decreased Damage Dice, -0/-0, tier(1), group(Guns), gives(=-$solver(me::level)d to owner::damage$, +0 to owner::baseweight), shortname(Decreased Damage Dice)
-Variant: Damage Bonus (per die), +0/+0, group(Guns),
-	gives(_
-		=+@textindexedvalue( $modetag(dmg), ("thr", $solver(me::level)*owner::basethdice), ("sw", $solver(me::level)*owner::baseswdice), ELSE $solver(me::level*owner::dmg) ) to owner::damage$ listAs "+/die from Damage Bonus" _
-		),
-	levelnames(+1/die, +2/die, +3/die, +4/die, +5/die, +6/die, +7/die, +8/die, +9/die, +10/die)
-Variant: Receives Acc Bonus, +0/+0, group(Guns), gives(+1 to owner::acc), shortname(Receives Skill Bonus)
-Variant: Receives Acc Penalty, +0/+0, group(Guns), gives(-1 to owner::acc), shortname(Receives Skill Bonus)
-
-Remove w/ Bipod Mode, 0, addmode(w/ Bipod, damage(), damtype(), minst(), rangehalfdam(), rangemax())
-Remove w/o Bipod Mode, 0, addmode(w/o Bipod, damage(), damtype(), minst(), rangehalfdam(), rangemax())
-
-Weapon Quality: Good, *1, page(B280), group(Guns), shortname(Good Quality)
-Weapon Quality: Fine, *2, gives(+1 to owner::Acc listas "+1 Acc from Fine Quality", +1 to owner::malf), page(B280), group(Guns), shortname(Fine Quality)
-Weapon Quality: Very Fine, *5, gives(+2 to owner::Acc listas "+2 Acc from Very Fine Quality", +1 to owner::malf), page(B280), group(Guns), shortname(Very Fine Quality)
-
-_New Melee Attack Mode, 0, group(Guns), noresync(yes),
-	addmode(_New Melee Attack Mode, 
-		damage([damage] + @max(%UnarmedDamageBonusAliasList%)),
-		damtype([damagetype]),
-		armourdivisor([armourdivisor]),
-		reach([reach]),
-		parry([parry]),
-		minst([minimumst]%usealiaslist%),
-		skillused([skillused])),
-	x(_
-		#InputReplace("Please enter the name of the new attack mode below. Note that each weapon mode must have a unique mode name:", "_New Melee Attack Mode", " ", "New Melee Attack Mode"),
-		#InputReplace("Please enter the damage of this hand weapon (e.g. 6dx5, sw+1, or thr-1). DO NOT include armour divisors or damage type:", "[damage]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the armour divisor. If there is no armour divisor enter space (or just click enter). DO NOT include parenthesis:", "[armourdivisor]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the damage type of this hand weapon (e.g. pi+ or cut):", "[damagetype]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the reach for this hand weapon:", "[reach]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the parry for this hand weapon:", "[parry]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the skill used for this hand weapon:", "[skillused]", "%copyfirst", "New Melee Attack Mode"),
-		#InputReplace("Please enter the minimum strength of this hand weapon:", "[minimumst]", "%copyfirst", "New Melee Attack Mode"),
-		#ChoiceList(_
-					name(UnarmedDamageBonus),
-					title(New Melee Weapon: Unarmed Damage Bonus),
-					text(Does this weapon receive a damage bonus from an unarmed combat skill?),
-					picksallowed(atleast 1, upto 3),
-					method(bynumber),
-					default(1),
-					list(_
-						"_N/A",
-						"Brawling",
-						"Boxing",
-						"Karate" _
-						),
-					aliaslist(_
-							"0",
-							{@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Punch) else 0)},
-							{@if("SK:Boxing::level" = ST:DX+1 then @basethdice(ST:Punch) else @if("SK:Boxing::level" > ST:DX+1 then 2 * @basethdice(ST:Punch) else 0))},
-							{@if("SK:Karate::level" = ST:DX then @basethdice(ST:Punch) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Punch) else 0))}_
-						)_
-				),
-		#ChoiceList(_
-				name(Use),
-				title(New Melee Attack Mode: Weapon Use),
-				text(How is this weapon used?),
-				picksallowed(1),
-				method(bynumber),
-				list(_
-					"%copyfirst",
-					"One-Handed",
-					"Two-Handed",
-					"Two-Handed, becomes unready after attack" _
-					),
-				aliaslist(_
-						"",
-						"",
-						"†",
-						"‡"_
-					)_
-				),
-		#edit)
-_Remove Attack Mode ([Mode]), +0, group(Guns), 
-	addmode([Mode], reach(), rangehalfdam(), rangemax(), damage(), damtype()),
-	x(_
-		#InputReplace("Please enter the exact name of the attack mode you wish to remove from this weapon:", "[Mode]", "", "Remove Attack Mode") _
-	)
-
 <Ammunition>
 Composition: Silver (TL4+), *50, page(B275), group(Ammunition), shortname(Silver)
 
@@ -7725,19 +7493,6 @@ _Remove Attack Mode ([Mode]), +0, group(Shield),
 	x(_
 		#InputReplace("Please enter the exact name of the attack mode you wish to remove from this weapon:", "[Mode]", "", "Remove Attack Mode") _
 	)
-
-_Advantage: Weapon Master Damage Bonus, +0, shortname(Weapon Master Damage Bonus), group(Shield),
-	gives(_
-		=+@if(_
-			$modetag(charskillscore) = ST:DX+1 _
-			THEN @textindexedvalue($modetag(dmg), ("thr", owner::basethdice), ("sw", owner::baseswdice), ELSE $solver(owner::dmg)) _
-			ELSE @if(_
-				$modetag(charskillscore) > ST:DX+1 _
-				THEN @textindexedvalue($modetag(dmg), ("thr", 2 * owner::basethdice), ("sw", 2 * owner::baseswdice), ELSE 2*$solver(owner::dmg)) _
-				ELSE 0 _
-				)_
-			) to owner::damage$ ListAs "Weapon Master Damage Bonus" _
-		)
 
 Shield: Gives Defense Bonus to Dodge/Block/Parry, +0, gives(=+owner::chardb to ST:Dodge, =+owner::chardb to ST:Block, =+owner::chardb to ST:Parry), group(Shield), shortname(Gives DB)
 Shield: Conditional Defense Bonus to Dodge/Block/Parry, +0, conditional(=+owner::chardb to ST:Dodge, =+owner::chardb to ST:Block, =+owner::chardb to ST:Parry), group(Shield), shortname(Conditional DB)
