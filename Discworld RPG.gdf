@@ -2,9 +2,10 @@ Encoding=UTF-8
 Version=3
 * The version information above MUST be the first line of the data file
 Program=4.0.408
-Description=01/02/2017. This data file contains information taken from the GURPS Basic Set: Characters sourcebook. GURPS Basic Set: _
-		Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2002, 2004 by _
-		Steve Jackson Games Incorporated. All rights reserved. _
+Description=01/03/2017. This data file contains information taken from the GURPS Basic Set: Characters sourcebook and _
+		the Discworld RPG. GURPS Basic Set: Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, _
+		1996, 1998, 1999, 2002, 2004 by Steve Jackson Games Incorporated. The Discworld RPG is Copyright © xxxxxxxx by _
+		xxxxxxxxxxxxx. All rights reserved.
 Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS Basic Set 3rd Ed. Revised.gdf"
 
 [AUTHOR]
@@ -534,8 +535,15 @@ Basic Water Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(
 	basevalue(ST:Basic Move / 5)
 Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
-				@if(AD:Flight THEN 2 * ST:Basic Speed ELSE @if("AD:Swarm Body" THEN 2 * ST:Basic Speed ELSE 0))
-				)
+				@if("AD:Flight (Levitation)" THEN 2 * ST:Basic Speed ELSE _
+						@if("AD:Flight (Winged, Can Hover)" THEN 2 * ST:Basic Speed ELSE _
+							@if("AD:Flight (Winged, Cannot Hover)" THEN 2 * ST:Basic Speed ELSE _
+								@if("AD:Swarm Body" THEN 2 * ST:Basic Speed ELSE 0 _
+									)
+								)
+							)
+					)
+			)
 Basic Brachiation Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
 				@if(AD:Brachiator THEN ST:Basic Move / 2 ELSE 0)_
