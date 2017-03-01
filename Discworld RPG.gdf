@@ -1917,23 +1917,16 @@ Miserliness, -10, mods(Self-Control), page(62),
 	cat(Mundane, Mental, Non-Racial), taboo(DI:Compulsive Generosity, DI:Compulsive Spending),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
-Nightmares, -5, mods(Self-Control), page(B145), cat(Mundane, Mental, Non-Racial), 
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
-
 No Sense of Humour, -10, page(65), cat(Mundane, Mental, Non-Racial, Racial, Unsociable Flaws),
 	conditional(-2 to ST:Reaction)
-Non-Iconographic, -10, page(B146), cat(Mundane, Mental, Non-Racial)
-Oblivious, -5, gives(-1 To GR:Oblivious), page(B146),
-	taboo(DI:Totally Oblivious), cat(Mundane, Mental, Non-Racial, Mental Limitations)
+Oblivious, -5, gives(-1 To GR:Oblivious), page(61),
+	taboo(DI:Totally Oblivious), conditional(-1 to ST:Will when "resisting Influence skills"),
+	cat(Mundane, Mental, Non-Racial, Mental Limitations)
 
 Obsession, -5/-10, mods(Self-Control), levelnames(Short-Term Goal, Long-Term Goal),
 	upto(2), page(62), cat(Mundane, Mental, Non-Racial, Obsessive Ideas, Racial, Vampire),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
 	x(#InputToTagReplace("Describe your Obsession:", nameext, , "Obsession"))
-
-On the Edge, -15, mods(Self-Control), page(B147), cat(Mundane, Mental, Non-Racial),
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	conditional(-2 to ST:Reaction when "people witness behavior", +2 to ST:Reaction when "witnessed by people who value bravery over self-preservation")
 
 Overconfidence, -5, mods(Self-Control), page(62), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -1996,14 +1989,12 @@ Selfless, -5, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial, Rac
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Sense of Duty, -2/-5/-10/-15/-20, levelnames(Individual, Small Group, Large Group, Entire Race, Every Living Being),
-	page(B153), upto(5), cat(Mundane, Mental, Non-Racial),
-	conditional(=+2 to ST:Reaction when "in dangerous situations if Sense of Duty is known"),
-	x(#InputToTag("Specify the person or group you have a Sense of Duty towards:", nameext, , "Sense of Duty"))
+	page(65), upto(5), cat(Mundane, Mental, Non-Racial),
+	x(#InputToTag("Specify the person or group you feel a Sense of Duty towards:", nameext, , "Sense of Duty"))
 
-Short Attention Span, -10, mods(Self-Control), page(B153), cat(Mundane, Mental, Non-Racial, Racial), taboo("AD:Single-Minded")
+Short Attention Span, -10, mods(Self-Control), page(65), cat(Mundane, Mental, Non-Racial, Racial), taboo("AD:Single-Minded")
 Shyness, -5/-10/-20, gives(=@indexedvalue(%level, -1, -2, -4) To GR:Shyness),
-	levelnames(Mild, Severe, Crippling), page(B154), upto(3), cat(Mundane, Mental, Non-Racial)
-Slave Mentality, -40, page(B154), cat(Mundane, Mental, Non-Racial, Racial)
+	levelnames(Mild, Severe, Crippling), page(65), upto(3), cat(Mundane, Mental, Non-Racial)
 
 Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
@@ -2015,7 +2006,7 @@ Stubbornness, -5, page(65), cat(Mundane, Mental, Non-Racial, Unsociable Flaws),
 	conditional(-1 to ST:Reaction when "attitude noticed")
 Totally Oblivious, -5, gives(-1 To GR:Oblivious), page(61),
 	taboo(DI:Oblivious, SK:Acting, SK:Fast-Talk, SK:Fortune-Telling, SK:Intimidation, SK:Interrogation, SK:Politics),
-	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default"),
+	conditional(-4 to SK:Acting when "used at default", -4 to SK:Fast-Talk when "used at default", -4 to SK:Fortune-Telling when "used at default", -4 to SK:Intimidation when "used at default", -4 to SK:Interrogation when "used at default", -4 to SK:Politics when "used at default", -1 to ST:Will when "resisting Influence skills"),
 	cat(Mundane, Mental, Mental Limitations, Non-Racial)
 Trickster, -15, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
@@ -3518,13 +3509,10 @@ DI:Quadruped
 DI:No Sense of Humour
 DI:No Sense of Smell/Taste
 DI:Noisy
-DI:Non-Iconographic
-DI:Numb
 DI:Oblivious
 DI:Obsession
 DI:Odious Personal Habit
 DI:Odious Racial Habit
-DI:On the Edge
 DI:One Arm
 DI:One Eye
 DI:One Hand
@@ -3558,7 +3546,6 @@ DI:Short Attention Span
 DI:Short Legs
 DI:Shyness
 DI:Skinny
-DI:Slave Mentality
 DI:Slow Eater
 DI:Slow Healing
 DI:Slow Riser
@@ -4219,7 +4206,6 @@ SK:Intimidation
 SK:Leadership
 SK:Merchant
 SK:Panhandling
-SK:Performance
 SK:Politics
 SK:Public Speaking
 SK:Savoir-Faire
