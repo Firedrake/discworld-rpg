@@ -1996,10 +1996,6 @@ Short Attention Span, -10, mods(Self-Control), page(65), cat(Mundane, Mental, No
 Shyness, -5/-10/-20, gives(=@indexedvalue(%level, -1, -2, -4) To GR:Shyness),
 	levelnames(Mild, Severe, Crippling), page(65), upto(3), cat(Mundane, Mental, Non-Racial)
 
-Split Personality, -15, mods(Self-Control), page(B156), cat(Mundane, Mental, Non-Racial),
-	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	gives(-1 to ST:Reaction), conditional(-3 to ST:Reaction when "others witness a personality shift")
-
 Squeamish, -10, mods(Self-Control), page(63), cat(Mundane, Mental, Non-Racial, Phobias), 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Stubbornness, -5, page(65), cat(Mundane, Mental, Non-Racial, Unsociable Flaws),
@@ -2017,10 +2013,8 @@ Truthfulness, -5, mods(Self-Control), page(66), cat(Mundane, Mental, Non-Racial)
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 
 Unluckiness, -10, page(65), cat(Mundane, Mental, Non-Racial)
-Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(B160), upto(3), cat(Mundane, Mental, Non-Racial),
+Vow, -5/-10/-15, levelnames(Minor, Major, Great), page(66), upto(3), cat(Mundane, Mental, Non-Racial),
 	x(#InputToTag("Please describe the nature of your Vow:", nameext, , "Vow"))
-Workaholic, -5, page(B162), cat(Mundane, Mental, Non-Racial),
-	conditional(+1 to ST:Reaction, -1 to ST:Reaction), taboo(DI:Laziness)
 
 <Mundane Social>
 Odious Personal Habit, -5/-10, upto(3), page(29), cat(Mundane, Non-Racial, Social),
@@ -2029,11 +2023,11 @@ Odious Personal Habit, -5/-10, upto(3), page(29), cat(Mundane, Non-Racial, Socia
 Odious Racial Habit, -5/-10, upto(3), page(96), cat(Mundane, Racial, Social),
 	conditional(-1 to ST:Reaction when "people are aware of the issue"),
 	x(#InputToTag("Specify the Odious Racial Habit:", nameext, , "Odious Racial Habit"))
-Wealth, -10/-15/-25, upto(3), page(33), levelnames([Average], Struggling, Poor, Dead Broke), cat(Mundane, Social, Wealth),
+Wealth, -10/-15/-25, upto(3), page(33), levelnames([Average], Struggling, Poor, Dead Broke), cat(Mundane, Non-Racial, Social, Wealth),
 	gives(=@indexedvalue(%level, -5, -8, -10) To ST:Wealth Modifier),
 	taboo(AD:Wealth, DI:Wealth > me::level, DI:Wealth < me::level)
 
-Reputation, -5/-10, mods(Reputation Disadvantage), page(34), upto(4), cat(Mundane, Social, Influence),
+Reputation, -5/-10, mods(Reputation Disadvantage), page(34), upto(4), cat(Mundane, Non-Racial, Social, Influence),
 	x(#InputToTag("Please describe the nature of the Reputation:", nameext, , "Reputation")),
 	initmods(_
 			People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation) _
@@ -2045,7 +2039,7 @@ Status, -5/-10, page(37), gives(-1 to ST:Status), cat(Mundane, Non-Racial, Socia
 	upto(2 + @indexedvalue(AD:Wealth::level, 0, 1, 1, 1, 2, 3))
 
 Dependent, -1/-2/-5/-10/-15, upto(5),
-	mods(Dependent, Frequency of Appearance), page(B131), cat(Mundane, Social),
+	mods(Dependent, Frequency of Appearance), page(39), cat(Mundane, Non-Racial, Social),
 	levelnames(No more than 100%, No more than 75%, No more than 50%, No more than 25%, 0 or fewer points), 
 	initmods(_
 			Importance: Friend, *1, shortname(Friend), group(Dependent) _
@@ -2053,20 +2047,20 @@ Dependent, -1/-2/-5/-10/-15, upto(5),
 			),
 	x(#InputToTag("Name or describe your Dependent:", nameext, , "Dependent"))
 
-Duty, -2/-5/-10/-15, mods(Duty), page(B134), cat(Mundane, Social), upto(4),
+Duty, -2/-5/-10/-15, mods(Duty), page(59), cat(Mundane, Non-Racial, Social), upto(4),
 	levelnames("6 or less (quite rarely)", "9 or less (fairly often)", "12 or less (quite often)", "15 or less (almost always)"),
 	x(#InputToTag("Please describe the nature of your Duty:", nameext, , "Duty"))
 
-Enemy (One Person), -5/-10/-20, upto(3), mods(Enemy, Evil Twin, Frequency of Appearance), 
-   page(B135), cat(Mundane, Social),
+Enemy (One Person), -5/-10/-20, upto(3), mods(Enemy, Frequency of Appearance), 
+   page(40), cat(Mundane, Non-Racial, Social),
    levelnames("Less powerful than the PC", "Equal in power to the PC", "More powerful than the PC"),
    initmods(_
 		Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
 		),
 	x(#InputToTagReplace("Name or describe your Enemy:", nameext, , "Enemy (One Person)"))
 
-Enemy (Less powerful group), -10/-20/-30, upto(3), mods(Enemy, Frequency of Appearance), 
-	page(B135), cat(Mundane, Social),
+Enemy (Group of less powerful people), -10/-20/-30, upto(3), mods(Enemy, Frequency of Appearance), 
+	page(40), cat(Mundane, Non-Racial, Social),
 	levelnames("Small group (3-5 people)", "Medium-sized group (6-20 people)", "A large group (21-1,000 people)"),
 	initmods(_
 			Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
@@ -2074,7 +2068,7 @@ Enemy (Less powerful group), -10/-20/-30, upto(3), mods(Enemy, Frequency of Appe
 	x(#InputToTagReplace("Name or describe your Enemy Group:", nameext, , "Enemy (Less powerful group)"))
 
 Enemy (Formidable group), -30/-40, upto(2), mods(Enemy, Frequency of Appearance), 
-	page(B135), cat(Mundane, Social),
+	page(40), cat(Mundane, Non-Racial, Social),
 	levelnames("medium-sized group, some formidable or super-human", "utterly formidable group"),
 	initmods(_
 			Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance) _
@@ -2104,7 +2098,7 @@ Social Stigma (Second-Class Citizen), -5, page(36), cat(Mundane, Non-Racial, Rac
 	conditional(-1 to ST:Reaction)
 Social Stigma (Uneducated), -5, page(36), cat(Mundane, Non-Racial, Racial, Social),
 	conditional(-1 to ST:Reaction)
-Social Stigma (Valuable Property), -10, page(B155), cat(Mundane, Social)
+Social Stigma (Valuable Property), -10, page(36), cat(Mundane, Non-Racial, Social)
 
 ************************************************************************************************************************
 [QUIRKS]
@@ -3435,7 +3429,6 @@ DI:Decreased Time Rate
 DI:Delusion
 DI:Dependency
 DI:Dependent
-DI:Destiny
 DI:Disciplines of Faith (Asceticism)
 DI:Disciplines of Faith (Monasticism)
 DI:Disciplines of Faith (Mysticism)
@@ -3452,7 +3445,7 @@ DI:Dyslexia
 DI:Easy to Read
 DI:Electrical
 DI:Enemy (Formidable group)
-DI:Enemy (Less powerful group)
+DI:Enemy (Group of less powerful people)
 DI:Enemy (One Person)
 DI:Epilepsy
 DI:Fanaticism
@@ -4592,10 +4585,9 @@ Frequency Needed: Yearly, *1/10, shortname(Yearly), group(Dependency), page(B130
 Aging, +30%, group(Dependency), page(B130)
 
 <Dependent>
-Importance: Employer or Acquaintance, *1/2, shortname(Employer/Acquaintance), group(Dependent), page(B131)
-Importance: Friend, *1, shortname(Friend), group(Dependent), page(B131)
-Importance: Loved one, *2, shortname(Loved one), group(Dependent), page(B131)
-Group of Dependents, *2, group(Dependent), page(B131)
+Importance: Employer or Acquaintance, *1/2, shortname(Employer/Acquaintance), group(Dependent), page(40)
+Importance: Friend, *1, shortname(Friend), group(Dependent), page(40)
+Importance: Loved one, *2, shortname(Loved one), group(Dependent), page(40)
 
 <Discriminatory Smell>
 Emotion Sense, +8, group(Discriminatory Smell), page(88)
@@ -4609,21 +4601,13 @@ Rarity: Common, *2, shortname(Common), group(Dread), page(95)
 Rarity: Very Common, *3, shortname(Very Common), group(Dread), page(95)
 
 <Duty>
-Extremely Hazardous, -5, group(Duty), page(B134)
-Involuntary, -5, group(Duty), page(B134)
-Nonhazardous, +5, group(Duty), page(B134)
-
-<Evil Twin>
-Evil Twin, -10, group(Evil Twin), page(B135)
-Evil Twin is more skilled than you, -5, group(Evil Twin), page(B135)
-Evil Twin posseses abilities that you do not, -5, group(Evil Twin), page(B135)
-Evil Twin is more skilled than you and posseses abilities that you do not, -10, group(Evil Twin), page(B135)
+Extremely Hazardous, -5, group(Duty), page(60)
+Nonhazardous, +5, group(Duty), page(60)
 
 <Enemy>
-Unknown, -5, group(Enemy), page(B135)
-Intent: Watcher, *1/4, shortname(Watcher), group(Enemy), page(B135)
-Intent: Rival, *1/2, shortname(Rival), group(Enemy), page(B135)
-Intent: Hunter, *1, shortname(Hunter), group(Enemy), page(B135)
+Intent: Watcher, *1/4, shortname(Watcher), group(Enemy), page(40)
+Intent: Rival, *1/2, shortname(Rival), group(Enemy), page(40)
+Intent: Hunter, *1, shortname(Hunter), group(Enemy), page(40)
 
 <Extra ST>
 Affects displayed ST score, +0%, shortname(Affects ST), gives(+Owner::Level to ST:ST), group(Extra ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
