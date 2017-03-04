@@ -917,12 +917,13 @@ Unkillable, 50/100, mods(Unkillable), page(92), upto(2),
 	conditional(=-ST:Death Check to ST:Death Check when "you automatically succeed at all Death Checks")
 
 <Exotic Mental>
-Extra Life, 25/50, page(43), cat(Exotic, Mental, Non-Racial, Pawn of the Lady, Vampire)
+Extra Life, 25/50, page(43), cat(Exotic, Mental, Non-Racial, Pawn of the Lady, Vampire),
+	mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Insubstantiality, 80, mods(Insubstantiality), page(89),
 	cat(Exotic Physical, Exotic, Mental, Physical, Racial, Vampire)
 Invisibility, 40, mods(Invisibility), page(90), cat(Exotic, Mental, Racial),
 	conditional(+9 to SK:Stealth when "being seen would matter")
-Mind Shield, 4/8, page(45), cat(Exotic, Mental)
+Mind Shield, 4/8, page(45), cat(Exotic, Mental), mods(Barbarian Hero Benefits)
 Speak With Animals, 5/10/13/15/25, page(46), upto(5), cat(Exotic, Mental, Non-Racial, Racial, Vampire),
 	levelnames("One Species", "One Family", "One Class", "All Land OR All Aquatic", "All Animals")
 Tracker Golem, 15, page(106), cat(Exotic, Mental, Racial),
@@ -1004,7 +1005,7 @@ Appearance, 4/12/12/16/16, mods(Attractive, Appearance), upto(5), page(29),
 					
 
 Absolute Direction, 5, displaycost(5), gives(=+3 To GR:Absolute Direction), page(45),
-	cat(Mundane Mental, Mundane, Physical, Mental, Non-Racial, Racial)
+	mods(Barbarian Hero Benefits), cat(Mundane Mental, Mundane, Physical, Mental, Non-Racial, Racial)
 
 Acute Hearing, 2/4, gives(+1 To ST:Hearing), skillused(ST:Hearing), mode(hear), page(41),
 	cat(Mundane, Physical, Non-Racial, Racial, Vampire), taboo(DI:Deafness)
@@ -1035,17 +1036,18 @@ High Manual Dexterity, 5/10, upto(4), page(43), cat(Mundane, Physical, Non-Racia
 			+1 to SK:Mechanic when "performing fine DX-based tasks" _
 			)
 High Pain Threshold, 10, page(43), cat(Mundane, Physical, Non-Racial, Racial),
-	taboo(DI:Low Pain Threshold, AD:Supernatural Durability),
+	taboo(DI:Low Pain Threshold, AD:Supernatural Durability), mods(Barbarian Hero Benefits),
 	skillused(ST:Will+3), mode(ignore pain)
+	
 Less Sleep, 2/4, page(43), upto(4), cat(Mundane, Physical, Non-Racial, Racial), taboo(AD:Doesn't Sleep)
 Night Vision, 1/2, page(45), upto(9), cat(Mundane, Non-Racial, Physical), taboo(DI:Blindness)
 Perfect Balance, 15, gives(+1 To GR:Perfect Balance), page(46), cat(Mundane, Physical, Non-Racial, Racial)
-Rapid Healing, 5/15, displaycost(5), upto(2),
+Rapid Healing, 5/15, displaycost(5), upto(2), mods(Barbarian Hero Benefits),
 	levelnames(,Very Rapid Healing), needs(ST:HT = 10), page(46),
 	cat(Mundane, Non-Racial, Physical),
 	taboo(AD:Very Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
 Very Rapid Healing, 15, needs(ST:HT = 12), page(46),
-	cat(Mundane, Non-Racial, Physical),
+	cat(Mundane, Non-Racial, Physical), mods(Barbarian Hero Benefits),
 	taboo(AD:Rapid Healing, AD:Regeneration, AD:Repairable, DI:Unhealing)
 
 Resistant, 5/10/15/30, mods(Resistant), levelnames(Rare, Occasional, Common, Very Common),
@@ -1068,10 +1070,11 @@ Animal Empathy, 5, page(42), cat(Empathic Abilities, Mundane, Mental, Non-Racial
 Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), cat(Mundane, Mental, Non-Racial, Racial),
 	conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(29)
 Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
-	page(42), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Combat Paralysis)
+	mods(Barbarian Hero Benefits), page(42), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Combat Paralysis)
 Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental, Non-Racial),
-	skillused(ST:Perception), mode(sense danger)
-Daredevil, 15, page(43), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
+	mods(Barbarian Hero Benefits), skillused(ST:Perception), mode(sense danger)
+Daredevil, 15, page(43), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady),
+	mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2),
 	page(45), cat(Mundane, Mental, Non-Racial, Racial), taboo(AD:Photographic Memory),
 	skillused(ST:IQ), mode(recall)
@@ -1084,9 +1087,9 @@ Sensitive, 5, gives(+1 To GR:Empathy),
 	conditional(+1 to SK:Psychology when "you can converse with the subject"),
 	page(42), cat(Empathic Abilities, Mundane, Mental, Non-Racial), taboo(AD:Empathy, DI:Low Empathy),
 	skillused(ST:IQ), mode(empathize)
-Enhanced Block, 5, gives(+1 To Block), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial)
-Enhanced Dodge, 15, gives(+1 To Dodge), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial)
-Enhanced Parry (bare hands), 5, page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial),
+Enhanced Block, 5, gives(+1 To Block), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial), mods(Dark Lord Benefits)
+Enhanced Dodge, 15, gives(+1 To Dodge), page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial), mods(Dark Lord Benefits)
+Enhanced Parry (bare hands), 5, page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial), mods(Dark Lord Benefits),
 	gives(_
 		+1 to ST:DX::parryat listAs "Enhanced Parry (bare hands)",
 		+1 to SK:Judo::parryat listAs "Enhanced Parry (bare hands)",
@@ -1096,7 +1099,7 @@ Enhanced Parry (bare hands), 5, page(42), cat(Enhanced Defences, Mundane, Mental
 		+1 to SK:Karate::parryat listAs "Enhanced Parry (bare hands)" _
 		)
 Enhanced Parry (%Melee Weapon SkillList%), 5, page(42), cat(Enhanced Defences, Mundane, Mental, Attributes, Non-Racial),
-	gives(+1 to "SK:%Melee Weapon SkillList%::parryat" listAs "Enhanced Parry (%Melee Weapon SkillList%)"),
+	gives(+1 to "SK:%Melee Weapon SkillList%::parryat" listAs "Enhanced Parry (%Melee Weapon SkillList%)"), mods(Dark Lord Benefits),
 	x(#ChoiceList(_
 			name(Melee Weapon Skill),
 			title(Enhanced Parry: Choose a Melee Weapon),
@@ -1119,19 +1122,22 @@ Enhanced Parry (%Melee Weapon SkillList%), 5, page(42), cat(Enhanced Defences, M
 			)_
 			)_
 	), noresync(yes)
-Enhanced Parry (all parries), 10, gives(+1 To Parry), page(42), cat(Attributes, Enhanced Defences, Mundane, Mental, Non-Racial)
+Enhanced Parry (all parries), 10, gives(+1 To Parry), page(42),
+	cat(Attributes, Enhanced Defences, Mundane, Mental, Non-Racial), mods(Dark Lord Benefits)
 
 Fearlessness, 2/4, gives(+1 To ST:Fright Check), page(43), cat(Mundane, Mental, Non-Racial, Racial),
 	taboo(DI:Fearfulness, DI:Cowardice, AD:Unfazeable)
 Gadgeteer, 25, page(43), cat(Mundane, Mental, Non-Racial)
-Indomitable, 15, page(43), cat(Mundane, Mental, Non-Racial, Racial)
+Indomitable, 15, page(43), cat(Mundane, Mental, Non-Racial, Racial),
+	mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Language Talent, 10, gives(+1 To CA:Language), page(32), cat(Mundane, Mental, Non-Racial, Talents)
 Lightning Calculator, 2, page(45), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Innumerate)
 Luck, 15/30/60, levelnames( , Extraordinary, Ridiculous), page(44), upto(3),
-	cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
+	cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady), mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Mad Medicine, 15, needs(AD:Gadgeteer, ((ST:Tech Level = 5) | (PE:Cutting-Edge Training (Physician and Surgery)))),
 	page(44), cat(Mundane, Mental, Non-Racial)
-Serendipity, 15/30, page(44), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady)
+Serendipity, 15/30, page(44), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady),
+	mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Single-Minded, 5, page(46), cat(Mundane, Mental, Non-Racial), taboo(DI:Short Attention Span)
 
 * Talents
@@ -1146,7 +1152,7 @@ Born to Hang, 10/20, gives(+1 To GR:Born to Hang), page(47), upto(4), cat(Mundan
 	description(Larcenous Skills, Disguise, Fast-Talk, Fortune-Telling, Sleight of Hand)
 Born War-Leader, 5/10, gives(+1 To GR:Born War-Leader), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
 	conditional(+1 to ST:Reaction when "dealing with other veteran soldiers and warriors"),
-	description(Officer Skills, Leadership, Savoir-Faire (Military))
+	description(Officer Skills, Leadership, Savoir-Faire (Military)), mods(Dark Lord Benefits)
 Gifted Artist, 5/10, gives(+1 To GR:Gifted Artist), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
 	conditional(+1 to ST:Reaction when "dealing with critics and connoisseurs"),
 	description(Artist, Jeweller, Leatherworking, Photography, Sewing)
@@ -1277,7 +1283,7 @@ Reputation, 5/10, mods(Reputation Advantage), page(34), upto(4), cat(Influence, 
 	x(#InputToTag("Please describe the reason for your reputation:", nameext, , "Reputation"))
 
 Status, 5/10, page(36), upto(8 limitingtotal), gives(+1 to ST:Status),
-	cat(Mundane, Non-Racial, Social, Influence), mods(Status), taboo(DI:Status),
+	cat(Mundane, Non-Racial, Social, Influence), taboo(DI:Status),
 	levelnames(+1, +2, +3, +4, +5, +6, +7, +8)
 
 Rank, 5/10, mods(Rank), page(35), upto(8), cat(Mundane, Non-Racial, Social, Influence),
@@ -1319,7 +1325,7 @@ Legal Immunity, 5/10, page(35), upto(3),
 Igor Immunity, 5, page(35), upto(3),
 	cat(Mundane, Non-Racial, Social)
 
-Patrons, 10/15/20/25/30, mods(Frequency of Appearance, Patron, Favor), page(41), cat(Mundane, Non-Racial, Social), upto(5),
+Patrons, 10/15/20/25/30, mods(Frequency of Appearance), page(41), cat(Mundane, Non-Racial, Social), upto(5),
 	levelnames(Powerful, Extremely Powerful, Ultra-Powerful, City-State Level, Major Nation Level), init(%PatronAliasList%),
 	x(_
 		#InputToTag("Please describe the nature of the Patron:", nameext, , "Patrons"),
@@ -3261,15 +3267,12 @@ AD:Night Vision
 AD:Outdoorsman
 AD:Patrons
 AD:Perfect Balance
-AD:Peripheral Vision
 AD:Photographic Memory
 AD:Pitiable
-AD:Possession
 AD:Pressure-Proof
 AD:Protected Eyes
 AD:Rank
 AD:Rapid Healing
-AD:Rapier Wit
 AD:Regeneration
 AD:Regrowth
 AD:Religious Rank
@@ -3302,14 +3305,9 @@ AD:Teeth (Sharp Teeth)
 AD:Temperature Tolerance (Cold)
 AD:Temperature Tolerance (Heat)
 AD:Tenure
-AD:Terror (Awe)
-AD:Terror (Confusion)
-AD:Terror
 AD:True Faith
 AD:Ultrahearing
-AD:Unaging
 AD:Unfazeable
-AD:Universal Digestion
 AD:Unkillable
 AD:Versatile
 AD:Versatile (Inspiration Magnet)
@@ -3427,7 +3425,6 @@ DI:Cursed
 DI:Deafness
 DI:Decreased Time Rate
 DI:Delusion
-DI:Dependency
 DI:Dependent
 DI:Disciplines of Faith (Asceticism)
 DI:Disciplines of Faith (Monasticism)
@@ -3943,9 +3940,6 @@ SK:Sewing
 SK:Sex Appeal
 SK:Shadowing
 SK:Shield
-SK:Shield (Buckler)
-SK:Shield (Force)
-SK:Shield (Shield)
 SK:Shiphandling
 SK:Shortsword
 SK:Singing
@@ -4268,10 +4262,8 @@ SK:Smallsword
 SK:Spear
 SK:Staff
 
-<ShieldSkill>
-SK:Shield (Shield)
-SK:Shield (Buckler)
-SK:Shield (Force)
+<Shield Skill>
+SK:Shield
 
 <Ranged Weapon Skill>
 SK:Artillery (Beams)
@@ -4326,165 +4318,12 @@ _Free, *0, group(_General)
 
 Mitigator, -60%, group(_General), page(53), mitigator(yes)
 
-Pact, -1%/-2%, group(_General), page(B113)
-Preparation Required, -20%/-30%/-50%/-60%, levelnames(1 minute, 10 minutes, 1 hour, 8 hours), upto(4), group(_General), page(B114)
-Preparation Required: Weakened Without Preparation, -10%/-15%/-25%/-30%, levelnames(1 minute, 10 minutes, 1 hour, 8 hours), upto(4), group(_General), page(B114)
-
-Takes Extra Time, -10%/-20%, group(_General), page(B115)
-Takes Recharge, -10%/-20%, levelnames(5 seconds, 15 seconds, 1 hour), upto(3), group(_General), page(B115)
-
-Temporary Disadvantage, -1%/-2%, group(_General), page(B115), level(%levelaliaslist%),
-	formula(-@min(me::level,@round((me::level*80/owner::premodspoints)+0.004999,2))), forceformula(yes),
-	levelnames(-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31,-32,-33,-34,-35,-36,-37,-38,-39,-40,-41,-42,-43,-44,-45,-46,-47,-48,-49,-50,-51,-52,-53,-54,-55,-56,-57,-58,-59,-60,-61,-62,-63,-64,-65,-66,-67,-68,-69,-70,-71,-72,-73,-74,-75,-76,-77,-78,-79,-80,-81,-82,-83,-84,-85,-86,-87,-88,-89,-90,-91,-92,-93,-94,-95,-96,-97,-98,-99,-100),
-	x(_
-	#InputToTag("Please specify the name of the Temporary Disadvantage:",nameext, ,Temporary Disadvantage),
-	#ChoiceList(_
-			name(level),
-			title(Temporary Disadvantage),
-			text(Please select the point cost of the Temporary Disadvantage. If the exact value is not listed pick the closest one, you will be able to adjust it later:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"  -1",
-				"  -2",
-				"  -3",
-				"  -4",
-				"  -5",
-				"  -6",
-				"  -7",
-				"  -8",
-				"  -9",
-				" -10",
-				" -11",
-				" -12",
-				" -13",
-				" -14",
-				" -15",
-				" -20",
-				" -25",
-				" -30",
-				" -35",
-				" -40",
-				" -45",
-				" -50",
-				" -55",
-				" -60",
-				" -65",
-				" -70",
-				" -75",
-				" -80",
-				" -85",
-				" -90",
-				" -95",
-				"-100"_
-				),
-			aliaslist(_
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15,
-				20,
-				25,
-				30,
-				35,
-				40,
-				45,
-				50,
-				55,
-				60,
-				65,
-				70,
-				75,
-				80,
-				85,
-				90,
-				95,
-				100 _
-					)_
-			),
-	#Edit _
-	)
-
-Trigger, -10%/-20%, levelnames(Very Common, Common, Occasional, Rare), upto(4), group(_General), page(B115), mods(Trigger)
-Unconscious Only, -20%, group(_General), page(B115)
-Uncontrollable, -10%/-30%, levelnames(non-destructive power, destructive power), upto(2), group(_General), page(B116)
-Unreliable/Activation, -10%/-20%/-40%/-80%, levelnames(14 or less, 11 or less, 8 or less, 5 or less), upto(4), group(_General), page(B116)
-Unreliable/Malfunction, -5%/-10%, levelnames(malfunction number 16 , malfunction number 15, malfunction number 14, malfunction number 13, malfunction number 12), upto(5), group(_General), page(B116)
-Untrainable, -40%, group(_General), page(B116)
-Gadget/Breakable: DR 2 or less, -20%, group(_General), page(B117)
-Gadget/Breakable: DR 3-5, -15%, group(_General), page(B117)
-Gadget/Breakable: DR 6-15, -10%, group(_General), page(B117)
-Gadget/Breakable: DR 16-25, -5%, group(_General), page(B117)
-Gadget/Breakable: DR 26 or higher, +0%, group(_General), page(B117)
-Gadget/Breakable: Cannot repair, -15%, group(_General), page(B117)
-Gadget/Breakable: Object is complex machine, -5%, group(_General), page(B117)
-Gadget/Breakable: Size -9 or less, +0%, group(_General), page(B117)
-Gadget/Breakable: Size -7 or -8, -5%, group(_General), page(B117)
-Gadget/Breakable: Size -5 or -6, -10%, group(_General), page(B117)
-Gadget/Breakable: Size -3 or -4, -15%, group(_General), page(B117)
-Gadget/Breakable: Size -1 or -2, -20%, group(_General), page(B117)
-Gadget/Breakable: Size 0 or more, -25%, group(_General), page(B117)
-Gadget/Can Be Stolen: Easily snatched with unopposed DX roll, -40%, mods(Can Be Stolen), group(_General), page(B117)
-Gadget/Can Be Stolen: Thief must win a Quick Contest of DX or ST, -30%, mods(Can Be Stolen), group(_General), page(B117)
-Gadget/Can Be Stolen: Can only be taken by stealth or trickery, -20%, mods(Can Be Stolen), group(_General), page(B117)
-Gadget/Can Be Stolen: Must be forcefully removed, -10%, mods(Can Be Stolen), group(_General), page(B117)
-Gadget/Unique, -25%, group(_General), page(B117)
-
-<Can Be Stolen>
-Does not work for the Thief, *0.5, group(Can Be Stolen), page(B117)
-
-<Costs Fatigue>
-Per Minute, *1, group(Costs Fatigue), page(B111)
-Per Second, *2, group(Costs Fatigue), page(B111)
-Per Activation, *1, group(Costs Fatigue), page(B111)
-
-<Cultural Familiarity>
-Native, *0, group(Cultural Familiarity), page(32), gives(+1 to ST:Native Cultural Familiarities)
-
-<Trigger>
-Illegal, *1.5, group(Trigger), page(B115)
-Addictive, *1.5, group(Trigger), page(B115)
-Dangerous, *1.5, group(Trigger), page(B115)
-
-<_Psionic Power Modifier>
-ESP, -10%, group(_Psionic Power Modifier), page(B255)
-Telepathic, -10%, group(_Psionic Power Modifier), page(B257)
-Psionic Teleportation, -10%, group(_Psionic Power Modifier), page(B257)
-
-Psychic Healing, -10%, group(_Psionic Power Modifier), page(B256)
-Psychokinetic, -10%, group(_Psionic Power Modifier), page(B256)
-
-<_Origin>
-Biological, +0, group(_Origin), page(B33)
-Chi, +0, group(_Origin), page(B33)
-Cosmic, +0, group(_Origin), page(B33)
-Divine, +0, group(_Origin), page(B33)
-High-Tech, +0, group(_Origin), page(B33)
-Magic, +0, group(_Origin), page(B33)
-Mana Sensitive, -10%, group(_Origin), page(B33)
-Psionic, +0, group(_Origin), page(B33)
-Spirit, +0, group(_Origin), page(B33)
-
 <Addiction>
 Effect: Extreme, -10, shortname(Extreme Effects), group(Addiction), page(54)
 Effect: Highly Addictive (-5 on withdrawal roll), -5, shortname(Highly Addictive), group(Addiction), page(54)
 Effect: Totally Addictive (-10 on withdrawal roll), -10, shortname(Totally Addictive), group(Addiction), page(54)
 Legality: Illegal, +0, shortname(Illegal), group(Addiction), page(54)
 Legality: Legal, +5, shortname(Legal), group(Addiction), page(54)
-
-<Secondary>
-Secondary, *1/5, group(Secondary), page(B36)
 
 <Alternate Form>
 Difference in point costs, +1/+2, formula(@int(me::level * 0.9 + 0.9)), forceformula(yes), tier(1), group(Alternate Form), page(85),
@@ -4512,25 +4351,11 @@ Uncontrollable, -10%/-15%/-20%/-25%/-30%, upto(5),
 <Appearance>
 Universal, +25%, group(Appearance), page(85)
 
-<Arm DX>
-One arm, *1, group(Arm DX), page(B40)
-Two arms, *4/3, group(Arm DX), page(B40)
-
-<Arm ST>
-One arm, *1, gives(+owner::level to ST:One Arm Lifting ST, +owner::level to ST:One Arm Striking ST), group(Arm ST), page(B40)
-Two arms, *5/3, gives(_
-				+owner::level to ST:One Arm Lifting ST,
-				+owner::level to ST:One Arm Striking ST,
-				+owner::level to ST:Two Arm Lifting ST,
-				+owner::level to ST:Two Arm Striking ST _
-				), group(Arm ST), page(B40)
-
-<Attractive>
-Androgynous, 0, group(Attractive), page(B21)
-Impressive, 0, group(Attractive), page(B21)
-
 <Bad Sight>
 Mitigator (Glasses), -60%, group(Bad Sight), page(53), mitigator(yes), shortname(Glasses), mitigator(yes)
+
+<Barbarian Hero Benefits>
+Barbarian Hero Code, -20%, group(Barbarian Hero Benefits), page(58)
 
 <Blindness>
 Mitigator (Artificial Eyes), -60%, group(Blindness), page(), shortname(Artificial Eyes), mitigator(yes),
@@ -4541,9 +4366,6 @@ Remove Combat Table Entry, +0, addmode({Punch, damage(), damtype(), minst(), rea
 
 <Contact>
 Can Obtain Information Using Supernatural Talents, +1, shortname(Supernatural), group(Contact), page(38)
-
-<Cosmic Power>
-Per point of abilities, 10/20, group(Cosmic Power), page(B71)
 
 <Damage Resistance>
 Can't Wear Armour, -40%, group(Damage Resistance), page(88)
@@ -4567,22 +4389,13 @@ Only vs. [infrequent], -80%, group(Damage Resistance), page(88),
 		#InputReplace("Please Specify the infrequently-encountered form of damage this protects against:",
 			"[infrequent]", , "Infrequent Damage Type")_
 	)
-Tough Skin, -40%, group(Damage Resistance), page(B47)
+Tough Skin, -40%, group(Damage Resistance), page(88)
 
-<Partial>
-Covers only one hit location of that type, *2, group(Partial), page(B47)
-Covers all hit location of that type, *1, group(Partial), page(B47)
+<Cultural Familiarity>
+Native, *0, group(Cultural Familiarity), page(32), gives(+1 to ST:Native Cultural Familiarities)
 
-<Dependency>
-Illegal, -5, group(Dependency), page(B130)
-Frequency Needed: Constantly, *5, shortname(Constantly), group(Dependency), page(B130)
-Frequency Needed: Hourly, *4, shortname(Hourly), group(Dependency), page(B130)
-Frequency Needed: Daily, *3, shortname(Daily), group(Dependency), page(B130)
-Frequency Needed: Weekly, *2, shortname(Weekly), group(Dependency), page(B130)
-Frequency Needed: Monthly, *1, shortname(Monthly), group(Dependency), page(B130)
-Frequency Needed: Seasonally, *1/3, shortname(Seasonally), group(Dependency), page(B130)
-Frequency Needed: Yearly, *1/10, shortname(Yearly), group(Dependency), page(B130)
-Aging, +30%, group(Dependency), page(B130)
+<Dark Lord Benefits>
+Dark Lord Code, -10%, group(Dark Lord Benefits), page(58)
 
 <Dependent>
 Importance: Employer or Acquaintance, *1/2, shortname(Employer/Acquaintance), group(Dependent), page(40)
@@ -4636,7 +4449,6 @@ Gives conditional Per bonus, +0%, shortname(Conditional Per), conditional(+Owner
 <Extra Hit Points>
 Affects displayed HP score, +0%, shortname(Affects HP), gives(+Owner::Level to ST:Hit Points), group(Extra Hit Points), description(This modifier causes the Extra Hit Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional HP bonus, +0%, shortname(Conditional HP), conditional(+Owner::Level to ST:Hit Points), group(Extra Hit Points), description(This modifier causes the Extra Hit Points advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
-Growth Size, +0%, formula(@min(0,-((@if(ST:Size Modifier < 0 THEN ST:Size Modifier::score ELSE 0) + AD:Growth::level) * 10))), forceformula(yes), group(Extra Hit Points), page(B58)
 
 <Extra Fatigue Points>
 Affects displayed FP score, +0%, shortname(Affects FP), gives(+Owner::Level to ST:Fatigue Points), group(Extra Fatigue Points), description(This modifier causes the Extra Fatigue Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
@@ -4659,11 +4471,11 @@ Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(+Owner
 Gives conditional Air Move bonus, +0%, shortname(Conditional Air Move), conditional(+Owner::Level to ST:Basic Air Move), group(Extra Air Move), description(This modifier causes the Extra Air Move advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
 
 <Frequency of Appearance>
-Frequency: roll of  6 or less (Quite rarely), *1/2, shortname(6 or less), group(Frequency of Appearance), page(B36)
-Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance), page(B36)
-Frequency: roll of 12 or less (Quite often), *2, shortname(12 or less), group(Frequency of Appearance), page(B36)
-Frequency: roll of 15 or less (Almost all the time), *3, shortname(15 or less), group(Frequency of Appearance), page(B36)
-Frequency: no roll required (Constantly), *4, shortname(Constantly), group(Frequency of Appearance), page(B36)
+Frequency: roll of  6 or less (Quite rarely), *1/2, shortname(6 or less), group(Frequency of Appearance), page(38)
+Frequency: roll of  9 or less (Fairly often), *1, shortname(9 or less), group(Frequency of Appearance), page(38)
+Frequency: roll of 12 or less (Quite often), *2, shortname(12 or less), group(Frequency of Appearance), page(38)
+Frequency: roll of 15 or less (Almost all the time), *3, shortname(15 or less), group(Frequency of Appearance), page(38)
+Frequency: no roll required (Constantly), *4, shortname(Constantly), group(Frequency of Appearance), page(38)
 
 <Deafness>
 Mitigator (Ear Trumpet), -60%, group(Deafness), page(53), shortname(Ear Trumpet), mitigator(yes)
@@ -4675,9 +4487,6 @@ Mitigator (Ear Trumpet), -60%, group(Hard of Hearing), page(53), shortname(Ear T
 No Blood, +5, group(Injury Tolerance), page(89)
 No Vitals, +5, group(Injury Tolerance), page(89)
 Unliving, +20, group(Injury Tolerance), page(89)
-
-<Alternative Attack>
-Alternative Attack, *1/5, group(Alternative Attack), page(B61), tier(2)
 
 <Insubstantiality>
 Affect Substantial, +80, group(Insubstantiality), page(89)
@@ -4700,15 +4509,15 @@ Visible Reflection, -4, group(Invisibility), page(90)
 Visible Shadow, -4, group(Invisibility), page(90)
 
 <Native Language>
-Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)
-Native Speaker, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23)
-Native Writer, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(B23)
+Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(31)
+Native Speaker, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(31)
+Native Writer, -3, gives(=+0.5 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 2 else 3)), forceformula(yes), group(Language), page(31)
 
 <Lifting ST>
 Doesn't affect Basic Lift, 0, gives(-owner::level to ST:Lifting ST)
 
 <Missing Legs>
-Mitigator (Prosthetic Leg), -60%, group(Missing Legs), page(B112), shortname(Prosthetic Leg), mitigator(yes)
+Mitigator (Prosthetic Leg), -60%, group(Missing Legs), page(53), shortname(Prosthetic Leg), mitigator(yes)
 
 <Money>
 5% of Starting Wealth, +0
@@ -4723,8 +4532,6 @@ Mitigator (Prosthetic Leg), -60%, group(Missing Legs), page(B112), shortname(Pro
 80% of Starting Wealth, +0
 90% of Starting Wealth, +0
 100% of Starting Wealth, +0
-
-Trading Character Points for Money, +1/+2, formula(0), forceformula(yes), gives(+@indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000) to ST:Money, +@indexedvalue(ST:Tech Level::basevalue + 1, 25, 50, 75, 100, 200, 500, 1000, 1500, 2000, 3000, 5000, 7500, 10000) to ST:Remaining Funds), page(B26)
 
 Money Earned in Play, +0/+0, level([Level]), formula(0), forceformula(yes), gives(+1 to ST:Money, +1 to ST:Remaining Funds),
 	x(_
@@ -4744,35 +4551,6 @@ Quadruped, -40%, group(Quadruped), page(96)
 <Quadruped Stat>
 Quadruped, -0%, formula(-@if(ST:Quadruped > 0 & owner::level > 0 then 40 else 0)),
 	forceformula(yes), group(Quadruped Stat), page(96)
-
-<Patron>
-Equipment: no more than starting wealth, +50%, group(Patron), page(B73)
-Equipment: more than starting wealth, +100%, group(Patron), page(B73)
-Highly Accessible, +50%, group(Patron), page(B73)
-Special Abilities: extensive social or political power, +50%, group(Patron), page(B73)
-Special Abilities: magical powers in nonmagical world, +100%, group(Patron), page(B73)
-Special Abilities: possesses equipment from a greater TL, +100%, group(Patron), page(B73)
-Special Abilities: grants special powers, +100%, group(Patron), page(B73)
-Special Abilities: unusual reach in time or space, +100%, group(Patron), page(B73)
-Minimal Intervention, -50%, group(Patron), page(B73)
-Secret, -50%, group(Patron), page(B73)
-Unwilling, -50%, group(Patron), page(B74)
-
-<Peripheral Vision>
-Easy to Hit, -20%, group(Peripheral Vision), page(B75)
-
-<Possession>
-Assimilation, +10%, group(Possession), page(B76)
-Chronic, +20%, group(Possession), page(B76)
-Mind Swap, +10%, group(Possession), page(B76)
-Telecontrol, +50%, group(Possession), page(B76)
-Digital, -40%, group(Possession), page(B76)
-Magical, -10%, group(Possession), page(B76)
-Mindlink Required, -40%, group(Possession), page(B76)
-No Memory Access, -10%, group(Possession), page(B76)
-Parasitic, -60%, group(Possession), page(B76)
-Puppet Only, -30%, group(Possession), page(B76)
-Spiritual, -20%, group(Possession), page(B76)
 
 <Regeneration>
 Requires Special Condition, -40%, group(Regeneration), page(90)
@@ -4829,7 +4607,7 @@ Remove the default Kick combat table entry, +0, gives(=nobase ST:Kick::reach$)
 Remove the default Bite combat table entry, +0, gives(=nobase ST:Bite::reach$)
 
 <Gauntlets>
-Melee Table Punch Listing, +0, page(B271), shortname(Punch),
+Melee Table Punch Listing, +0, page(178), shortname(Punch),
 	addmode(Punch w/gauntlet, damage(thr+_
 								@max(_
 									@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Punch) else 0),
@@ -4838,7 +4616,7 @@ Melee Table Punch Listing, +0, page(B271), shortname(Punch),
 									)_
 							), damtype(cr), reach(C), parry(0), minst(), notes([3]), skillused(SK:Boxing, SK:Brawling, SK:Karate, ST:DX))
 <Boots>
-Melee Table Kick Listing, +0, page(B271), shortname(Kick),
+Melee Table Kick Listing, +0, page(178), shortname(Kick),
 	addmode(Kick w/boots, damage(thr+_
 							@max(_
 								@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Kick) else 0),
@@ -4846,17 +4624,12 @@ Melee Table Kick Listing, +0, page(B271), shortname(Kick),
 								)_
 					), damtype(cr), reach(C,1), parry(No), skillused(ST:DX-2, SK:Brawling-2, SK:Karate-2, SK:Kicking (Karate), SK:Kicking (Brawling)))
 
-<Precognition>
-Can't See Own Death, -60%, group(Precognition), page(B77)
-One Event, -40%, group(Precognition), page(B77)
-
 <Rank>
 Rank replaces Status, *2, group(Rank), page(38)
 
 <Reduced ST>
 Affects displayed ST score, +0%, shortname(Affects ST), gives(-Owner::Level to ST:ST), group(Reduced ST), description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional ST penalty, +0%, shortname(Conditional ST), conditional(-Owner::Level to ST:ST), group(Reduced ST), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
-Growth Size, +0%, formula(@min(0,-((@if(ST:Size Modifier < 0 THEN ST:Size Modifier::score ELSE 0) + AD:Growth::level) * 10))), forceformula(yes), group(Reduced ST), page(B58)
 
 <Reduced DX>
 Affects displayed DX score, +0%, shortname(Affects DX), gives(-Owner::Level to ST:DX), group(Reduced DX), description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
@@ -4881,7 +4654,6 @@ Gives conditional Per penalty, +0%, shortname(Conditional Per), conditional(-Own
 <Reduced Hit Points>
 Affects displayed HP score, +0%, shortname(Affects HP), gives(-Owner::Level to ST:Hit Points), group(Reduced Hit Points), description(This modifier causes the Extra Hit Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
 Gives conditional HP penalty, +0%, shortname(Conditional HP), conditional(-Owner::Level to ST:Hit Points), group(Reduced Hit Points), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
-Growth Size, +0%, formula(@min(0,-((@if(ST:Size Modifier < 0 THEN ST:Size Modifier::score ELSE 0) + AD:Growth::level) * 10))), forceformula(yes), group(Reduced Hit Points), page(B58)
 
 <Reduced Fatigue Points>
 Affects displayed FP score, +0%, shortname(Affects FP), gives(-Owner::Level to ST:Fatigue Points), group(Reduced Fatigue Points), description(This modifier causes the Extra Fatigue Points advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.)
@@ -4904,10 +4676,10 @@ Affects displayed Air Move score, +0%, shortname(Affects Air Move), gives(-Owner
 Gives conditional Air Move penalty, +0%, shortname(Conditional Air Move), conditional(-Owner::Level to ST:Basic Air Move), group(Reduced Air Move), description(This modifier causes the Extra ST advantage to give a conditional bonus to the attribute score. In GCA a conditional bonus does not affect the displayed score but can be printed on the character sheet to note it occassionally receives the bonus.)
 
 <Reliability>
-Reliability: Completely Reliable, *3, shortname(Completely Reliable), group(Reliability), page(B44)
-Reliability: Usually Reliable, *2, shortname(Usually Reliable), group(Reliability), page(B44)
-Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability), page(B44)
-Reliability: Unreliable, *1/2, shortname(Unreliable), group(Reliability), page(B44)
+Reliability: Completely Reliable, *3, shortname(Completely Reliable), group(Reliability), page(39)
+Reliability: Usually Reliable, *2, shortname(Usually Reliable), group(Reliability), page(39)
+Reliability: Somewhat Reliable, *1, shortname(Somewhat Reliable), group(Reliability), page(39)
+Reliability: Unreliable, *1/2, shortname(Unreliable), group(Reliability), page(39)
 
 <Reputation Advantage>
 People Affected: Almost everyone on the Disc, *1, shortname(Almost everyone), group(Reputation Advantage), page(34), round(down)
@@ -4938,25 +4710,14 @@ You resist on a roll of  9 or less (fairly often), *1.5, shortname(9 or less), g
 You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)
 You resist on a roll of 15 or less (almost all the time), *0.5, shortname(15 or less), group(Self-Control), page(53)
 
-<Shrinking>
-Affects Others, +50%/+100%, group(Shrinking), page(B85)
-Can Carry Objects, +10%/+20%/+50%/+100%, levelnames(No Encumbrance, Light Encumbrance, Medium Encumbrance, Heavy Encumbrance), upto(4), group(Shrinking), page(B85)
-Full Damage, +100%, group(Shrinking), page(B85)
-Full DR, +30%, group(Shrinking), page(B85)
-Full HP, +30%, group(Shrinking), page(B85)
-Full Move, +30%, group(Shrinking), page(B85)
-
 <Size>
-Size, -10%, formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(B15)
+Size, -10%, formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(27)
 
 <Size HP>
-Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:Hit Points::level > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(B15)
+Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:Hit Points::level > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(27)
 
 <Size ST>
-Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:ST::level > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(B15)
-
-<Status>
-Heir, +3/+5, page(B33), formula(@int(me::level * 2.5 + 0.9)), forceformula(yes), gives(=+@int(me::level/2) to ST:Status), upto(8 - owner::level)
+Size, -10%, formula(-@if(ST:Size Modifier > 0 & ST:ST::level > 0 THEN ST:Size Modifier * 10 else 0)), forceformula(yes), group(Size), page(27)
 
 <_Talents>
 Gives Skill Bonus to %skillslist%, +0, gives(%skillsaliaslist%), shortname(%skillslist%),
@@ -5013,9 +4774,6 @@ Gives Conditional Bonus to [skill category], +0, conditional(+owner::level to CL
 	#InputReplace("Please enter the name of the skill which will receive the conditional bonus:", "[skill category]", , "Talent Conditional Bonus")_
 	)
 
-<Terror>
-Always On, -20%, group(Terror), page(B93)
-
 <Troll Nocturnalism>
 Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
 	page(98), mitigator(yes), shortname(Sunscreen), mitigator(yes)
@@ -5055,16 +4813,6 @@ Wounding Multiplier x2, *1, shortname(x2), group(Vulnerability), page(98)
 Wounding Multiplier x3, *1.5, shortname(x3), group(Vulnerability), page(98)
 Wounding Multiplier x4, *2, shortname(x4), group(Vulnerability), page(98)
 
-<Warp>
-Blind, +50%, group(Warp), page(B98)
-Extra Carrying Capacity, +10%/+20%/+30%/+50%, levelnames(Light Encumbrance, Medium Encumbrance, Heavy Encumbrance, Extra-Heavy Encumbrance), upto(4), group(Warp), page(B98)
-Reliable, +5%/+10%, upto(10), group(Warp), page(B98), gives(+1 to owner::skillscore)
-Warp Jump, +10%/+20%, upto(2), group(Warp), page(B98)
-Hyperjump: light-speed, -50%, group(Warp), page(B98)
-Hyperjump: faster than light, -25%, group(Warp), page(B98)
-Naked, -30%, group(Warp), page(B99)
-Range Limit, -5%/-10%, levelnames("100,000 miles", "10,000 miles", "1,000 miles", 100 miles, 10 miles, 2 miles, 500 yards, 100 yards, 20 yards, 10 yards), upto(10), group(Warp), page(B99)
-
 <Weakness>
 Rarity: Rare, *1/2, shortname(Rare), group(Weakness), page(98)
 Rarity: Occasional, *1, shortname(Occasional), group(Weakness), page(98)
@@ -5088,7 +4836,7 @@ Investigator (Basic Set), displaycost(100),
 			), 
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
 			list(_
-				#newitem(AD:Morporkian, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
+				#newitem(AD:Morporkian, 2/4, displaycost(0), page(31), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(31)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
 				AD:Language - Native #codes(upto 3, downto 3),
 				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
 				AD:Language - Native (Written) _
@@ -5134,7 +4882,7 @@ Investigator (Basic Set), displaycost(100),
 				DI:Secret, 
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
-					page(B153), 
+					page(65), 
 					cat(Mundane, Mental, Non-Racial)_
 					),
 				DI:Stubbornness, 
@@ -5269,7 +5017,7 @@ Heroic Knight (Basic Set), displaycost(95),
 			SK:Riding (Horse)=2pts,
 			SK:Broadsword=8pts,
 			SK:Lance=8pts,
-			SK:Shield (Shield)=4pts,
+			SK:Shield=4pts,
 			SK:Leadership=2pts,
 			SK:Tactics=4pts,
 			SK:Armoury (Melee Weapons)=1pts,
@@ -5286,11 +5034,11 @@ Warrior (Basic Set), displaycost(101),
 			),
 		adds(_
 			SK:Armoury (Melee Weapons) = 1pts,
-			SK:Shield (Shield) = 4pts _
+			SK:Shield = 4pts _
 			),
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
 			list(_
-				#newitem(AD:Morporkian, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
+				#newitem(AD:Morporkian, 2/4, displaycost(0), page(31), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(31)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
 				AD:Language - Native #codes(upto 3, downto 3),
 				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
 				AD:Language - Native (Written) _
@@ -5364,7 +5112,7 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			),
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
 			list(_
-				#newitem(AD:Morporkian, 2/4, displaycost(0), page(B24), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(B23)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
+				#newitem(AD:Morporkian, 2/4, displaycost(0), page(31), upto(3 LimitingTotal), levelnames([None], Broken, Accented, Native), cat(Language, Language Spoken, Language Written, Social Background), initmods(Native Language, -6, gives(=+1 to ST:Native Languages), formula(-@if(AD:Language Talent > 0 then 4 else 6)), forceformula(yes), group(Language), page(31)), taboo(Native Languages > 1)) #codes(upto 3, downto 3),
 				AD:Language - Native #codes(upto 3, downto 3),
 				AD:Language - Native (Spoken) #codes(upto 3, downto 3),
 				AD:Language - Native (Written) _
@@ -5421,7 +5169,7 @@ Soldier of Fortune (Basic Set), displaycost(100),
 				DI:Overconfidence,
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
-					page(B153), 
+					page(65), 
 					cat(Mundane, Mental, Non-Racial)_
 					),
 				DI:Trademark #codes(UPTO 1)_
@@ -5461,9 +5209,7 @@ Soldier of Fortune (Basic Set), displaycost(100),
 				SK:Gunner (Cannon) #codes(upto 2pts, downto 2pts),
 				SK:Gunner (Catapult) #codes(upto 2pts, downto 2pts),
 				SK:Knife #codes(upto 2pts, downto 2pts),
-				SK:Shield (Shield) #codes(upto 2pts, downto 2pts),
-				SK:Shield (Buckler) #codes(upto 2pts, downto 2pts),
-				SK:Shield (Force) #codes(upto 2pts, downto 2pts),
+				SK:Shield #codes(upto 2pts, downto 2pts),
 				SK:Artillery (Cannon) #codes(upto 2pts, downto 2pts),
 				SK:Artillery (Catapult) #codes(upto 2pts, downto 2pts)_
 				)_
@@ -6012,12 +5758,12 @@ Golem, displaycost(438), cost(0),
     ),
 	creates(_
           {AD:Extra DR 15 (Only vs. Heat and Fire), 45, displaycost(varies), noresync(yes), cat(General)},
-          {AD:Golem DX Bonus, 20/40,page(B15),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
-          {AD:Golem Perception Bonus, 5/10,page(B16),gives(+1 to ST:Perception), cat(Attributes)}=1,
-          {AD:Golem SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(B19),tl(),usernotes(),familiarities(), cat(Attributes)}=1,
-          {AD:Golem ST Bonus, 10/20,page(B14),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=15 _
-                   with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-10)},
-          {AD:Golem Will Bonus, 5/10,page(B16),gives(+1 to ST:Will), cat(Attributes)}=4,
+          {AD:Golem DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
+          {AD:Golem Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
+          {AD:Golem SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27),tl(),usernotes(),familiarities(), cat(Attributes)}=1,
+          {AD:Golem ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=15 _
+                   with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-10)},
+          {AD:Golem Will Bonus, 5/10,page(27),gives(+1 to ST:Will), cat(Attributes)}=4,
           {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
                    with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
                    and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
@@ -6125,7 +5871,7 @@ Moderate-Sized Troll, displaycost(83), cost(0),
           {AD:Troll Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
           {AD:Troll SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=1,
           {AD:Troll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=6 _
-             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-10)},
+             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-10)},
           {DI:Odious Racial Habit (Hitting People), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1,
           {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=2_
        )
@@ -6158,7 +5904,7 @@ creates(_
           {AD:Troll Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
           {AD:Troll SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=2,
           {AD:Troll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=10 _
-             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-20)},
+             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-20)},
           {DI:Odious Racial Habit (Hitting People), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1,
           {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=2_
        )
@@ -6191,7 +5937,7 @@ Huge Troll, displaycost(190), cost(0),
           {AD:Troll HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=2,
           {AD:Troll SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27), cat(Attributes)}=3,
           {AD:Troll ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST),tl(),usernotes(),familiarities(), cat(Attributes)}=23 _
-             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(B15),level(1),valuenum(-30)},
+             with {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-30)},
           {DI:Odious Racial Habit (Hitting People), -5/-10,upto(3),page(96),conditional(-1 to ST:Reaction when "people are aware of the issue"), cat(Mundane, Racial, Social, Mundane Social)}=1,
           {DI:Troll DX Penalty, -20/-40,page(26),gives(-1 to ST:DX), cat(Attributes)}=1,
           {DI:Troll IQ Penalty, -20/-40,page(27),gives(-1 to ST:IQ), cat(Attributes)}=1_
@@ -6353,43 +6099,41 @@ _New Meta-Trait, displaycost(variable), cost(0), gives(),
 	),
 		select1(tagwith(hide(yes)), text("Please select the Meta-Trait Attribute Modifiers:"), pointswanted(atleast -1000, upto 10000), itemswanted(upto 10000),
 			list(_
-				#newitem(AD:_New Meta-Trait ST Bonus, 10/20, page(B14), mods(Size, Quadruped), gives(+1 to ST:ST), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait DX Bonus, 20/40, page(B15), mods(Quadruped), gives(+1 to ST:DX), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait IQ Bonus, 20/40, page(B15), gives(+1 to ST:IQ), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait HT Bonus, 10/20, page(B15), gives(+1 to ST:HT), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Will Bonus, 5/10, page(B16), gives(+1 to ST:Will), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Perception Bonus, 5/10, page(B16), gives(+1 to ST:Perception), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Hit Points Bonus, 2/4, page(B16), mods(Size, Quadruped), gives(+1 to ST:Hit Points), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Fatigue Points Bonus, 3/6, page(B16), gives(+1 to ST:Fatigue Points), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Basic Move Bonus, 5/10, page(B17), gives(+1 to ST:Basic Move), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Basic Speed Bonus, 5/10, page(B17), upto(80), gives(+0.25 to ST:Basic Speed), cat(Attributes),
+				#newitem(AD:_New Meta-Trait ST Bonus, 10/20, page(26), mods(Size, Quadruped), gives(+1 to ST:ST), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait DX Bonus, 20/40, page(26), mods(Quadruped), gives(+1 to ST:DX), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait IQ Bonus, 20/40, page(27), gives(+1 to ST:IQ), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait HT Bonus, 10/20, page(27), gives(+1 to ST:HT), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Will Bonus, 5/10, page(27), gives(+1 to ST:Will), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Perception Bonus, 5/10, page(27), gives(+1 to ST:Perception), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Hit Points Bonus, 2/4, page(27), mods(Size, Quadruped), gives(+1 to ST:Hit Points), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Fatigue Points Bonus, 3/6, page(27), gives(+1 to ST:Fatigue Points), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Basic Move Bonus, 5/10, page(28), gives(+1 to ST:Basic Move), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait Basic Speed Bonus, 5/10, page(28), upto(80), gives(+0.25 to ST:Basic Speed), cat(Attributes),
 					levelnames(_
 							+0.25, +0.5, +0.75, +1, +1.25, +1.5, +1.75, +2, +2.25, +2.5, +2.75, +3, +3.25, +3.5, +3.75, +4, +4.25, +4.5, +4.75, +5, +5.25, +5.5, +5.75, +6, +6.25, +6.5, +6.75, +7, +7.25, +7.5, +7.75, +8, +8.25, +8.5, +8.75, +9, +9.25, +9.5, +9.75, +10,
 							+10.25, +10.5, +10.75, +11, +11.25, +11.5, +11.75, +12, +12.25, +12.5, +12.75, +13, +13.25, +13.5, +13.75, +14, +14.25, +14.5, +14.75, +15, +15.25, +15.5, +15.75, +16, +16.25, +16.5, +16.75, +17, +17.25, +17.5, +17.75, +18, +18.25, +18.5, +18.75, +19, +19.25, +19.5, +19.75, +20 _
 							)),
-				#newitem(AD:_New Meta-Trait Water Move Bonus, 5/10, page(B18), gives(+1 to ST:Water Move), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait Air Move Bonus, 2/4, page(B18), gives(+1 to ST:Air Move), cat(Attributes)),
-				#newitem(AD:_New Meta-Trait TL Bonus, 5/10, page(B23), gives(+1 to ST:Tech Level), cat(Mundane, Social, Mundane Social), upto(12 - ST:Tech Level::basevalue)),
-				#newitem(AD:_New Meta-Trait SM Bonus, 0/0, gives(+1 to ST:Size Modifier), page(B19), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait ST Penalty, -10/-20, page(B14), gives(-1 to ST:ST), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait DX Penalty, -20/-40, page(B15), gives(-1 to ST:DX), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait IQ Penalty, -20/-40, page(B15), gives(-1 to ST:IQ), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait HT Penalty, -10/-20, page(B15), gives(-1 to ST:HT), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Will Penalty, -5/-10, page(B16), gives(-1 to ST:Will), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Perception Penalty, -5/-10, page(B16), gives(-1 to ST:Perception), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Hit Points Penalty, -2/-4, page(B16), gives(-1 to ST:Hit Points), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Fatigue Points Penalty, -3/-6, page(B16), gives(-1 to ST:Fatigue Points), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Basic Move Penalty, -5/-10, page(B17), gives(-1 to ST:Basic Move), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Basic Speed Penalty, -5/-10, page(B17), upto(80), gives(-0.25 to ST:Basic Speed), cat(Attributes),
+				#newitem(AD:_New Meta-Trait Air Move Bonus, 2/4, page(89), gives(+1 to ST:Air Move), cat(Attributes)),
+				#newitem(AD:_New Meta-Trait TL Bonus, 5/10, page(31), gives(+1 to ST:Tech Level), cat(Mundane, Social, Mundane Social), upto(12 - ST:Tech Level::basevalue)),
+				#newitem(AD:_New Meta-Trait SM Bonus, 0/0, gives(+1 to ST:Size Modifier), page(27), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait ST Penalty, -10/-20, page(26), gives(-1 to ST:ST), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait DX Penalty, -20/-40, page(26), gives(-1 to ST:DX), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait IQ Penalty, -20/-40, page(27), gives(-1 to ST:IQ), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait HT Penalty, -10/-20, page(27), gives(-1 to ST:HT), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Will Penalty, -5/-10, page(27), gives(-1 to ST:Will), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Perception Penalty, -5/-10, page(27), gives(-1 to ST:Perception), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Hit Points Penalty, -2/-4, page(27), gives(-1 to ST:Hit Points), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Fatigue Points Penalty, -3/-6, page(27), gives(-1 to ST:Fatigue Points), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Basic Move Penalty, -5/-10, page(28), gives(-1 to ST:Basic Move), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Basic Speed Penalty, -5/-10, page(28), upto(80), gives(-0.25 to ST:Basic Speed), cat(Attributes),
 					levelnames(_
 							-0.25, -0.5, -0.75, -1, -1.25, -1.5, -1.75, -2, -2.25, -2.5, -2.75, -3, -3.25, -3.5, -3.75, -4, -4.25, -4.5, -4.75, -5, -5.25, -5.5, -5.75, -6, -6.25, -6.5, -6.75, -7, -7.25, -7.5, -7.75, -8, -8.25, -8.5, -8.75, -9, -9.25, -9.5, -9.75, -10,
 							-10.25, -10.5, -10.75, -11, -11.25, -11.5, -11.75, -12, -12.25, -12.5, -12.75, -13, -13.25, -13.5, -13.75, -14, -14.25, -14.5, -14.75, -15, -15.25, -15.5, -15.75, -16, -16.25, -16.5, -16.75, -17, -17.25, -17.5, -17.75, -18, -18.25, -18.5, -18.75, -19, -19.25, -19.5, -19.75, -20 _
 							)),
-				#newitem(DI:_New Meta-Trait Water Move Penalty, -5/-10, page(B18), gives(-1 to ST:Water Move), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Air Move Penalty, -2/-4, page(B18), gives(-1 to ST:Air move), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait TL Penalty, -5/-10, page(B22), gives(-1 to ST:Tech Level), cat(Mundane, Social, Mundane Social)),
-				#newitem(DI:_New Meta-Trait SM Penalty 0/0, gives(-1 to ST:Size Modifier), page(B19), cat(Attributes)),
-				#newitem(DI:_New Meta-Trait Ground Move Penalty, 0/0, page(B18), gives(-1 to ST:Ground Move), replacetags(in "ST:Ground Move" with "hide(), display(yes), mainwin(11), noresync(yes)"))_
+				#newitem(DI:_New Meta-Trait Air Move Penalty, -2/-4, page(89), gives(-1 to ST:Air move), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait TL Penalty, -5/-10, page(31), gives(-1 to ST:Tech Level), cat(Mundane, Social, Mundane Social)),
+				#newitem(DI:_New Meta-Trait SM Penalty 0/0, gives(-1 to ST:Size Modifier), page(27), cat(Attributes)),
+				#newitem(DI:_New Meta-Trait Ground Move Penalty, 0/0, page(28), gives(-1 to ST:Ground Move), replacetags(in "ST:Ground Move" with "hide(), display(yes), mainwin(11), noresync(yes)"))_
 				)_
 			),
 		select2(tagwith(hide(yes)), text("Please select any Meta-Trait Perks:"), pointswanted(atleast 0, upto 10000), itemswanted(upto 10000),
@@ -6436,34 +6180,6 @@ Domestic Animal, displaycost(-30), cost(0),
 		DI:Social Stigma (Valuable Property) _
 		),
 	taboo(ST:IQ>0pts)
-
-Spirit, displaycost(261), cost(0),
-	description(You are a noncorporeal entity: ghost, being of pure thought, etc. You are invisible _
-			and intangible (except to others with this meta-trait!). You can temporarily become _
-			visible, or even solid, but this is draining. However, your senses can perceive the _
-			material world at all times, and your magical or psionic abilities, if any, can _
-			always affect the physical world.),
-	page(B263),
-		cat(Meta-Traits),
-	noresync(yes),
-	owns(yes),
-	locks(yes),
-	hides(yes),
-	adds(_
-		AD:Doesn't Breathe,
-		AD:Doesn't Eat or Drink,
-		AD:Doesn't Sleep,
-		AD:Insubstantiality _
-			with "Affect Substantial, +100%, group(Insubstantiality)" _
-			and  "Usually On, -40%, group(Insubstantiality)",
-		AD:Invisibility _
-			with "Substantial Only, -10%, group(Invisibility)" _
-			and  "Usually On, +5%, group(Invisibility)",
-		AD:Unaging _
-		),
-	creates(_
-		"AD:Immunity to Metabolic Hazards, 30, cat(Exotic, Physical, Exotic Physical)"_
-		)
 
 Wild Animal, displaycost(-30), cost(0),
 	description(An ordinary animal found in nature.),
@@ -7073,7 +6789,7 @@ Mail Armour, techlvl(2), basecost(50), baseweight(75), location(full suit, skull
 Plate Armour, techlvl(3), basecost(200), baseweight(90), location(full suit, skull), dr(6), description(TL:3 DR:6 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
 Jousting Plate Armour, techlvl(3), basecost(320), baseweight(110), location(full suit, skull), dr(7), description(TL:3 DR:7 Locations: all Notes:A full suit of armour. It includes an article of light, common clothing to wear underneath - or padding, if this is usual for the armour. You do not have to buy clothing or padding seperately, or account for its DR and weight.), page(156), cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Armour)
 Shield, basecost(3), baseweight(15), dr(7/40), db(2), techlvl(1), page(155),
-	cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment, Shield),
+	cat(Military Gear, Discworld RPG, Discworld RPG - Armour), mods(Equipment),
 	newmode(Bash, skillused(ST:DX-4, SK:Shield), damage(thr), damtype(cr), reach(1), parry(No), minst()),
 	description(TL:1 DB:2 Dam:thr cr Reach:1 Parry:No ST:-- DR:7 HP:40 Skill:Shield Can be used offensively with a shield bash (see the Melee Weapon Table p. 151). Usually takes a few seconds to ready for use, but can be grabbed in a single second in emergencies. If strapped to the arm, leaves that hand free to hold stuff but not to wield weapons.)
 
@@ -7086,7 +6802,7 @@ Locomotive, basecost(2250), techlvl(5), description(TL:5 Skill:Driving/TL (Locom
 
 <GURPS Basic Set, GURPS Basic Set - Vehicles, GURPS Basic Set - Vehicles - Watercraft>
 Canoe, basecost(10), techlvl(0), description(TL:0 Skill:Boating/TL (Unpowered) ST/HP:23† Hnd/SR:+1/1 HT:12c Move:2/2 Lwt:0.3 Load:0.2 SM:+1 Occ:2 DR:2 Range:F Locations: O Draft:3), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
-Penteconter, basecost(700), techlvl(2), description(TL:2 Skill:Shiphandling/TL (Ship) ST/HP:85† Hnd/SR:-4/3 HT:11c Move:1/5 Lwt:12.5 Load:7.5 SM:+8 Occ:55 DR:3 Range:F Locations: MO Draft:6 Notes: A "penteconter" is a war galley with a sail and a single bank of oars, favored by raiders and pirates. Using oars, with 50 rowers. Under sail, range is "--" and Move is 1/4 in a fair wind. Has a bronze ram, which adds +1 per die of collision damage.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
+Penteconter, basecost(700), techlvl(2), description(TL:2 Skill:Shiphandling/TL (Ship) ST/HP:85† Hnd/SR:-4/3 HT:11c Move:1/5 Lwt:12.5 Load:7.5 SM:+8 Occ:55 DR:3 Range:F Locations: MO Draft:6 Notes: A "penteconter" is a war galley with a sail and a single bank of oars, favoured by raiders and pirates. Using oars, with 50 rowers. Under sail, range is "--" and Move is 1/4 in a fair wind. Has a bronze ram, which adds +1 per die of collision damage.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
 Cog, basecost(1150), techlvl(3), description(TL:3 Skill:Shiphandling/TL (Ship) ST/HP:147† Hnd/SR:-3/4 HT:12c Move:0.1/4 Lwt:85 Load:60 SM:+7 Occ:18 DR:5 Range:-- Locations: M Draft:13 Notes: A "cog" (or "roundship") is a single-masted sailing ship. Weight includes ballast.), page(B464), mods(Equipment), isparent(yes), cat(GURPS Basic Set, GURPS Basic Set - Vehicles - Watercraft, GURPS Basic Set - Vehicles)
 
 <Discworld RPG, Discworld RPG - Melee Weapons, _Melee Weapons, _Melee Weapons - Discworld RPG>
@@ -7467,21 +7183,6 @@ _New Melee Attack Mode, 0, group(Beams), noresync(yes),
 
 <Ammunition>
 Composition: Silver (TL4+), *50, page(B275), group(Ammunition), shortname(Silver)
-
-<Shield>
-_Remove Attack Mode ([Mode]), +0, group(Shield), 
-	addmode([Mode], reach(), rangehalfdam(), rangemax(), damage(), damtype()),
-	x(_
-		#InputReplace("Please enter the exact name of the attack mode you wish to remove from this weapon:", "[Mode]", "", "Remove Attack Mode") _
-	)
-
-Shield: Gives Defense Bonus to Dodge/Block/Parry, +0, gives(=+owner::chardb to ST:Dodge, =+owner::chardb to ST:Block, =+owner::chardb to ST:Parry), group(Shield), shortname(Gives DB)
-Shield: Conditional Defense Bonus to Dodge/Block/Parry, +0, conditional(=+owner::chardb to ST:Dodge, =+owner::chardb to ST:Block, =+owner::chardb to ST:Parry), group(Shield), shortname(Conditional DB)
-Shield: Spike, +20, gives(_
-						+5 to owner::baseweight,
-						+1 to owner::damage,
-						=+@textindexedvalue( $modetag(mode), ("Rush", -1), else 0) to owner::damage$_
-					), page(B287), group(Shield), shortname(Spike)
 
 <Arrow>
 Bodkin Point (TL3+), *1, group(Arrows), page(B277), shortname(Bodkin Point)
