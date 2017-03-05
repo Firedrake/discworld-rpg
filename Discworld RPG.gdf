@@ -5968,7 +5968,7 @@ Vampire (Female), displaycost(107), cost(0),
                    with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
        {QU:Dislikes Garlic}_
     ),
-creates(_
+	creates(_
           {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
                    with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
                    and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
@@ -6018,7 +6018,7 @@ Vampire (Male), displaycost(108), cost(0),
                    with {"Rarity: Rare", *1/2,shortname(Rare),group(Weakness),page(98),level(1),valuenum(1/2)},
        {QU:Dislikes Garlic}_
     ),
-creates(_
+	creates(_
           {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
                    with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
                    and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)},
@@ -6087,6 +6087,110 @@ Bat - Vampire Alternate Form, displaycost(-53), cost(0),
                    with {"Rarity: Occasional", *1,shortname(Occasional),group(Dread),level(1),valuenum(1)},
           {DI:Restricted Diet (Blood), -10/-20/-30/-40,levelnames(Very Common, Common, Occasional, Rare),page(96),upto(4),taboo(AD:Cast-Iron Stomach, AD:Doesn't Eat or Drink), cat(Mundane, Physical, Racial, Vampire, Mundane Physical)}=1,
           {QU:Hates Any Strong Light, -1,noresync(yes),tl(),usernotes(),familiarities(), cat(General)}_
+       )
+	   
+Wolf, displaycost(63), cost(0),
+	description(The basic werewolf wolf shape), page(115),
+	race(Lycanthrope), noresync(yes), owns(yes),
+	adds(_
+       {AD:Damage Resistance}=1 _
+                   with {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Discriminatory Smell},
+       {AD:Enhanced Move (Ground)}=1,
+       {AD:Extra DX}=2 _
+                   with {"Affects displayed DX score", +0%,shortname(Affects DX),gives(+Owner::Level to ST:DX),group(Extra DX),description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra HT}=2 _
+                   with {"Affects displayed HT score", +0%,shortname(Affects HT),gives(+Owner::Level to ST:HT),group(Extra HT),description(This modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra Perception}=4 _
+                   with {"Affects displayed Per score", +0%,shortname(Affects Per),gives(+Owner::Level to ST:Perception),group(Extra Perception),description(This modifier causes the Extra Perception advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=2,
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {DI:Cannot Speak},
+       {DI:Quadruped},
+       {DI:Short Legs},
+       {QU:Doggy Responses},
+       {QU:Hunter's Habits},
+       {QU:Silver Aversion}_
+    ),
+	creates(_
+          {DI:Vulnerability (Silver Weapons), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=1 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       )
+
+Wolfman (SM 0), displaycost(131), cost(0),
+	description(A hairy humanoid monster.), page(114),
+	race(Lycanthrope), noresync(yes), owns(yes),
+	adds(_
+       {AD:Claws (Sharp Claws)},
+       {AD:Damage Resistance}=1 _
+                   with {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Discriminatory Smell},
+       {AD:Extra Basic Move}=2 _
+                   with {"Affects displayed Basic Move score", +0%,shortname(Affects Move),gives(+Owner::Level to ST:Basic Move),group(Extra Basic Move),description(This modifier causes the Extra Basic Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra DX}=2 _
+                   with {"Affects displayed DX score", +0%,shortname(Affects DX),gives(+Owner::Level to ST:DX),group(Extra DX),description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra HT}=2 _
+                   with {"Affects displayed HT score", +0%,shortname(Affects HT),gives(+Owner::Level to ST:HT),group(Extra HT),description(This modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra Perception}=3 _
+                   with {"Affects displayed Per score", +0%,shortname(Affects Per),gives(+Owner::Level to ST:Perception),group(Extra Perception),description(This modifier causes the Extra Perception advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra ST}=3 _
+                   with {"Affects displayed ST score", +0%,shortname(Affects ST),gives(+Owner::Level to ST:ST),group(Extra ST),description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=2,
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {DI:Appearance}=1,
+       {DI:Bad Grip}=2,
+       {QU:Doggy Responses},
+       {QU:Hunter's Habits},
+       {QU:Silver Aversion}_
+    ),
+	creates(_
+          {DI:Vulnerability (Silver Weapons), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=1 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       )
+
+Wolfman (SM 1), displaycost(128), cost(0),
+	description(A BIG hairy humanoid monster.), page(114),
+	race(Lycanthrope), noresync(yes), owns(yes),
+	adds(_
+       {AD:Claws (Sharp Claws)},
+       {AD:Damage Resistance}=1 _
+                   with {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Discriminatory Smell},
+       {AD:Extra Basic Move}=2 _
+                   with {"Affects displayed Basic Move score", +0%,shortname(Affects Move),gives(+Owner::Level to ST:Basic Move),group(Extra Basic Move),description(This modifier causes the Extra Basic Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra DX}=2 _
+                   with {"Affects displayed DX score", +0%,shortname(Affects DX),gives(+Owner::Level to ST:DX),group(Extra DX),description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra HT}=2 _
+                   with {"Affects displayed HT score", +0%,shortname(Affects HT),gives(+Owner::Level to ST:HT),group(Extra HT),description(This modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra Perception}=3 _
+                   with {"Affects displayed Per score", +0%,shortname(Affects Per),gives(+Owner::Level to ST:Perception),group(Extra Perception),description(This modifier causes the Extra Perception advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra ST}=3 _
+                   with {"Affects displayed ST score", +0%,shortname(Affects ST),gives(+Owner::Level to ST:ST),group(Extra ST),description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)} _
+                   and  {"Size", -10%,formula(-@if(ST:Size Modifier > 0 THEN ST:Size Modifier * 10 else 0)),forceformula(yes),group(Size),page(27),level(1),valuenum(-10)},
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=2,
+       {AD:Teeth (Sharp Teeth)},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Ultrahearing},
+       {PE:Fur},
+       {DI:Appearance}=1,
+       {DI:Bad Grip}=2,
+       {QU:Doggy Responses},
+       {QU:Hunter's Habits},
+       {QU:Silver Aversion}_
+    ),
+	creates(_
+          {DI:Vulnerability (Silver Weapons), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=1 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)},
+          {AD:Size Modifier Bonus from Wolfman, 0, gives(+1 to ST:Size Modifier)}_
        )
 
 <Meta-Traits>
