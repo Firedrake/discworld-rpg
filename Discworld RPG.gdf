@@ -1650,7 +1650,7 @@ Addiction ([Physiological]), -5/-10/-20, upto(3),
 	x( #InputReplace("Specify the drug to which you are addicted:", "[Physiological]", , "Addiction (Physiological)"))
 
 Alcoholism, -15, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism (Withdrawn), DI:Troll Brain, QU:Former Alcoholic)
-Alcoholism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Alcoholism, DI:Troll Brain, QU:Former Alcoholic)
+Alcoholism (Withdrawn), -10, page(54), cat(Mundane, Physical), taboo(DI:Troll Brain, QU:Former Alcoholic)
 Bad Back, -15/-25, levelnames(Mild, Severe), page(55), upto(2), cat(Mundane, Non-Racial, Physical)
 Bad Grip, -5/-10, upto(3), page(63), cat(Mundane, Non-Racial, Physical, Racial), taboo(DI:Quadruped),
 	gives(-2 To CL:Melee Weapon, -2 to SK:Climbing, -2 to SK:Fast-Draw)
@@ -3732,7 +3732,7 @@ SK:Current Affairs
 SK:Current Affairs (Business)
 SK:Current Affairs (Headline News)
 SK:Current Affairs (Politics)
-SK:Current Affairs (Regional)
+SK:Current Affairs (Regional: [Regional])
 SK:Current Affairs (Sports)
 SK:Dancing
 SK:Detect Lies
@@ -4825,7 +4825,7 @@ Rarity: Very Common, *3, shortname(Very Common), group(Weakness), page(98)
 <Character Templates>
 Investigator (Basic Set), displaycost(100),
 	cat(Character Templates - Basic Set),
-		description(You are a detective, investigative report, occult investigator, spy, or thief.),
+		description(A basic-model Watch detective, investigative reporter, spy, etc.),
 		page(B259),
 		sets(_
 			ST:DX=12, 
@@ -4851,19 +4851,18 @@ Investigator (Basic Set), displaycost(100),
 			text("Select the advantages you want for your character from the list below. You need to select 15 points worth."),
 			pointswanted(15), 
 			itemswanted(atleast 1),
-			list(AD:Alternate Identity, 
-				AD:Charisma #codes(UPTO 3), 
+			list(AD:Charisma #codes(UPTO 3), 
 				AD:Contact,
 				AD:Cultural Familiarity, 
 				AD:Danger Sense, 
-				AD:Gizmo #codes(UPTO 3),
 				AD:Language, 
 				AD:Legal Enforcement Powers, 
 				AD:Luck,
 				AD:Rapid Healing, 
 				AD:Smooth Operator #codes(UPTO 1),
+				AD:Watch Rank #codes(UPTO 3),
 				AD:Extra Perception #codes(UPTO 3),
-				AD:Appearance #codes(UPTO 3) _
+				AD:Appearance #codes(UPTO 2) _
 				)_
 			),
 		select4(_
@@ -4871,14 +4870,12 @@ Investigator (Basic Set), displaycost(100),
 			pointswanted(-30), 
 			itemswanted(atleast 1),
 			list(_
-				DI:Alcoholism, 
+				DI:Alcoholism,
+				DI:Alcoholism (Withdrawn),
 				DI:Curious, 
 				DI:Duty, 
 				DI:Greed, 
 				DI:Honesty,
-				DI:Pacifism (Reluctant Killer), 
-				DI:Pacifism (Cannot Harm Innocents), 
-				DI:Pacifism (Self-Defence Only), 
 				DI:Secret, 
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
@@ -4887,7 +4884,6 @@ Investigator (Basic Set), displaycost(100),
 					),
 				DI:Stubbornness, 
 				DI:Wealth #codes(UPTO 1), 
-				DI:Workaholic,
 				DI:Reduced ST #codes(UPTO 1)_
 				)_
 			),
@@ -4909,19 +4905,17 @@ Investigator (Basic Set), displaycost(100),
 				SK:Research #codes(upto 4pts, downto 4pts),
 				SK:Shadowing #codes(upto 4pts, downto 4pts),
 				SK:Smuggling #codes(upto 4pts, downto 4pts),
+				SK:Streetwise #codes(upto 4pts, downto 4pts),
 				SK:Traps #codes(upto 4pts, downto 4pts),
 				SK:Writing #codes(upto 4pts, downto 4pts),
 				SK:Observation #codes(upto 4pts, downto 4pts),
 				SK:Search #codes(upto 4pts, downto 4pts),
 				SK:Pickpocket #codes(upto 4pts, downto 4pts),
-				SK:Computer Programming #codes(upto 4pts, downto 4pts),
+				SK:Shouting at Foreigners #codes(upto 4pts, downto 4pts),
 				SK:Diagnosis #codes(upto 4pts, downto 4pts),
-				SK:Expert Skill #codes(upto 4pts, downto 4pts),
-				SK:Forensics #codes(upto 4pts, downto 4pts),
 				SK:Intelligence Analysis #codes(upto 4pts, downto 4pts),
 				SK:Law #codes(upto 4pts, downto 4pts),
-				SK:Detect Lies #codes(upto 4pts, downto 4pts),
-				SK:Computer Hacking #codes(upto 4pts, downto 4pts) _
+				SK:Detect Lies #codes(upto 4pts, downto 4pts) _
 				)_
 			),
 		select6(_
@@ -4958,47 +4952,20 @@ Investigator (Basic Set), displaycost(100),
 				SK:Current Affairs (Headline News) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Politics) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Popular Culture) #codes(upto 2pts, downto 2pts),
-				SK:Current Affairs (Regional) #codes(upto 2pts, downto 2pts),
+				SK:Current Affairs (Regional: [Regional]) #codes(upto 2pts, downto 2pts),
 				SK:Current Affairs (Sports) #codes(upto 2pts, downto 2pts),
 				SK:Carousing #codes(upto 2pts, downto 2pts),
 				SK:Swimming #codes(upto 2pts, downto 2pts),
-				SK:Boating (Large Powerboat) #codes(upto 2pts, downto 2pts),
-				SK:Boating (Motorboat) #codes(upto 2pts, downto 2pts),
 				SK:Boating (Sailboat) #codes(upto 2pts, downto 2pts),
 				SK:Boating (Unpowered) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Automobile) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Construction Equipment) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Halftrack) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Heavy Wheeled) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Hovercraft) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Locomotive) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Mecha) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Motorcycle) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Tracked) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Aerospace) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Autogyro) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Contragravity) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Glider) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Heavy Airplane) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Helicopter) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (High-Performance Airplane) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (High-Performance Spacecraft) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Light Airplane) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Lighter-Than-Air) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Lightsail) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Low-G Wings) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Low-Performance Spacecraft) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Ultralight) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Vertol) #codes(upto 2pts, downto 2pts),
 				SK:Riding #codes(upto 2pts, downto 2pts),
-				SK:Streetwise #codes(upto 2pts, downto 2pts),
 				SK:Hiking #codes(upto 2pts, downto 2pts),
 				SK:Running #codes(upto 2pts, downto 2pts) _
 				)_
 			)
 Heroic Knight (Basic Set), displaycost(95),
 	cat(Character Templates - Basic Set),
-		description(You are a brave knight out of fantasy or fairy tales - strong, honerable, a wise leader, and a skilled warrior.),
+		description(You are a brave knight out of old-school fantasy - strong, honerable, a wise leader, and a skilled warrior. A bit of a dork, really.),
 		page(B448),
 		sets(_
 			ST:ST=12, 
@@ -5010,22 +4977,23 @@ Heroic Knight (Basic Set), displaycost(95),
 			AD:Status=2,
 			AD:Wealth,
 			DI:Code of Honour (Chivalry),
-			DI:Duty (Liege lord)=2,
+			DI:Duty (Liege Lord)=2,
 			DI:Honesty _
 				with "You resist on a roll of  6 or less (quite rarely), *2, shortname(6 or less), group(Self-Control)",
 			DI:Vow (Never refuse a request for aid)=3,
 			SK:Riding (Horse)=2pts,
 			SK:Broadsword=8pts,
-			SK:Lance=8pts,
+			SK:Axe/Mace=1pts,
+			SK:Flail=1pts,
+			SK:Spear=8pts,
 			SK:Shield=4pts,
-			SK:Leadership=2pts,
+			SK:Leadership=1pts,
 			SK:Tactics=4pts,
-			SK:Armoury (Melee Weapons)=1pts,
 			SK:Heraldry=1pts _
 			)
 Warrior (Basic Set), displaycost(101),
 	cat(Character Templates - Basic Set),
-		description(You are a fantasy warrior - a barbarian, knight, swashbuckler; or someone else who lives by  the sword.),
+		description(A basic-model hitting-things specialist. Template borrowed from the GURPS Basic Set.),
 		page(B448),
 		sets(_
 			ST:ST = 12, 
@@ -5033,7 +5001,7 @@ Warrior (Basic Set), displaycost(101),
 			ST:HT = 12_
 			),
 		adds(_
-			SK:Armoury (Melee Weapons) = 1pts,
+			SK:Armoury = 1pts,
 			SK:Shield = 4pts _
 			),
 		select1(text("If you have not already chosen one, please choose a native Language."), pointswanted(atleast -3, upto 0), itemswanted(upto 2),
@@ -5050,7 +5018,7 @@ Warrior (Basic Set), displaycost(101),
 				)_
 			),
 		select3(_
-			text("Select two weapon skills from the list below. Each will be taken at 8 pts. Typical selections for a Knight would be Broadsword and Lance."),
+			text("Select two weapon skills from the list below. Each will be taken at 8 pts."),
 			pointswanted(16), 
 			itemswanted(2),
 			list(_
@@ -5067,7 +5035,7 @@ Warrior (Basic Set), displaycost(101),
 			)
 Warrior - Heroic (Basic Set), displaycost(-9),
 	cat(Character Templates - Basic Set),
-		description(You are wise, honerable, and a leader of men.),
+		description(A civilised warrior who takes the "hero" bit seriously, courtesy of the GURPS Basic Set.),
 		page(B448),
 		sets(_
 			ST:IQ = 11_
@@ -5084,7 +5052,7 @@ Warrior - Heroic (Basic Set), displaycost(-9),
 			)
 Warrior - Knight (Basic Set), displaycost(+3),
 	cat(Character Templates - Basic Set),
-		description(You are an invested knight, with all the attendant privileges and duties.),
+		description(You are an invested knight, with all the attendant privileges and duties. Courtesy of the GURPS Basic Set.),
 		page(B448),
 		needs(_
 			TE:Warrior (Basic Set)_
@@ -5099,7 +5067,7 @@ Warrior - Knight (Basic Set), displaycost(+3),
 			)
 Soldier of Fortune (Basic Set), displaycost(100),
 	cat(Character Templates - Basic Set),
-		description(You're a warrior. You could be a soldier, pirate, knight-errant, gunslinger, street fighter, or guerrilla.),
+		description(A basic-model mercenary warrior template, borrowed fromthe GURPS Basic Set.),
 		page(B260),
 		sets(_
 			ST:ST=11, 
@@ -5130,16 +5098,10 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			list(AD:Ambidexterity, 
 				AD:Charisma #codes(UPTO 4), 
 				AD:Combat Reflexes,
-				AD:Fit,
-				AD:Very Fit,
 				AD:High Pain Threshold,
 				AD:Luck #codes(UPTO 1),
-				AD:Magic Resistance #codes(UPTO 10),
 				AD:Outdoorsman,
-				AD:Administrative Rank #codes(UPTO 4),
 				AD:Military Rank #codes(UPTO 4),
-				AD:Religious Rank #codes(UPTO 4),
-				AD:Watch  Rank #codes(UPTO 4),
 				AD:Rapid Healing,
 				AD:Reputation,
 				AD:Status #codes(UPTO 4),
@@ -5156,23 +5118,27 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			itemswanted(atleast 1),
 			list(_
 				DI:Alcoholism,
+				DI:Alcoholism (Withdrawn),
 				DI:Bad Temper,
 				DI:Bloodlust,
+				DI:Callous,
+				DI:Chummy,
 				DI:Code of Honour,
 				DI:Compulsive Carousing,
+				DI:Compulsive Gambling,
+				DI:Compulsive Risk-Taking,
 				DI:Compulsive Spending,
 				DI:Duty,
-				DI:Fanaticism,
 				DI:Honesty,
 				DI:Impulsiveness,
+				DI:Incurious,
 				DI:Lecherousness,
 				DI:Overconfidence,
 				#newitem(_
 					DI:Sense of Duty (Comrades), -5, 
 					page(65), 
 					cat(Mundane, Mental, Non-Racial)_
-					),
-				DI:Trademark #codes(UPTO 1)_
+					)_
 				)_
 			),
 		select5(_
@@ -5181,15 +5147,15 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			itemswanted(2),
 			list(_
 				SK:Crossbow #codes(upto 4pts, downto 4pts),
-				SK:Guns (Pistol) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Rifle) #codes(upto 4pts, downto 4pts),
-				SK:Guns (Shotgun) #codes(upto 4pts, downto 4pts),
 				SK:Axe/Mace #codes(upto 4pts, downto 4pts),
 				SK:Bow #codes(upto 4pts, downto 4pts),
 				SK:Broadsword #codes(upto 4pts, downto 4pts),
-				SK:Lance #codes(upto 4pts, downto 4pts),
+				SK:Polearm #codes(upto 4pts, downto 4pts),
 				SK:Rapier #codes(upto 4pts, downto 4pts),
+				SK:Shortsword #codes(upto 4pts, downto 4pts),
 				SK:Spear #codes(upto 4pts, downto 4pts),
+				SK:Two-Handed Axe/Mace #codes(upto 4pts, downto 4pts),
+				SK:Two-Handed Sword #codes(upto 4pts, downto 4pts),
 				SK:Karate #codes(upto 4pts, downto 4pts),
 				SK:Tactics #codes(upto 4pts, downto 4pts) _
 				)_
@@ -5219,39 +5185,11 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			pointswanted(2), 
 			itemswanted(1),
 			list(_
-				SK:Airshipman #codes(upto 2pts, downto 2pts),
+				SK:Savoir-Faire (Military) #codes(upto 2pts, downto 2pts),
+				SK:Savoir-Faire (Watch) #codes(upto 2pts, downto 2pts),
 				SK:Seamanship #codes(upto 2pts, downto 2pts),
-				SK:Spacer #codes(upto 2pts, downto 2pts),
-				SK:Submariner #codes(upto 2pts, downto 2pts),
-				SK:Driving (Automobile) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Construction Equipment) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Halftrack) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Heavy Wheeled) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Hovercraft) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Locomotive) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Mecha) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Motorcycle) #codes(upto 2pts, downto 2pts),
-				SK:Driving (Tracked) #codes(upto 2pts, downto 2pts),
-				SK:Battlesuit #codes(upto 2pts, downto 2pts),
-				SK:Diving Suit #codes(upto 2pts, downto 2pts),
-				SK:NBC Suit #codes(upto 2pts, downto 2pts),
-				SK:Vacc Suit #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Aerospace) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Autogyro) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Contragravity) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Glider) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Heavy Airplane) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Helicopter) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (High-Performance Airplane) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (High-Performance Spacecraft) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Light Airplane) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Lighter-Than-Air) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Lightsail) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Low-G Wings) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Low-Performance Spacecraft) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Ultralight) #codes(upto 2pts, downto 2pts),
-				SK:Piloting (Vertol) #codes(upto 2pts, downto 2pts),
 				SK:Riding #codes(upto 2pts, downto 2pts),
+				SK:Stealth #codes(upto 2pts, downto 2pts),
 				SK:Hiking #codes(upto 2pts, downto 2pts),
 				SK:Acrobatics #codes(upto 2pts, downto 2pts)_
 				)_
@@ -5262,41 +5200,24 @@ Soldier of Fortune (Basic Set), displaycost(100),
 			itemswanted(2),
 			list(_
 				SK:Camouflage #codes(upto 1pts, downto 1pts),
-				SK:Savoir-Faire #codes(upto 1pts, downto 1pts),
 				SK:Savoir-Faire (High Society) #codes(upto 1pts, downto 1pts),
-				SK:Savoir-Faire (Military) #codes(upto 1pts, downto 1pts),
 				SK:Savoir-Faire (Organised Crime) #codes(upto 1pts, downto 1pts),
 				SK:Savoir-Faire (Servant) #codes(upto 1pts, downto 1pts),
-				SK:Savoir-Faire (Watch) #codes(upto 1pts, downto 1pts),
 				SK:Carousing #codes(upto 1pts, downto 1pts),
 				SK:Swimming #codes(upto 1pts, downto 1pts),
-				SK:Free Fall #codes(upto 1pts, downto 1pts),
-				SK:Stealth #codes(upto 1pts, downto 1pts),
-				SK:Electronics Operation (Communications) #codes(upto 1pts, downto 1pts),
-				SK:Electronics Operation (Sensors) #codes(upto 1pts, downto 1pts),
-				SK:Explosives (Demolition) #codes(upto 1pts, downto 1pts),
-				SK:Explosives (Explosive Ordnance Disposal) #codes(upto 1pts, downto 1pts),
-				SK:Explosives (Fireworks) #codes(upto 1pts, downto 1pts),
-				SK:Explosives (Nuclear Ordnance Disposal) #codes(upto 1pts, downto 1pts),
-				SK:Explosives (Underwater Demolition) #codes(upto 1pts, downto 1pts),
 				SK:Leadership #codes(upto 1pts, downto 1pts),
 				SK:Observation #codes(upto 1pts, downto 1pts),
+				SK:Sewing #codes(upto 1pts, downto 1pts),
+				SK:Shouting at Foreigners #codes(upto 1pts, downto 1pts),
 				SK:Survival (Arctic) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Desert) #codes(upto 1pts, downto 1pts),
+				SK:Survival (Fourecks Outback) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Island/Beach) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Jungle) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Mountain) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Plains) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Swampland) #codes(upto 1pts, downto 1pts),
 				SK:Survival (Woodlands) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Bank) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Deep Ocean Vent) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Fresh-Water Lake) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Open Ocean) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Reef) #codes(upto 1pts, downto 1pts),
-				SK:Survival (River/Stream) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Salt-Water Sea) #codes(upto 1pts, downto 1pts),
-				SK:Survival (Tropical Lagoon) #codes(upto 1pts, downto 1pts),
 				SK:Tracking #codes(upto 1pts, downto 1pts),
 				SK:Urban Survival #codes(upto 1pts, downto 1pts)_
 				)_
@@ -5447,7 +5368,7 @@ adds(_
        {QU:Considers Dwarf Gender a Very Private Matter},
        {QU:Personality Change (Gains Bad Temper When Drinking)},
        {QU:Touchy About Height and Beard},
-   %greedaliaslist%_
+       %greedaliaslist%_
     ),
 creates(_
           {AD:Dwarf Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=2,
@@ -6192,6 +6113,118 @@ Wolfman (SM 1), displaycost(128), cost(0),
                    with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)},
           {AD:Size Modifier Bonus from Wolfman, 0, gives(+1 to ST:Size Modifier)}_
        )
+
+Zombie, displaycost(178), cost(0),
+	description(Lurching undead animated by supernatural power and will), page(116),
+	race(Zombie), noresync(yes), owns(yes),
+	adds(_
+       {AD:Damage Resistance}=1 _
+                   with {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
+       {AD:Doesn't Breathe},
+       {AD:Doesn't Eat or Drink},
+       {AD:Doesn't Sleep},
+       {AD:Extra HT}=1 _
+                   with {"Affects displayed HT score", +0%,shortname(Affects HT),gives(+Owner::Level to ST:HT),group(Extra HT),description(This modifier causes the Extra HT advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra ST}=4 _
+                   with {"Affects displayed ST score", +0%,shortname(Affects ST),gives(+Owner::Level to ST:ST),group(Extra ST),description(This modifier causes the Extra ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Fearlessness}=3,
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=2,
+       {AD:Pressure-Proof},
+       {AD:Temperature Tolerance (Cold)}=1,
+       {AD:Temperature Tolerance (Heat)}=2,
+       {PE:Longevity},
+       {DI:Appearance}=2,
+       {DI:Reduced DX}=1 _
+                   with {"Affects displayed DX score", +0%,shortname(Affects DX),gives(-owner::Level to ST:DX),group(Reduced DX),description(This modifier causes the Reduced DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       %stigmaaliaslist%_
+    ),
+	creates(_
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"Unliving", +20,group(Injury Tolerance),page(89),level(1),valuenum(20)},
+          {AD:Repairable (Sewing), 50,page(90),taboo(AD:Rapid Healing, AD:Regeneration, AD:Regrowth, DI:Unhealing), cat(Exotic, Physical, Racial, Supernatural, Exotic Physical)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {DI:Vulnerability (Fire), -10/-20/-30/-40,displaycost(variable),upto(4),levelnames(Rare, Occasional, Common, Very Common),mods(Vulnerability),page(98), cat(Exotic, Physical, Racial, Exotic Physical)}=3 _
+                   with {"Wounding Multiplier x2", *1,shortname(x2),group(Vulnerability),page(98),level(1),valuenum(1)}_
+       ),
+	x(_
+		#ChoiceList(_
+				name(Stigma),
+				title(Stigma),
+				text(Select the variety of Social Stigma suffered by this zombie from the list below.),
+				picksallowed(1),
+				method(bynumber),
+				list(_
+					"Social Stigma (Minority Group)",
+					"Social Stigma (Valuable Property)" _
+					),
+				aliaslist(_
+						"DI:Social Stigma (Minority Group)",
+						"DI:Social Stigma (Valuable Property)"_
+					)_
+				)_
+			)
+
+Animated Skeleton, displaycost(214), cost(0),
+	description(Clattering bony undead, animated by supernatural power and will.), page(119),
+	race(Animated Skeleton), noresync(yes), owns(yes),
+	adds(_
+       {AD:Claws (Blunt Claws)},
+       {AD:Damage Resistance}=1,
+       {AD:Doesn't Breathe},
+       {AD:Doesn't Eat or Drink},
+       {AD:Doesn't Sleep},
+       {AD:Extra Basic Move}=1 _
+                   with {"Affects displayed Basic Move score", +0%,shortname(Affects Move),gives(+Owner::Level to ST:Basic Move),group(Extra Basic Move),description(This modifier causes the Extra Basic Move advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Extra DX}=1 _
+                   with {"Affects displayed DX score", +0%,shortname(Affects DX),gives(+Owner::Level to ST:DX),group(Extra DX),description(This modifier causes the Extra DX advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {AD:Fearlessness}=3,
+       {AD:High Pain Threshold},
+       {AD:Night Vision}=2,
+       {AD:Pressure-Proof},
+       {AD:Temperature Tolerance (Cold)}=3,
+       {AD:Temperature Tolerance (Heat)}=3,
+       {PE:Longevity},
+       {DI:Appearance}=2,
+       {DI:Reduced ST}=1 _
+                   with {"Affects displayed ST score", +0%,shortname(Affects ST),gives(-owner::Level to ST:ST),group(Reduced ST),description(This modifier causes the Reduced ST advantage to affect the displayed attribute score. If you don't wish this advantage to affect the displayed score remove this modifier.),level(1),valuenum(0)},
+       {QU:Cannot Float},
+       %stigmaaliaslist%_
+    ),
+	creates(_
+          {AD:"Extra Damage Resistant +3 (Only vs, Impaling Damage)", 9,displaycost(varies),noresync(yes),tl(),usernotes(),familiarities(), cat(General)},
+          {AD:Injury Tolerance, 0,displaycost(variable),mods(Injury Tolerance),page(89), cat(Exotic, Physical, Exotic Physical)} _
+                   with {"No Blood", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"No Vitals", +5,group(Injury Tolerance),page(89),level(1),valuenum(5)} _
+                   and  {"Unliving", +20,group(Injury Tolerance),page(89),level(1),valuenum(20)},
+          {AD:Repairable (Sewing), 50,page(90),taboo(AD:Rapid Healing, AD:Regeneration, AD:Regrowth, DI:Unhealing), cat(Exotic, Physical, Racial, Supernatural, Exotic Physical)},
+          {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)},
+          {AD:Resistant (Poison), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=3 _
+                   with {"Degree: Immunity", *1,shortname(Immunity),group(Resistant),level(1),valuenum(1)}_
+       ),
+	x(_
+		#ChoiceList(_
+				name(Stigma),
+				title(Stigma),
+				text(Select the variety of Social Stigma suffered by this walking skeleton from the list below.),
+				picksallowed(1),
+				method(bynumber),
+				list(_
+					"Social Stigma (Minority Group)",
+					"Social Stigma (Valuable Property)" _
+					),
+				aliaslist(_
+						"DI:Social Stigma (Minority Group)",
+						"DI:Social Stigma (Valuable Property)"_
+					)_
+				)_
+			)
 
 <Meta-Traits>
 _New Meta-Trait, displaycost(variable), cost(0), gives(),
