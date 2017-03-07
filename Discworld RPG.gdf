@@ -530,7 +530,7 @@ Enhanced Water Move, basevalue(0), hide(yes), display(no),
 		)
 
 Basic Ground Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
-	basevalue(@if("DI:No Legs (Aerial)" THEN 0 ELSE @if("AD:Swarm Body" THEN 0 ELSE ST:Basic Move)))
+	basevalue(@if("DI:Aerial" THEN 0 ELSE @if("AD:Swarm Body" THEN 0 ELSE ST:Basic Move)))
 Basic Water Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(ST:Basic Move / 5)
 Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
@@ -539,10 +539,10 @@ Basic Air Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1
 						@if("AD:Flight (Winged, Can Hover)" THEN 2 * ST:Basic Speed ELSE _
 							@if("AD:Flight (Winged, Cannot Hover)" THEN 2 * ST:Basic Speed ELSE _
 								@if("AD:Swarm Body" THEN 2 * ST:Basic Speed ELSE 0 _
-									)
-								)
-							)
-					)
+									)_
+								)_
+							)_
+					)_
 			)
 Basic Brachiation Move, maxscore(1000000), minscore(0), hide(yes), display(no), round(-1),
 	basevalue(_
@@ -766,9 +766,9 @@ Enhanced Move (Water), 10/20, gives(+0.5 To ST:Enhanced Water Move),
 
 Flight (Levitation), 40, page(89), cat(Exotic, Physical, Racial, Vampire),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
-Flight (Winged, Can Hover), 30, page(89), cat(Exotic, Physical, Racial, Vampire),
+"Flight (Winged, Can Hover)", 30, page(89), cat(Exotic, Physical, Racial, Vampire),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
-Flight (Winged, Cannot Hover), 24, page(89), cat(Exotic, Physical, Racial),
+"Flight (Winged, Cannot Hover)", 24, page(89), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)")
 
 Foot Manipulators, 4, page(89), cat(Exotic, Physical, Extra Arms/Legs), taboo(DI:No Legs)
@@ -776,8 +776,7 @@ Injury Tolerance, 0, displaycost(variable), mods(Injury Tolerance), page(89), ca
 Swarm Body, 135, page(91), cat(Exotic, Physical, Racial, Vampire),
 	taboo(AD:Flight, AD:Foot Manipulators, AD:High Manual Dexterity, DI:Aerial,
 		"DI:Ham-Fisted", DI:Lame, DI:No Legs, DI:One Arm, DI:One Eye, "DI:Semi-Upright"),
-	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)"),
-	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
+	replacetags(in "ST:Air Move" with "hide(), display(yes), mainwin(11), noresync(yes)", in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	gives(=nobase to ST:Kick::reach$)
 
 ************************************************************************************************************************
@@ -1071,8 +1070,8 @@ Charisma, 5/10, gives(+1 to ST:Reaction, +1 To GR:Charisma), cat(Mundane, Mental
 	conditional(+1 to GR:Influence Skills when "making Influence rolls"), page(29)
 Combat Reflexes, 15, displaycost(15), gives(=+1 To GR:Combat Reflexes, =+2 To Fright Check),
 	mods(Barbarian Hero Benefits), page(42), cat(Mundane, Mental, Non-Racial, Racial), taboo(DI:Combat Paralysis)
-Danger Sense, 15, mods(Danger Sense), page(42), cat(Mundane, Mental, Non-Racial),
-	mods(Barbarian Hero Benefits), skillused(ST:Perception), mode(sense danger)
+Danger Sense, 15, mods(Barbarian Hero Benefits), page(42), cat(Mundane, Mental, Non-Racial),
+	skillused(ST:Perception), mode(sense danger)
 Daredevil, 15, page(43), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady),
 	mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Eidetic Memory, 5/10, displaycost(5), levelnames(,"Photographic"), upto(2),
@@ -1177,7 +1176,7 @@ Sense of the City ([whichcity]), 10/20, page(47), upto(4), cat(Mundane, Mental, 
 	gives(+1 To SK:Area Knowledge ([whichcity]), +1 To SK:Current Affairs(Regional: [whichcity]), +1 To SK:Hidden Lore(Secrets of the City: [whichcity]), +1 To SK:History([whichcity])), 
 	conditional(+1 to ST:Reaction when "observed by watchmen, tour guides, and amateur historians in [whichcity]", +1 to SK:Urban Survival when "in [whichcity]"),
 	description(Area Knowledge ([whichcity]), Current Affairs(Regional: [whichcity]), Hidden Lore(Secrets of the City: [whichcity]), History([whichcity])),
-	x(#InputReplace("Specify the city:", "[whichcity]", , "Sense of the City")),
+	x(#InputReplace("Specify the city:", "[whichcity]", , "Sense of the City"))
 Smooth Operator, 15/30, gives(+1 To GR:Smooth Operator), page(47), upto(4), cat(Mundane, Mental, Talents),
 	conditional(+1 to ST:Reaction when "dealing NON-MANIPULATIVELY with other social operators"),
 	description(Acting, Carousing, Detect Lies, Diplomacy, Fast-Talk, Intimidation, Leadership, Panhandling, Politics, Public Speaking, Savoir-Faire, Sex Appeal, Streetwise)
@@ -1381,7 +1380,7 @@ Tenure, 5, page(48), cat(Mundane, Non-Racial, Social),
 [PERKS]
 ************************************************************************************************************************
 <Perks>
-_New Perk, 1, noresync(yes), x(#InputToTagReplace("Please enter the name of this Perk:" , name, , "New Perk")), x(#edit)
+_New Perk, 1, noresync(yes), x(#InputToTagReplace("Please enter the name of this Perk:" , name, , "New Perk"))
 Alcohol Tolerance, 1, page(50), cat(Non-Racial)
 Archaic Training, 1/2, page(50), cat(Non-Racial, Skill Perks),
 	x(#InputToTagReplace("Specify TL-based skill", nameext, , "TL-based skill needed"))
@@ -1805,7 +1804,7 @@ Compulsive Risk-Taking, -15, mods(Self-Control), page(58), cat(Mundane, Mental, 
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
 Compulsive Spending, -5, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	conditional(=-1 to ST:Reaction when "from people who disapprove"),
+	conditional(=-1 to ST:Reaction when "from people who disapprove",
 			=@if(@hasmod(You resist on a roll of  6 or less (quite rarely)) then -4 else 0 ) to SK:Merchant when "you bargain or haggle",
 			=@if(@hasmod(You resist on a roll of  9 or less (fairly often)) then -3 else 0 ) to SK:Merchant when "you bargain or haggle",
 			=@if(@hasmod(You resist on a roll of 12 or less (quite often)) then -2 else 0 ) to SK:Merchant when "you bargain or haggle",
@@ -2828,7 +2827,7 @@ Submarine, DX/A, default(IQ - 6), page(83), taboo(DI:Motion Sickness), cat(_Gene
 [SPELLS]
 ************************************************************************************************************************
 <%NewSpellList%>
-_New One-Form Spell, (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)" %penaltylist%),
+_New One-Form Spell (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)" %penaltylist%),
 	needs(SK:Magical Form (%FormList%)), page(203), cat(_General, _New Spells, Techniques, Spells, %FormList% Spells),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	x(#InputToTagReplace("Please enter the name of this Spell:" , name, , "New Spell"),
@@ -4352,7 +4351,7 @@ Uncontrollable, -10%/-15%/-20%/-25%/-30%, upto(5),
 Universal, +25%, group(Appearance), page(85)
 
 <Bad Sight>
-Mitigator (Glasses), -60%, group(Bad Sight), page(53), mitigator(yes), shortname(Glasses), mitigator(yes)
+Mitigator (Glasses), -60%, group(Bad Sight), page(53), mitigator(yes), shortname(Glasses)
 
 <Barbarian Hero Benefits>
 Barbarian Hero Code, -20%, group(Barbarian Hero Benefits), page(58)
@@ -4776,11 +4775,11 @@ Gives Conditional Bonus to [skill category], +0, conditional(+owner::level to CL
 
 <Troll Nocturnalism>
 Mitigator (High-Strength Sunscreen), -60%, group(Troll Nocturnalism),
-	page(98), mitigator(yes), shortname(Sunscreen), mitigator(yes)
+	page(98), mitigator(yes), shortname(Sunscreen)
 
 <Uncontrollable Appetite>
 Mitigator (Displacement Focus), -60%, group(Uncontrollable Appetite),
-	page(114), mitigator(yes), shortname(Mitigating Focus), mitigator(yes)
+	page(114), mitigator(yes), shortname(Mitigating Focus)
 
 <Unkillable>
 Achilles' Heel, -10%/-30%/-50%, levelnames(Rare, Occasional, Common), upto(3), group(Unkillable), page(93)
@@ -6641,7 +6640,7 @@ Travel Rations (Status %StatusList%), basecost(0.05 * @indexedvalue(%StatusList%
 				)_
 		)_
 	), page(148), description(Food for a week on the road. 5% of cost of living; 14lbs.), techlvl(0)
-Wind or Liquor (per bottle, Status %StatusList%), basecost(0.01 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)), baseweight(2), mods(Equipment), displaycost(varies),
+Wine or Liquor ("per bottle, Status %StatusList%"), basecost(0.01 * @indexedvalue(%StatusList% + 3, 5, 15, 30, 60, 150, 600, 3000, 30000, 300000, 3000000, 30000000)), baseweight(2), mods(Equipment), displaycost(varies),
 	x(_
 	#ChoiceList(_
 			name(Status),
