@@ -4,8 +4,8 @@ Version=3
 Program=4.0.408
 Description=01/03/2017. This data file contains information taken from the GURPS Basic Set: Characters sourcebook and _
 		the Discworld RPG. GURPS Basic Set: Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, _
-		1996, 1998, 1999, 2002, 2004 by Steve Jackson Games Incorporated. The Discworld RPG is Copyright © xxxxxxxx by _
-		xxxxxxxxxxxxx. All rights reserved.
+		1996, 1998, 1999, 2002, 2004 by Steve Jackson Games Incorporated. The Discworld RPG is Copyright © 1998, 1999, 2001, _
+		2002, 2016 by Steve Jackson Games Incorporated. All rights reserved. _
 Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS Basic Set 3rd Ed. Revised.gdf"
 
 [AUTHOR]
@@ -18,7 +18,8 @@ Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS
 *
 * This data file contains information taken from the GURPS Basic Set: Characters sourcebook and the Discworld RPG. GURPS 
 * Basic Set: Characters is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994, 1996, 1998, 1999, 2002, 2004 by
-* Steve Jackson Games Incorporated. The Discworld RPG is Copyright © xxxxxxxx by xxxxxxxxxxxxx. All rights reserved.
+* Steve Jackson Games Incorporated. The Discworld RPG is Copyright © 1986, 1987, 1988, 1989, 1991, 1992, 1993, 1994,
+*      1996, 1998, 1999, 2002, 2004 by Steve Jackson Games Incorporated. All rights reserved.
 *
 * Information in this file includes:
 *	Attributes
@@ -38,7 +39,7 @@ Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS
 * Discworld RPG Adaptation:
 * Phil Masters - Major work
 * Roger Bell_West - Project organisation
-* xxxxxxxxxxx
+* With thanks to he GCA forum for vital assistance.
 *
 * If you find any errors or omissions in this file please contact the Data File Coordinator at:
 * ericbsmith42@gmail.com
@@ -1138,6 +1139,7 @@ Mad Medicine, 15, needs(AD:Gadgeteer, ((ST:Tech Level = 5) | (PE:Cutting-Edge Tr
 Serendipity, 15/30, page(44), cat(Mundane, Mental, Non-Racial, Luck Advantages, Pawn of the Lady),
 	mods(Barbarian Hero Benefits, Dark Lord Benefits)
 Single-Minded, 5, page(46), cat(Mundane, Mental, Non-Racial), taboo(DI:Short Attention Span)
+Unfazeable, 15, page(48), cat(Mundane, Mental, Non-Racial, Racial), taboo(AD:Fearlessness, DI:Fearfulness, DI:Cowardice)
 
 * Talents
 Animal Friend, 5/10, gives(+1 To GR:Animal Friend), page(47), upto(4), cat(Mundane, Mental, Non-Racial, Talents),
@@ -1536,25 +1538,27 @@ _New Parent Item, 0, isparent(yes),
 Aerial, 0, page(94), needs(AD:Flight), cat(Exotic, Physical, Racial),
 	replacetags(in "ST:Ground Move" with "mainwin(11), noresync(yes)"),
 	taboo(AD:Swarm Body), gives(=nobase to ST:Kick::reach$)
-
 Quadruped, -35, gives(+1 to ST:Quadruped), page(96), cat(Exotic, Physical, Racial),
 	taboo(AD:High Manual Dexterity, DI:Bad Grip, "DI:Ham-Fisted", DI:One Arm, "DI:Semi-Upright"),
 	mods(Extra Legs)
 Semi-Upright, -5, page(96), cat(Exotic, Physical, Racial), taboo(DI:Quadruped)
 Short Arms (1 Arm), -5, page(96), cat(Exotic, Physical, Racial), needs(DI:One Arm), taboo(DI:Short Arms (2 Arms))
 Short Arms (2 Arms), -10, page(96), cat(Exotic, Physical, Racial), taboo(DI:Short Arms (1 Arm), DI:One Arm)
-Short Legs, -2, page(96), cat(Exotic, Physical, Racial), needs(DI:Quadruped)
-
+Short Legs, -2, page(96), cat(Exotic, Physical, Racial), needs(DI:Quadruped), gives(_
+						=nobase to ST:Kick::reach$ listAs "'C' reach",
+						=$if(SK:Brawling::level + SK:Karate::level > 0 THEN "" ELSE "C") to ST:Kick::reach$ listAs "from 'Short Legs'",
+						=nobase to SK:Brawling::reach$ listAs "'C' reach",
+						="C" to SK:Brawling::reach$ listAs "from 'Short Legs'",
+						=nobase to SK:Karate::reach$ listAs "'C' reach",
+						="C" to SK:Karate::reach$ listAs "from 'Short Legs'"_
+					)
 Total Vampire Nocturnalism, -20, page(112), cat(Exotic, Physical, Racial, Vampire)
 Troll Brain, -10, page(97), cat(Exotic, Gargoyle, Physical, Racial, Troll)
 Troll Nocturnalism, -20, page(97), mods(Troll Nocturnalism), cat(Exotic, Physical, Racial, Troll)
-
 Unhealing, -20/-30, levelnames(Partial, Total), page(98), upto(2),
 	cat(Exotic, Physical, Racial), taboo(AD:Regeneration, AD:Repairable)
-
 Unnaturally Fragile, -50, page(98), cat(Exotic, Physical, Racial), taboo(AD:Unkillable),
 	conditional(-ST:Death Check to ST:Death Check when "you automatically fail all Death Checks")
-
 Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4), 
 	levelnames(Rare, Occasional, Common, Very Common), mods(Vulnerability), 
 	page(98), cat(Exotic, Physical, Racial),
@@ -1562,9 +1566,7 @@ Vulnerability, -10/-20/-30/-40, displaycost(variable), upto(4),
 		#InputToTag("Specify the type of attack you take extra damage from:", nameext, , "Vulnerability"),
 		#buildit _
 		)
-
 Weak Bite, -2, page(98), cat(Exotic, Physical, Racial)
-
 Weakness, -20/-40, upto(12), mods(Weakness), page(98), cat(Exotic, Physical, Racial, Vampire),
 	levelnames("1d/minute damage", "2d/minute damage", "3d/minute damage", "4d/minute damage", "5d/minute damage", "6d/minute damage", "7d/minute damage", "8d/minute damage", "9d/minute damage", "10d/minute damage", "11d/minute damage", "12d/minute damage"),
 	initmods(_
@@ -5648,6 +5650,8 @@ Golem, displaycost(438), cost(0),
 	page(104), race(Golem), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=5,
+       {AD:Damage Resistance}=15 _
+                   with {"Only vs. Heat and Fire", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
        {AD:Doesn't Breathe},
        {AD:Doesn't Eat or Drink},
        {AD:Doesn't Sleep},
@@ -5677,7 +5681,6 @@ Golem, displaycost(438), cost(0),
        {QU:Cannot Float}_
     ),
 	creates(_
-          {AD:Extra DR 15 (Only vs. Heat and Fire), 45, displaycost(varies), noresync(yes), cat(General)},
           {AD:Golem DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
           {AD:Golem Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
           {AD:Golem SM Bonus, 0/0,gives(+1 to ST:Size Modifier),page(27),tl(),usernotes(),familiarities(), cat(Attributes)}=1,
