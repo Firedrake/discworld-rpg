@@ -5227,9 +5227,7 @@ Soldier of Fortune (Basic Set), displaycost(100),
 <Racial Templates>
 _New Racial Template, displaycost(variable), cost(0),
 	race(_New Racial Template),
-	owns(yes),
-	locks(yes),
-	hides(yes),
+	owns(yes), locks(yes), hides(yes),
 	x(_
 		#InputReplace("Please set the name of the Racial Template:", "_New Racial Template", , "New Racial Template")_
 	),
@@ -5309,12 +5307,9 @@ _New Racial Template, displaycost(variable), cost(0),
 
 Banshee, displaycost(72), cost(0),
 	cat(Racial Templates),
-	description(),
-	page(101),
-	race(Banshee),
-	noresync(yes),
-	owns(yes),
-adds(_
+	description(A somewhat sapient forest predator race), page(101),
+	race(Banshee), noresync(yes), hides(yes), owns(yes),
+	adds(_
        {AD:Acute Taste and Smell}=2,
        {AD:Claws (Long Talons)},
        {AD:Combat Reflexes},
@@ -5341,7 +5336,7 @@ adds(_
        {QU:Reflexively Grabs and Consumes Small Flying Creatures},
        {QU:Uncongenial}_
     ),
-creates(_
+	creates(_
           {AD:Banshee Basic Speed Bonus, 5/10,page(28),upto(80),gives(+0.25 to ST:Basic Speed),levelnames(+0.25, +0.5, +0.75, +1, +1.25, +1.5, +1.75, +2, +2.25, +2.5, +2.75, +3, +3.25, +3.5, +3.75, +4, +4.25, +4.5, +4.75, +5, +5.25, +5.5, +5.75, +6, +6.25, +6.5, +6.75, +7, +7.25, +7.5, +7.75, +8, +8.25, +8.5, +8.75, +9, +9.25, +9.5, +9.75, +10, +10.25, +10.5, +10.75, +11, +11.25, +11.5, +11.75, +12, +12.25, +12.5, +12.75, +13, +13.25, +13.5, +13.75, +14, +14.25, +14.5, +14.75, +15, +15.25, +15.5, +15.75, +16, +16.25, +16.5, +16.75, +17, +17.25, +17.5, +17.75, +18, +18.25, +18.5, +18.75, +19, +19.25, +19.5, +19.75, +20 ), cat(Attributes)}=1,
           {AD:Banshee DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
           {AD:Banshee Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=4,
@@ -5356,12 +5351,9 @@ creates(_
 
 Dwarf, displaycost(27), cost(0),
 	cat(Racial Templates),
-	description(),
-	page(100),
-	race(Dwarf),
-	noresync(yes),
-	owns(yes),
-adds(_
+	description(The classic stumpy miners), page(100), hides(yes),
+	race(Dwarf), noresync(yes), owns(yes),
+	adds(_
        {AD:Lifting ST}=3,
        {AD:Metalwork}=1,
        {PE:Longevity},
@@ -5371,7 +5363,7 @@ adds(_
        {QU:Touchy About Height and Beard},
        %greedaliaslist%_
     ),
-creates(_
+	creates(_
           {AD:Dwarf Hit Points Bonus, 2/4,page(27),mods(Size, Quadruped),gives(+1 to ST:Hit Points), cat(Attributes)}=2,
           {AD:Dwarf HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
           {AD:Dwarf ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=1,
@@ -5379,7 +5371,7 @@ creates(_
 				cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
           {DI:Dwarf SM Penalty, 0/0,gives(-1 to ST:Size Modifier),page(27), cat(Attributes)}=1_
        ),
-x(_
+	x(_
 		#ChoiceList(_
 				name(Greed),
 				title(Greed),
@@ -5398,18 +5390,14 @@ x(_
 			)
 
 Elf-Kin, displaycost(16), cost(0),
-	cat(Racial Templates),
-	description(),
-	page(102),
-	race(Elf-Kin),
-	noresync(yes),
-	owns(yes),
-adds(_
+	cat(Racial Templates), description(Thin, pretty, and widely regarded with suspicion),
+	page(102), race(Elf-Kin), hides(yes), noresync(yes), owns(yes),
+	adds(_
        {AD:Appearance}=1,
        {QU:Giggles a Lot},
        {QU:Sunburns Easily}_
     ),
-creates(_
+	creates(_
           {AD:Elf-Kin DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
           {AD:"Reputation (As wondrous magical folk, among naive romantics)", 5/10,mods(Reputation Advantage),page(34),upto(4),conditional(+1 to ST:Reaction, +1 to SK:Indimidation when "your reputation counts", -1 to SK:Intimidation when "your reputation works against you"),tl(),usernotes(),familiarities(), cat(Mundane, Social, Influence, Mundane Social)}=1 _
                    with {"Frequency of Recognition: All the time", *1,shortname(All the time),group(Reputation),level(1),valuenum(1)} _
@@ -5424,7 +5412,7 @@ creates(_
 
 Flock of Bats - Vampire Alternate Form, displaycost(23), cost(0),
 	description(That bit where the vampire changes...), page(113), race(Vampire as Flock of Bats),
-	noresync(yes), owns(yes),
+	noresync(yes), owns(yes), hides(yes),
 	adds(_
        {AD:Night Vision}=5,
        {AD:Sonar},
@@ -5473,7 +5461,7 @@ Flock of Bats - Vampire Alternate Form, displaycost(23), cost(0),
 
 Flock of Magpies - Vampire Alternate Form, displaycost(35), cost(0),
 	description(That bit where the vampire changes...), page(113), race(Vampire as Flock of Magpies),
-	noresync(yes), owns(yes),
+	noresync(yes), owns(yes), hides(yes),
 	adds(_
        {AD:Night Vision}=1,
        {AD:Swarm Body},
@@ -5516,13 +5504,10 @@ Flock of Magpies - Vampire Alternate Form, displaycost(35), cost(0),
        )
 
 Gargoyle, displaycost(46), cost(0),
-	cat(Racial Templates),
-	description(),
-	page(100),
-	race(Gargoyle),
-	noresync(yes),
-	owns(yes),
-adds(_
+	cat(Racial Templates), hides(yes),
+	description(Silicon-based talking architectural details),
+	page(100), race(Gargoyle), noresync(yes), owns(yes),
+	adds(_
        {AD:Cast-Iron Stomach},
        {AD:Claws (Blunt Claws)},
        {AD:Damage Resistance}=5 _
@@ -5545,7 +5530,7 @@ adds(_
        {QU:Cannot Float},
        {QU:Prefers To Be Above Ground Level}_
     ),
-creates(_
+	creates(_
           {AD:Gargoyle Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=4,
           {AD:Gargoyle ST Bonus, 10/20,page(26),mods(Size, Quadruped),gives(+1 to ST:ST), cat(Attributes)}=5,
           {AD:Gargoyle Will Bonus, 5/10,page(27),gives(+1 to ST:Will), cat(Attributes)}=4,
@@ -5557,9 +5542,8 @@ creates(_
        )
 
 Gnoll, displaycost(-14), cost(0),
-	description(A surly scavenger with a body seemingly made of soil.),
-	page(103), race(Gnoll),
-	noresync(yes), owns(yes),
+	description(A surly scavenger with a body seemingly made of soil),
+	page(103), race(Gnoll), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Cast-Iron Stomach},
        {AD:Damage Resistance}=2 _
@@ -5587,13 +5571,10 @@ Gnoll, displaycost(-14), cost(0),
        )
 
 Gnome or Pictsie, displaycost(18), cost(0),
-	cat(Racial Templates),
-	description(),
-	page(101),
-	race(Gnome or Pictsie),
-	noresync(yes),
-	owns(yes),
-adds(_
+	cat(Racial Templates), hides(yes),
+	description(Miniature humanoids, frequently with attitude),
+	page(101), race(Gnome or Pictsie), noresync(yes), owns(yes),
+	adds(_
        {AD:Catfall},
        {AD:Damage Resistance}=2 _
                    with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)} _
@@ -5603,7 +5584,7 @@ adds(_
        {AD:Silence}=2,
        {DI:Short Arms (2 Arms)}_
     ),
-creates(_
+	creates(_
           {AD:Gnome or Pictsie DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=2,
           {AD:Gnome or Pictsie HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
           {AD:Gnome or Pictsie Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=1,
@@ -5615,9 +5596,9 @@ creates(_
        )
 
 Goblin, displaycost(-7), cost(0),
-description(A sad and self-oppressing race, recently freed from the worst parts of their previous condition.),
-page(102), race(Goblin), noresync(yes), owns(yes),
-adds(_
+	description(A sad and self-oppressing race, recently freed from the worst parts of their previous condition),
+	page(102), race(Goblin), noresync(yes), owns(yes), hides(yes),
+	adds(_
        {AD:Claws (Sharp Claws)},
        {AD:Night Vision}=6,
        {AD:Temperature Tolerance (Cold)}=1,
@@ -5628,7 +5609,7 @@ adds(_
                    with {"You resist on a roll of 15 or less (almost all the time)", *0.5,shortname(15 or less),group(Self-Control),page(53),level(1),valuenum(0.5)},
        {QU:Collects Own Snot and Earwax}_
     ),
-creates(_
+	creates(_
           {AD:Goblin DX Bonus, 20/40,page(26),mods(Quadruped),gives(+1 to ST:DX), cat(Attributes)}=1,
           {AD:Goblin HT Bonus, 10/20,page(27),gives(+1 to ST:HT), cat(Attributes)}=1,
           {AD:Goblin Perception Bonus, 5/10,page(27),gives(+1 to ST:Perception), cat(Attributes)}=2,
@@ -5646,8 +5627,8 @@ creates(_
        )
 
 Golem, displaycost(438), cost(0),
-	description(An ancient automaton, created theologically.),
-	page(104), race(Golem), noresync(yes), owns(yes),
+	description(An ancient automaton, created theologically),
+	page(104), hides(yes), race(Golem), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=5,
        {AD:Damage Resistance}=15 _
@@ -5698,8 +5679,8 @@ Golem, displaycost(438), cost(0),
        )
 
 Domestic Cat, displaycost(-82), cost(0),
-	description(Tiddles.), page(107), race(Cat),
-	noresync(yes), owns(yes),
+	description(Tiddles), page(107), race(Cat),
+	noresync(yes), hides(yes), owns(yes),
 	adds(_
        {AD:Catfall},
        {AD:Claws (Sharp Claws)},
@@ -5737,8 +5718,8 @@ Domestic Cat, displaycost(-82), cost(0),
        )
 
 Small Smart Dog, displaycost(-122), cost(0),
-	description(Fido with a brain.), page(107), race(Dog),
-	noresync(yes), owns(yes),
+	description(Fido with a brain), page(107), race(Dog),
+	noresync(yes), hides(yes), owns(yes),
 	adds(_
        {AD:Discriminatory Smell},
        {AD:Teeth (Sharp Teeth)},
@@ -5767,8 +5748,8 @@ Small Smart Dog, displaycost(-122), cost(0),
        )
 
 Moderate-Sized Troll, displaycost(83), cost(0),
-	description(A typical member of the silicon-based race.), page(108),
-	race(Troll), noresync(yes), owns(yes),
+	description(A typical member of the silicon-based race), page(108),
+	race(Troll), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=5,
        {AD:Fearlessness}=4,
@@ -5800,8 +5781,8 @@ Moderate-Sized Troll, displaycost(83), cost(0),
        )
 
 Big Troll, displaycost(115), cost(0),
-	description(A notably well-grown troll.), page(108),
-	race(Troll), noresync(yes), owns(yes),
+	description(A notably well-grown troll), page(108),
+	race(Troll), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=6,
        {AD:Fearlessness}=4,
@@ -5819,7 +5800,7 @@ Big Troll, displaycost(115), cost(0),
        {QU:Cannot Float},
        {QU:Weak Spot (Neck)}_
     ),
-creates(_
+	creates(_
           {AD:Racial Skill Point Bonus (Brawling), 1/2,page(99),gives(+1pts to SK:Brawling),noresync(yes), cat(Exotic Mental, Exotic Physical, Exotic, Mental, Physical, Racial)}=2,
           {AD:Resistant (Disease), 5/10/15/30,mods(Resistant),levelnames(Rare, Occasional, Common, Very Common),page(46),upto(4), cat(Mundane, Non-Racial, Physical, Racial, Mundane Physical)}=2 _
              with {"Degree: +3 to HT rolls to resist", *1/3,round(Down),shortname(+3),group(Resistant),page(46),tier(-1),level(1),valuenum(1/3)},
@@ -5833,8 +5814,8 @@ creates(_
        )
 
 Huge Troll, displaycost(190), cost(0),
-	description(A really big silicon sentient.), page(108),
-	race(Troll), noresync(yes), owns(yes),
+	description(A really big silicon sentient), page(108),
+	race(Troll), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=7 _
           with {"Can't Wear Armour", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
@@ -5868,7 +5849,7 @@ Huge Troll, displaycost(190), cost(0),
 
 Vampire (Female), displaycost(107), cost(0),
 	description(A baseline bloodsucker), page(109), race(Vampire),
-	noresync(yes), owns(yes),
+	noresync(yes), hides(yes), owns(yes),
 	adds(_
        {AD:Charisma}=1,
        {AD:Doesn't Breathe},
@@ -5917,7 +5898,7 @@ Vampire (Female), displaycost(107), cost(0),
 
 Vampire (Male), displaycost(108), cost(0),
 	description(A baseline bloodsucker), page(109), race(Vampire),
-	noresync(yes), owns(yes),
+	noresync(yes), hides(yes), owns(yes),
 	adds(_
        {AD:Charisma}=1,
        {AD:Doesn't Breathe},
@@ -5967,7 +5948,7 @@ Vampire (Male), displaycost(108), cost(0),
 
 Bat - Vampire Alternate Form, displaycost(-53), cost(0),
 	description(Bat form), page(113), race(Bat Shape),
-	noresync(yes), owns(yes),
+	noresync(yes), hides(yes), owns(yes),
 	adds(_
        {AD:Flight (Winged, Cannot Hover)},
        {AD:High Pain Threshold},
@@ -6014,7 +5995,7 @@ Bat - Vampire Alternate Form, displaycost(-53), cost(0),
 	   
 Wolf, displaycost(63), cost(0),
 	description(The basic werewolf wolf shape), page(115),
-	race(Lycanthrope), noresync(yes), owns(yes),
+	race(Lycanthrope), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=1 _
                    with {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
@@ -6045,8 +6026,8 @@ Wolf, displaycost(63), cost(0),
        )
 
 Wolfman (SM 0), displaycost(131), cost(0),
-	description(A hairy humanoid monster.), page(114),
-	race(Lycanthrope), noresync(yes), owns(yes),
+	description(A hairy humanoid monster), page(114),
+	race(Lycanthrope), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Claws (Sharp Claws)},
        {AD:Damage Resistance}=1 _
@@ -6080,8 +6061,8 @@ Wolfman (SM 0), displaycost(131), cost(0),
        )
 
 Wolfman (SM 1), displaycost(128), cost(0),
-	description(A BIG hairy humanoid monster.), page(114),
-	race(Lycanthrope), noresync(yes), owns(yes),
+	description(A BIG hairy humanoid monster), page(114),
+	race(Lycanthrope), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Claws (Sharp Claws)},
        {AD:Damage Resistance}=1 _
@@ -6118,7 +6099,7 @@ Wolfman (SM 1), displaycost(128), cost(0),
 
 Zombie, displaycost(178), cost(0),
 	description(Lurching undead animated by supernatural power and will), page(116),
-	race(Zombie), noresync(yes), owns(yes),
+	race(Zombie), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Damage Resistance}=1 _
                    with {"Tough Skin", -40%,group(Damage Resistance),page(88),level(1),valuenum(-40)},
@@ -6173,8 +6154,8 @@ Zombie, displaycost(178), cost(0),
 			)
 
 Animated Skeleton, displaycost(214), cost(0),
-	description(Clattering bony undead, animated by supernatural power and will.), page(119),
-	race(Animated Skeleton), noresync(yes), owns(yes),
+	description(Clattering bony undead, animated by supernatural power and will), page(119),
+	race(Animated Skeleton), hides(yes), noresync(yes), owns(yes),
 	adds(_
        {AD:Claws (Blunt Claws)},
        {AD:Damage Resistance}=1,
