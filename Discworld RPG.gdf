@@ -1599,6 +1599,8 @@ Dread, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial, Vampire),
 			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
 			),
 	x(#InputToTag("Specify the what it is you Dread:", nameext, , "Dread"))
+Faith Maintenance, -25/-30/-35, upto(3), page(95), levelnames(11-20 Believers, 21-50 Believers, 51-100 Believers), 
+ 	cat(Divine, Mental, Racial, Supernatural)
 Fixation, -10, mods(Dread), page(95), cat(Supernatural, Mental, Racial, Vampire),
 	initmods(_
 			Rarity: Occasional, *1, shortname(Occasional), group(Dread) _
@@ -1778,11 +1780,11 @@ Code of Honour (Vampire Who Plays Fair), -5, page(111), cat(Mundane, Mental, Rac
 Code of Honour (Watchman's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 Code of Honour (Wise-Woman's), -5, page(57), cat(Mundane, Mental, Non-Racial)
 
-Compulsive Behavior, -5/-10, mods(Self-Control), page(58), upto(3), levelnames(,,),
+Compulsive Behaviour, -5/-10, mods(Self-Control), page(58), upto(3), levelnames(,,),
 	cat(Mundane, Mental, Non-Racial, Racial, Vampire),
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53)),
-	x( #InputToTag("Specify the type of compulsive behavior:", nameext, , "Compulsive Behavior") )
+	x( #InputToTag("Specify the type of compulsive behaviour:", nameext, , "Compulsive Behaviour") )
 Compulsive Barbarian Heroism, -10, mods(Self-Control), page(58), cat(Mundane, Mental, Non-Racial),
 	conditional(=-1 to ST:Reaction when "from people who disapprove"),
 	initmods(You resist on a roll of 12 or less (quite often), *1, shortname(12 or less), group(Self-Control), page(53))
@@ -3401,8 +3403,6 @@ DI:Cannot Kick
 DI:Cannot Learn
 DI:Cannot Speak
 DI:Charitable
-DI:Chronic Depression
-DI:Chronic Pain
 DI:Chummy
 DI:Clueless
 DI:Code of Honour (Chivalry)
@@ -3412,7 +3412,7 @@ DI:Code of Honour (Professional)
 DI:Code of Honour (Soldier's)
 DI:Code of Honour
 DI:Combat Paralysis
-DI:Compulsive Behavior
+DI:Compulsive Behaviour
 DI:Compulsive Carousing
 DI:Compulsive Gambling
 DI:Compulsive Generosity
@@ -3424,7 +3424,6 @@ DI:Cowardice
 DI:Curious
 DI:Cursed
 DI:Deafness
-DI:Decreased Time Rate
 DI:Delusion
 DI:Dependent
 DI:Disciplines of Faith (Asceticism)
@@ -3433,48 +3432,37 @@ DI:Disciplines of Faith (Mysticism)
 DI:Disciplines of Faith (Ritualism)
 DI:Disciplines of Faith
 DI:Disturbing Voice
-DI:Divine Curse
-DI:Draining
 DI:Dread
 DI:Duty
 DI:Dwarfish Greed
 DI:Dwarfism
 DI:Dyslexia
 DI:Easy to Read
-DI:Electrical
 DI:Enemy (Formidable group)
 DI:Enemy (Group of less powerful people)
 DI:Enemy (One Person)
-DI:Epilepsy
+DI:Faith Maintenance
 DI:Fanaticism
 DI:Fat
 DI:Fearfulness
 DI:Fragile
 DI:Frightens Animals
 DI:Gigantism
-DI:G-Intolerance
 DI:Gluttony
 DI:Greed
 DI:Gregarious
 DI:Gullibility
 DI:Ham-Fisted
 DI:Hard of Hearing
-DI:Hemophilia
 DI:Hidebound
 DI:Honesty
 DI:Hunchback
 DI:Impulsiveness
-DI:Increased Consumption
-DI:Increased Life Support (Extreme Heat/Cold)
-DI:Increased Life Support (Massive)
-DI:Increased Life Support
 DI:Incurious
 DI:Indecisive
-DI:Infectious Attack
 DI:Innumerate
 DI:Insomniac
 DI:Intolerance
-DI:Invertebrate
 DI:Jealousy
 DI:Kleptomania
 DI:Klutz
@@ -3482,16 +3470,10 @@ DI:Lame
 DI:No Legs
 DI:Laziness
 DI:Lecherousness
-DI:Lifebane
 DI:Loner
 DI:Low Empathy
 DI:Low Pain Threshold
-DI:Low Self-Image
 DI:Low TL
-DI:Lunacy
-DI:Magic Susceptibility
-DI:Maintenance
-DI:Manic-Depressive
 DI:Megalomania
 DI:Miserliness
 DI:Motion Sickness
@@ -3499,7 +3481,6 @@ DI:Mute
 DI:Quadruped
 DI:No Sense of Humour
 DI:No Sense of Smell/Taste
-DI:Noisy
 DI:Oblivious
 DI:Obsession
 DI:Odious Personal Habit
@@ -3518,7 +3499,6 @@ DI:Phobia
 DI:Post-Combat Shakes
 DI:Pyromania
 DI:Quadruped
-DI:Reprogrammable
 DI:Reputation
 DI:Restricted Diet
 DI:Restricted Vision
@@ -3539,8 +3519,6 @@ DI:Shyness
 DI:Skinny
 DI:Slow Eater
 DI:Slow Healing
-DI:Slow Riser
-DI:Social Disease
 DI:Social Stigma (Criminal Record)
 DI:Social Stigma (Disowned)
 DI:Social Stigma (Excommunicated)
@@ -3554,7 +3532,6 @@ DI:Social Stigma (Subjugated)
 DI:Social Stigma (Uneducated)
 DI:Social Stigma (Valuable Property)
 DI:Social Stigma
-DI:Space Sickness
 DI:Split Personality
 DI:Squeamish
 DI:Status
@@ -3568,10 +3545,6 @@ DI:Supernatural Feature (Mostly Concealed: No Body Heat)
 DI:Supernatural Feature (Blatantly Unnatural: No Reflection)
 DI:Supernatural Feature (Blatantly Unnatural: No Shadow)
 DI:Supernatural Feature (Blatantly Unnatural: Deathly Pallor)
-DI:Supersensitive
-DI:Susceptible to [Common]
-DI:Susceptible to [Occasional]
-DI:Susceptible to [Very Common]
 DI:Trademark
 DI:Trickster
 DI:Total Vampire Nocturnalism
@@ -3590,7 +3563,6 @@ DI:Vulnerability
 DI:Weak Bite
 DI:Weakness
 DI:Wealth
-DI:Workaholic
 
 <AllQuirks>
 QU:_New Quirk
@@ -3634,7 +3606,6 @@ QU:Imaginative
 QU:Likes
 QU:Minor Handicap
 QU:Nervous Stomach
-QU:Neutered
 QU:No Staff
 QU:Nosy
 QU:Obsession
@@ -3741,8 +3712,6 @@ SK:Diagnosis
 SK:Diplomacy
 SK:Directing
 SK:Disguise
-SK:Diving Suit
-SK:Dreaming
 SK:Driving
 SK:Driving (Automobile)
 SK:Driving (Construction Equipment)
@@ -3753,8 +3722,6 @@ SK:Driving (Locomotive)
 SK:Driving (Mecha)
 SK:Driving (Motorcycle)
 SK:Driving (Tracked)
-SK:Dropping
-SK:Economics
 SK:Engineer
 SK:Engineer (Animal-Drawn Vehicles)
 SK:Engineer (Artillery)
@@ -3769,7 +3736,6 @@ SK:Engineer (Mining)
 SK:Engineer (Ships)
 SK:Engineer (Steam Engines)
 SK:Escape
-SK:Exorcism
 SK:Explosives
 SK:Explosives (Demolition)
 SK:Explosives (Fireworks)
@@ -3863,7 +3829,6 @@ SK:Mathematics (Applied)
 SK:Mathematics (Pure)
 SK:Mechanic
 SK:Meditation
-SK:Mental Strength
 SK:Merchant
 SK:Metallurgy
 SK:Meteorology
@@ -3871,7 +3836,6 @@ SK:Mimicry
 SK:Mimicry (Animal Sounds)
 SK:Mimicry (Bird Calls)
 SK:Mimicry (Speech)
-SK:Mind Block
 SK:Mount
 SK:Musical Composition
 SK:Musical Instrument
@@ -3884,13 +3848,10 @@ SK:Observation
 SK:Occultism
 SK:Packing
 SK:Panhandling
-SK:Parachuting
 SK:Performance
-SK:Pharmacy
 SK:Philosophy
 SK:Photography
 SK:Physician
-SK:Physics
 SK:Physiology
 SK:Pickpocket
 SK:Piloting
@@ -4280,7 +4241,6 @@ SK:Blowpipe
 SK:Bolas
 SK:Bow
 SK:Crossbow
-SK:Dropping
 SK:Flamethrower
 SK:Gunner (Cannon)
 SK:Gunner (Catapult)
