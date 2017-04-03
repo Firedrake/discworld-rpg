@@ -41,6 +41,11 @@ Taboo="GURPS Basic Set 4th Ed.--Characters.gdf", "GURPS Lite 4th Ed.gdf", "GURPS
 * Roger Bell_West - Project organisation
 * With thanks to he GCA forum for vital assistance.
 *
+* Armin Sykes - 
+*	- Added "Magical Form" to cat() for magical forms
+*	- Changed SK:Magical Form to CL:Magical Form in bonuses
+*	- Replaced all "Magical Form (X)" with "Magical Form: X"
+*
 * If you find any errors or omissions in this file please contact the Data File Coordinator at:
 * ericbsmith42@gmail.com
 *
@@ -948,7 +953,7 @@ Magery 0, 5, page(44), cat(Supernatural, Mental, Non-Racial),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form, +1 to Spells), mods(Magery), needs(AD:Magery 0), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
+Magery, 10/20, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to CL:Magical Form, +1 to Spells), mods(Magery), needs(AD:Magery 0), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only), AD:Magery 0 (Non-Improvisational)),
 	description(WARNING: Always use the Magery modifiers with Magery and the Magery 0 modifiers with Magery 0. Using the Magery modifiers with any other trait can cause your spells to be miscalculated.)
 					
@@ -968,7 +973,7 @@ Magery 0 (Engineering Only), 4, mods(Magery 0), page(44), cat(Supernatural, Ment
 Magery (Engineering Only), 6/12, mods(Magery),
 	needs(AD:Magery 0 (Engineering Only)), page(44), cat(Supernatural, Mental, Non-Racial, Talents),
 	conditional(+1 to SK:Magic when "for engineering purposes",
-			+1 to SK:Magical Form when "for engineering purposes",
+			+1 to CL:Magical Form when "for engineering purposes",
 			+1 to Spells when "for engineering purposes")
 					
 Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, Mental, Non-Racial),
@@ -976,7 +981,7 @@ Magery 0 (Non-Improvisational), 4, mods(Magery 0), page(45), cat(Supernatural, M
 	taboo(AD:Magery 0 (No Spellcasting), AD:Magery 0 (Engineering Only)),
 	skillused(ST:Perception), mode(detect Magic Items with Mage Sense),
 	description(Magery 0 is included as a separate item from the normal Magery advantage, due to the fact that many kinds of enhancements and limitations are meant to only affect the levels above 0, not the base 5 points from Magery 0. The Magery advantage is set to have Magery 0 as a pre-req.)
-Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to SK:Magical Form,
+Magery (Non-Improvisational), 7/14, gives(+1 to ST:Magery, +1 to SK:Thaumatology, +1 to SK:Magic, +1 to CL:Magical Form,
 	+1 to Spells), mods(Magery), needs(AD:Magery 0 (Non-Improvisational)),
 	page(45), cat(Supernatural, Mental, Non-Racial, Talents)
 
@@ -990,7 +995,7 @@ True Faith, 15, page(48), cat(Supernatural, Mental, Non-Racial)
 
 Superior Staff, 5/10, upto(3), needs(SK:Magic (Wizardry)), page(47), cat(Supernatural, Non-Racial),
 	description(Gives +1 MP/level to points stored in staff.), taboo(QU:No Staff),
-	conditional(+1 to SK:Magic when "holding staff", +1 to SK:Magical Form when "holding staff",
+	conditional(+1 to SK:Magic when "holding staff", +1 to CL:Magical Form when "holding staff",
 			+1 to Spells when "holding staff")
 Sapient Pearwood Staff, 10, needs(AD:Superior Staff = 3), page(47), cat(Supernatural, Non-Racial),
 	conditional(+2 to ST:Reaction when "admiring wizards", -2 to ST:Reaction when "jealous wizards")
@@ -2700,27 +2705,26 @@ Magic, IQ/VH, page(76), cat(_General, Occult/Magical, Scholarly),
 	gives(=+me to ST:MagicSkill, =+(@if((me::level > 20) THEN (20 - ST:Magery) ELSE (me::level - ST:Magery))) to ST:MagicDefaultBase),
 	needs(AD:Magery 0 | AD:Magery 0 (Engineering Only) | Magery 0 (Non-Improvisational)),
 	x(#InputToTag("You must specialise in a branch of magic (Witchcraft, Wizardry, etc.):", nameext, "Witchcraft", "Magic Skill"))
-Magical Form (%formlist%), IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly),
-	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery),
-	x(#ChoiceList(_
-			name(form),
-			title(Magical Form: Choose a Form),
-			text(Choose a Magical Form from the list:),
-			picksallowed(1),
-			method(bynumber),
-			list(_
-				"Divination",
-				"Elementalism",
-				"Magianism",
-				"Necromancy",
-				"Physiomancy",
-				"Psychomancy",
-				"Sortilege",
-				"Summonation" _
-				)_
-			)_
-	), noresync(yes)
 Thaumatology, IQ/VH, default(IQ - 7), page(82), cat(_General, Occult/Magical, Scholarly)
+
+Magical Form: Divination, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Elementalism, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Magianism, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Necromancy, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Physiomancy, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Psychomancy, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Sortilege, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+Magical Form: Summonation, IQ/VH, default(ST:MagicDefaultBase - 6), page(76), cat(_General, Occult/Magical, Scholarly, Magical Form),
+	needs(SK:Magic), upto(ST:MagicSkill - ST:Magery)
+
+
 
 <Outdoor/Exploration>
 Boating (Sailboat), DX/A, tl(0-5), taboo(DI:Motion Sickness), default(DX - 5, IQ - 5),
@@ -2831,8 +2835,8 @@ Submarine, DX/A, default(IQ - 6), page(83), taboo(DI:Motion Sickness), cat(_Gene
 [SPELLS]
 ************************************************************************************************************************
 <%NewSpellList%>
-_New One-Form Spell (Magical Form (%FormList%)), type(Tech/H), default("SK:Magical Form (%FormList%)" %penaltylist%),
-	needs(SK:Magical Form (%FormList%)), page(203), cat(_General, _New Spells, Techniques, Spells, %FormList% Spells),
+_New One-Form Spell (Magical Form: %FormList%), type(Tech/H), default("SK:Magical Form: %FormList%" %penaltylist%),
+	needs(SK:Magical Form: %FormList%), page(203), cat(_General, _New Spells, Techniques, Spells, %FormList% Spells),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	x(#InputToTagReplace("Please enter the name of this Spell:" , name, , "New Spell"),
 		#ChoiceList(_
@@ -2890,225 +2894,225 @@ _New Parent Item, type(N/A), isparent(yes), upto(0 LimitingTotal), basepoints(0)
 	x(#InputToTagReplace("Please specify a name for this categorisation or whatever:", name, , "New Parent Item"))
 
 <Techniques, Techniques - Spells, Spells, Divination Spells>
-Scry Shield (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)"),
+Scry Shield (Magical Form: Divination), type(Tech/H), default("SK:Magical Form: Divination"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Divination)), page(202)
-Love's Name (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)"),
+	needs(SK:Magical Form: Divination), page(202)
+Love's Name (Magical Form: Divination), type(Tech/H), default("SK:Magical Form: Divination"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Divination)), page(202)
-Scrying - Minimal Item (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 14),
+	needs(SK:Magical Form: Divination), page(202)
+Scrying - Minimal Item (Magical Form: Divination), type(Tech/H), default("SK:Magical Form: Divination" - 14),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Divination)), page(202)
-Scrying - Silver Mirror (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 8),
+	needs(SK:Magical Form: Divination), page(202)
+Scrying - Silver Mirror (Magical Form: Divination), type(Tech/H), default("SK:Magical Form: Divination" - 8),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Divination)), page(202)
-Scrying - Crystal Ball (Magical Form (Divination)), type(Tech/H), default("SK:Magical Form (Divination)" - 3),
+	needs(SK:Magical Form: Divination), page(202)
+Scrying - Crystal Ball (Magical Form: Divination), type(Tech/H), default("SK:Magical Form: Divination" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Divination)), page(202)
+	needs(SK:Magical Form: Divination), page(202)
 
 <Techniques, Techniques - Spells, Spells, Elementalism Spells>
-Snap (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 1),
+Snap (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 1),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(203)
-Visual Illusion (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	needs(SK:Magical Form: Elementalism), page(203)
+Visual Illusion (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(203)
-Fireball (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	needs(SK:Magical Form: Elementalism), page(203)
+Fireball (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(203)
-Magic Lightning (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	needs(SK:Magical Form: Elementalism), page(203)
+Magic Lightning (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(203)
+	needs(SK:Magical Form: Elementalism), page(203)
 
-Balanced Levitation (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+Balanced Levitation (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(203)
-Gindle's Effortless Elevator (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
+	needs(SK:Magical Form: Elementalism), page(203)
+Gindle's Effortless Elevator (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(204)
-Rock Soften (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 3),
+	needs(SK:Magical Form: Elementalism), page(204)
+Rock Soften (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(204)
-Wind (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
+	needs(SK:Magical Form: Elementalism), page(204)
+Wind (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(204)
-Sumpjumper's Incendiary Surprise (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 4),
+	needs(SK:Magical Form: Elementalism), page(204)
+Sumpjumper's Incendiary Surprise (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(204)
-Herpetty's Seismic Reorganiser (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 6),
+	needs(SK:Magical Form: Elementalism), page(204)
+Herpetty's Seismic Reorganiser (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 6),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page(204)
-Atavarr's Personal Gravitational Upset (Magical Form (Elementalism)), type(Tech/H),
-	default("SK:Magical Form (Elementalism)" - 4),
+	needs(SK:Magical Form: Elementalism), page(204)
+Atavarr's Personal Gravitational Upset (Magical Form: Elementalism), type(Tech/H),
+	default("SK:Magical Form: Elementalism" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page()
-Quondum's Attractive Point (Magical Form (Elementalism)), type(Tech/H), default("SK:Magical Form (Elementalism)" - 5),
+	needs(SK:Magical Form: Elementalism), page()
+Quondum's Attractive Point (Magical Form: Elementalism), type(Tech/H), default("SK:Magical Form: Elementalism" - 5),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Elementalism)), page()
+	needs(SK:Magical Form: Elementalism), page()
 
 <Techniques, Techniques - Spells, Spells, Magianism Spells>
-Detect Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)"),
+Detect Magic (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)), page(204)
-Check Thaumic Flux (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 1),
+	needs(SK:Magical Form: Magianism), page(204)
+Check Thaumic Flux (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 1),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)),  page(204)
-Analyse Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
+	needs(SK:Magical Form: Magianism),  page(204)
+Analyse Magic (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)),  page(205)
-Octagram (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
+	needs(SK:Magical Form: Magianism),  page(205)
+Octagram (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)),  page(205)
-Nul Zone (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 3),
+	needs(SK:Magical Form: Magianism),  page(205)
+Nul Zone (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)),  page(205)
-Dispel Magic (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 5),
+	needs(SK:Magical Form: Magianism),  page(205)
+Dispel Magic (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 5),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)),  page(205)
-Emergency Power Drain (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 8),
+	needs(SK:Magical Form: Magianism),  page(205)
+Emergency Power Drain (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 8),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)),  page(205)
-Mystic Feedback (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 4),
+	needs(SK:Magical Form: Magianism),  page(205)
+Mystic Feedback (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)), page()
-Fresnel's Wonderful Concentrator (Magical Form (Magianism)), type(Tech/H), default("SK:Magical Form (Magianism)" - 7),
+	needs(SK:Magical Form: Magianism), page()
+Fresnel's Wonderful Concentrator (Magical Form: Magianism), type(Tech/H), default("SK:Magical Form: Magianism" - 7),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Magianism)), page()
+	needs(SK:Magical Form: Magianism), page()
 
 <Techniques, Techniques - Spells, Spells, Necromancy Spells>
-Detect Haunting (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)"),
+Detect Haunting (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)), page(206)
-Exorcise Ghost (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 3),
+	needs(SK:Magical Form: Necromancy), page(206)
+Exorcise Ghost (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)),  page(206)
-Speak With the Dead (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 2),
+	needs(SK:Magical Form: Necromancy),  page(206)
+Speak With the Dead (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy" - 2),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)),  page(206)
-Last Vision (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 3),
+	needs(SK:Magical Form: Necromancy),  page(206)
+Last Vision (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)),  page(206)
-Chill Finger (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 4),
+	needs(SK:Magical Form: Necromancy),  page(206)
+Chill Finger (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)),  page(206)
-Steal Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 4),
+	needs(SK:Magical Form: Necromancy),  page(206)
+Steal Zombie (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)),  page(206)
-Animate Zombie (Magical Form (Necromancy)), type(Tech/H), default("SK:Magical Form (Necromancy)" - 6),
+	needs(SK:Magical Form: Necromancy),  page(206)
+Animate Zombie (Magical Form: Necromancy), type(Tech/H), default("SK:Magical Form: Necromancy" - 6),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Necromancy)),  page(206)
+	needs(SK:Magical Form: Necromancy),  page(206)
 
 <Techniques, Techniques - Spells, Spells, Physiomancy Spells>
-Spolt's Forthright Respirator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)"),
+Spolt's Forthright Respirator (Magical Form: Physiomancy), type(Tech/H), default("SK:Magical Form: Physiomancy"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Physiomancy)), page(207)
-Eringyas' Surprising Bouquet (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 3),
+	needs(SK:Magical Form: Physiomancy), page(207)
+Eringyas' Surprising Bouquet (Magical Form: Physiomancy), type(Tech/H), default("SK:Magical Form: Physiomancy" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Physiomancy)), page(207)
-Transfer Pain (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 3),
+	needs(SK:Magical Form: Physiomancy), page(207)
+Transfer Pain (Magical Form: Physiomancy), type(Tech/H), default("SK:Magical Form: Physiomancy" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Physiomancy)), page(207)
-Catch Wound (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 4),
+	needs(SK:Magical Form: Physiomancy), page(207)
+Catch Wound (Magical Form: Physiomancy), type(Tech/H), default("SK:Magical Form: Physiomancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Physiomancy)), page(207)
-Stacklady's Morphic Resonator (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 6),
+	needs(SK:Magical Form: Physiomancy), page(207)
+Stacklady's Morphic Resonator (Magical Form: Physiomancy), type(Tech/H), default("SK:Magical Form: Physiomancy" - 6),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Physiomancy)), page(208)
-Englebert's Enhancer (Magical Form (Physiomancy)), type(Tech/H), default("SK:Magical Form (Physiomancy)" - 2),
+	needs(SK:Magical Form: Physiomancy), page(208)
+Englebert's Enhancer (Magical Form: Physiomancy), type(Tech/H), default("SK:Magical Form: Physiomancy" - 2),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Physiomancy)), page()
+	needs(SK:Magical Form: Physiomancy), page()
 
 <Techniques, Techniques - Spells, Spells, Psychomancy Spells>
-Detect Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)"),
+Detect Mind (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(209)
-Truth Tell (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 1),
+	needs(SK:Magical Form: Psychomancy), page(209)
+Truth Tell (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 1),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(209)
-Mental Adjustment (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 3),
+	needs(SK:Magical Form: Psychomancy), page(209)
+Mental Adjustment (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(209)
-Hide from Minds (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	needs(SK:Magical Form: Psychomancy), page(209)
+Hide from Minds (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(210)
-Mental Illusion (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	needs(SK:Magical Form: Psychomancy), page(210)
+Mental Illusion (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(210)
-Borrowing - Simple (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	needs(SK:Magical Form: Psychomancy), page(210)
+Borrowing - Simple (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(210)
-Borrowing - Carnivore (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 7),
+	needs(SK:Magical Form: Psychomancy), page(210)
+Borrowing - Carnivore (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 7),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(210)
-Borrowing - Group Mind (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 10),
+	needs(SK:Magical Form: Psychomancy), page(210)
+Borrowing - Group Mind (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 10),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(210)
-Follow the Plot Damn You (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 5),
+	needs(SK:Magical Form: Psychomancy), page(210)
+Follow the Plot Damn You (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 5),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page(211)
-Break Mental Walls (Magical Form (Psychomancy)), type(Tech/H), default("SK:Magical Form (Psychomancy)" - 4),
+	needs(SK:Magical Form: Psychomancy), page(211)
+Break Mental Walls (Magical Form: Psychomancy), type(Tech/H), default("SK:Magical Form: Psychomancy" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Psychomancy)), page()
+	needs(SK:Magical Form: Psychomancy), page()
 
 <Techniques, Techniques - Spells, Spells, Sortilege Spells>
-A Little Luck (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)"),
+A Little Luck (Magical Form: Sortilege), type(Tech/H), default("SK:Magical Form: Sortilege"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Sortilege)), page(211)
-Mechanical Failure (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 2),
+	needs(SK:Magical Form: Sortilege), page(211)
+Mechanical Failure (Magical Form: Sortilege), type(Tech/H), default("SK:Magical Form: Sortilege" - 2),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Sortilege)), page(211)
-Magical Fortune-Telling (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 2),
+	needs(SK:Magical Form: Sortilege), page(211)
+Magical Fortune-Telling (Magical Form: Sortilege), type(Tech/H), default("SK:Magical Form: Sortilege" - 2),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Sortilege)), page(211)
-Cursing (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 3),
+	needs(SK:Magical Form: Sortilege), page(211)
+Cursing (Magical Form: Sortilege), type(Tech/H), default("SK:Magical Form: Sortilege" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Sortilege)), page(212)
-Suspend Time (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 7),
+	needs(SK:Magical Form: Sortilege), page(212)
+Suspend Time (Magical Form: Sortilege), type(Tech/H), default("SK:Magical Form: Sortilege" - 7),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Sortilege)), page(212)
-Narrative Manipulation (Magical Form (Sortilege)), type(Tech/H), default("SK:Magical Form (Sortilege)" - 5),
+	needs(SK:Magical Form: Sortilege), page(212)
+Narrative Manipulation (Magical Form: Sortilege), type(Tech/H), default("SK:Magical Form: Sortilege" - 5),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Sortilege)), page(213)
+	needs(SK:Magical Form: Sortilege), page(213)
 
 <Techniques, Techniques - Spells, Spells, Summonation Spells>
-Gate Scan (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)"),
+Gate Scan (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation"),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page(214)
-The Rite of AshkEnte (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 1),
+	needs(SK:Magical Form: Summonation), page(214)
+The Rite of AshkEnte (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation" - 1),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page(214)
-Summon Thing (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
+	needs(SK:Magical Form: Summonation), page(214)
+Summon Thing (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page(215)
-Exorcise Spirit (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
+	needs(SK:Magical Form: Summonation), page(215)
+Exorcise Spirit (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page(215)
-Oracular Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 3),
+	needs(SK:Magical Form: Summonation), page(215)
+Oracular Demon (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation" - 3),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page(215)
-Summon Demon (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 5),
+	needs(SK:Magical Form: Summonation), page(215)
+Summon Demon (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation" - 5),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page(215)
-Divine Rider (Magical Form (Summonation)), type(Tech/H), default("SK:Magical Form (Summonation)" - 4),
+	needs(SK:Magical Form: Summonation), page(215)
+Divine Rider (Magical Form: Summonation), type(Tech/H), default("SK:Magical Form: Summonation" - 4),
 	upto(ST:MagicSkill - ST:Magery + 4),
-	needs(SK:Magical Form (Summonation)), page()
+	needs(SK:Magical Form: Summonation), page()
 
 //Note that the following may need testing to make sure that defaults are working right.
 <Techniques, Techniques - Spells, Spells, Multiple-Form Spells>
 Necromantic Retrocognition - Good Equipment (Magical Forms (Divination & Necromancy)),
-	needs("SK:Magical Form (Divination)", "SK:Magical Form (Necromancy)"),
+	needs("SK:Magical Form: Divination", "SK:Magical Form: Necromancy"),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(216)
-Shatter Bolt (Magical Forms (Elementalism & Magianism)),
-	needs("SK:Magical Form (Elementalism)", "SK:Magical Form (Magianism)"),
+Shatter Bolt (Magical Forms: Elementalism & Magianism),
+	needs("SK:Magical Form: Elementalism", "SK:Magical Form: Magianism"),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 3), page(217)
-Hurled Curse (Magical Forms (Magianism & Sortilege)),
-	needs("SK:Magical Form (Sortilege)", "SK:Magical Form (Magianism)"),
+Hurled Curse (Magical Forms: Magianism & Sortilege),
+	needs("SK:Magical Form: Sortilege", "SK:Magical Form: Magianism"),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(217)
-Teleportation (Magical Forms (Magianism & Summonation)),
-	needs("SK:Magical Form (Summonation)", "SK:Magical Form (Magianism)"),
+Teleportation (Magical Forms: Magianism & Summonation),
+	needs("SK:Magical Form: Summonation", "SK:Magical Form: Magianism"),
 	upto(ST:MagicSkill - ST:Magery + 4),
 	type(Tech/H), default(lowprereq - 5), page(217)
 
@@ -6754,12 +6758,15 @@ Bandages, techlvl(Var.), basecost(0.50), baseweight(2), description(TL:Var. Note
 Clockwork Pocket-Watch, techlvl(4), basecost(2.50), baseweight(0.25), description(TL:4 Notes: Probably dwarf-made and surprisingly reliable.), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 "Cord, 3/16'' (per 10 yards)", techlvl(0), basecost(0.05), baseweight(0.5), description(TL:0 Notes: Supports 90 lbs.), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 "Crowbar, 3'", techlvl(2), basecost(1), baseweight(3), description(TL:2 Notes: Treat as small mace in combat, at -1 to skill.), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
+Crystal Ball, techlvl(2), basecost(10), baseweight(1), description(TL:2 Notes: A well-worked creation of rock crystal, used in divination and fortune-telling.), page(202), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment, Discworld RPG - Scrying Gear)
 First Aid Kit, techlvl(2), basecost(2.50), baseweight(2), description(TL:2 Notes: A complete kit for treating wounds, with bandages, ointments, etc. +1 to First Aid skill.), page(157), mods(Equipment), conditional(+1 to "SK:First Aid"), cat(Medical Equipment, Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 Hip Quiver, techlvl(0), basecost(0.75), baseweight(1), description(TL:0 Notes: Holds 20 arrows or bolts.), page(157), mods(Equipment), isparent(yes), cat(Military Gear, Basic Set, Basic Set - Miscellaneous Equipment - Weapon & Combat Accessories, Basic Set - Miscellaneous Equipment)
 Hourglass, techlvl(2), basecost(2), baseweight(2), description(TL:2), page(157), mods(Equipment), isparent(yes), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 Lantern, techlvl(2), basecost(1), baseweight(2), description(TL:2 Notes: Burns for 24 hours on 1 pint of oil.), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 Lockpicks, techlvl(3), basecost(2.50), baseweight(0.10), description(TL:3 Notes: Basic equipment for Lockpicking skill.), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 Matches, techlvl(4), basecost(0.20), baseweight(0), description(TL:4 Notes: Starts fires. Crude and probably quite poisonous. Box of 20.), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
+"Mirror, Cheap", techlvl(1), basecost(0.50), baseweight(0.5), description(TL:1 Notes: Essentially a polished piece of flat metal, suitable for minimal self-grooming and magical scrying in emergencies.), page(202), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment, Discworld RPG - Scrying Gear)
+"Mirror, Silver", techlvl(2), basecost(25), baseweight(0.5), description(TL:2 Notes: A nicely worked and polished construction of expensive metal, suitable for self-grooming and magical scrying.), page(202), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment, Discworld RPG - Scrying Gear)
 "Oil (for lantern, per pint)", techlvl(2), basecost(0.10), baseweight(1), description(TL:2), page(157), mods(Equipment), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 Pouch, techlvl(0), basecost(0.50), baseweight(0), description(TL:0 Notes: Holds 3 lbs.), page(157), mods(Equipment), isparent(yes), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
 Purse, techlvl(0), basecost(0.50), baseweight(0), description(TL:0 Notes: Holds 3 lbs.), page(157), mods(Equipment), isparent(yes), cat(Discworld RPG, Discworld RPG - Miscellaneous Equipment, Discworld RPG - Miscellaneous Equipment - Assorted Tools & Equipment)
