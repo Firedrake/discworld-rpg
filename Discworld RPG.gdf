@@ -1428,7 +1428,15 @@ Haughty Sneer, 1, page(52), cat(Non-Racial, Wordless Influence),
 Heartbeat Counter, 1, page(94), needs(ST:Hearing = 18),
 	cat(Racial, Vampiric)
 Heat Resistance, 1, page(50), cat(Non-Racial), taboo(AD:Temperature Tolerance (Heat))
-High-Heeled Heroine, 1, page(51), cat(Non-Racial)
+High-Heeled Heroine, 1, page(51), cat(Non-Racial),
+	mode(Kick),
+		damage(_
+			thr - 1 + _
+			@max(_
+				@if("SK:Brawling::level" > ST:DX+1 then @basethdice(ST:Kick) else 0),
+				@if("SK:Karate::level" = ST:DX then @basethdice(ST:Kick) else @if("SK:Karate::level" > ST:DX then 2 * @basethdice(ST:Kick) else 0)) _
+				) _
+			), damtype(pi+), reach(C,1), parry(No), skillused(ST:DX-2, SK:Brawling-2, SK:Karate-2, SK:Kicking (Karate), SK:Kicking (Brawling)), mods(Punch/Kick)
 Honest Face, 1, page(51), cat(Non-Racial)
 Hyper-Specialisation, 1, page(51), cat(Non-Racial, Skill Perks),
 	x(#InputToTagReplace("Specify the skill and the thing you're insanely specialised in:", nameext, , "Hyper-Specialisation"))
