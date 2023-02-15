@@ -1,5 +1,4 @@
-This project is to be a GDF file for GURPS Character Assistant v4, for
-the Discworld RPG.
+This project has moved to
+https://codeberg.org/Firedrake/discworld-rpg/
 
-Please help to identify shortcomings in the existing file, and ideally
-make changes to fix them.
+See https://sfconservancy.org/GiveUpGitHub/ for why.
